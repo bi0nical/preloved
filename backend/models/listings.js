@@ -21,6 +21,10 @@ const listingSchema = new mongoose.Schema({
   color: String,
   style: String,
   date: Date,
+  gender: String,
+  tags: {
+      String
+  },
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
