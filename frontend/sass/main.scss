@@ -1,5 +1,19 @@
+@import 'landing';
+@import 'footer';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html{
+    font-size: 65.5%;
+}
+
 .test{
-    color: red;
+    color: rgb(107, 93, 93);
     font-family: 'Times New Roman', Times, serif;
     font-size: xx-large;
 }
