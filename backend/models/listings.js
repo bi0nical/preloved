@@ -20,7 +20,7 @@ const listingSchema = new mongoose.Schema({
   brand: String,
   color: String,
   style: String,
-  date: new date(),
+  date: Date,
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
