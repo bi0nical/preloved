@@ -44,7 +44,7 @@
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         font-family: $primaryFont;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         font-weight: 900;
         text-transform: capitalize;
     }
@@ -75,6 +75,7 @@
         transition: 0.2s;
     }
     &__logIn:hover{
+        font-size: 130%;
         transform: scale(1.1);
         transition: 0.2s;
     }
@@ -84,6 +85,7 @@
         transition: 0.2s;
     }
     &__signUp:hover{
+        font-size: 130%;
         transform: scale(1.1);
         transition: 0.2s;
     }
@@ -93,6 +95,7 @@
         transition: 0.2s;
     }
     &__aboutUs:hover{
+        font-size: 130%;
         transform: scale(1.1);
         transition: 0.2s;
     }
@@ -102,6 +105,7 @@
         transition: 0.2s;
     }
     &__contact:hover{
+        font-size: 130%;
         transform: scale(1.1);
         transition: 0.2s;
     }
@@ -109,6 +113,7 @@
     &__clothingSection:hover{
         background: $yellow;
         color: $red;
+        font-size: 2rem;
         transition: 0.2s;
     }
     &__jackets{
@@ -116,7 +121,7 @@
         background-position: center;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -127,7 +132,7 @@
         background-position: center;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -138,7 +143,7 @@
         background-position: center;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -149,7 +154,7 @@
         background-position: bottom;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -160,7 +165,7 @@
         background-position: center;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -171,7 +176,7 @@
         background-position: center;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -182,7 +187,7 @@
         background-position: center;
         background-size: cover;
         font-family: $primaryFont;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 900;
         color: white;
         text-transform: uppercase;
@@ -190,7 +195,7 @@
     }
     &__shopAll{
         position: absolute;
-        top: 50%;
+        top: 52%;
         right: 5%;
         padding: 2rem 3rem 2rem 3rem;
         background: black;
@@ -203,7 +208,7 @@
     &__shopAllBtn{
         font-family: $primaryFont;
         font-weight: 900;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         color: white;
         text-transform: capitalize;
     }
