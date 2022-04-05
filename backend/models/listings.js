@@ -6,33 +6,33 @@ const listingSchema = new mongoose.Schema({
   name: String,
   desc: String,
   price: Number,
-  swap: Boolean,
-  img: {
+  // swap: Boolean,
     img1: String, 
     img2: String,
-    img3: String
-  },
-  size: {
+    img3: String,  
     size1: Number,
     size2: String,
-  },
   type: String,
   brand: String,
   color: String,
-  style: String,
+  // style: String,
   date: Date,
   gender: String,
-  tags: {
-      String
-  },
-  user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-} ,
-  comment_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Comment'
-}
+  // location: String,
+  // tags: 
+  // {
+  //     String
+  // },
+  // user_id: 
+  // {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'User'
+  // } ,
+  // comment_id: 
+  // {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Comment'
+  // }
 })
 
 module.exports = mongoose.model('Listing', listingSchema);

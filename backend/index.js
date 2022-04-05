@@ -45,11 +45,40 @@ app.listen(port,()=>console.log(`My fullstack application is listening on port $
 app.post('/addListing',(req,res)=>{
     const dbListing = new Listing({
       _id: new mongoose.Types.ObjectId,
-      name: req.body.name,  
+      name: req.body.name,
+      desc: req.body.desc,
+      price: req.body.price,
+      // swap: req.body.swap,
+img1: req.body.img1,
+img2: req.body.img2,
+img3: req.body.img3,
+size1: req.body.size1,
+size2: req.body.size2,
+      type: req.body.type,
+      brand: req.body.brand,
+      color: req.body.color,
+      // style: req.body.style,
+      date: new Date(),
+      gender: req.body.gender,
+      // location: req.body.location,
+      // tags: req.body.tags,
+      // user_id: req.body.user_id,
+      // comment_id: req.body.comment_id
+
     });
+    
     // save to database and to notify the user
     dbListing.save().then(result=>{
       res.send(result);
+      
     }).catch(err=>res.send(err));
   })
+
+
+  app.get('/allListingFromDB',(req,res)=>{
+    Listing.find().then(result=>{
+      res.send(result);
+    })
+  })
+  
 //   TESTING! WARNING TESTING FUNCTION! TESTING ONLY!
