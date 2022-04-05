@@ -1,2 +1,58 @@
 @import 'var';
 @import 'mixins';
+
+.shop{
+    min-height: 85vh;
+}
+.card__container{
+    margin: 0 auto;
+        width: 70%;
+        min-height: 85vh;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+        padding: 4rem 2rem 2rem 2rem;
+}
+.card{
+    
+    // width: 300px;
+
+    &__imgContainer{
+        height: 350px;
+        background: url(../img/jeans.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+        border: 3px solid black;
+    }
+    &__details{
+        // border: 2px solid black;
+    }
+    &__title{
+        font-family: $primaryFont;
+        font-size: 1.7rem;
+        font-weight: 400;
+        padding: 0.25rem;
+    }
+    &__price{
+        font-family: $primaryFont;
+        font-size: 1.7rem;
+        font-weight: 900;
+        padding: 0.25rem 0.25rem 1.5rem 0.25rem;
+    }
+    &__tags{
+        display: flex;
+    }
+    &__tag{
+        margin-right: 0.25rem;
+        background-color: $yellow;
+        width: max-content;
+        font-size: 1.3rem;
+        font-family: $primaryFont;
+        font-weight: 200;
+        font-style: italic;
+        border: 1px solid black;
+        padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+        border-radius: 20px;
+        text-transform: uppercase;
+    }
+}
