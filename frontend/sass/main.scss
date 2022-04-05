@@ -1,5 +1,8 @@
 @import 'landing';
 @import 'footer';
+@import 'var';
+@import 'mixins';
+@import 'landing';
 
 *{
     margin: 0;
@@ -8,12 +11,7 @@
     text-decoration: none;
 }
 
+
 html{
     font-size: 65.5%;
-}
-
-.test{
-    color: rgb(107, 93, 93);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: xx-large;
 }
