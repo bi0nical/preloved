@@ -1,3 +1,5 @@
+@import 'landing';
+@import 'footer';
 @import 'var';
 @import 'mixins';
 @import 'landing';
@@ -9,8 +11,7 @@
     text-decoration: none;
 }
 
-.test{
-    color: red;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: xx-large;
+
+html{
+    font-size: 65.5%;
 }

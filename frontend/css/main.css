@@ -1,3 +1,53 @@
+.footer {
+  height: 40vh;
+  width: 100vw;
+  background: rgb(255, 203, 47);
+  display: flex;
+}
+.footer__left {
+  height: 100%;
+  width: 35%;
+}
+.footer__middle {
+  height: 100%;
+  width: 30%;
+  background: yellow;
+}
+.footer__right {
+  height: 100%;
+  width: 35%;
+}
+.footer__right-ul {
+  list-style-type: none;
+  text-align: right;
+  padding: 3rem 2rem 3rem 0rem;
+}
+.footer__right-li {
+  padding: 2rem;
+  font-family: Libre Franklin;
+  font-size: 2rem;
+  color: rgb(255, 64, 34);
+  font-weight: 600;
+}
+.footer__right__prompt {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 2rem 0rem 0rem;
+}
+.footer__right__prompt-h5 {
+  font-family: Libre Franklin;
+  font-size: 2rem;
+  padding-right: 1.5rem;
+  color: rgb(255, 64, 34);
+  font-weight: 600;
+}
+.footer__right__prompt-arrow {
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 22px solid rgb(255, 64, 34);
+=======
 .landingHeader {
   height: 15vh;
   width: auto;
@@ -205,8 +255,6 @@
   text-decoration: none;
 }
 
-.test {
-  color: red;
-  font-family: "Times New Roman", Times, serif;
-  font-size: xx-large;
+html {
+  font-size: 65.5%;
 }
