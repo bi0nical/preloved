@@ -636,6 +636,56 @@
   color: white;
 }
 
+.shop {
+  min-height: 85vh;
+}
+
+.card__container {
+  margin: 0 auto;
+  width: 70%;
+  min-height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
+}
+
+.card__imgContainer {
+  height: 350px;
+  background: url(../img/jeans.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid black;
+}
+.card__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  padding: 0.25rem;
+}
+.card__price {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  padding: 0.25rem 0.25rem 1.5rem 0.25rem;
+}
+.card__tags {
+  display: flex;
+}
+.card__tag {
+  margin-right: 0.25rem;
+  background-color: #FFCB2F;
+  width: max-content;
+  font-size: 1.3rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  border: 1px solid black;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
 * {
   margin: 0;
   padding: 0;
