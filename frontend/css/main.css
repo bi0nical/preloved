@@ -537,6 +537,105 @@
   transition: 0.1s;
 }
 
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+}
+.signup__container {
+  background: #FFCB2F;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup__header {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 3rem;
+}
+.signup__formContainer {
+  display: flex;
+}
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-left: 4rem;
+}
+.signup__input {
+  background: white;
+  border: 4px solid black;
+  padding: 1rem;
+  min-width: 350px;
+}
+.signup__label {
+  font-size: 1.7rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  margin-top: 1rem;
+  padding-bottom: 0.25rem;
+}
+.signup__frame {
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4rem;
+}
+.signup__frameImg {
+  position: absolute;
+  top: 0%;
+  max-width: 350px;
+}
+.signup__imageUploadBtn {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: 4px solid black;
+  padding: 2rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  max-width: 170px;
+  z-index: 1;
+}
+.signup__imageUploadBtn:hover {
+  color: #0058D2;
+  border: 4px solid #0058D2;
+}
+.signup__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.signup__btn {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  cursor: pointer;
+  min-width: 160px;
+  margin-top: 1.5rem;
+  transition: 0.1s;
+}
+.signup__btn:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.signup__home {
+  background: none;
+}
+.signup__confirm {
+  background: #0058D2;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;

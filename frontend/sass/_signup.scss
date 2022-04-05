@@ -1,2 +1,92 @@
 @import 'var';
 @import 'mixins';
+
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    
+    &__container{
+        background: $yellow;
+        height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__header{
+        font-family: $primaryFont;
+        font-size: 5rem;
+        font-weight: 900;
+        text-align: center;
+        padding: 3rem;
+    }
+    &__formContainer{
+        display: flex;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        margin-left: 4rem;
+    }
+    &__input{
+        @include input;
+        min-width: 350px;
+    }
+    &__label{
+        @include label;
+    }
+    &__frame{
+        padding: 2rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 4rem;
+    }
+    &__frameImg{
+        position: absolute;
+        top: 0%;
+        max-width: 350px;
+    }
+    &__imageUploadBtn{
+        cursor: pointer;
+        background: none;
+        outline: none;
+        border: 4px solid black;
+        padding: 2rem;
+        font-family: $primaryFont;
+        font-size: 2rem;
+        font-weight: 900;
+        max-width: 170px;
+        z-index: 1;
+    }
+    &__imageUploadBtn:hover{
+        color: $blue;
+        border: 4px solid $blue;
+    }
+    &__buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__btn{
+        @include btn;
+        cursor: pointer;
+        min-width: 160px;
+        margin-top: 1.5rem;
+        transition: 0.1s;
+    }
+    &__btn:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__home{
+        background: none;
+    }
+    &__confirm{
+        background: $blue;
+        color: white;
+    }
+}
