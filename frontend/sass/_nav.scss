@@ -1,2 +1,85 @@
 @import 'var';
 @import 'mixins';
+
+.nav{
+    height: 15vh;
+    width: auto;
+    background: $yellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    //LOGO
+    &__logoContainer{
+        height: 100%;
+        padding: 1rem;
+    }
+    &__logo{
+        height: 100%;
+        padding: 1rem;
+    }
+
+    //MENU
+    &__ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__li{
+        list-style-type: none;
+        font-size: 1.7rem;
+        font-family: $primaryFont;
+        font-weight: 400;
+        color: $red;
+        padding: 1rem;
+        margin: 0rem;
+    }
+    &__li:hover{
+        font-weight: 800;
+        // border-bottom: 4px solid $red;
+    }
+    &__link{
+        color: $red;
+    }
+    &__link::before{
+        display: block;
+        content: attr(title);
+        font-weight: 800;
+        overflow: hidden;
+        visibility: hidden;
+        height: 0;
+    }
+    &__logIn{
+        cursor: pointer;
+        background: none;
+        border: 4px solid $red;
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: $primaryFont;
+        color: $red;
+        width: 100px;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+        transition: 0.1s;
+    }
+    &__logIn:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__signUp{
+        cursor: pointer;
+        background: $red;
+        border: 4px solid $red;
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: $primaryFont;
+        color: $yellow;
+        width: 100px;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+        transition: 0.1s;
+        margin-right: 1rem;
+    }
+    &__signUp:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+}
