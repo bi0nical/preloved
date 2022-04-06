@@ -42,24 +42,27 @@ app.listen(port,()=>console.log(`My fullstack application is listening on port $
 
 
 // TESTING! WARNING TESTING FUNCTION! TESTING ONLY!
+
+
+//add listing START
 app.post('/addListing',(req,res)=>{
     const dbListing = new Listing({
       _id: new mongoose.Types.ObjectId,
       name: req.body.name,
       desc: req.body.desc,
-      price: req.body.price,
-      // swap: req.body.swap,
-img1: req.body.img1,
-img2: req.body.img2,
-img3: req.body.img3,
-size1: req.body.size1,
-size2: req.body.size2,
+      price: req.body.price,      
+      img1: req.body.img1,
+      img2: req.body.img2,
+      img3: req.body.img3,
+      size1: req.body.size1,
+      size2: req.body.size2,
       type: req.body.type,
       brand: req.body.brand,
-      color: req.body.color,
-      // style: req.body.style,
+      color: req.body.color,      
       date: new Date(),
       gender: req.body.gender,
+      // style: req.body.style,
+      // swap: req.body.swap,
       // location: req.body.location,
       // tags: req.body.tags,
       // user_id: req.body.user_id,
@@ -73,12 +76,63 @@ size2: req.body.size2,
       
     }).catch(err=>res.send(err));
   })
+//add listing END
 
+//delete listing START
+app.delete('/deleteListing/:id',(req,res)=>{
+  const idParam = req.params.id;
+  Listing.findOne({_id:idParam}, (err,listing)=>{
+    if(listing){
+      Listing.deleteOne({_id:idParam},err=>{
+        console.log('deleted on backend request');
+      });
+    } else {
+      alert('not found');
+    }
+  }).catch(err=> res.send(err));
+});//delete
+//delete listing END
 
+//update lisitngs start
+app.patch('/updateListing/:id',(req,res)=>{
+  const idParam = req.params.id;
+  Listing.findById(idParam,(err,listing)=>{
+      const updatedListing = {
+        name: req.body.name,
+        desc: req.body.desc,
+        price: req.body.price,
+        img1: req.body.img1,
+        img2: req.body.img2,
+        img3: req.body.img3,
+        size1: req.body.size1,
+        size2: req.body.size2,
+        type: req.body.type,
+        brand: req.body.brand,
+        color: req.body.color,         
+        gender: req.body.gender,
+        // style: req.body.style,
+        // location: req.body.location,
+        // tags: req.body.tags,
+      }
+      Listing.updateOne({_id:idParam}, updatedListing).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+//update listings END
+
+// All Listings view from DB function
   app.get('/allListingFromDB',(req,res)=>{
     Listing.find().then(result=>{
       res.send(result);
     })
   })
-  
+//All listings view END
 //   TESTING! WARNING TESTING FUNCTION! TESTING ONLY!
+
+
+
+
+
+  
