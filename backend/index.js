@@ -122,13 +122,56 @@ app.patch('/updateListing/:id',(req,res)=>{
 })
 //update listings END
 
+
+
 // All Listings view from DB function
   app.get('/allListingFromDB',(req,res)=>{
     Listing.find().then(result=>{
       res.send(result);
     })
   })
+
+
 //All listings view END
+
+//Register User
+app.post('/registerUser',(req,res)=>{
+  //checking if user is in the db already
+  User.findOne({username:req.body.username},(err,userResult)=>{
+    if (userResult){
+      res.send('username taken already. Please try another name');
+    } else {
+      const hash = bcrypt.hashSync(req.body.password);//encrypt user Password
+      const user = new User({
+        _id: new mongoose.Types.ObjectId,
+        username: req.body.username,
+        email : req.body.email,
+        location: req.body.location, 
+        password : hash
+      });
+      //save to database and notify userResult
+      user.save().then(result=>{
+        res.send(result);
+      }).catch(err=>res.send(err));
+    }
+  })
+})// end of register user
+
+//Login User
+app.post('/loginUser', ( req, res)=>{
+  User.findOne({username:req.body.username},(err,userResult)=>{
+    if (userResult){
+      if (bcrypt.compareSync(req.body.password, userResult.password)){
+        res.send(userResult);
+      } else {
+        res.send('not authorized');
+      }// inner if
+    } else {
+      res.send('user not found. Please register');
+    }//outer if
+  });//find one ends
+});//end of post for login
+
 //   TESTING! WARNING TESTING FUNCTION! TESTING ONLY!
 
 
