@@ -1,7 +1,6 @@
 .landingHeader {
   height: 15vh;
   width: auto;
-  background: #FFCB2F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,7 +259,6 @@
 .landingHeader {
   height: 15vh;
   width: auto;
-  background: #FFCB2F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,7 +556,6 @@
   width: 70%;
 }
 .signup__container {
-  background: #FFCB2F;
   height: 85vh;
   display: flex;
   align-items: center;
