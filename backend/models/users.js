@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   profile_img: String,
   email: String,
   location: String,
-  rating: Number,
+  // rating: Number,
   listings: 
   {
     type: mongoose.Schema.Types.ObjectId,
