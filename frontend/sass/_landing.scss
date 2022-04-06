@@ -4,7 +4,7 @@
 .landingHeader{
     height: 15vh;
     width: auto;
-    background: $yellow;
+    // background: $yellow;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,97 +18,187 @@
 .landing{
     padding: 2rem;
     height: 85vh;
-    
+    // background: url(../img/background.png) no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-    &__headings{
+    &__body{
+        background: url(../img/background.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+    &__logo{
+        height: 250px;
+    }
+    &__tagline{
         font-family: $primaryFont;
+        font-weight: 300;
+        font-size: 2rem;
+        color: $blue;
+    }
+    &__header{
+        font-family: $primaryFont;
+        font-weight: 900;
+        font-size: 4rem;
+        color: $blue;
+    }
+    &__nav{
+        // background: $yellow;
+    }
+    
+    &__left{
+        grid-column: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+    &__hero{
+
+    }
+    &__right{
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    &__grid{
+        grid-column: 2/3;
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(3 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+    &__rightCol1{
+        grid-gap: 1rem;
+        grid-column: 1/2;
+        grid-row: 2/6;
+        display: flex;
+        flex-direction: column;
+    }
+    &__rightCol2{
+        grid-gap: 1rem;
+        grid-column: 2/3;
+        grid-row: 1/7;
+        display: flex;
+        flex-direction: column;
+    }
+    &__rightCol3{
+        grid-gap: 1rem;
+        grid-column: 3/4;
+        grid-row: 2/6;
+        display: flex;
+        flex-direction: column;
     }
     &__navSection{
+        min-height: 180px;
         border: 4px solid black;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    &__nav{
-        height: 100%;
-        width: 90%;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 1rem;
-        position: relative;
-        
+    &__clothingSection{
+        min-width: 150px;
     }
-    &__navCol1{
-        grid-gap: 1rem;
-        grid-row: 1/2;
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        font-family: $primaryFont;
-        font-size: 2.5rem;
-        font-weight: 900;
-        text-transform: capitalize;
+    &__clothingSection:active{
+        transform: scale(0.9);
     }
-    &__navCol2{
-        grid-gap: 1rem;
-        grid-column: 2/3;
-        display: grid;
-        grid-template-rows: repeat(2, 1fr) ;
-    }
-    &__navCol3{
-        grid-gap: 1rem;
-        grid-column: 3/4;
-        display: grid;
-        grid-template-rows: repeat(3, 1fr) ;
-    }
-    &__navCol4{
-        grid-gap: 1rem;
-        grid-column: 4/5;
-        display: grid;
-        grid-template-rows: repeat(2, 1fr) ;
-    }
+    &__jackets{
+            background: url('../img/jacket.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        &__dresses{
+            background: url('../img/dresses.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        &__shoes{
+            background: url('../img/shoes.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        &__shopAll{
+            margin: 0 auto;
+            width: 180px;
+            height: 180px;
+            background: $blue;
+            border: none;
+            border-radius: 50%;
+            background-position: bottom;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        &__shopAll:hover{
+            background: $yellow;
+            color: $red;
+            border: 4px solid $red;
+            transition: 0.2s;
+        }
+        &__shopAll:active{
+            transform: scale(0.9);
+        }
+        &__tshirts{
+            background: url('../img/tshirt.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        &__hats{
+            background: url('../img/hat.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        &__jeans{
+            background: url('../img/jeans.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: $primaryFont;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
 
-    // INDIVIDUAL SECTIONS
 
-    &__logIn{
-        background: $yellow;
-        color: $red;
-        transition: 0.2s;
-    }
-    &__logIn:hover{
-        font-size: 130%;
-        transform: scale(1.1);
-        transition: 0.2s;
-    }
-    &__signUp{
-        background: $red;
-        color: $yellow;
-        transition: 0.2s;
-    }
-    &__signUp:hover{
-        font-size: 130%;
-        transform: scale(1.1);
-        transition: 0.2s;
-    }
-    &__aboutUs{
-        background: $pink;
-        color: $blue;
-        transition: 0.2s;
-    }
-    &__aboutUs:hover{
-        font-size: 130%;
-        transform: scale(1.1);
-        transition: 0.2s;
-    }
-    &__contact{
-        background: $blue;
-        color: $pink;
-        transition: 0.2s;
-    }
-    &__contact:hover{
-        font-size: 130%;
-        transform: scale(1.1);
-        transition: 0.2s;
-    }
 
     &__clothingSection:hover{
         background: $yellow;
@@ -116,100 +206,21 @@
         font-size: 2rem;
         transition: 0.2s;
     }
-    &__jackets{
-        background: url('../img/jacket.png') no-repeat;
-        background-position: center;
-        background-size: cover;
+    &__signUp{
+        cursor: pointer;
+        background: $blue;
+        border: 4px solid $blue;
+        font-size: 1.7rem;
+        font-weight: 600;
         font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
         color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+        transition: 0.1s;
+        margin-right: 1rem;
+        margin-top: 1rem;
     }
-    &__dresses{
-        background: url('../img/dresses.png') no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
-    }
-    &__shoes{
-        background: url('../img/shoes.png') no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
-    }
-    &__sweaters{
-        background: url('../img/sweater.png') no-repeat;
-        background-position: bottom;
-        background-size: cover;
-        font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
-    }
-    &__tshirts{
-        background: url('../img/tshirt.png') no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
-    }
-    &__hats{
-        background: url('../img/hat.png') no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
-    }
-    &__jeans{
-        background: url('../img/jeans.png') no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: $primaryFont;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: white;
-        text-transform: uppercase;
-        transition: 0.2s;
-    }
-    &__shopAll{
-        position: absolute;
-        top: 52%;
-        right: 5%;
-        padding: 2rem 3rem 2rem 3rem;
-        background: black;
-        transition: 0.2s;
-    }
-    &__shopAll:hover{
+    &__signUp:hover{
         transform: scale(1.1);
-        transition: 0.2s;
-    }
-    &__shopAllBtn{
-        font-family: $primaryFont;
-        font-weight: 900;
-        font-size: 2.5rem;
-        color: white;
-        text-transform: capitalize;
+        transition: 0.1s;
     }
 }
