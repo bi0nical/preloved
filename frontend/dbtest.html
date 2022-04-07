@@ -93,9 +93,108 @@
               <option>Unisex</option>
             </select>
         </div>
+  
         <button type="submit" id="addListingButton">Click</button>
     </form>
+
+<!-- CArds
+Cards
+CARDS -->
     <div class="container" id="cardBox"></div>
+
+   
+<!-- delete modal -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="delModal" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     <button id="delButton_confirm">Yes</button>
+     <button data-bs-dismiss="modal">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- edit modal -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="editModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <form>
+            <div class="form-group">
+                <label for="nameInputEdit">Name</label>
+                <input id="nameInputEdit" type="text" class="form-control"  placeholder="your item name">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="descInputEdit">Description</label>
+                <input id="descInputEdit" type="text" class="form-control" placeholder="tell people a bit about the item">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="priceInputEdit">Price</label>
+                <input id="priceInputEdit" type="text" class="form-control"  placeholder="the price of the item">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="imgOneInputEdit">Image 1 url</label>
+                <input id="imgOneInputEdit" type="text" class="form-control"  placeholder="place url here">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="imgTwoInputEdit">Image 2 url</label>
+                <input id="imgTwoInputEdit" type="text" class="form-control" placeholder="place url here4">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="imgThreeInputEdit">Image 3 url</label>
+                <input id="imgThreeInputEdit" type="text" class="form-control" placeholder="place url here">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="sizeNoInputEdit">Size No.</label>
+                <input id="sizeNoInputEdit" type="text" class="form-control" placeholder="US/UK Size">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="sizeLetterInputEdit">Size Letter</label>
+                <select id="sizeLetterInputEdit" class="form-control" >
+                  <option>XS</option>
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                  <option>XL</option>
+                  <option>XXL</option>
+                  <option>XXXL</option>
+                  <option>N/A</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="typeInputEdit">Type</label>
+                <input id="typeInputEdit" type="text" class="form-control" placeholder="type in type">
+            </div>
+            <div class="form-group">
+                <label for="brandInputEdit">Brand</label>
+                <input id="brandInputEdit" type="text" class="form-control" placeholder="leave empty if unbranded">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="colourInputEdit">Colour</label>
+                <input id="colourInputEdit" type="text" class="form-control" placeholder="colour of the item">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="genderInputEdit">Gender style</label>
+                <select id="genderInputEdit" class="form-control">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Unisex</option>
+                </select>
+            </div>
+      
+            <button type="submit" id="editListingButton">Click</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
     <!-- dependencies -->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
