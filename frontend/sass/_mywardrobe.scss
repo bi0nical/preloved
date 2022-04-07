@@ -1,2 +1,74 @@
 @import 'var';
 @import 'mixins';
+
+.account{
+    width: 80%;
+    margin: 0 auto;
+
+    //TOP SECTION
+    &__top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 5rem;
+    }
+    &__imgContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__img{
+        width: 100px;
+        height: 100px;
+        background: url(../img/jacket.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+        border: 3px solid black;
+        padding: 1rem;
+    }
+    &__name{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+    &__username{
+        font-family: $primaryFont;
+        font-size: 2.5rem;
+        font-weight: 900;
+    }
+    &__editBtn{
+        font-size: 2rem;
+    }
+    &__editDropdown{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__editDropdownText{
+        font-family: $primaryFont;
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    &__editDropdownArrow{
+        font-size: 1.5rem;
+        padding-left: 0.5rem;
+    }
+
+    //LISTINGS SECTION
+    &__listingsAdd{
+        display: flex;
+    }
+    &__listingsAddBtn{
+        @include btn;
+        background: $yellow;
+    }
+    &__listingsTitle{
+        font-size: 3rem;
+        font-family: $primaryFont;
+        font-weight: 900;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
