@@ -764,6 +764,116 @@
   text-transform: uppercase;
 }
 
+.about {
+  width: 100%;
+}
+.about__hero {
+  width: 60%;
+  margin: 5rem auto 0 auto;
+}
+.about__heroContent {
+  display: flex;
+  padding-bottom: 8rem;
+}
+.about__heroImg {
+  max-height: 35rem;
+}
+.about__heroHeader {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 8rem;
+  font-weight: 900;
+  color: #0058D2;
+}
+.about__heroDescription {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #0058D2;
+  background: #FFCB2F;
+  padding: 0.5rem;
+  left: -15%;
+}
+.about__heroText {
+  position: relative;
+  padding: 2rem;
+}
+.about__heroBtnContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+.about__heroBtn {
+  top: 100%;
+  right: 10%;
+  background: #0058D2;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.about__heroBtn:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.about__heroBtn:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.about__valuesContainer {
+  padding-top: 8rem;
+  position: relative;
+  background: #FFCB2F;
+}
+.about__values {
+  width: 60%;
+  margin: 0 auto;
+}
+.about___valuesHeader {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 4rem;
+  color: #0058D2;
+  font-weight: 900;
+}
+.about__valuesHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about__valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.about__valuesGridSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+.about__valuesImg {
+  max-width: 200px;
+  padding: 0.5rem;
+}
+.about__valuesTitle {
+  padding: 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0058D2;
+}
+.about__valuesPara {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0058D2;
+  padding: 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
