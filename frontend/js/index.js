@@ -69,14 +69,41 @@ function cardLoad(url) {
         <p>${listingsFromDB[i].color}</p></br>
         <p>${listingsFromDB[i].brand}</p></br>
         <p>${listingsFromDB[i].type}</p></br>
+        
         </div>
         <div class="bodybottom">
+        <i id="${listingsFromDB[i]._id}" class="delClick"  data-bs-toggle="modal" data-bs-target="#delModal">Delete</i>
         <button type="button" id="buyButton" class= "btnCard">Buy Now</button>
         </div>
         </div>
         </div>
         `
         // placeholder for cards above ^^^^. remove when actual cards made
+        document.querySelectorAll('.delClick').forEach(function(trash){
+          trash.addEventListener('click', function(e){
+        console.log(e.target.id);
+         let listing_Id = e.target.id;
+         console.log(listing_Id)
+         console.log(url);
+        
+        $('#delButton_confirm').click(function(){
+         event.preventDefault();
+        console.log(listing_Id);
+            $.ajax({
+              url : `http://${url}/deleteListing/${listing_Id}`,
+              type:'DELETE',
+              success : function(){
+                console.log('deleted');
+                console.log(url);
+               window.location.reload();
+              }, //success
+              error:function(){
+                console.log('error: cannot call api');
+              }//error
+            })//ajax
+          })//if
+        })
+        })//delete listing
       }
     }, 
     error:function(){
@@ -86,7 +113,7 @@ function cardLoad(url) {
   })
 }
 //view all listings end here
-
+// ${listingsFromDB[i]._id}
 //add listing start
     $('#addListingButton').click(function(){
         event.preventDefault();
@@ -136,7 +163,14 @@ function cardLoad(url) {
       });//addListing
 //AddListing End
 
-// =====================================
+//delete listing start
+
+
+
+
+
+
+// ==================================
 // LISTING FUNCTIONS END HERE
 // =====================================
 
