@@ -72,6 +72,8 @@ function cardLoad(url) {
         
         </div>
         <div class="bodybottom">
+        <i id="${listingsFromDB[i]._id}" class="editClick"  data-bs-toggle="modal" data-bs-target="#editModal">Edit</i><br>
+
         <i id="${listingsFromDB[i]._id}" class="delClick"  data-bs-toggle="modal" data-bs-target="#delModal">Delete</i>
         <button type="button" id="buyButton" class= "btnCard">Buy Now</button>
         </div>
@@ -98,16 +100,16 @@ function cardLoad(url) {
 //delete cards/listings caller ends here
 
 //edit cards/listings caller ends here
-document.querySelectorAll('.editClick').forEach(function(trash){
-  trash.addEventListener('click', function(e){
+document.querySelectorAll('.editClick').forEach(function(edit){
+  edit.addEventListener('click', function(e){
 console.log(e.target.id);
  let listing_Id = e.target.id;
  console.log(listing_Id)
  console.log(url);
 
-$('#editButton_confirm').click(function(){
+$('#editListingButton').click(function(){
  event.preventDefault();
- deleteFunction(listing_Id);
+ editFunction(listing_Id);
 })
 })
 })
@@ -189,8 +191,59 @@ $.ajax({
   }//error
 })//ajax
 
-//delete listing
-};
+
+};//delete listing
+
+// edit listing function start
+function editFunction(listing_Id){
+  console.log(listing_Id);
+  event.preventDefault();
+let name = $('#nameInputEdit').val();
+  let desc = $('#descInputEdit').val();
+  let price = $('#priceInputEdit').val();
+  let img1 = $('#imgOneInputEdit').val();
+  let img2 = $('#imgTwoInputEdit').val();
+  let img3 = $('#imgThreeInputEdit').val();
+  let size1 = $('#sizeNoInputEdit').val();
+  let size2 = $('#sizeLetterInputEdit').val();
+  let type = $('#typeInputEdit').val();
+  let brand = $('#brandInputEdit').val();
+  let color = $('#colourInputEdit').val();
+  let gender = $('#genderInputEdit').val();
+  console.log(name,price,desc,img1,img2,img3,size1,size2,type,brand,color,gender);
+  if (listing_Id == ''){
+    alert('Please enter product id for updating');
+  } else {
+    $.ajax({
+      url: `http://${url}/updateListing/${listing_Id}`,
+      type: 'PATCH',
+      data:{
+     
+        name: name,
+        desc: desc,
+        price: price,
+        img1: img1,
+        img2: img2,
+        img3: img3,
+        size1: size1,
+        size2: size2,
+        type: type,
+        brand: brand,
+        color: color,
+        gender: gender
+      },
+      success: function(data){
+        alert('updated listing');
+
+        // window.location.reload();
+      }, //success
+      error: function(){
+        console.log('error: cannot update post');
+      } //error
+    })//ajax
+  }//if
+}
+//edit listing function end
 
 
 
