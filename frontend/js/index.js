@@ -36,8 +36,160 @@ $(document).ready(function(){
 // AJAX ENDS HERE
 // =====================================
 
+
 // =====================================
-// LISTING FUNCTIONS START HERE
+// ADD AN ITEM MODAL STARTS HERE
+// =====================================
+
+function modalAddItem(){
+  $('#addItem').click(function(){
+    console.log('modal working')
+    $(".modal-header").empty().append(
+      `
+      <h5 class="modal-title" id="exampleModalLabel">List an item</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      `
+    )
+    $(".modal-body").empty().append(
+      `                    
+      <div class="modal-left">
+      <form>
+      <div class="form-group">
+          <label for="nameInput">Name</label>
+          <input id="nameInput" type="text" class="form-control">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="descInput">Description</label>
+          <textarea id="descInput" type="text" class="form-control" rows="10"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="priceInput">Price</label>
+          <input id="priceInput" type="text" class="form-control">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="imgOneInput">Image 1 url</label>
+          <input id="imgOneInput" type="text" class="form-control"  placeholder="place url here">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="imgTwoInput">Image 2 url</label>
+          <input id="imgTwoInput" type="text" class="form-control" placeholder="place url here">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="imgThreeInput">Image 3 url</label>
+          <input id="imgThreeInput" type="text" class="form-control" placeholder="place url here">
+      </div>
+      <br>
+      </div>
+      <div class="modal-right">
+
+      <div class="form-group">
+      <label for="sizeNoInput">Size No.</label>
+      <input id="sizeNoInput" type="text" class="form-control" placeholder="US/UK Size">
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="sizeLetterInput">Size Letter</label>
+      <select id="sizeLetterInput" class="form-control" >
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+        <option>XXXL</option>
+        <option>N/A</option>
+      </select>
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="typeInput">Type</label>
+      <select id="typeInput" type="text" class="form-control" placeholder="type in type">
+        <option disabled selected value>Select a type</option>
+        <option>Beanie</option>
+        <option>Boots</option>
+        <option>Bucket Hat</option>
+        <option>Cap</option>
+        <option>Corset</option>
+        <option>Crop Top</option>
+        <option>Dress</option>
+        <option>Heels</option>
+        <option>Jacket</option>
+        <option>Jeans</option>
+        <option>Jewelery</option>
+        <option>Sandals</option>
+        <option>Shirts</option>
+        <option>Shorts</option>
+        <option>Skirt</option>
+        <option>Sneakers</option>
+        <option>Sunglasses</option>
+        <option>Sweaters</option>
+        <option>Trainers</option>
+        <option>Trousers</option>
+        <option>Watch</option>
+        <option>Other...</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="brandInput">Brand</label>
+      <input id="brandInput" type="text" class="form-control" placeholder="Leave empty if unbranded">
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="colourInput">Colour</label>
+      <select id="colourInput" type="text" class="form-control">
+      <option disabled selected value>Select a color</option>
+      <option>Beige</option>
+      <option>Black</option>
+      <option>Blue</option>
+      <option>Orange</option>
+      <option>Purple</option>
+      <option>Green</option>
+      <option>Grey</option>
+      <option>White</option>
+      <option>Yellow</option>
+      <option>Mixed</option>
+      </select>
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="genderInput">Gender style</label>
+      <select id="genderInput" class="form-control">
+        <option disabled selected value>Select a gender style</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Unisex</option>
+      </select>
+  </div>
+        </div>
+
+          `
+    )
+
+    $(".modal-footer").empty().append(
+      `
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" id="addListingButton" class="btn btn-primary">Save changes</button>
+      `
+    )
+  })
+}
+modalAddItem()
+
+// =====================================
+// ADD AN ITEM MODAL ENDS HERE
+// =====================================
+
+
+
+
+// =====================================
+// LISTING FUNCTIONS STARTS HERE
 // =====================================
 
 
