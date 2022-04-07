@@ -36,32 +36,45 @@
     <!-- contact container starts here -->
 
     <section class="contact">
-        
+        <div class="contact-left">
+            <h1 class="contact-left__h1">
+                Got any queries?<br>We can answer them.
+            </h1>
+            <form action="" class="contact-form">
+                <input type="text" class="contact-form__name" id="contactFormName" placeholder="Full Name">
+                <input type="text" class="contact-form__email" id="contactFormEmail" placeholder="Email Address">
+                <textarea name="" class="contact-form__msg" id="contactFormMsg"  rows="10" placeholder="Write your message here..."></textarea>
+            </form>
+            <button class="contact-submit" id="contactSubmit">submit</button>
+        </div>
+        <div class="contact-right"></div>
     </section>
 
     <!-- contact container ends here -->
 
         <!-- footer starts here -->
     <footer class="footer">
-        <div class="footer__left">
-            <div class="footer__left__contents">
-                <img class="footer__left__contents-logo" src="./img/prelovedlogos_plcolor.png" alt="">
-                <h5 class="footer__left__contents-copyright">&copy;2022 Zenith</h5>
+        <div class="footer-left">
+            <div class="footer-contents">
+                <img class="footer-contents__logo" src="./img/prelovedlogos_plcolor.png" alt="">
+                <h5 class="footer-contents__copyright">&copy;2022 Zenith</h5>
             </div>    
         </div>
 
-        <div class="footer__right">
-            <ul class="footer__right-ul">
-                <a href="index.html"><li class="footer__right-li">home</li></a>
-                <a href="shop.html"><li class="footer__right-li">shop</li></a>
-                <a href="about.html"><li class="footer__right-li">about</li></a>
-                <a href="contact.html"><li class="footer__right-li">contact</li></a>
-                <a href="signup.html"><li class="footer__right-li">login</li></a>
+        <div class="footer-right">
+            <ul class="footer-right__ul">
+                <a href="index.html"><li class="footer-right__li">home</li></a>
+                <a href="shop.html"><li class="footer-right__li">shop</li></a>
+                <a href="about.html"><li class="footer-right__li">about</li></a>
+                <a href="contact.html"><li class="footer-right__li">contact</li></a>
+                <a href="signup.html"><li class="footer-right__li">login</li></a>
             </ul>
-            <a href="#top"><div class="footer__right__prompt">
-                <h5 class="footer__right__prompt-h5">back to top</h5>
-                <div class="footer__right__prompt-arrow"></div>
-            </div></a>
+            <a href="#top">
+                <div class="footer-prompt">
+                    <h5 class="footer-prompt__h5">back to top</h5>
+                    <div class="footer-prompt__arrow"></div>
+                </div>
+            </a>
         </div>
     </footer>
     <!-- footer ends here -->

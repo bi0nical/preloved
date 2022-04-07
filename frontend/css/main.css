@@ -212,7 +212,7 @@
   display: flex;
   overflow-x: hidden;
 }
-.footer__left {
+.footer-left {
   min-height: 20vh;
   width: 50%;
   display: flex;
@@ -220,30 +220,30 @@
   justify-content: flex-start;
   align-items: flex-end;
 }
-.footer__left__contents {
+.footer-contents {
   display: flex;
   flex-direction: column;
   margin: 0rem 0rem 3rem 3rem;
   height: fit-content;
 }
-.footer__left__contents-logo {
+.footer-contents__logo {
   height: 10rem;
 }
-.footer__left__contents-copyright {
+.footer-contents__copyright {
   color: #FF4022;
   font-size: 2rem;
   font-family: "Libre Franklin", sans-serif;
 }
-.footer__right {
+.footer-right {
   height: 100%;
   width: 50%;
 }
-.footer__right-ul {
+.footer-right__ul {
   list-style-type: none;
   text-align: right;
   margin: 3rem 4rem 0rem 0rem;
 }
-.footer__right-li {
+.footer-right__li {
   padding: 0rem 1rem 0rem 0rem;
   font-family: "Libre Franklin", sans-serif;
   font-size: 2rem;
@@ -251,16 +251,16 @@
   font-weight: 600;
   margin: 1.5rem;
 }
-.footer__right-li:hover {
+.footer-right__li:hover {
   font-weight: 900;
   border-right: 5px solid #FF4022;
 }
-.footer__right__prompt {
+.footer-prompt {
   display: flex;
   justify-content: flex-end;
   padding: 2rem 4rem 3rem 0rem;
 }
-.footer__right__prompt-h5 {
+.footer-prompt__h5 {
   font-family: "Libre Franklin", sans-serif;
   font-size: 2rem;
   padding-right: 1.5rem;
@@ -268,10 +268,10 @@
   font-weight: 600;
   cursor: pointer;
 }
-.footer__right__prompt-h5:hover {
+.footer-prompt__h5:hover {
   font-weight: 700;
 }
-.footer__right__prompt-arrow {
+.footer-prompt__arrow {
   width: 0;
   height: 0;
   border-left: 14px solid transparent;
@@ -811,6 +811,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.contact {
+  min-height: 90vh;
+  width: auto;
+  display: flex;
+}
+.contact-left {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 25rem;
+}
+.contact-left__h1 {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 6.5rem;
+  padding-bottom: 3rem;
+}
+.contact-right {
+  width: 35%;
+  background: url(../img/contact-pic.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 60rem;
+}
+.contact-form__name {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 4px solid black;
+}
+.contact-form__email {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 4px solid black;
+}
+.contact-form__msg {
+  padding: 1rem;
+  border: 4px solid black;
+}
+.contact-submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  width: 10rem;
+  margin-top: 3rem;
+}
+.contact-submit:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.contact-submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+input::placeholder, input:focus {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+textarea::placeholder, textarea:focus, textarea::after {
+  font-family: "Libre Franklin", sans-serif;
 }
 
 * {
