@@ -1005,6 +1005,77 @@
   color: #0058D2;
   padding: 1rem;
 }
+.account {
+  width: 80%;
+  margin: 0 auto;
+}
+.account__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5rem;
+}
+.account__imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account__img {
+  width: 100px;
+  height: 100px;
+  background: url(../img/jacket.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  border: 3px solid black;
+  padding: 1rem;
+}
+.account__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.account__username {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+.account__editBtn {
+  font-size: 2rem;
+}
+.account__editDropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account__editDropdownText {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.account__editDropdownArrow {
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+}
+.account__listingsAdd {
+  display: flex;
+}
+.account__listingsAddBtn {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+}
+.account__listingsTitle {
+  font-size: 3rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 
 * {
   margin: 0;
