@@ -13,6 +13,9 @@ console.log(sessionStorage);
 // =====================================
 
 $(document).ready(function(){
+// =====================================
+// AJAX STARTS HERE
+// =====================================
     let url;//declare url as a variable in es6
     $.ajax({
       url: 'config.json',
@@ -22,7 +25,7 @@ $(document).ready(function(){
         console.log(configData.SERVER_URL,configData.SERVER_PORT );
         url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
           console.log(url);
-          //insert card loader here
+          cardLoad(url);
       },
       error:function(error){
         console.log(error);
@@ -30,8 +33,59 @@ $(document).ready(function(){
       }
     })
 // =====================================
+// AJAX ENDS HERE
+// =====================================
+
+// =====================================
 // LISTING FUNCTIONS START HERE
 // =====================================
+
+
+//view all listings start here
+function cardLoad(url) {
+
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      var i;
+      document.getElementById('cardBox').innerHTML = "";
+      for(i=0;i<listingsFromDB.length;i++){
+        document.getElementById('cardBox').innerHTML +=
+        `
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${listingsFromDB[i].img1}" alt="Card image cap">
+        <img class="card-img-top" src="${listingsFromDB[i].img2}" alt="Card image cap">
+        <img class="card-img-top" src="${listingsFromDB[i].img3}" alt="Card image cap">
+        <div class="card-body">
+        <div class="bodytop"><p>${listingsFromDB[i].name}</p><br />
+        <p>${listingsFromDB[i].date}</p></br>
+        <p>$${listingsFromDB[i].price}</p></br>
+        <p>${listingsFromDB[i].size1}</p></br>
+        <p>${listingsFromDB[i].size2}</p></br>
+        <p>${listingsFromDB[i].desc}</p></br>
+        <p>${listingsFromDB[i].gender}</p></br>
+        <p>${listingsFromDB[i].color}</p></br>
+        <p>${listingsFromDB[i].brand}</p></br>
+        <p>${listingsFromDB[i].type}</p></br>
+        </div>
+        <div class="bodybottom">
+        <button type="button" id="buyButton" class= "btnCard">Buy Now</button>
+        </div>
+        </div>
+        </div>
+        `
+        // placeholder for cards above ^^^^. remove when actual cards made
+      }
+    }, 
+    error:function(){
+      console.log('unable to get listings from DB');
+    }
+
+  })
+}
+//view all listings end here
 
 //add listing start
     $('#addListingButton').click(function(){
