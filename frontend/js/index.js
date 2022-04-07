@@ -201,6 +201,24 @@ $.ajax({
 // =====================================
 
 // =====================================
+// SLIDE IN NAV ELEMENTS START HERE
+// =====================================
+
+$("#slideInLeftNavBtn").click(function (){
+  console.log("slide in left clicked");
+  $(".categories-container").css("transform", "translateX(0vw)");
+})
+
+$("#closeLeftNav").click(function (){
+  $(".categories-container").css("transform", "translateX(-30vw)");
+})
+
+// =====================================
+// SLIDE IN NAV ELEMENTS START HERE
+// =====================================
+
+
+// =====================================
 //USER FUNCTIONS START HERE
 // =====================================
 
