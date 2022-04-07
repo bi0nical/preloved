@@ -1,5 +1,78 @@
 .contact{
-    height: 80vh;
-    width: 100vw;
-    background: green;
+    min-height: 90vh;
+    width: auto;
+    display: flex;
+
+    &-left{
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 25rem;
+
+        &__h1{
+            font-family: $primaryFont;
+            font-size: 6.5rem;
+            padding-bottom: 3rem;
+        }
+    }
+
+    &-right{
+        width: 35%;
+        background: url(../img/contact-pic.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &-form{
+        display: flex;
+        flex-direction: column;
+        width: 60rem;
+
+        &__name{
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 4px solid black;
+        }
+
+        &__email{
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 4px solid black;
+        }
+
+        &__msg{
+            padding: 1rem;
+            border: 4px solid black;
+        }
+    }
+
+    &-submit{
+        @include btn;
+        background: $yellow;
+        width: 10rem;
+        margin-top: 3rem;
+    }
+
+    &-submit:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &-submit:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+
+}
+
+input::placeholder, input:focus{
+    font-family: $primaryFont;
+
+}
+
+
+textarea::placeholder, textarea:focus, textarea::after{
+    font-family: $primaryFont;
 }

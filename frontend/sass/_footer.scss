@@ -11,49 +11,47 @@
     overflow-x: hidden;
     
 
-    &__left{
+    &-left{
         min-height: 20vh;
         width: 50%;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-end;
+    }
 
-        &__contents{
-            display: flex;
-            flex-direction: column;
-            margin: 0rem 0rem 3rem 3rem;
-            height: fit-content;
+    &-contents{
+        display: flex;
+        flex-direction: column;
+        margin: 0rem 0rem 3rem 3rem;
+        height: fit-content;
 
 
-            
-            &-logo{
-                height: 10rem;
-            }
-
-            &-copyright{
-                color: $red;
-                font-size: 2rem;
-                font-family: $primaryFont;
-            } 
+                
+        &__logo{
+            height: 10rem;
         }
 
-
+        &__copyright{
+            color: $red;
+            font-size: 2rem;
+            font-family: $primaryFont;
+        } 
     }
 
 
-    &__right{
+    &-right{
         height: 100%;
         width: 50%;
 
-        &-ul{
+        &__ul{
             list-style-type: none;
             text-align: right;
             margin: 3rem 4rem 0rem 0rem;
 
         }
 
-        &-li{
+        &__li{
             padding: 0rem 1rem 0rem 0rem;
             font-family: $primaryFont;
             font-size: 2rem;
@@ -63,47 +61,49 @@
 
         }
 
-        &-li:hover{
+        &__li:hover{
             font-weight: 900;
             border-right: 5px solid $red;
         }
 
-        &__prompt{
-            display: flex;
-            justify-content: flex-end;
-            padding: 2rem 4rem 3rem 0rem;
-
-            &-h5{
-
-                font-family: $primaryFont;
-                font-size: 2rem;
-                padding-right: 1.5rem;
-                color: $red;
-                font-weight: 600;
-                cursor: pointer;
-
-            }
-
-            &-h5:hover{
-                font-weight: 700;
-
-            }
 
 
-            &-arrow{
-                width: 0;
-                height: 0;
-                border-left: 14px solid transparent;
-                border-right: 14px solid transparent;
-                border-bottom: 22px solid $red;
-                cursor: pointer;
+        
 
-            }
+    }
 
+    &-prompt{
+        display: flex;
+        justify-content: flex-end;
+        padding: 2rem 4rem 3rem 0rem;
+
+        &__h5{
+
+            font-family: $primaryFont;
+            font-size: 2rem;
+            padding-right: 1.5rem;
+            color: $red;
+            font-weight: 600;
+            cursor: pointer;
 
         }
 
-        
+        &__h5:hover{
+            font-weight: 700;
+
+        }
+
+
+        &__arrow{
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-bottom: 22px solid $red;
+            cursor: pointer;
+
+        }
+
 
     }
 
