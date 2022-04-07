@@ -1417,6 +1417,22 @@ textarea::placeholder, textarea:focus, textarea::after {
   transition: 0.1s;
 }
 
+.modal-body {
+  display: flex;
+}
+
+.modal-left {
+  height: 100%;
+  width: 50%;
+  margin: 3rem 2.5rem 3rem 5rem;
+}
+
+.modal-right {
+  height: 100%;
+  width: 50%;
+  margin: 3rem 5rem 3rem 2.5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
