@@ -1,0 +1,66 @@
+@import 'var';
+@import 'mixins';
+
+.login{
+    &__title{
+        font-family: $primaryFont;
+        font-size: 4rem;
+        font-weight: 900;
+        text-align: center
+    }
+    &__inputs{
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 4rem;
+        
+    }
+    &__username{
+        display: flex;
+        flex-direction: column;
+    }
+    &__password{
+        display: flex;
+        flex-direction: column;
+    }
+    &__signupPrompt{
+        font-family: $primaryFont;
+        font-size: 1.5rem;
+        color: black;
+    }
+    &__signupPromptContainer{
+        padding-top: 2rem;
+        padding-bottom: 2rem
+        
+    }
+    &__buttons{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &__submit{
+        @include btn;
+        background: $yellow;
+        margin-left: 1rem;
+        transition: 0.1s;
+    }
+    &__submit:hover{
+        transform: scale(1.1);
+        transition: 0.1s
+    }
+    &__submit:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+    &__close{
+        @include btn;
+        transition: 0.1s;
+    }
+    &__close:hover{
+        transform: scale(1.1);
+        transition: 0.1s
+    }
+    &__close:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+}
