@@ -231,6 +231,9 @@ function cardLoad(url) {
         </div>
         `
         // placeholder for cards above ^^^^. remove when actual cards made
+
+
+        //delete cards/listings caller starts here
         document.querySelectorAll('.delClick').forEach(function(trash){
           trash.addEventListener('click', function(e){
         console.log(e.target.id);
@@ -240,22 +243,30 @@ function cardLoad(url) {
         
         $('#delButton_confirm').click(function(){
          event.preventDefault();
-        console.log(listing_Id);
-            $.ajax({
-              url : `http://${url}/deleteListing/${listing_Id}`,
-              type:'DELETE',
-              success : function(){
-                console.log('deleted');
-                console.log(url);
-               window.location.reload();
-              }, //success
-              error:function(){
-                console.log('error: cannot call api');
-              }//error
-            })//ajax
-          })//if
+         deleteFunction(listing_Id);
         })
-        })//delete listing
+      })
+    })
+//delete cards/listings caller ends here
+
+//edit cards/listings caller ends here
+document.querySelectorAll('.editClick').forEach(function(trash){
+  trash.addEventListener('click', function(e){
+console.log(e.target.id);
+ let listing_Id = e.target.id;
+ console.log(listing_Id)
+ console.log(url);
+
+$('#editButton_confirm').click(function(){
+ event.preventDefault();
+ deleteFunction(listing_Id);
+})
+})
+})
+//edit cards/listings caller ends here
+
+
+
       }
     }, 
     error:function(){
@@ -316,7 +327,22 @@ function cardLoad(url) {
 //AddListing End
 
 //delete listing start
+function deleteFunction(listing_Id){
+$.ajax({
+  url : `http://${url}/deleteListing/${listing_Id}`,
+  type:'DELETE',
+  success : function(){
+    alert('deleted listing');
 
+   window.location.reload();
+  }, //success
+  error:function(){
+    console.log('error: cannot call api');
+  }//error
+})//ajax
+
+//delete listing
+};
 
 
 
@@ -325,6 +351,24 @@ function cardLoad(url) {
 // ==================================
 // LISTING FUNCTIONS END HERE
 // =====================================
+
+// =====================================
+// SLIDE IN NAV ELEMENTS START HERE
+// =====================================
+
+$("#slideInLeftNavBtn").click(function (){
+  console.log("slide in left clicked");
+  $(".categories-container").css("transform", "translateX(0vw)");
+})
+
+$("#closeLeftNav").click(function (){
+  $(".categories-container").css("transform", "translateX(-30vw)");
+})
+
+// =====================================
+// SLIDE IN NAV ELEMENTS START HERE
+// =====================================
+
 
 // =====================================
 //USER FUNCTIONS START HERE
