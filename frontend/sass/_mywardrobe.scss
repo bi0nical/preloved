@@ -42,14 +42,19 @@
         font-size: 2rem;
     }
     &__editDropdown{
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    &__editDropdownText{
+    &__editDropdownBtn{
         font-family: $primaryFont;
         font-size: 1.5rem;
         font-weight: 900;
+        margin: 0 !important;
+        background: none;
+        outline: none;
+        border: none;
     }
     &__editDropdownArrow{
         font-size: 1.5rem;
@@ -61,8 +66,17 @@
         display: flex;
     }
     &__listingsAddBtn{
+        cursor: pointer;
         @include btn;
         background: $yellow;
+    }
+    &__listingsAddBtn:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__listingsAddBtn:active{
+        transform: scale(1);
+        transition: 0.1s;
     }
     &__listingsTitle{
         font-size: 3rem;
@@ -71,4 +85,41 @@
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
+}
+
+//EDIT DROPDOWN MENU
+
+.editDropdown{
+    border-radius: 2px;
+    background: white;
+    padding: 2rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    -webkit-box-shadow: 5px 4px 13px -1px #626262; 
+    box-shadow: 5px 4px 13px -1px #626262;
+    z-index: 2;
+}
+.editAccountOption{
+    cursor: pointer;
+    background: none;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    font-family: $primaryFont;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 1rem 0rem 1rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.editAccountOption:hover{
+    color: $blue;
 }
