@@ -23,43 +23,43 @@
     <h3>Add product</h3>
     <form>
         <div class="form-group">
-            <label for="exampleInputtext1">Name</label>
-            <input id="nameInput" type="text" class="form-control" id="exampleInputtext1" placeholder="your item name">
+            <label for="nameInput">Name</label>
+            <input id="nameInput" type="text" class="form-control"  placeholder="your item name">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Description</label>
-            <input id="descInput" type="text" class="form-control" id="exampleInputtext1" placeholder="tell people a bit about the item">
+            <label for="descInput">Description</label>
+            <input id="descInput" type="text" class="form-control" placeholder="tell people a bit about the item">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Price</label>
-            <input id="priceInput" type="text" class="form-control" id="exampleInputtext1" placeholder="the price of the item">
+            <label for="priceInput">Price</label>
+            <input id="priceInput" type="text" class="form-control"  placeholder="the price of the item">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Image 1 url</label>
-            <input id="imgOneInput" type="text" class="form-control" id="exampleInputtext1" placeholder="place url here">
+            <label for="imgOneInput">Image 1 url</label>
+            <input id="imgOneInput" type="text" class="form-control"  placeholder="place url here">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Image 2 url</label>
-            <input id="imgTwoInput" type="text" class="form-control" id="exampleInputtext1" placeholder="place url here4">
+            <label for="imgTwoInput">Image 2 url</label>
+            <input id="imgTwoInput" type="text" class="form-control" placeholder="place url here4">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Image 3 url</label>
-            <input id="imgThreeInput" type="text" class="form-control" id="exampleInputtext1" placeholder="place url here">
+            <label for="imgThreeInput">Image 3 url</label>
+            <input id="imgThreeInput" type="text" class="form-control" placeholder="place url here">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Size No.</label>
-            <input id="sizeNoInput" type="text" class="form-control" id="exampleInputtext1" placeholder="US/UK Size">
+            <label for="sizeNoInput">Size No.</label>
+            <input id="sizeNoInput" type="text" class="form-control" placeholder="US/UK Size">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Size Letter</label>
-            <select id="sizeLetterInput" class="form-control" id="exampleFormControlSelect1">
+            <label for="sizeLetterInput">Size Letter</label>
+            <select id="sizeLetterInput" class="form-control" >
               <option>XS</option>
               <option>S</option>
               <option>M</option>
@@ -72,25 +72,30 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Brand</label>
-            <input id="brandInput" type="text" class="form-control" id="exampleInputtext1" placeholder="leave empty if unbranded">
+            <label for="typeInput">Type</label>
+            <input id="typeInput" type="text" class="form-control" placeholder="type in type">
+        </div>
+        <div class="form-group">
+            <label for="brandInput">Brand</label>
+            <input id="brandInput" type="text" class="form-control" placeholder="leave empty if unbranded">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleInputtext1">Colour</label>
-            <input id="colourInput" type="text" class="form-control" id="exampleInputtext1" placeholder="colour of the item">
+            <label for="colourInput">Colour</label>
+            <input id="colourInput" type="text" class="form-control" placeholder="colour of the item">
         </div>
         <br>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Gender style</label>
-            <select id="genderInput" class="form-control" id="exampleFormControlSelect1">
+            <label for="genderInput">Gender style</label>
+            <select id="genderInput" class="form-control">
               <option>Male</option>
               <option>Female</option>
               <option>Unisex</option>
             </select>
         </div>
+        <button type="submit" id="addListingButton">Click</button>
     </form>
-    
+    <div class="container" id="cardBox"></div>
 
     <!-- dependencies -->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
