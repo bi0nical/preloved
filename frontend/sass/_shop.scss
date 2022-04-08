@@ -160,14 +160,14 @@
     display: flex;
     align-items: flex-end;
     height: 85vh;
-    width: 30vw;
-    transform: translateX(-30vw);
+    width: 50rem;
+    transform: translateX(-50rem);
     z-index: 10;
     transition-duration: 0.5s;
 }
 .categories{
     height: 100%;
-    width: 30vw;
+    width: 50rem;
     background: $blue;
     display: flex;
     flex-direction: column;
@@ -182,19 +182,57 @@
             color: $yellow;
         }
     }
+    &-body{
+        display: flex;
+        width: 100%;
+        height: fit-content;
+    }
     &-menu{
         display: flex;
+        margin-right: 2rem;
         &__ul{
             list-style: none;
             font-size: 1.6rem;
             color: $yellow;
             padding: 4rem 0 0 0;
+            &--right{
+                position: absolute;
+                display: none;
+            }
+            &--bottoms{
+                transform: translateY(6rem);
+            }
+            &--hats{
+                transform: translateY(12rem);
+            }
+            &--shoes{
+                transform: translateY(18rem);
+            }
+            &--dresses{
+                transform: translateY(24rem);
+            }
+            &--accessories{
+                transform: translateY(30rem);
+            }
         }
         &__li{
+            width: 15rem;
             border: 3px $yellow solid;
             padding: 1rem;
             margin-bottom: 1rem;
             text-align: center;
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+        &--right{
+            display: flex;
+            flex-direction: column;
         }
     }
+}
+.btn-active{
+    background: $yellow;
+    color: $blue;
 }

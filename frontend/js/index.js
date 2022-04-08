@@ -204,13 +204,113 @@ $.ajax({
 // SLIDE IN NAV ELEMENTS START HERE
 // =====================================
 
+// slide in categories button
 $("#slideInLeftNavBtn").click(function (){
   console.log("slide in left clicked");
   $(".categories-container").css("transform", "translateX(0vw)");
 })
 
+// slide out categories button
 $("#closeLeftNav").click(function (){
-  $(".categories-container").css("transform", "translateX(-30vw)");
+  $(".categories-container").css("transform", "translateX(-50rem)");
+})
+
+// categories menu buttons
+$("#topsCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").addClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "block");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#bottomsCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").addClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "block");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#hatsCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").addClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "block");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#shoesCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").addClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "block");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#dressesCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").addClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "block");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#accessoriesCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").addClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "block");
 })
 
 // =====================================
