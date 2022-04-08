@@ -1,6 +1,11 @@
 @import 'var';
 @import 'mixins';
 
+.shop-container{
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+}
 .shop{
     min-height: 85vh;
     width: 100vw;
@@ -95,57 +100,150 @@
         padding-right: 2rem;
     }
 }
-.card__container{
-    min-height: 85vh;
-    display: flex;
-    flex-flow: row wrap;
-}
-.card{
 
-    padding: 4rem 0rem 2rem 2rem;
-    width: 300px;
-
-    &__imgContainer{
-        height: 350px;
-        background: url(../img/jeans.png) no-repeat;
-        background-size: cover;
-        background-position: center;
-        border: 4px solid black;
-    }
-    // &__details{
-    //     border: 2px solid black;
-    // }
-    &__title{
-        font-family: $primaryFont;
-        font-size: 1.7rem;
-        font-weight: 400;
-        padding: 0.25rem;
-    }
-    &__price{
-        font-family: $primaryFont;
-        font-size: 1.7rem;
-        font-weight: 900;
-        padding: 0.25rem 0.25rem 1.5rem 0.25rem;
-    }
-    &__tags{
-        display: flex;
-    }
-    &__tag{
-        margin-right: 0.25rem;
-        background-color: $yellow;
-        width: max-content;
-        font-size: 1.3rem;
-        font-family: $primaryFont;
-        font-weight: 200;
-        font-style: italic;
-        border: 1px solid black;
-        padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-        border-radius: 20px;
-        text-transform: uppercase;
-    }
-}
 .flex-center{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.categories-container{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    height: 85vh;
+    width: 50rem;
+    transform: translateX(-50rem);
+    z-index: 10;
+    transition-duration: 0.5s;
+    border: 4px solid black;
+}
+.categories{
+    height: 100%;
+    width: 50rem;
+    background: $blue;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem 4rem 2rem;
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        &__heading{
+            font-family: $primaryFont;
+            font-weight: 800;
+            font-size: 4.8rem;
+            color: $yellow;
+        }
+    }
+    &-body{
+        display: flex;
+        width: 100%;
+        height: fit-content;
+    }
+    &-menu{
+        display: flex;
+        margin-right: 2rem;
+        &__ul{
+            list-style: none;
+            font-size: 1.6rem;
+            color: $yellow;
+            padding: 4rem 0 0 0;
+            &--right{
+                position: absolute;
+                display: none;
+            }
+            &--bottoms{
+                transform: translateY(6rem);
+            }
+            &--hats{
+                transform: translateY(12rem);
+            }
+            &--shoes{
+                transform: translateY(18rem);
+            }
+            &--dresses{
+                transform: translateY(24rem);
+            }
+            &--accessories{
+                transform: translateY(30rem);
+            }
+        }
+        &__li{
+            width: 15rem;
+            border: 3px $yellow solid;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+            &:active{
+                transform: scale(1);
+            }
+        }
+        &--right{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+.filters{
+    position: absolute;
+    top: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: fit-content;
+    width: 25rem;
+    transform: translateX(-25rem);
+    z-index: 10;
+    transition-duration: 0.5s;
+    border: 4px solid black;
+    background: $yellow;
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2rem 1rem 2rem;
+        background: $blue;
+        color: $yellow;
+        width: 100%;
+        &__title{
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+    }
+    &-body{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        &__label{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35%;
+            font-weight: 800;
+            height: 4rem;
+        }
+        &__select{
+            width: 65%;
+            height: 4rem;
+            margin-bottom: 0.75rem;
+            background: $yellow;
+            border: 4px solid black;
+        }
+        &__submit{
+            @include btn;
+            margin-top: 2rem;
+            width: 10rem;
+        }
+    }
+}
+.btn-active{
+    background: $yellow;
+    color: $blue;
 }

@@ -1,0 +1,117 @@
+@import 'var';
+@import 'mixins';
+
+.clothingItemModal{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    flex: 1 1 auto;
+    padding: none !important;
+
+    &__content{
+        min-height: 90vh;
+    }
+    &__left{
+        grid-column: 1/3;
+        background: url(../img/jeans.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    &__right{
+        grid-column: 3/4;
+        padding: 1rem 1rem 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__divider{
+        height: 2px;
+        background: rgb(238, 238, 238);
+    }
+    &__closeTop{
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__name{
+        font-family: $primaryFont;
+        font-weight: 300;
+        font-size: 2rem;
+    }
+    &__price{
+        font-family: $primaryFont;
+        font-weight: 900;
+        font-size: 2rem;
+    }
+    &__location{
+        font-family: $primaryFont;
+        font-weight: 200;
+        font-size: 1.5rem;
+    }
+    &__mainDetails{
+        padding-bottom: 1rem;
+    }
+    &__desc{
+        font-family: $primaryFont;
+        font-weight: 400;
+        font-size: 1.4rem;
+    }
+    &__descContainer{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    &__details1, &__details2, &__details3, &__details4{
+        display: flex;
+        align-items: center;
+    }
+    &__sizeTitle, &__brandTitle, &__colorTitle, &__madeinTitle{
+        
+        font-family: $primaryFont;
+        font-weight: 900;
+        font-size: 1.7rem;
+    }
+    &__size, &__brand, &__color, &__madein{
+        text-transform: capitalize;
+        font-family: $primaryFont;
+        font-weight: 200;
+        font-size: 1.7rem;
+        padding-left: 1rem;
+    }
+    &__details{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    &__user{
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    &__profilePic{
+        width: 50px;
+        height: 50px;
+        background: url(../img/jacket.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+    }
+    &__username{
+        padding-left: 1rem;
+        font-family: $primaryFont;
+        font-weight: 900;
+        font-size: 1.7rem;
+    }
+    &__btns{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__close{
+        @include btn;
+    }
+    &__addToCard{
+        @include btn;
+        background: $yellow;
+        margin-left: 1rem;
+    }
+}

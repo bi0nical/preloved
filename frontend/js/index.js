@@ -25,7 +25,8 @@ $(document).ready(function(){
         console.log(configData.SERVER_URL,configData.SERVER_PORT );
         url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
           console.log(url);
-          cardLoad(url);
+          // cardLoad(url);
+          appendListings(url);
       },
       error:function(error){
         console.log(error);
@@ -36,9 +37,281 @@ $(document).ready(function(){
 // AJAX ENDS HERE
 // =====================================
 
+
 // =====================================
-// LISTING FUNCTIONS START HERE
+// ADD AN ITEM MODAL STARTS HERE
 // =====================================
+
+function modalAddItem(){
+  $('#addItem').click(function(){
+    console.log('modal working')
+    $(".modal-header").empty().append(
+      `
+      <h5 class="modal-title" id="exampleModalLabel">List an item</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      `
+    )
+    $(".modal-body").empty().append(
+      `                    
+      <div class="modal-left">
+      <form>
+      <div class="form-group">
+          <label for="nameInput">Name</label>
+          <input id="nameInput" type="text" class="form-control">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="descInput">Description</label>
+          <textarea id="descInput" type="text" class="form-control" rows="10"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="priceInput">Price</label>
+          <input id="priceInput" type="text" class="form-control">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="imgOneInput">Image 1 url</label>
+          <input id="imgOneInput" type="text" class="form-control"  placeholder="place url here">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="imgTwoInput">Image 2 url</label>
+          <input id="imgTwoInput" type="text" class="form-control" placeholder="place url here">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="imgThreeInput">Image 3 url</label>
+          <input id="imgThreeInput" type="text" class="form-control" placeholder="place url here">
+      </div>
+      <br>
+      </div>
+      <div class="modal-right">
+
+      <div class="form-group">
+      <label for="sizeNoInput">Size No.</label>
+      <input id="sizeNoInput" type="text" class="form-control" placeholder="US/UK Size">
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="sizeLetterInput">Size Letter</label>
+      <select id="sizeLetterInput" class="form-control" >
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+        <option>XXXL</option>
+        <option>N/A</option>
+      </select>
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="typeInput">Type</label>
+      <select id="typeInput" type="text" class="form-control" placeholder="type in type">
+        <option disabled selected value>Select a type</option>
+        <option>Beanie</option>
+        <option>Boots</option>
+        <option>Bucket Hat</option>
+        <option>Cap</option>
+        <option>Corset</option>
+        <option>Crop Top</option>
+        <option>Dress</option>
+        <option>Heels</option>
+        <option>Jacket</option>
+        <option>Jeans</option>
+        <option>Jewelery</option>
+        <option>Sandals</option>
+        <option>Shirts</option>
+        <option>Shorts</option>
+        <option>Skirt</option>
+        <option>Sneakers</option>
+        <option>Sunglasses</option>
+        <option>Sweaters</option>
+        <option>Trainers</option>
+        <option>Trousers</option>
+        <option>Watch</option>
+        <option>Other...</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="brandInput">Brand</label>
+      <input id="brandInput" type="text" class="form-control" placeholder="Leave empty if unbranded">
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="colourInput">Colour</label>
+      <select id="colourInput" type="text" class="form-control">
+      <option disabled selected value>Select a color</option>
+      <option>Beige</option>
+      <option>Black</option>
+      <option>Blue</option>
+      <option>Orange</option>
+      <option>Purple</option>
+      <option>Green</option>
+      <option>Grey</option>
+      <option>White</option>
+      <option>Yellow</option>
+      <option>Mixed</option>
+      </select>
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="genderInput">Gender style</label>
+      <select id="genderInput" class="form-control">
+        <option disabled selected value>Select a gender style</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Unisex</option>
+      </select>
+  </div>
+        </div>
+
+          `
+    )
+
+    $(".modal-footer").empty().append(
+      `
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" id="addListingButton" class="btn btn-primary">Save changes</button>
+      `
+    )
+  })
+}
+modalAddItem()
+
+// =====================================
+// ADD AN ITEM MODAL ENDS HERE
+// =====================================
+
+
+
+
+// =====================================
+// LISTING FUNCTIONS STARTS HERE
+// =====================================
+
+// BELOW FUNCTION IS APPENDING CARDS TO THE SHOP PAGE
+function appendListings(url){
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      console.log(listingsFromDB)
+      let i;
+      document.getElementById('clothingCardGrid').innerHTML = "";
+      for(i = 0; i < listingsFromDB.length; i++){
+        let price = listingsFromDB[i].price.toFixed(2);
+        document.getElementById('clothingCardGrid').innerHTML +=
+        `
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
+          <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
+              
+          </div>
+          <div class="clothingCard__details">
+              <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
+              <p class="clothingCard__price">$${price}</p>
+              <div class="clothingCard__tags">
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+              </div>
+          </div>
+        </div>
+        `
+
+        document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
+          clothingItem.addEventListener('click', function(e) {
+            console.log(url);
+              console.log(e.target.parentNode.id);
+              let id = e.target.parentNode.id;
+              
+              $.ajax({
+                    url: `http://${url}/allListingFromDB/${id}`,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success:function(singleListing){
+                      console.log(singleListing);
+                      let price = singleListing.price.toFixed(2);
+                      $('#clothingModal').empty().append(
+
+                        `
+                        <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
+
+                        </div>
+                        <div class="clothingItemModal__right">
+                            <div class="clothingItemModal__closeTop">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                          
+                            <div class="clothingItemModal__mainDetails">
+                              <h1 class="clothingItemModal__name">${singleListing.name}</h1>
+                              <h2 class="clothingItemModal__price">${price}</h2>
+                              <h6 class="clothingItemModal__location">${singleListing.location}</h6>
+                            </div>
+
+                            <div class="clothingItemModal__divider"></div>
+                            
+                            <div class="clothingItemModal__descContainer">
+                              <p class="clothingItemModal__desc">${singleListing.desc}</p>
+                            </div>
+                            <div class="clothingItemModal__divider">
+
+                            </div>
+                            <div class="clothingItemModal__details">
+                              <div class="clothingItemModal__details1">
+                                  <p class="clothingItemModal__sizeTitle">Size:</p>
+                                  <p class="clothingItemModal__size">${singleListing.size1}</p>
+                              </div>
+                              <div class="clothingItemModal__details2">
+                                  <p class="clothingItemModal__brandTitle">Brand:</p>
+                                  <p class="clothingItemModal__brand">${singleListing.brand}</p>
+                              </div>
+                              <div class="clothingItemModal__details3">
+                                  <p class="clothingItemModal__colorTitle">Colour:</p>
+                                  <p class="clothingItemModal__color">${singleListing.color}</p>
+                              </div>
+                              <div class="clothingItemModal__details4">
+                                  <p class="clothingItemModal__madeinTitle">Made In:</p>
+                                  <p class="clothingItemModal__madein">USA</p>
+                              </div>
+                            </div>
+                            <div class="clothingItemModal__divider">
+                                
+                          </div>
+                            <div class="clothingItemModal__user">
+                              <div class="clothingItemModal__profilePic">
+
+                              </div>
+                              <h4 class="clothingItemModal__username">user1234</h4>
+                            </div>
+                            <div class="clothingItemModal__divider">
+                                
+                          </div>
+                            <div class="clothingItemModal__btns">
+                              <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
+                              <button class="clothingItemModal__addToCard">add to cart</button>
+                            </div>
+                        </div>
+
+                        `
+                        
+                       
+                        
+                        );
+                      
+                    }
+                  })
+          });
+        })
+      }
+    }
+  })
+}
+
+// CLOTHING ITEM MODAL FUNCTION
 
 
 //view all listings start here
@@ -384,6 +657,144 @@ let name = $('#nameInputEdit').val();
 }
 //edit listing function end
 
+
+
+
+
+
+// ==================================
+// LISTING FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+// SLIDE IN NAV ELEMENTS START HERE
+// =====================================
+
+// slide in categories button
+$("#slideInLeftNavBtn").click(function (){
+  $("#slideInLeftNavBtn").css("transform", "translateX(-100%)")
+  $(".categories-container").css("transform", "translateX(0vw)");
+})
+
+// slide out categories button
+$("#closeLeftNav").click(function (){
+  $(".categories-container").css("transform", "translateX(-50rem)");
+  $("#slideInLeftNavBtn").css("transform", "translateX(0%)")
+})
+
+// slide in filters button
+$("#slideInFiltersBtn").click(function (){
+  $("#slideInFiltersBtn").css("transform", "translateX(-100%)")
+  $(".filters").css("transform", "translateX(0vw)");
+})
+
+// slide out filters button
+$("#closeFiltersBtn").click(function (){
+  $(".filters").css("transform", "translateX(-25rem)");
+  $("#slideInFiltersBtn").css("transform", "translateX(0vw)")
+})
+
+// categories menu buttons
+$("#topsCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").addClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "block");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#bottomsCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").addClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "block");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#hatsCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").addClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "block");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#shoesCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").addClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "block");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#dressesCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").addClass("btn-active");
+  $("#accessoriesCategoryBtn").removeClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "block");
+  $("#accessoriesCategoryList").css("display", "none");
+})
+$("#accessoriesCategoryBtn").click(function (){
+  // colour button as active, deactive others
+  $("#topsCategoryBtn").removeClass("btn-active");
+  $("#bottomsCategoryBtn").removeClass("btn-active");
+  $("#hatsCategoryBtn").removeClass("btn-active");
+  $("#shoesCategoryBtn").removeClass("btn-active");
+  $("#dressesCategoryBtn").removeClass("btn-active");
+  $("#accessoriesCategoryBtn").addClass("btn-active");
+  // show sublist, hide others
+  $("#topsCategoryList").css("display", "none");
+  $("#bottomsCategoryList").css("display", "none");
+  $("#hatsCategoryList").css("display", "none");
+  $("#shoesCategoryList").css("display", "none");
+  $("#dressesCategoryList").css("display", "none");
+  $("#accessoriesCategoryList").css("display", "block");
+})
+
+// =====================================
+// SLIDE IN NAV ELEMENTS START HERE
+// =====================================
 
 
 

@@ -100,6 +100,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__dresses {
   background: url("../img/dresses.png") no-repeat;
@@ -111,6 +112,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shoes {
   background: url("../img/shoes.png") no-repeat;
@@ -122,6 +124,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll {
   margin: 0 auto;
@@ -138,6 +141,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll:hover {
   background: #FFCB2F;
@@ -158,6 +162,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__hats {
   background: url("../img/hat.png") no-repeat;
@@ -169,6 +174,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__jeans {
   background: url("../img/jeans.png") no-repeat;
@@ -180,6 +186,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__clothingSection:hover {
   background: #FFCB2F;
@@ -382,6 +389,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__dresses {
   background: url("../img/dresses.png") no-repeat;
@@ -393,6 +401,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shoes {
   background: url("../img/shoes.png") no-repeat;
@@ -404,6 +413,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll {
   margin: 0 auto;
@@ -420,6 +430,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll:hover {
   background: #FFCB2F;
@@ -440,6 +451,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__hats {
   background: url("../img/hat.png") no-repeat;
@@ -451,6 +463,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__jeans {
   background: url("../img/jeans.png") no-repeat;
@@ -462,6 +475,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__clothingSection:hover {
   background: #FFCB2F;
@@ -497,10 +511,16 @@
 .nav__logoContainer {
   height: 100%;
   padding: 1rem;
+  display: flex;
 }
 .nav__logo {
   height: 100%;
   padding: 1rem;
+}
+.nav__searchContainer {
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
 }
 .nav__search {
   background: none;
@@ -508,6 +528,8 @@
   border: none;
   padding: 1rem;
   caret-color: #0058D2;
+  border-bottom: 4px solid #0058D2;
+  min-width: 300PX;
 }
 .nav__search::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -543,9 +565,6 @@
   transform: scale(1);
   transition: 0.1s;
 }
-.nav__searchContainer {
-  border-bottom: 4px solid #0058D2;
-}
 .nav__ul {
   display: flex;
   align-items: center;
@@ -559,12 +578,14 @@
   color: #0058D2;
   padding: 1rem;
   margin: 0rem;
+  text-decoration: none;
 }
 .nav__li:hover {
   font-weight: 800;
 }
 .nav__link {
   color: #0058D2;
+  text-decoration: none;
 }
 .nav__link::before {
   display: block;
@@ -717,6 +738,12 @@
   color: white;
 }
 
+.shop-container {
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+}
+
 .shop {
   min-height: 85vh;
   width: 100vw;
@@ -844,56 +871,162 @@
   padding-right: 2rem;
 }
 
-.card__container {
-  min-height: 85vh;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.card {
-  padding: 4rem 0rem 2rem 2rem;
-  width: 300px;
-}
-.card__imgContainer {
-  height: 350px;
-  background: url(../img/jeans.png) no-repeat;
-  background-size: cover;
-  background-position: center;
-  border: 4px solid black;
-}
-.card__title {
-  font-family: "Libre Franklin", sans-serif;
-  font-size: 1.7rem;
-  font-weight: 400;
-  padding: 0.25rem;
-}
-.card__price {
-  font-family: "Libre Franklin", sans-serif;
-  font-size: 1.7rem;
-  font-weight: 900;
-  padding: 0.25rem 0.25rem 1.5rem 0.25rem;
-}
-.card__tags {
-  display: flex;
-}
-.card__tag {
-  margin-right: 0.25rem;
-  background-color: #FFCB2F;
-  width: max-content;
-  font-size: 1.3rem;
-  font-family: "Libre Franklin", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-  border: 1px solid black;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.categories-container {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  height: 85vh;
+  width: 50rem;
+  transform: translateX(-50rem);
+  z-index: 10;
+  transition-duration: 0.5s;
+  border: 4px solid black;
+}
+
+.categories {
+  height: 100%;
+  width: 50rem;
+  background: #0058D2;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 2rem 4rem 2rem;
+}
+.categories-header {
+  display: flex;
+  justify-content: space-between;
+}
+.categories-header__heading {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 4.8rem;
+  color: #FFCB2F;
+}
+.categories-body {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+.categories-menu {
+  display: flex;
+  margin-right: 2rem;
+}
+.categories-menu__ul {
+  list-style: none;
+  font-size: 1.6rem;
+  color: #FFCB2F;
+  padding: 4rem 0 0 0;
+}
+.categories-menu__ul--right {
+  position: absolute;
+  display: none;
+}
+.categories-menu__ul--bottoms {
+  transform: translateY(6rem);
+}
+.categories-menu__ul--hats {
+  transform: translateY(12rem);
+}
+.categories-menu__ul--shoes {
+  transform: translateY(18rem);
+}
+.categories-menu__ul--dresses {
+  transform: translateY(24rem);
+}
+.categories-menu__ul--accessories {
+  transform: translateY(30rem);
+}
+.categories-menu__li {
+  width: 15rem;
+  border: 3px #FFCB2F solid;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.categories-menu__li:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.categories-menu__li:active {
+  transform: scale(1);
+}
+.categories-menu--right {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters {
+  position: absolute;
+  top: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: fit-content;
+  width: 25rem;
+  transform: translateX(-25rem);
+  z-index: 10;
+  transition-duration: 0.5s;
+  border: 4px solid black;
+  background: #FFCB2F;
+}
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem 1rem 2rem;
+  background: #0058D2;
+  color: #FFCB2F;
+  width: 100%;
+}
+.filters-header__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.filters-body {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem 2rem 1rem;
+}
+.filters-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.filters-list__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  font-weight: 800;
+  height: 4rem;
+}
+.filters-list__select {
+  width: 65%;
+  height: 4rem;
+  margin-bottom: 0.75rem;
+  background: #FFCB2F;
+  border: 4px solid black;
+}
+.filters-list__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+  width: 10rem;
+}
+.filters-list__submit:hover {
+  cursor: pointer;
+}
+
+.btn-active {
+  background: #FFCB2F;
+  color: #0058D2;
 }
 
 .contact {
@@ -940,7 +1073,36 @@
   border: 4px solid black;
 }
 .contact-submit {
-=======
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  width: 10rem;
+  margin-top: 3rem;
+}
+.contact-submit:hover {
+  cursor: pointer;
+}
+.contact-submit:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.contact-submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+input::placeholder, input:focus {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+textarea::placeholder, textarea:focus, textarea::after {
+  font-family: "Libre Franklin", sans-serif;
+}
+
 .about {
   width: 100%;
 }
@@ -1050,6 +1212,7 @@
   color: #0058D2;
   padding: 1rem;
 }
+
 .account {
   width: 80%;
   margin: 0 auto;
@@ -1090,14 +1253,19 @@
   font-size: 2rem;
 }
 .account__editDropdown {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.account__editDropdownText {
+.account__editDropdownBtn {
   font-family: "Libre Franklin", sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
+  margin: 0 !important;
+  background: none;
+  outline: none;
+  border: none;
 }
 .account__editDropdownArrow {
   font-size: 1.5rem;
@@ -1107,31 +1275,24 @@
   display: flex;
 }
 .account__listingsAddBtn {
+  cursor: pointer;
   border: 4px solid black;
   padding: 0.7rem 1rem 0.7rem 1rem;
   font-family: "Libre Franklin", sans-serif;
   font-weight: 800;
   font-size: 1.7rem;
   background: #FFCB2F;
-  width: 10rem;
-  margin-top: 3rem;
 }
-.contact-submit:hover {
+.account__listingsAddBtn:hover {
   cursor: pointer;
+}
+.account__listingsAddBtn:hover {
   transform: scale(1.1);
   transition: 0.1s;
 }
-.contact-submit:active {
+.account__listingsAddBtn:active {
   transform: scale(1);
   transition: 0.1s;
-}
-
-input::placeholder, input:focus {
-  font-family: "Libre Franklin", sans-serif;
-}
-
-textarea::placeholder, textarea:focus, textarea::after {
-  font-family: "Libre Franklin", sans-serif;
 }
 .account__listingsTitle {
   font-size: 3rem;
@@ -1139,6 +1300,383 @@ textarea::placeholder, textarea:focus, textarea::after {
   font-weight: 900;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.editDropdown {
+  border-radius: 2px;
+  background: white;
+  padding: 2rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  -webkit-box-shadow: 5px 4px 13px -1px #626262;
+  box-shadow: 5px 4px 13px -1px #626262;
+  z-index: 2;
+}
+
+.editAccountOption {
+  cursor: pointer;
+  background: none;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 1rem 0rem 1rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.editAccountOption:hover {
+  color: #0058D2;
+}
+
+.modal-header, .modal-footer {
+  outline: none;
+  border: none;
+  padding-bottom: 2rem;
+}
+
+.btn-close {
+  font-size: 2rem;
+}
+
+.btn {
+  font-size: 1.7rem;
+}
+
+.listItemBody {
+  padding: 0rem 4rem 0rem 4rem;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.listItem__title {
+  font-size: 4rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  color: black;
+  padding: 1rem;
+}
+.listItem__label {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.listItem__input {
+  background: white;
+  border: 4px solid black;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.listItem__input::placeholder {
+  font-size: 1.4rem;
+}
+.listItem__left {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  padding: 1rem;
+}
+.listItem__left1 {
+  grid-row: 1/2;
+}
+.listItem__left2 {
+  grid-row: 2/5;
+}
+.listItem__left3 {
+  grid-row: 5/6;
+}
+.listItem__description {
+  height: 80%;
+}
+.listItem__right {
+  padding: 1rem;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+}
+.listItem__footer {
+  padding: 0rem 5rem 4rem 5rem;
+}
+.listItem__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+}
+.listItem__submit:hover {
+  cursor: pointer;
+}
+.listItem__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+.listItem__close:hover {
+  cursor: pointer;
+}
+
+.login__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  text-align: center;
+}
+.login__inputs {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+.login__username {
+  display: flex;
+  flex-direction: column;
+}
+.login__password {
+  display: flex;
+  flex-direction: column;
+}
+.login__signupPrompt {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.5rem;
+  color: black;
+}
+.login__signupPromptContainer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.login__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.login__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+  transition: 0.1s;
+}
+.login__submit:hover {
+  cursor: pointer;
+}
+.login__submit:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.login__submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.login__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  transition: 0.1s;
+}
+.login__close:hover {
+  cursor: pointer;
+}
+.login__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.login__close:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+.clothingItemModal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  flex: 1 1 auto;
+  padding: none !important;
+}
+.clothingItemModal__content {
+  min-height: 90vh;
+}
+.clothingItemModal__left {
+  grid-column: 1/3;
+  background: url(../img/jeans.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.clothingItemModal__right {
+  grid-column: 3/4;
+  padding: 1rem 1rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.clothingItemModal__divider {
+  height: 2px;
+  background: rgb(238, 238, 238);
+}
+.clothingItemModal__closeTop {
+  display: flex;
+  justify-content: flex-end;
+}
+.clothingItemModal__name {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+.clothingItemModal__price {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+.clothingItemModal__location {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+.clothingItemModal__mainDetails {
+  padding-bottom: 1rem;
+}
+.clothingItemModal__desc {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.clothingItemModal__descContainer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.clothingItemModal__details1, .clothingItemModal__details2, .clothingItemModal__details3, .clothingItemModal__details4 {
+  display: flex;
+  align-items: center;
+}
+.clothingItemModal__sizeTitle, .clothingItemModal__brandTitle, .clothingItemModal__colorTitle, .clothingItemModal__madeinTitle {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+.clothingItemModal__size, .clothingItemModal__brand, .clothingItemModal__color, .clothingItemModal__madein {
+  text-transform: capitalize;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-size: 1.7rem;
+  padding-left: 1rem;
+}
+.clothingItemModal__details {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.clothingItemModal__user {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.clothingItemModal__profilePic {
+  width: 50px;
+  height: 50px;
+  background: url(../img/jacket.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.clothingItemModal__username {
+  padding-left: 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+.clothingItemModal__btns {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.clothingItemModal__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+.clothingItemModal__close:hover {
+  cursor: pointer;
+}
+.clothingItemModal__addToCard {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+}
+.clothingItemModal__addToCard:hover {
+  cursor: pointer;
+}
+
+.clothingCard__container {
+  padding: 2rem;
+  height: auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.clothingCard {
+  cursor: pointer;
+}
+.clothingCard__imgContainer {
+  height: 300px;
+  background: url(../img/jeans.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid black;
+}
+.clothingCard__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  padding: 0.25rem;
+}
+.clothingCard__price {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  padding: 0.25rem 0.25rem 0rem 0.25rem;
+}
+.clothingCard__tags {
+  display: flex;
+}
+.clothingCard__tag {
+  margin-right: 0.25rem;
+  background-color: #FFCB2F;
+  width: max-content;
+  font-size: 1.3rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  border: 1px solid black;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
 }
 
 * {

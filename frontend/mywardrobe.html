@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
     <!-- local stylesheet -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -23,17 +26,24 @@
 
     <nav class="nav">
         <div class="nav__logoContainer">
-            <a href="index.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
+            <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
+            <div class="nav__searchContainer">
+                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+                <button class="nav__searchBtn">search</button>
+            </div>
             
         </div>
         <div class="nav__items">
             <ul class="nav__ul">
+                <li class="nav__li">
+                    
+                </li>
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
                 <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
                 <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
                 <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
-                <li class="nav__li"><button class="nav__logIn">log in</button></li>
-                <li class="nav__li"><button class="nav__signUp">sign up</button></li>
+                <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
+                <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
             </ul>
         </div>
     </nav>
@@ -55,14 +65,19 @@
                 </div>
             </div>
             <div class="account__editDropdown">
-                <p class="account__editDropdownText">edit account</p>
-                <i class="fa-solid fa-caret-down account__editDropdownArrow"></i>
+                <button class="account__editDropdownBtn">edit account<i class="fa-solid fa-caret-down account__editDropdownArrow"></i></button>
+                
+                <div class="editDropdown">
+                    <button class="editAccountOption">change username</button>
+                    <button class="editAccountOption">change password</button>
+                    <button class="editAccountOption">change email</button>
+                </div>
             </div>
         </div>
         
         <div class="account__listings">
             <div class="account__listingsAdd">
-                <button class="account__listingsAddBtn">list item +</button>
+                <button data-bs-toggle="modal" data-bs-target="#listItemModal" class="account__listingsAddBtn">list item +</button>
             </div>
             <div class="account__listingsTitleContainer">
                 <h2 class="account__listingsTitle">your listings</h2>
@@ -139,6 +154,98 @@
         </footer>
         <!-- footer ends here -->
     </div>
+
+    <!-- LIST ITEM MODAL -->
+
+    <div class="modal fade" id="listItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body listItemBody">
+                <div class="modal-title listItem__title">List an item</div>
+                <div class="listItem">
+
+                    <!-- LEFT GRID -->
+                    <div class="listItem__left">
+                        <div class="form-group listItem__left1">
+                            <label class="listItem__label"  for="nameInput">Name</label>
+                            <input id="nameInput" type="text" class="form-control listItem__input"  placeholder="Name of clothing item...">
+                        </div>
+                        <div class="form-group listItem__left2">
+                            <label class="listItem__label" for="descInput">Description</label>
+                            <textarea name="descInput" id="descInput" class="form-control listItem__description listItem__input" cols="30" rows="10" placeholder="Tell people a bit about the item..."></textarea>
+                        </div>
+                        <div class="form-group listItem__left3">
+                            <label  class="listItem__label" for="imgOneInput">Image 1 url</label>
+                            <input id="imgOneInput" type="text" class="form-control listItem__input"  placeholder="place url here">
+                        </div>
+                    </div>
+
+
+                    <!-- RIGHT GRID -->
+                    <div class="listItem__right">
+                        <div class="form-group">
+                            <label  class="listItem__label" for="typeInput">Type</label>
+                            <input id="typeInput" type="text" class="form-control listItem__input" placeholder="type in type">
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="brandInput">Brand</label>
+                            <input id="brandInput" type="text" class="form-control listItem__input" placeholder="leave empty if unbranded">
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="genderInput">Gender style</label>
+                            <select id="genderInput" class="form-control listItem__input">
+                              <option>Male</option>
+                              <option>Female</option>
+                              <option>Unisex</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="sizeLetterInput">Size Letter</label>
+                            <select id="sizeLetterInput" class="form-control listItem__input" >
+                              <option>XS</option>
+                              <option>S</option>
+                              <option>M</option>
+                              <option>L</option>
+                              <option>XL</option>
+                              <option>XXL</option>
+                              <option>XXXL</option>
+                              <option>N/A</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="priceInput">Price</label>
+                            <input id="priceInput" type="text" class="form-control listItem__input"  placeholder="the price of the item">
+                        </div>
+                    </div>
+                
+                
+                
+                
+                
+            </div>
+        </div>
+            <div class="modal-footer listItem__footer">
+            <button type="button" class="listItem__close" data-bs-dismiss="modal">close</button>
+            <button class="listItem__submit" type="submit" id="addListingButton">list item</button>
+        </div>
+        </div>
+    </div>
+
+      <!-- END OF LIST ITEM MODAL -->
+
+      
+
+            <!-- footer starts here -->
+            <footer class="footer">
+                <div class="footer__left">
+                    <div class="footer__left__contents">
+                        <img class="footer__left__contents-logo" src="./img/prelovedlogos_plcolor.png" alt="">
+                        <h5 class="footer__left__contents-copyright">&copy;2022 Zenith</h5>
+                    </div>    
+                </div>
         
     <!-- dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
