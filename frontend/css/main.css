@@ -908,15 +908,15 @@
   display: flex;
   align-items: flex-end;
   height: 85vh;
-  width: 30vw;
-  transform: translateX(-30vw);
+  width: 50rem;
+  transform: translateX(-50rem);
   z-index: 10;
   transition-duration: 0.5s;
 }
 
 .categories {
   height: 100%;
-  width: 30vw;
+  width: 50rem;
   background: #0058D2;
   display: flex;
   flex-direction: column;
@@ -932,8 +932,14 @@
   font-size: 4.8rem;
   color: #FFCB2F;
 }
+.categories-body {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
 .categories-menu {
   display: flex;
+  margin-right: 2rem;
 }
 .categories-menu__ul {
   list-style: none;
@@ -941,11 +947,44 @@
   color: #FFCB2F;
   padding: 4rem 0 0 0;
 }
+.categories-menu__ul--right {
+  position: absolute;
+  display: none;
+}
+.categories-menu__ul--bottoms {
+  transform: translateY(6rem);
+}
+.categories-menu__ul--hats {
+  transform: translateY(12rem);
+}
+.categories-menu__ul--shoes {
+  transform: translateY(18rem);
+}
+.categories-menu__ul--dresses {
+  transform: translateY(24rem);
+}
+.categories-menu__ul--accessories {
+  transform: translateY(30rem);
+}
 .categories-menu__li {
+  width: 15rem;
   border: 3px #FFCB2F solid;
   padding: 1rem;
   margin-bottom: 1rem;
   text-align: center;
+}
+.categories-menu__li:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.categories-menu--right {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-active {
+  background: #FFCB2F;
+  color: #0058D2;
 }
 
 .contact {
@@ -1342,7 +1381,6 @@ textarea::placeholder, textarea:focus, textarea::after {
 .listItem__close:hover {
   cursor: pointer;
 }
-
 .login__title {
   font-family: "Libre Franklin", sans-serif;
   font-size: 4rem;
