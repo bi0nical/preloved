@@ -25,7 +25,8 @@ $(document).ready(function(){
         console.log(configData.SERVER_URL,configData.SERVER_PORT );
         url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
           console.log(url);
-          cardLoad(url);
+          // cardLoad(url);
+          appendListings(url);
       },
       error:function(error){
         console.log(error);
@@ -191,6 +192,126 @@ modalAddItem()
 // =====================================
 // LISTING FUNCTIONS STARTS HERE
 // =====================================
+
+// BELOW FUNCTION IS APPENDING CARDS TO THE SHOP PAGE
+function appendListings(url){
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      console.log(listingsFromDB)
+      let i;
+      document.getElementById('clothingCardGrid').innerHTML = "";
+      for(i = 0; i < listingsFromDB.length; i++){
+        let price = listingsFromDB[i].price.toFixed(2);
+        document.getElementById('clothingCardGrid').innerHTML +=
+        `
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
+          <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
+              
+          </div>
+          <div class="clothingCard__details">
+              <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
+              <p class="clothingCard__price">$${price}</p>
+              <div class="clothingCard__tags">
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+              </div>
+          </div>
+        </div>
+        `
+
+        document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
+          clothingItem.addEventListener('click', function(e) {
+            console.log(url);
+              console.log(e.target.parentNode.id);
+              let id = e.target.parentNode.id;
+              
+              $.ajax({
+                    url: `http://${url}/allListingFromDB/${id}`,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success:function(singleListing){
+                      console.log(singleListing);
+                      let price = singleListing.price.toFixed(2);
+                      $('#clothingModal').empty().append(
+
+                        `
+                        <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
+
+                        </div>
+                        <div class="clothingItemModal__right">
+                            <div class="clothingItemModal__closeTop">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                          
+                            <div class="clothingItemModal__mainDetails">
+                              <h1 class="clothingItemModal__name">${singleListing.name}</h1>
+                              <h2 class="clothingItemModal__price">${price}</h2>
+                              <h6 class="clothingItemModal__location">${singleListing.location}</h6>
+                            </div>
+
+                            <div class="clothingItemModal__divider"></div>
+                            
+                            <div class="clothingItemModal__descContainer">
+                              <p class="clothingItemModal__desc">${singleListing.desc}</p>
+                            </div>
+                            <div class="clothingItemModal__divider">
+
+                            </div>
+                            <div class="clothingItemModal__details">
+                              <div class="clothingItemModal__details1">
+                                  <p class="clothingItemModal__sizeTitle">Size:</p>
+                                  <p class="clothingItemModal__size">${singleListing.size1}</p>
+                              </div>
+                              <div class="clothingItemModal__details2">
+                                  <p class="clothingItemModal__brandTitle">Brand:</p>
+                                  <p class="clothingItemModal__brand">${singleListing.brand}</p>
+                              </div>
+                              <div class="clothingItemModal__details3">
+                                  <p class="clothingItemModal__colorTitle">Colour:</p>
+                                  <p class="clothingItemModal__color">${singleListing.color}</p>
+                              </div>
+                              <div class="clothingItemModal__details4">
+                                  <p class="clothingItemModal__madeinTitle">Made In:</p>
+                                  <p class="clothingItemModal__madein">USA</p>
+                              </div>
+                            </div>
+                            <div class="clothingItemModal__divider">
+                                
+                          </div>
+                            <div class="clothingItemModal__user">
+                              <div class="clothingItemModal__profilePic">
+
+                              </div>
+                              <h4 class="clothingItemModal__username">user1234</h4>
+                            </div>
+                            <div class="clothingItemModal__divider">
+                                
+                          </div>
+                            <div class="clothingItemModal__btns">
+                              <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
+                              <button class="clothingItemModal__addToCard">add to cart</button>
+                            </div>
+                        </div>
+
+                        `
+                        
+                       
+                        
+                        );
+                      
+                    }
+                  })
+          });
+        })
+      }
+    }
+  })
+}
+
+// CLOTHING ITEM MODAL FUNCTION
 
 
 //view all listings start here

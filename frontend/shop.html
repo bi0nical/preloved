@@ -25,23 +25,24 @@
 
     <nav class="nav">
         <div class="nav__logoContainer">
-            <a href="index.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor.png" alt=""></a>
+            <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
+            <div class="nav__searchContainer">
+                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+                <button class="nav__searchBtn">search</button>
+            </div>
             
         </div>
         <div class="nav__items">
             <ul class="nav__ul">
                 <li class="nav__li">
-                    <div class="nav__searchContainer">
-                        <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                        <button class="nav__searchBtn">search</button>
-                    </div>
+                    
                 </li>
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
                 <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
                 <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
                 <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
                 <li class="nav__li"><button class="nav__logIn">log in</button></li>
-                <li class="nav__li"><button class="nav__signUp">sign up</button></li>
+                <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
             </ul>
         </div>
     </nav>
@@ -118,11 +119,8 @@
 
 
                 <div class="shop-tools">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
-                        Clothing item modal
-                      </button>
 
-                <button class="shop-tools__list-btn">list item +</button>
+                    <button data-bs-toggle="modal" data-bs-target="#listItemModal" class="account__listingsAddBtn">list item +</button>
 
                 <div class="flex-center">
                     <p class="shop-tools__p">sort by:</p>
@@ -135,7 +133,7 @@
 
                 </div>
 
-                <div class="clothingCard__container">
+                <div id="clothingCardGrid" class="clothingCard__container">
                     <div class="clothingCard">
                         <div class="clothingCard__imgContainer">
                             
@@ -269,64 +267,8 @@
           <div class="modal fade" id="clothingItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
               <div class="modal-content clothingItemModal__content">
-                <div class="clothingItemModal">
-                  <div class="clothingItemModal__left">
-
-                  </div>
-                  <div class="clothingItemModal__right">
-                      <div class="clothingItemModal__closeTop">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                    
-                      <div class="clothingItemModal__mainDetails">
-                        <h1 class="clothingItemModal__name">Vintage Clothing Item</h1>
-                        <h2 class="clothingItemModal__price">$29.99</h2>
-                        <h6 class="clothingItemModal__location">Wellington</h6>
-                      </div>
-                      <div class="clothingItemModal__divider">
-                          
-                    </div>
-                      <div class="clothingItemModal__descContainer">
-                        <p class="clothingItemModal__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim, cursus ac nibh amet nullam risus velit. Duis dignissim mi amet facilisi tempus. Nisl non morbi facilisis sodales mus etiam morbi felis platea.</p>
-                      </div>
-                      <div class="clothingItemModal__divider">
-
-                      </div>
-                      <div class="clothingItemModal__details">
-                        <div class="clothingItemModal__details1">
-                            <p class="clothingItemModal__sizeTitle">Size:</p>
-                            <p class="clothingItemModal__size">Large</p>
-                        </div>
-                        <div class="clothingItemModal__details2">
-                            <p class="clothingItemModal__brandTitle">Brand:</p>
-                            <p class="clothingItemModal__brand">Gucci</p>
-                        </div>
-                        <div class="clothingItemModal__details3">
-                            <p class="clothingItemModal__genderTitle">Gender:</p>
-                            <p class="clothingItemModal__gender">Unisex</p>
-                        </div>
-                        <div class="clothingItemModal__details4">
-                            <p class="clothingItemModal__madeinTitle">Made In:</p>
-                            <p class="clothingItemModal__madein">USA</p>
-                        </div>
-                      </div>
-                      <div class="clothingItemModal__divider">
-                          
-                    </div>
-                      <div class="clothingItemModal__user">
-                        <div class="clothingItemModal__profilePic">
-
-                        </div>
-                        <h4 class="clothingItemModal__username">user1234</h4>
-                      </div>
-                      <div class="clothingItemModal__divider">
-                          
-                    </div>
-                      <div class="clothingItemModal__btns">
-                        <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
-                        <button class="clothingItemModal__addToCard">add to cart</button>
-                      </div>
-                  </div>
+                <div id="clothingModal" class="clothingItemModal">
+                 
                 </div>
               </div>
             </div>
@@ -334,7 +276,89 @@
 
           <!-- CLOTHING ITEM MODAL END -->
 
-    
+          <!-- LIST ITEM MODAL -->
+
+          <!-- LIST ITEM MODAL -->
+
+    <div class="modal fade" id="listItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body listItemBody">
+                <div class="modal-title listItem__title">List an item</div>
+                <div class="listItem">
+
+                    <!-- LEFT GRID -->
+                    <div class="listItem__left">
+                        <div class="form-group listItem__left1">
+                            <label class="listItem__label"  for="nameInput">Name</label>
+                            <input id="nameInput" type="text" class="form-control listItem__input"  placeholder="Name of clothing item...">
+                        </div>
+                        <div class="form-group listItem__left2">
+                            <label class="listItem__label" for="descInput">Description</label>
+                            <textarea name="descInput" id="descInput" class="form-control listItem__description listItem__input" cols="30" rows="10" placeholder="Tell people a bit about the item..."></textarea>
+                        </div>
+                        <div class="form-group listItem__left3">
+                            <label  class="listItem__label" for="imgOneInput">Image 1 url</label>
+                            <input id="imgOneInput" type="text" class="form-control listItem__input"  placeholder="place url here">
+                        </div>
+                    </div>
+
+
+                    <!-- RIGHT GRID -->
+                    <div class="listItem__right">
+                        <div class="form-group">
+                            <label  class="listItem__label" for="typeInput">Type</label>
+                            <input id="typeInput" type="text" class="form-control listItem__input" placeholder="type in type">
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="brandInput">Brand</label>
+                            <input id="brandInput" type="text" class="form-control listItem__input" placeholder="leave empty if unbranded">
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="genderInput">Gender style</label>
+                            <select id="genderInput" class="form-control listItem__input">
+                              <option>Male</option>
+                              <option>Female</option>
+                              <option>Unisex</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="sizeLetterInput">Size Letter</label>
+                            <select id="sizeLetterInput" class="form-control listItem__input" >
+                              <option>XS</option>
+                              <option>S</option>
+                              <option>M</option>
+                              <option>L</option>
+                              <option>XL</option>
+                              <option>XXL</option>
+                              <option>XXXL</option>
+                              <option>N/A</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label  class="listItem__label" for="priceInput">Price</label>
+                            <input id="priceInput" type="text" class="form-control listItem__input"  placeholder="the price of the item">
+                        </div>
+                    </div>
+                
+                
+                
+                
+                
+            </div>
+        </div>
+            <div class="modal-footer listItem__footer">
+            <button type="button" class="listItem__close" data-bs-dismiss="modal">close</button>
+            <button class="listItem__submit" type="submit" id="addListingButton">list item</button>
+        </div>
+        </div>
+    </div>
+
+          <!-- LIST ITEM MODAL END -->
+
     <!-- dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

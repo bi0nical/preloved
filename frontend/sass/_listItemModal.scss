@@ -1,6 +1,9 @@
 @import 'var';
 @import 'mixins';
 
+.listItemBody{
+    padding: 0rem 4rem 0rem 4rem;
+}
 
 .listItem{
     display: grid;
@@ -53,6 +56,9 @@
         grid-template-rows: repeat(5, 1fr);
     }
 
+    &__footer{
+        padding: 0rem 5rem 4rem 5rem;
+    }
     &__submit{
         @include btn;
         background: $yellow;

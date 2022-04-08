@@ -63,12 +63,14 @@
         display: flex;
         align-items: center;
     }
-    &__sizeTitle, &__brandTitle, &__genderTitle, &__madeinTitle{
+    &__sizeTitle, &__brandTitle, &__colorTitle, &__madeinTitle{
+        
         font-family: $primaryFont;
         font-weight: 900;
         font-size: 1.7rem;
     }
-    &__size, &__brand, &__gender, &__madein{
+    &__size, &__brand, &__color, &__madein{
+        text-transform: capitalize;
         font-family: $primaryFont;
         font-weight: 200;
         font-size: 1.7rem;

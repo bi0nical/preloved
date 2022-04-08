@@ -100,6 +100,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__dresses {
   background: url("../img/dresses.png") no-repeat;
@@ -111,6 +112,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shoes {
   background: url("../img/shoes.png") no-repeat;
@@ -122,6 +124,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll {
   margin: 0 auto;
@@ -138,6 +141,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll:hover {
   background: #FFCB2F;
@@ -158,6 +162,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__hats {
   background: url("../img/hat.png") no-repeat;
@@ -169,6 +174,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__jeans {
   background: url("../img/jeans.png") no-repeat;
@@ -180,6 +186,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__clothingSection:hover {
   background: #FFCB2F;
@@ -382,6 +389,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__dresses {
   background: url("../img/dresses.png") no-repeat;
@@ -393,6 +401,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shoes {
   background: url("../img/shoes.png") no-repeat;
@@ -404,6 +413,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll {
   margin: 0 auto;
@@ -420,6 +430,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__shopAll:hover {
   background: #FFCB2F;
@@ -440,6 +451,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__hats {
   background: url("../img/hat.png") no-repeat;
@@ -451,6 +463,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__jeans {
   background: url("../img/jeans.png") no-repeat;
@@ -462,6 +475,7 @@
   color: white;
   text-transform: uppercase;
   transition: 0.2s;
+  text-decoration: none;
 }
 .landing__clothingSection:hover {
   background: #FFCB2F;
@@ -497,10 +511,16 @@
 .nav__logoContainer {
   height: 100%;
   padding: 1rem;
+  display: flex;
 }
 .nav__logo {
   height: 100%;
   padding: 1rem;
+}
+.nav__searchContainer {
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
 }
 .nav__search {
   background: none;
@@ -508,6 +528,8 @@
   border: none;
   padding: 1rem;
   caret-color: #0058D2;
+  border-bottom: 4px solid #0058D2;
+  min-width: 300PX;
 }
 .nav__search::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -543,9 +565,6 @@
   transform: scale(1);
   transition: 0.1s;
 }
-.nav__searchContainer {
-  border-bottom: 4px solid #0058D2;
-}
 .nav__ul {
   display: flex;
   align-items: center;
@@ -559,12 +578,14 @@
   color: #0058D2;
   padding: 1rem;
   margin: 0rem;
+  text-decoration: none;
 }
 .nav__li:hover {
   font-weight: 800;
 }
 .nav__link {
   color: #0058D2;
+  text-decoration: none;
 }
 .nav__link::before {
   display: block;
@@ -1250,22 +1271,6 @@ textarea::placeholder, textarea:focus, textarea::after {
   color: #0058D2;
 }
 
-.modal-body {
-  display: flex;
-}
-
-.modal-left {
-  height: 100%;
-  width: 50%;
-  margin: 3rem 2.5rem 3rem 5rem;
-}
-
-.modal-right {
-  height: 100%;
-  width: 50%;
-  margin: 3rem 5rem 3rem 2.5rem;
-}
-
 .modal-header, .modal-footer {
   outline: none;
   border: none;
@@ -1278,6 +1283,10 @@ textarea::placeholder, textarea:focus, textarea::after {
 
 .btn {
   font-size: 1.7rem;
+}
+
+.listItemBody {
+  padding: 0rem 4rem 0rem 4rem;
 }
 
 .listItem {
@@ -1329,6 +1338,9 @@ textarea::placeholder, textarea:focus, textarea::after {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
 }
+.listItem__footer {
+  padding: 0rem 5rem 4rem 5rem;
+}
 .listItem__submit {
   border: 4px solid black;
   padding: 0.7rem 1rem 0.7rem 1rem;
@@ -1350,6 +1362,7 @@ textarea::placeholder, textarea:focus, textarea::after {
 .listItem__close:hover {
   cursor: pointer;
 }
+
 .login__title {
   font-family: "Libre Franklin", sans-serif;
   font-size: 4rem;
@@ -1486,12 +1499,13 @@ textarea::placeholder, textarea:focus, textarea::after {
   display: flex;
   align-items: center;
 }
-.clothingItemModal__sizeTitle, .clothingItemModal__brandTitle, .clothingItemModal__genderTitle, .clothingItemModal__madeinTitle {
+.clothingItemModal__sizeTitle, .clothingItemModal__brandTitle, .clothingItemModal__colorTitle, .clothingItemModal__madeinTitle {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 900;
   font-size: 1.7rem;
 }
-.clothingItemModal__size, .clothingItemModal__brand, .clothingItemModal__gender, .clothingItemModal__madein {
+.clothingItemModal__size, .clothingItemModal__brand, .clothingItemModal__color, .clothingItemModal__madein {
+  text-transform: capitalize;
   font-family: "Libre Franklin", sans-serif;
   font-weight: 200;
   font-size: 1.7rem;
@@ -1552,11 +1566,15 @@ textarea::placeholder, textarea:focus, textarea::after {
 
 .clothingCard__container {
   padding: 2rem;
+  height: auto;
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
 }
 
+.clothingCard {
+  cursor: pointer;
+}
 .clothingCard__imgContainer {
   height: 300px;
   background: url(../img/jeans.png) no-repeat;
