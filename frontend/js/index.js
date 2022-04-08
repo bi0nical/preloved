@@ -69,6 +69,7 @@ function cardLoad(url) {
         <p>${listingsFromDB[i].color}</p></br>
         <p>${listingsFromDB[i].brand}</p></br>
         <p>${listingsFromDB[i].type}</p></br>
+        <p>${listingsFromDB[i].user_name}</p><br>
         
         </div>
         <div class="bodybottom">
@@ -127,9 +128,142 @@ $('#editListingButton').click(function(){
 }
 //view all listings end here
 // ${listingsFromDB[i]._id}
+
+
+
+
+// ==================================
+// LISTING FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//USER FUNCTIONS START HERE
+// =====================================
+
+// User Registration START
+$('#registerButton').click(function(){
+  event.preventDefault()//this prevents code breaking when no data is found
+  
+  let username = $('#registerName').val();
+  let email = $('#registerEmail').val();
+  let password = $('#registerPass1').val();
+  let password2 = $('#registerPass2').val();
+  let profile_img = $('#registerImage').val();
+  // let location = $('#').val();
+
+
+  console.log(username, email, password, password2, profile_img);
+
+  if (username == '' || email == '' || password == ''){
+    alert('Please enter Username, Email and Password');
+
+  }else {
+    if (password === password2){
+    $.ajax({
+      url: `http://${url}/registerUser`,
+      type : 'POST',
+      data : {
+        username: username,
+        email: email,
+        password: password,
+       
+      },
+      success:function(user){
+        console.log(user); //remove when development is finished
+        if (user !== 'username taken already. Please try another name'){
+        
+            alert('Thank you for registering');
+            window.location.href = "shop.html";
+
+
+
+        }else {
+          alert('Username taken already. Please try another name');
+          $('#').val(''); //username tag
+          $('#').val(''); // email tag
+          $('#').val(''); // password tag
+          $('#').val(''); // profile image tag
+          // $('#').val(''); // location tag
+        }
+
+      }, //success
+      error:function(){
+        console.log('error: cannot call api');
+      }//error
+    })//ajax post
+  }else {
+    alert('You need to make your passwords match');
+  }//password if
+  }//if
+
+})//submit click
+
+// USER REGISTRATION END
+
+//Login User
+$('#loginButton').click(function(){
+event.preventDefault();
+let username = $('#loginName').val();
+let password = $('#loginPass').val();
+
+
+
+console.log(username, password);
+
+
+
+if (username == '' || password == ''){
+  alert('Please enter all details');
+} else {
+  $.ajax({
+    url: `http://${url}/loginUser`,
+    type: 'POST',
+    data :{
+      username : username,
+      password : password
+    },
+    success: function(user){
+      console.log(user);
+
+
+
+      if (user == 'user not found. Please register'){
+        alert('User not found. Please Register');
+      } else if (user == 'not authorized'){
+        alert('Please try with correct details');
+        $('#username_log').val('');
+        $('#password_pass').val('');
+      } else {
+        sessionStorage.setItem('userID', user['_id']);
+        sessionStorage.setItem('userName', user['username']);
+        sessionStorage.setItem('userEmail', user['email']);
+        console.log(sessionStorage);
+        alert('Sucessful login');
+      }// end of ifs
+    },//success
+    error:function(){
+      console.log('error: cannot call api');
+      alert('Unable to login - unable to call api');
+    }//error
+  })//end of ajax
+} //end of else
+});//end of login click function
+
+$('#logoutButton').click(function(){
+sessionStorage.clear();
+console.log(sessionStorage);
+alert('Sucessful logout');
+
+})
+
+// =====================================
+//USER FUNCTIONS END HERE
+// =====================================
 //add listing start
     $('#addListingButton').click(function(){
         event.preventDefault();
+        console.log(sessionStorage);
+         
         let name = $('#nameInput').val();
         let desc = $('#descInput').val();
         let price = $('#priceInput').val();
@@ -142,8 +276,10 @@ $('#editListingButton').click(function(){
         let brand = $('#brandInput').val();
         let color = $('#colourInput').val();
         let gender = $('#genderInput').val();
+        let user_id = sessionStorage.getItem('userID');
+        let user_name = sessionStorage.getItem('userName');
         
-        console.log(name,price,desc,img1,img2,img3,size1,size2,type,brand,color,gender);
+        console.log(user_id, user_name);
         if (name == '' || price == '' ||  img1 == '' || size2 == '' || type == ''|| gender == ''){
           alert('Please enter relevant details');
         } else {
@@ -162,12 +298,14 @@ $('#editListingButton').click(function(){
               type: type,
               brand: brand,
               color: color,
-              gender: gender
+              gender: gender,
+              user_id: user_id,
+              user_name: user_name
             },
             success : function(listing){
               console.log(listing);
               alert ('listing added');
-              window.location.reload();
+              // window.location.reload();
             },
             error : function(){
               console.log('error: cannot call api');
@@ -248,134 +386,6 @@ let name = $('#nameInputEdit').val();
 
 
 
-
-
-// ==================================
-// LISTING FUNCTIONS END HERE
-// =====================================
-
-// =====================================
-//USER FUNCTIONS START HERE
-// =====================================
-
-// User Registration START
-$('#registerButton').click(function(){
-    event.preventDefault()//this prevents code breaking when no data is found
-    
-    let username = $('#registerName').val();
-    let email = $('#registerEmail').val();
-    let password = $('#registerPass1').val();
-    let password2 = $('#registerPass2').val();
-    let profile_img = $('#registerImage').val();
-    // let location = $('#').val();
-
-
-    console.log(username, email, password, password2, profile_img);
-  
-    if (username == '' || email == '' || password == ''){
-      alert('Please enter Username, Email and Password');
-  
-    }else {
-      if (password === password2){
-      $.ajax({
-        url: `http://${url}/registerUser`,
-        type : 'POST',
-        data : {
-          username: username,
-          email: email,
-          password: password,
-         
-        },
-        success:function(user){
-          console.log(user); //remove when development is finished
-          if (user !== 'username taken already. Please try another name'){
-          
-              alert('Thank you for registering');
-              window.location.href = "shop.html";
-
-
-  
-          }else {
-            alert('Username taken already. Please try another name');
-            $('#').val(''); //username tag
-            $('#').val(''); // email tag
-            $('#').val(''); // password tag
-            $('#').val(''); // profile image tag
-            // $('#').val(''); // location tag
-          }
-  
-        }, //success
-        error:function(){
-          console.log('error: cannot call api');
-        }//error
-      })//ajax post
-    }else {
-      alert('You need to make your passwords match');
-    }//password if
-    }//if
-
-  })//submit click
-
-// USER REGISTRATION END
-
-//Login User
-$('#loginButton').click(function(){
-  event.preventDefault();
-  let username = $('#loginName').val();
-  let password = $('#loginPass').val();
-
- 
-
-  console.log(username, password);
-
- 
-
-  if (username == '' || password == ''){
-    alert('Please enter all details');
-  } else {
-    $.ajax({
-      url: `http://${url}/loginUser`,
-      type: 'POST',
-      data :{
-        username : username,
-        password : password
-      },
-      success: function(user){
-        console.log(user);
-
- 
-
-        if (user == 'user not found. Please register'){
-          alert('User not found. Please Register');
-        } else if (user == 'not authorized'){
-          alert('Please try with correct details');
-          $('#username_log').val('');
-          $('#password_pass').val('');
-        } else {
-          sessionStorage.setItem('userID', user['_id']);
-          sessionStorage.setItem('userName', user['username']);
-          sessionStorage.setItem('userEmail', user['email']);
-          console.log(sessionStorage);
-          alert('Sucessful login');
-        }// end of ifs
-      },//success
-      error:function(){
-        console.log('error: cannot call api');
-        alert('Unable to login - unable to call api');
-      }//error
-    })//end of ajax
-  } //end of else
-});//end of login click function
-
-$('#logoutButton').click(function(){
-  sessionStorage.clear();
-  console.log(sessionStorage);
-  alert('Sucessful logout');
-
-})
-// =====================================
-//USER FUNCTIONS END HERE
-// =====================================
 
   })
 

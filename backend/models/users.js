@@ -6,18 +6,18 @@ const userSchema = new mongoose.Schema({
   password: String,
   profile_img: String,
   email: String,
-  // location: String,
-  // rating: Number,
   listings: 
   {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Listing'
-  },
-  comments:
-  {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Comment'
   }
+    // location: String,
+  // rating: Number,
+  // comments:
+  // {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Comment'
+  // }
   
 
 })

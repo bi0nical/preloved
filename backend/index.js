@@ -61,11 +61,12 @@ app.post('/addListing',(req,res)=>{
       color: req.body.color,      
       date: new Date(),
       gender: req.body.gender,
+      user_id: req.body.user_id,
+      user_name: req.body.user_name
       // style: req.body.style,
       // swap: req.body.swap,
       // location: req.body.location,
-      // tags: req.body.tags,
-      // user_id: req.body.user_id,
+      // tags: req.body.tags,      
       // comment_id: req.body.comment_id
 
     });
