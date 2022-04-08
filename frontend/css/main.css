@@ -865,6 +865,7 @@
   transform: translateX(-50rem);
   z-index: 10;
   transition-duration: 0.5s;
+  border: 4px solid black;
 }
 
 .categories {
@@ -930,9 +931,76 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+.categories-menu__li:active {
+  transform: scale(1);
+}
 .categories-menu--right {
   display: flex;
   flex-direction: column;
+}
+
+.filters {
+  position: absolute;
+  top: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: fit-content;
+  width: 25rem;
+  transform: translateX(-25rem);
+  z-index: 10;
+  transition-duration: 0.5s;
+  border: 4px solid black;
+  background: #FFCB2F;
+}
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem 1rem 2rem;
+  background: #0058D2;
+  color: #FFCB2F;
+  width: 100%;
+}
+.filters-header__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.filters-body {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem 2rem 1rem;
+}
+.filters-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.filters-list__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  font-weight: 800;
+  height: 4rem;
+}
+.filters-list__select {
+  width: 65%;
+  height: 4rem;
+  margin-bottom: 0.75rem;
+  background: #FFCB2F;
+  border: 4px solid black;
+}
+.filters-list__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+  width: 10rem;
+}
+.filters-list__submit:hover {
+  cursor: pointer;
 }
 
 .btn-active {
@@ -1350,6 +1418,7 @@ textarea::placeholder, textarea:focus, textarea::after {
 .listItem__close:hover {
   cursor: pointer;
 }
+
 .login__title {
   font-family: "Libre Franklin", sans-serif;
   font-size: 4rem;
@@ -1423,7 +1492,6 @@ textarea::placeholder, textarea:focus, textarea::after {
   transform: scale(1);
   transition: 0.1s;
 }
-
 .clothingItemModal {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1592,7 +1660,6 @@ textarea::placeholder, textarea:focus, textarea::after {
   border-radius: 20px;
   text-transform: uppercase;
 }
-
 * {
   margin: 0;
   padding: 0;

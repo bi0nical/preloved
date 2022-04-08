@@ -412,13 +412,26 @@ let name = $('#nameInputEdit').val();
 
 // slide in categories button
 $("#slideInLeftNavBtn").click(function (){
-  console.log("slide in left clicked");
+  $("#slideInLeftNavBtn").css("transform", "translateX(-100%)")
   $(".categories-container").css("transform", "translateX(0vw)");
 })
 
 // slide out categories button
 $("#closeLeftNav").click(function (){
   $(".categories-container").css("transform", "translateX(-50rem)");
+  $("#slideInLeftNavBtn").css("transform", "translateX(0%)")
+})
+
+// slide in filters button
+$("#slideInFiltersBtn").click(function (){
+  $("#slideInFiltersBtn").css("transform", "translateX(-100%)")
+  $(".filters").css("transform", "translateX(0vw)");
+})
+
+// slide out filters button
+$("#closeFiltersBtn").click(function (){
+  $(".filters").css("transform", "translateX(-25rem)");
+  $("#slideInFiltersBtn").css("transform", "translateX(0vw)")
 })
 
 // categories menu buttons
