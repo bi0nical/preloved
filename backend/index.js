@@ -146,7 +146,8 @@ app.post('/registerUser',(req,res)=>{
         _id: new mongoose.Types.ObjectId,
         username: req.body.username,
         email : req.body.email,
-        location: req.body.location, 
+        profile_img: profile_img,
+        // location: req.body.location, 
         password : hash
       });
       //save to database and notify userResult
