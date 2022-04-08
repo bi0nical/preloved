@@ -319,6 +319,7 @@ $('#editListingButton').click(function(){
             success : function(listing){
               console.log(listing);
               alert ('listing added');
+              window.location.reload();
             },
             error : function(){
               console.log('error: cannot call api');
@@ -387,7 +388,7 @@ let name = $('#nameInputEdit').val();
       success: function(data){
         alert('updated listing');
 
-        // window.location.reload();
+        window.location.reload();
       }, //success
       error: function(){
         console.log('error: cannot update post');
@@ -540,54 +541,65 @@ $("#accessoriesCategoryBtn").click(function (){
 //USER FUNCTIONS START HERE
 // =====================================
 
-// // User Registration START
-// $('#').click(function(){
-//     event.preventDefault()//this prevents code breaking when no data is found
+// User Registration START
+$('#registerButton').click(function(){
+    event.preventDefault()//this prevents code breaking when no data is found
     
-//     let username = $('#').val();
-//     let email = $('#').val();
-//     let password = $('#').val();
-//     let profile_img = $('#').val();
-//     let location = $('#').val();
+    let username = $('#registerName').val();
+    let email = $('#registerEmail').val();
+    let password = $('#registerPass1').val();
+    let password2 = $('#registerPass2').val();
+    let profile_img = $('#registerImage').val();
+    // let location = $('#').val();
 
 
-//     console.log(username, email, password, profile_img, location);
+    console.log(username, email, password, password2, profile_img);
   
-//     if (username == '' || email == '' || password == ''){
-//       alert('Please enter Username, Email and Password');
+    if (username == '' || email == '' || password == ''){
+      alert('Please enter Username, Email and Password');
   
-//     }else {
-//       $.ajax({
-//         url: `http://${url}/registerUser`,
-//         type : 'POST',
-//         data : {
-//           username :username,
-//           email :email,
-//           password:password
-//         },
-//         success:function(user){
-//           console.log(user); //remove when development is finished
-//           if (user !== 'username taken already. Please try another name'){
-//             alert('Thank you for registering. Please login');
-  
-//           }else {
-//             alert('Username taken already. Please try another name');
-//             $('#').val(''); //username tag
-//             $('#').val(''); // email tag
-//             $('#').val(''); // password tag
-//             $('#').val(''); // profile image tag
-//             $('#').val(''); // location tag
-//           } //else
-  
-//         }, //success
-//         error:function(){
-//           console.log('error: cannot call api');
-//         }//error
-//       })//ajax post
-//     }//if
-//   })//submit click
+    }else {
+      if (password === password2){
+      $.ajax({
+        url: `http://${url}/registerUser`,
+        type : 'POST',
+        data : {
+          username: username,
+          email: email,
+          password: password,
+         
+        },
+        success:function(user){
+          console.log(user); //remove when development is finished
+          if (user !== 'username taken already. Please try another name'){
+          
+              alert('Thank you for registering');
+              window.location.href = "shop.html";
 
-//USER REGISTRATION END
+
+  
+          }else {
+            alert('Username taken already. Please try another name');
+            $('#').val(''); //username tag
+            $('#').val(''); // email tag
+            $('#').val(''); // password tag
+            $('#').val(''); // profile image tag
+            // $('#').val(''); // location tag
+          }
+  
+        }, //success
+        error:function(){
+          console.log('error: cannot call api');
+        }//error
+      })//ajax post
+    }else {
+      alert('You need to make your passwords match');
+    }//password if
+    }//if
+
+  })//submit click
+
+// USER REGISTRATION END
 
 // =====================================
 //USER FUNCTIONS END HERE

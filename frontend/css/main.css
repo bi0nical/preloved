@@ -850,53 +850,6 @@
   padding-right: 2rem;
 }
 
-.card__container {
-  min-height: 85vh;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.card {
-  padding: 4rem 0rem 2rem 2rem;
-  width: 300px;
-  border: none;
-}
-.card__imgContainer {
-  height: 350px;
-  background: url(../img/jeans.png) no-repeat;
-  background-size: cover;
-  background-position: center;
-  border: 4px solid black;
-}
-.card__title {
-  font-family: "Libre Franklin", sans-serif;
-  font-size: 1.7rem;
-  font-weight: 400;
-  padding: 0.25rem;
-}
-.card__price {
-  font-family: "Libre Franklin", sans-serif;
-  font-size: 1.7rem;
-  font-weight: 900;
-  padding: 0.25rem 0.25rem 1.5rem 0.25rem;
-}
-.card__tags {
-  display: flex;
-}
-.card__tag {
-  margin-right: 0.25rem;
-  background-color: #FFCB2F;
-  width: max-content;
-  font-size: 1.3rem;
-  font-family: "Libre Franklin", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-  border: 1px solid black;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
@@ -1539,7 +1492,174 @@ textarea::placeholder, textarea:focus, textarea::after {
   transform: scale(1);
   transition: 0.1s;
 }
+.clothingItemModal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  flex: 1 1 auto;
+  padding: none !important;
+}
+.clothingItemModal__content {
+  min-height: 90vh;
+}
+.clothingItemModal__left {
+  grid-column: 1/3;
+  background: url(../img/jeans.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.clothingItemModal__right {
+  grid-column: 3/4;
+  padding: 1rem 1rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.clothingItemModal__divider {
+  height: 2px;
+  background: rgb(238, 238, 238);
+}
+.clothingItemModal__closeTop {
+  display: flex;
+  justify-content: flex-end;
+}
+.clothingItemModal__name {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+.clothingItemModal__price {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+.clothingItemModal__location {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+.clothingItemModal__mainDetails {
+  padding-bottom: 1rem;
+}
+.clothingItemModal__desc {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.clothingItemModal__descContainer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.clothingItemModal__details1, .clothingItemModal__details2, .clothingItemModal__details3, .clothingItemModal__details4 {
+  display: flex;
+  align-items: center;
+}
+.clothingItemModal__sizeTitle, .clothingItemModal__brandTitle, .clothingItemModal__genderTitle, .clothingItemModal__madeinTitle {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+.clothingItemModal__size, .clothingItemModal__brand, .clothingItemModal__gender, .clothingItemModal__madein {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-size: 1.7rem;
+  padding-left: 1rem;
+}
+.clothingItemModal__details {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.clothingItemModal__user {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.clothingItemModal__profilePic {
+  width: 50px;
+  height: 50px;
+  background: url(../img/jacket.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.clothingItemModal__username {
+  padding-left: 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+.clothingItemModal__btns {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.clothingItemModal__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+.clothingItemModal__close:hover {
+  cursor: pointer;
+}
+.clothingItemModal__addToCard {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+}
+.clothingItemModal__addToCard:hover {
+  cursor: pointer;
+}
 
+.clothingCard__container {
+  padding: 2rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.clothingCard__imgContainer {
+  height: 300px;
+  background: url(../img/jeans.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid black;
+}
+.clothingCard__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  padding: 0.25rem;
+}
+.clothingCard__price {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  padding: 0.25rem 0.25rem 0rem 0.25rem;
+}
+.clothingCard__tags {
+  display: flex;
+}
+.clothingCard__tag {
+  margin-right: 0.25rem;
+  background-color: #FFCB2F;
+  width: max-content;
+  font-size: 1.3rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  border: 1px solid black;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
 * {
   margin: 0;
   padding: 0;

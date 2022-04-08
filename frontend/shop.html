@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    
     <!-- local stylesheet -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -171,12 +172,15 @@
                 <div id="slideInFiltersBtn" class="shop-left__btn">filters</div>
             </div>
 
-            <button class="shop-tools__list-btn" id="addItem" data-bs-toggle="modal" data-bs-target="#exampleModal">list item +</button>
+            <!-- <button class="shop-tools__list-btn" id="addItem" data-bs-toggle="modal" data-bs-target="#exampleModal">list item +</button> -->
 
             <div class="shop-inner">
 
 
                 <div class="shop-tools">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
+                        Clothing item modal
+                      </button>
 
                 <button class="shop-tools__list-btn">list item +</button>
 
@@ -191,76 +195,64 @@
 
                 </div>
 
-                <div class="card__container">
-                    <div class="card">
-                        <div class="card__imgContainer">
+                <div class="clothingCard__container">
+                    <div class="clothingCard">
+                        <div class="clothingCard__imgContainer">
                             
                         </div>
-                        <div class="card__details">
-                            <h2 class="card__title">Vintage clothing item</h2>
-                            <p class="card__price">$29.99</p>
-                            <div class="card__tags">
-                                <p class="card__tag">large</p>
-                                <p class="card__tag">gucci</p>
+                        <div class="clothingCard__details">
+                            <h2 class="clothingCard__title">Vintage clothing item</h2>
+                            <p class="clothingCard__price">$29.99</p>
+                            <div class="clothingCard__tags">
+                                <p class="clothingCard__tag">large</p>
+                                <p class="clothingCard__tag">gucci</p>
                             </div>
                         </div>
                     </div>
         
-                    <div class="card">
-                        <div class="card__imgContainer">
+                    <div class="clothingCard">
+                        <div class="clothingCard__imgContainer">
                             
                         </div>
-                        <div class="card__details">
-                            <h2 class="card__title">Vintage clothing item</h2>
-                            <p class="card__price">$29.99</p>
-                            <div class="card__tags">
-                                <p class="card__tag">large</p>
-                                <p class="card__tag">gucci</p>
+                        <div class="clothingCard__details">
+                            <h2 class="clothingCard__title">Vintage clothing item</h2>
+                            <p class="clothingCard__price">$29.99</p>
+                            <div class="clothingCard__tags">
+                                <p class="clothingCard__tag">large</p>
+                                <p class="clothingCard__tag">gucci</p>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="card">
-                        <div class="card__imgContainer">
+
+                    <div class="clothingCard">
+                        <div class="clothingCard__imgContainer">
                             
                         </div>
-                        <div class="card__details">
-                            <h2 class="card__title">Vintage clothing item</h2>
-                            <p class="card__price">$29.99</p>
-                            <div class="card__tags">
-                                <p class="card__tag">large</p>
-                                <p class="card__tag">gucci</p>
+                        <div class="clothingCard__details">
+                            <h2 class="clothingCard__title">Vintage clothing item</h2>
+                            <p class="clothingCard__price">$29.99</p>
+                            <div class="clothingCard__tags">
+                                <p class="clothingCard__tag">large</p>
+                                <p class="clothingCard__tag">gucci</p>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="card">
-                        <div class="card__imgContainer">
+
+                    <div class="clothingCard">
+                        <div class="clothingCard__imgContainer">
                             
                         </div>
-                        <div class="card__details">
-                            <h2 class="card__title">Vintage clothing item</h2>
-                            <p class="card__price">$29.99</p>
-                            <div class="card__tags">
-                                <p class="card__tag">large</p>
-                                <p class="card__tag">gucci</p>
+                        <div class="clothingCard__details">
+                            <h2 class="clothingCard__title">Vintage clothing item</h2>
+                            <p class="clothingCard__price">$29.99</p>
+                            <div class="clothingCard__tags">
+                                <p class="clothingCard__tag">large</p>
+                                <p class="clothingCard__tag">gucci</p>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="card">
-                        <div class="card__imgContainer">
-                            
-                        </div>
-                        <div class="card__details">
-                            <h2 class="card__title">Vintage clothing item</h2>
-                            <p class="card__price">$29.99</p>
-                            <div class="card__tags">
-                                <p class="card__tag">large</p>
-                                <p class="card__tag">gucci</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    
             </div>
 
             </div>
@@ -331,6 +323,76 @@
           </div>
 
           <!-- add a listing modal ends -->
+
+          <!-- CLOTHING ITEM MODAL START -->
+
+          <div class="modal fade" id="clothingItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content clothingItemModal__content">
+                <div class="clothingItemModal">
+                  <div class="clothingItemModal__left">
+
+                  </div>
+                  <div class="clothingItemModal__right">
+                      <div class="clothingItemModal__closeTop">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                    
+                      <div class="clothingItemModal__mainDetails">
+                        <h1 class="clothingItemModal__name">Vintage Clothing Item</h1>
+                        <h2 class="clothingItemModal__price">$29.99</h2>
+                        <h6 class="clothingItemModal__location">Wellington</h6>
+                      </div>
+                      <div class="clothingItemModal__divider">
+                          
+                    </div>
+                      <div class="clothingItemModal__descContainer">
+                        <p class="clothingItemModal__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim, cursus ac nibh amet nullam risus velit. Duis dignissim mi amet facilisi tempus. Nisl non morbi facilisis sodales mus etiam morbi felis platea.</p>
+                      </div>
+                      <div class="clothingItemModal__divider">
+
+                      </div>
+                      <div class="clothingItemModal__details">
+                        <div class="clothingItemModal__details1">
+                            <p class="clothingItemModal__sizeTitle">Size:</p>
+                            <p class="clothingItemModal__size">Large</p>
+                        </div>
+                        <div class="clothingItemModal__details2">
+                            <p class="clothingItemModal__brandTitle">Brand:</p>
+                            <p class="clothingItemModal__brand">Gucci</p>
+                        </div>
+                        <div class="clothingItemModal__details3">
+                            <p class="clothingItemModal__genderTitle">Gender:</p>
+                            <p class="clothingItemModal__gender">Unisex</p>
+                        </div>
+                        <div class="clothingItemModal__details4">
+                            <p class="clothingItemModal__madeinTitle">Made In:</p>
+                            <p class="clothingItemModal__madein">USA</p>
+                        </div>
+                      </div>
+                      <div class="clothingItemModal__divider">
+                          
+                    </div>
+                      <div class="clothingItemModal__user">
+                        <div class="clothingItemModal__profilePic">
+
+                        </div>
+                        <h4 class="clothingItemModal__username">user1234</h4>
+                      </div>
+                      <div class="clothingItemModal__divider">
+                          
+                    </div>
+                      <div class="clothingItemModal__btns">
+                        <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
+                        <button class="clothingItemModal__addToCard">add to cart</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CLOTHING ITEM MODAL END -->
 
     
     <!-- dependencies -->
