@@ -1492,6 +1492,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   transform: scale(1);
   transition: 0.1s;
 }
+
 .clothingItemModal {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1660,6 +1661,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   border-radius: 20px;
   text-transform: uppercase;
 }
+
 * {
   margin: 0;
   padding: 0;
