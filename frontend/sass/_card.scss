@@ -1,17 +1,17 @@
 @import 'var';
-@import 'mixins';.clothingCard__container{
+@import 'mixins';
+
+.clothingCard__container{
     padding: 2rem;
-    // min-height: 85vh;
+    height: auto;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
     // flex-flow: row wrap;
 }
 .clothingCard{
-
-    // padding: 4rem 0rem 2rem 2rem;
-    // width: 300px;
-    // border: none;
+    
+    cursor: pointer;
 
     &__imgContainer{
         height: 300px;

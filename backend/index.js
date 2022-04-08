@@ -134,6 +134,22 @@ app.patch('/updateListing/:id',(req,res)=>{
 
 //All listings view END
 
+// Get single listing for Modal
+app.get('/allListingFromDB/:id', (req, res) => {
+  const id= req.params.id;
+  Listing.findById(id, function (err, listing) {
+  if (err){
+    console.log(err);
+  }
+  else{
+    console.log("Result : ", listing);
+    res.send(listing);
+     }
+   });
+})
+// Get single listing for Modal END
+
+
 //Register User
 app.post('/registerUser',(req,res)=>{
   //checking if user is in the db already
