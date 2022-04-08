@@ -535,29 +535,35 @@ $('#registerButton').click(function(){
     let username = $('#registerName').val();
     let email = $('#registerEmail').val();
     let password = $('#registerPass1').val();
+    let password2 = $('#registerPass2').val();
     let profile_img = $('#registerImage').val();
     // let location = $('#').val();
 
 
-    console.log(username, email, password, profile_img);
+    console.log(username, email, password, password2, profile_img);
   
     if (username == '' || email == '' || password == ''){
       alert('Please enter Username, Email and Password');
   
     }else {
+      if (password === password2){
       $.ajax({
         url: `http://${url}/registerUser`,
         type : 'POST',
         data : {
           username: username,
           email: email,
-          password: password
+          password: password,
+         
         },
         success:function(user){
           console.log(user); //remove when development is finished
           if (user !== 'username taken already. Please try another name'){
-            alert('Thank you for registering. Please login');
-            window.location.href = "shop.html";
+          
+              alert('Thank you for registering');
+              window.location.href = "shop.html";
+
+
   
           }else {
             alert('Username taken already. Please try another name');
@@ -566,14 +572,18 @@ $('#registerButton').click(function(){
             $('#').val(''); // password tag
             $('#').val(''); // profile image tag
             // $('#').val(''); // location tag
-          } //else
+          }
   
         }, //success
         error:function(){
           console.log('error: cannot call api');
         }//error
       })//ajax post
+    }else {
+      alert('You need to make your passwords match');
+    }//password if
     }//if
+
   })//submit click
 
 // USER REGISTRATION END

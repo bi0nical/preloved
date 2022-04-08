@@ -146,7 +146,7 @@ app.post('/registerUser',(req,res)=>{
         _id: new mongoose.Types.ObjectId,
         username: req.body.username,
         email : req.body.email,
-        profile_img: profile_img,
+        profile_img: req.body.profile_img,
         // location: req.body.location, 
         password : hash
       });
