@@ -1311,11 +1311,6 @@ textarea::placeholder, textarea:focus, textarea::after {
   font-size: 1.7rem;
 }
 
-.modal-header, .modal-footer {
-  outline: none;
-  border: none;
-}
-
 .listItem {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1385,6 +1380,95 @@ textarea::placeholder, textarea:focus, textarea::after {
 }
 .listItem__close:hover {
   cursor: pointer;
+}
+.login__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  text-align: center;
+}
+.login__inputs {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+.login__username {
+  display: flex;
+  flex-direction: column;
+}
+.login__password {
+  display: flex;
+  flex-direction: column;
+}
+.login__signupPrompt {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.5rem;
+  color: black;
+}
+.login__signupPromptContainer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.login__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.login__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+  transition: 0.1s;
+}
+.login__submit:hover {
+  cursor: pointer;
+}
+.login__submit:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.login__submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.login__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  transition: 0.1s;
+}
+.login__close:hover {
+  cursor: pointer;
+}
+.login__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.login__close:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+.modal-body {
+  display: flex;
+}
+
+.modal-left {
+  height: 100%;
+  width: 50%;
+  margin: 3rem 2.5rem 3rem 5rem;
+}
+
+.modal-right {
+  height: 100%;
+  width: 50%;
+  margin: 3rem 5rem 3rem 2.5rem;
 }
 
 * {
