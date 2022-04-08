@@ -997,12 +997,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 25rem;
+  align-items: center;
 }
 .contact-left__h1 {
   font-family: "Libre Franklin", sans-serif;
   font-size: 6.5rem;
   padding-bottom: 3rem;
+  font-weight: 800;
 }
 .contact-right {
   width: 35%;
@@ -1052,6 +1053,14 @@
   transform: scale(1);
   transition: 0.1s;
 }
+.contact-ty {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 input::placeholder, input:focus {
   font-family: "Libre Franklin", sans-serif;
@@ -1061,6 +1070,56 @@ textarea::placeholder, textarea:focus, textarea::after {
   font-family: "Libre Franklin", sans-serif;
 }
 
+@media (max-width: 425px) {
+  .contact {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-left {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-left__h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .contact-right {
+    height: 25%;
+    width: 100%;
+  }
+  .contact-form {
+    width: 20rem;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  .contact {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-left {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-left__h1 {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .contact-right {
+    height: 25%;
+    width: 100%;
+  }
+  .contact-form {
+    width: 40rem;
+  }
+}
 .about {
   width: 100%;
 }
@@ -1297,6 +1356,22 @@ textarea::placeholder, textarea:focus, textarea::after {
   color: #0058D2;
 }
 
+.modal-body {
+  display: flex;
+}
+
+.modal-left {
+  height: 100%;
+  width: 50%;
+  margin: 3rem 2.5rem 3rem 5rem;
+}
+
+.modal-right {
+  height: 100%;
+  width: 50%;
+  margin: 3rem 5rem 3rem 2.5rem;
+}
+
 .modal-header, .modal-footer {
   outline: none;
   border: none;
@@ -1381,6 +1456,7 @@ textarea::placeholder, textarea:focus, textarea::after {
 .listItem__close:hover {
   cursor: pointer;
 }
+
 .login__title {
   font-family: "Libre Franklin", sans-serif;
   font-size: 4rem;
@@ -1453,22 +1529,6 @@ textarea::placeholder, textarea:focus, textarea::after {
 .login__close:active {
   transform: scale(1);
   transition: 0.1s;
-}
-
-.modal-body {
-  display: flex;
-}
-
-.modal-left {
-  height: 100%;
-  width: 50%;
-  margin: 3rem 2.5rem 3rem 5rem;
-}
-
-.modal-right {
-  height: 100%;
-  width: 50%;
-  margin: 3rem 5rem 3rem 2.5rem;
 }
 
 * {

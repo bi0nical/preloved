@@ -186,6 +186,30 @@ modalAddItem()
 // =====================================
 
 
+// =====================================
+// CONTACT SUBMIT STARTS HERE
+// =====================================
+
+function submitForm(){
+  $('#contactSubmit').click(function(){
+    console.log('click');
+    document.getElementById('contactLeft').innerHTML = "";
+
+    $("#contactLeft").append(
+      `
+      <h1 class="contact-ty">Thank you!<br> Your message has been recieved.</h1>
+      `
+    )
+  })
+};
+
+submitForm();
+
+// =====================================
+// CONTACT SUBMIT ENDS HERE
+// =====================================
+
+
 
 
 // =====================================
@@ -208,8 +232,6 @@ function cardLoad(url) {
         `
         <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="${listingsFromDB[i].img1}" alt="Card image cap">
-        <img class="card-img-top" src="${listingsFromDB[i].img2}" alt="Card image cap">
-        <img class="card-img-top" src="${listingsFromDB[i].img3}" alt="Card image cap">
         <div class="card-body">
         <div class="bodytop"><p>${listingsFromDB[i].name}</p><br />
         <p>${listingsFromDB[i].date}</p></br>
@@ -581,6 +603,9 @@ $('#registerButton').click(function(){
 // =====================================
 //USER FUNCTIONS END HERE
 // =====================================
+
+
+
 
   })
 
