@@ -18,16 +18,21 @@ const listingSchema = new mongoose.Schema({
   // style: String,
   date: Date,
   gender: String,
-  // location: String,
+  user_id: 
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  user_name: 
+  {
+    type: String,
+    ref: 'User'
+  }
+    // location: String,
   // tags: 
   // {
   //     String
   // },
-  // user_id: 
-  // {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'User'
-  // } ,
   // comment_id: 
   // {
   //   type: mongoose.Schema.Types.ObjectId,
