@@ -601,6 +601,61 @@ $('#registerButton').click(function(){
 
 // USER REGISTRATION END
 
+//Login User
+$('#loginButton').click(function(){
+  event.preventDefault();
+  let username = $('#loginName').val();
+  let password = $('#loginPass').val();
+
+ 
+
+  console.log(username, password);
+
+ 
+
+  if (username == '' || password == ''){
+    alert('Please enter all details');
+  } else {
+    $.ajax({
+      url: `http://${url}/loginUser`,
+      type: 'POST',
+      data :{
+        username : username,
+        password : password
+      },
+      success: function(user){
+        console.log(user);
+
+ 
+
+        if (user == 'user not found. Please register'){
+          alert('User not found. Please Register');
+        } else if (user == 'not authorized'){
+          alert('Please try with correct details');
+          $('#username_log').val('');
+          $('#password_pass').val('');
+        } else {
+          sessionStorage.setItem('userID', user['_id']);
+          sessionStorage.setItem('userName', user['username']);
+          sessionStorage.setItem('userEmail', user['email']);
+          console.log(sessionStorage);
+          alert('Sucessful login');
+        }// end of ifs
+      },//success
+      error:function(){
+        console.log('error: cannot call api');
+        alert('Unable to login - unable to call api');
+      }//error
+    })//end of ajax
+  } //end of else
+});//end of login click function
+
+$('#logoutButton').click(function(){
+  sessionStorage.clear();
+  console.log(sessionStorage);
+  alert('Sucessful logout');
+
+})
 // =====================================
 //USER FUNCTIONS END HERE
 // =====================================
