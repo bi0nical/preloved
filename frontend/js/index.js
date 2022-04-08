@@ -221,7 +221,37 @@ function appendListings(url){
           </div>
         </div>
         `
+//         //delete cards/listings caller starts here
+//         document.querySelectorAll('.delClick').forEach(function(trash){
+//           trash.addEventListener('click', function(e){
+//         console.log(e.target.id);
+//          let listing_Id = e.target.id;
+//          console.log(listing_Id)
+//          console.log(url);
+        
+//         $('#delButton_confirm').click(function(){
+//          event.preventDefault();
+//          deleteFunction(listing_Id);
+//         })
+//       })
+//     })
+// //delete cards/listings caller ends here
 
+// //edit cards/listings caller ends here
+// document.querySelectorAll('.editClick').forEach(function(edit){
+//   edit.addEventListener('click', function(e){
+// console.log(e.target.id);
+//  let listing_Id = e.target.id;
+//  console.log(listing_Id)
+//  console.log(url);
+
+// $('#editListingButton').click(function(){
+//  event.preventDefault();
+//  editFunction(listing_Id);
+// })
+// })
+// })
+//edit cards/listings caller ends here
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
             console.log(url);
@@ -314,93 +344,7 @@ function appendListings(url){
 // CLOTHING ITEM MODAL FUNCTION
 
 
-//view all listings start here
-function cardLoad(url) {
 
-  $.ajax({
-    url: `http://${url}/allListingFromDB`,
-    type: 'GET',
-    dataType: 'JSON',
-    success: function(listingsFromDB){
-      var i;
-      document.getElementById('cardBox').innerHTML = "";
-      for(i=0;i<listingsFromDB.length;i++){
-        document.getElementById('cardBox').innerHTML +=
-        `
-        <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="${listingsFromDB[i].img1}" alt="Card image cap">
-        <img class="card-img-top" src="${listingsFromDB[i].img2}" alt="Card image cap">
-        <img class="card-img-top" src="${listingsFromDB[i].img3}" alt="Card image cap">
-        <div class="card-body">
-        <div class="bodytop"><p>${listingsFromDB[i].name}</p><br />
-        <p>${listingsFromDB[i].date}</p></br>
-        <p>$${listingsFromDB[i].price}</p></br>
-        <p>${listingsFromDB[i].size1}</p></br>
-        <p>${listingsFromDB[i].size2}</p></br>
-        <p>${listingsFromDB[i].desc}</p></br>
-        <p>${listingsFromDB[i].gender}</p></br>
-        <p>${listingsFromDB[i].color}</p></br>
-        <p>${listingsFromDB[i].brand}</p></br>
-        <p>${listingsFromDB[i].type}</p></br>
-        <p>${listingsFromDB[i].user_name}</p><br>
-        
-        </div>
-        <div class="bodybottom">
-        <i id="${listingsFromDB[i]._id}" class="editClick"  data-bs-toggle="modal" data-bs-target="#editModal">Edit</i><br>
-
-        <i id="${listingsFromDB[i]._id}" class="delClick"  data-bs-toggle="modal" data-bs-target="#delModal">Delete</i>
-        <button type="button" id="buyButton" class= "btnCard">Buy Now</button>
-        </div>
-        </div>
-        </div>
-        `
-        // placeholder for cards above ^^^^. remove when actual cards made
-
-
-        //delete cards/listings caller starts here
-        document.querySelectorAll('.delClick').forEach(function(trash){
-          trash.addEventListener('click', function(e){
-        console.log(e.target.id);
-         let listing_Id = e.target.id;
-         console.log(listing_Id)
-         console.log(url);
-        
-        $('#delButton_confirm').click(function(){
-         event.preventDefault();
-         deleteFunction(listing_Id);
-        })
-      })
-    })
-//delete cards/listings caller ends here
-
-//edit cards/listings caller ends here
-document.querySelectorAll('.editClick').forEach(function(edit){
-  edit.addEventListener('click', function(e){
-console.log(e.target.id);
- let listing_Id = e.target.id;
- console.log(listing_Id)
- console.log(url);
-
-$('#editListingButton').click(function(){
- event.preventDefault();
- editFunction(listing_Id);
-})
-})
-})
-//edit cards/listings caller ends here
-
-
-
-      }
-    }, 
-    error:function(){
-      console.log('unable to get listings from DB');
-    }
-
-  })
-}
-//view all listings end here
-// ${listingsFromDB[i]._id}
 
 
 
