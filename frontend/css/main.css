@@ -1276,6 +1276,13 @@ textarea::placeholder, textarea:focus, textarea::after {
   width: 80%;
   margin: 0 auto;
 }
+.account__cardContainer {
+  padding: 2rem;
+  height: auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
 .account__top {
   display: flex;
   align-items: center;
@@ -1396,22 +1403,6 @@ textarea::placeholder, textarea:focus, textarea::after {
 
 .editAccountOption:hover {
   color: #0058D2;
-}
-
-.modal-body {
-  display: flex;
-}
-
-.modal-left {
-  height: 100%;
-  width: 50%;
-  margin: 3rem 2.5rem 3rem 5rem;
-}
-
-.modal-right {
-  height: 100%;
-  width: 50%;
-  margin: 3rem 5rem 3rem 2.5rem;
 }
 
 .modal-header, .modal-footer {
@@ -1717,6 +1708,7 @@ textarea::placeholder, textarea:focus, textarea::after {
 
 .clothingCard {
   cursor: pointer;
+  width: 300px;
 }
 .clothingCard__imgContainer {
   height: 300px;
