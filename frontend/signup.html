@@ -22,7 +22,7 @@
 <body>
     
     <header class="landingHeader">
-        <img class="landingHeader__img" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt="">
+        <a href="shop.html" class="landingHeader__img"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
     </header>
 
     <main class="signup__container">
@@ -35,16 +35,18 @@
                 </div>
                 <form action="" class="signup__form">
                     <label class="signup__label" for="signup-username" >Username</label>
-                    <input class="signup__input" name="signup-username" type="text">
+                    <input class="signup__input" name="signup-username" id="registerName" type="text">
                     <label class="signup__label" for="signup-email">Email</label>
-                    <input class="signup__input" name="signup-email" type="email">
+                    <input class="signup__input" name="signup-email" id="registerEmail" type="email">
                     <label class="signup__label" for="signup-password">Password</label>
-                    <input class="signup__input" name="signup-password" type="password">
-                    <label class="signup__label" for="signup-confirmPassword">Confirm Password</label>
-                    <input class="signup__input" name="signup-confirmPassword" type="password">
+                    <input class="signup__input" name="signup-password" type="password" id="registerPass1">                  
+                    <label class="signup__label" for="signup-confirmPassword" >Confirm Password</label>
+                    <input class="signup__input" name="signup-confirmPassword" type="password" id="registerPass2">
+                    <label class="signup__label" for="signup-image">Image</label>
+                    <input class="signup__input" name="signup-image" id="registerImage">
                     <div class="signup__buttons">
                         <button class="signup__home signup__btn">back to home</button>
-                        <button class="signup__confirm signup__btn">sign me up</button>
+                        <button class="signup__confirm signup__btn" id="registerButton">sign me up</button>
                     </div>
                 </form>
             </div>

@@ -61,11 +61,12 @@ app.post('/addListing',(req,res)=>{
       color: req.body.color,      
       date: new Date(),
       gender: req.body.gender,
+      user_id: req.body.user_id,
+      user_name: req.body.user_name
       // style: req.body.style,
       // swap: req.body.swap,
       // location: req.body.location,
-      // tags: req.body.tags,
-      // user_id: req.body.user_id,
+      // tags: req.body.tags,      
       // comment_id: req.body.comment_id
 
     });
@@ -134,6 +135,22 @@ app.patch('/updateListing/:id',(req,res)=>{
 
 //All listings view END
 
+// Get single listing for Modal
+app.get('/allListingFromDB/:id', (req, res) => {
+  const id= req.params.id;
+  Listing.findById(id, function (err, listing) {
+  if (err){
+    console.log(err);
+  }
+  else{
+    console.log("Result : ", listing);
+    res.send(listing);
+     }
+   });
+})
+// Get single listing for Modal END
+
+
 //Register User
 app.post('/registerUser',(req,res)=>{
   //checking if user is in the db already
@@ -146,7 +163,7 @@ app.post('/registerUser',(req,res)=>{
         _id: new mongoose.Types.ObjectId,
         username: req.body.username,
         email : req.body.email,
-        profile_img: profile_img,
+        profile_img: req.body.profile_img,
         // location: req.body.location, 
         password : hash
       });
