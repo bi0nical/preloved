@@ -187,6 +187,30 @@ modalAddItem()
 // =====================================
 
 
+// =====================================
+// CONTACT SUBMIT STARTS HERE
+// =====================================
+
+function submitForm(){
+  $('#contactSubmit').click(function(){
+    console.log('click');
+    document.getElementById('contactLeft').innerHTML = "";
+
+    $("#contactLeft").append(
+      `
+      <h1 class="contact-ty">Thank you!<br> Your message has been recieved.</h1>
+      `
+    )
+  })
+};
+
+submitForm();
+
+// =====================================
+// CONTACT SUBMIT ENDS HERE
+// =====================================
+
+
 
 
 // =====================================
@@ -207,6 +231,28 @@ function appendListings(url){
         let price = listingsFromDB[i].price.toFixed(2);
         document.getElementById('clothingCardGrid').innerHTML +=
         `
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${listingsFromDB[i].img1}" alt="Card image cap">
+        <div class="card-body">
+        <div class="bodytop"><p>${listingsFromDB[i].name}</p><br />
+        <p>${listingsFromDB[i].date}</p></br>
+        <p>$${listingsFromDB[i].price}</p></br>
+        <p>${listingsFromDB[i].size1}</p></br>
+        <p>${listingsFromDB[i].size2}</p></br>
+        <p>${listingsFromDB[i].desc}</p></br>
+        <p>${listingsFromDB[i].gender}</p></br>
+        <p>${listingsFromDB[i].color}</p></br>
+        <p>${listingsFromDB[i].brand}</p></br>
+        <p>${listingsFromDB[i].type}</p></br>
+        
+        </div>
+        <div class="bodybottom">
+        <i id="${listingsFromDB[i]._id}" class="editClick"  data-bs-toggle="modal" data-bs-target="#editModal">Edit</i><br>
+
+        <i id="${listingsFromDB[i]._id}" class="delClick"  data-bs-toggle="modal" data-bs-target="#delModal">Delete</i>
+        <button type="button" id="buyButton" class= "btnCard">Buy Now</button>
+        </div>
+        </div>
         <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
           <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
               
@@ -739,6 +785,9 @@ $("#accessoriesCategoryBtn").click(function (){
 // =====================================
 // SLIDE IN NAV ELEMENTS START HERE
 // =====================================
+
+
+
 
 
 
