@@ -739,7 +739,7 @@
 }
 
 .shop-container {
-  height: 85vh;
+  min-height: 85vh;
   width: 100vw;
   display: flex;
 }
@@ -749,6 +749,26 @@
   width: 100vw;
   display: flex;
   justify-content: flex-start;
+}
+.shop__listingsAddBtn {
+  cursor: pointer;
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+}
+.shop__listingsAddBtn:hover {
+  cursor: pointer;
+}
+.shop__listingsAddBtn:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.shop__listingsAddBtn:active {
+  transform: scale(1);
+  transition: 0.1s;
 }
 
 .shop-left {
@@ -821,7 +841,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 4rem 0 4rem;
+  padding: 6rem 4rem 0rem 4rem;
 }
 
 .shop-tools {
@@ -853,7 +873,6 @@
   font-family: "Libre Franklin", sans-serif;
   font-weight: 800;
   font-size: 1.7rem;
-  margin-right: 2rem;
   height: 4rem;
   width: fit-content;
   background-color: #FFCB2F;
@@ -1226,6 +1245,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   padding-top: 8rem;
   position: relative;
   background: #FFCB2F;
+  padding-bottom: 8rem;
 }
 .about__values {
   width: 60%;
@@ -1703,15 +1723,15 @@ textarea::placeholder, textarea:focus, textarea::after {
   height: auto;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .clothingCard {
   cursor: pointer;
-  width: 300px;
+  width: 100%;
 }
 .clothingCard__imgContainer {
-  height: 300px;
+  height: 230px;
   background: url(../img/jeans.png) no-repeat;
   background-size: cover;
   background-position: center;
