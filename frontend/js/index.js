@@ -422,6 +422,7 @@ $('#registerButton').click(function(){
 
   }else {
     if (password === password2){
+      
     $.ajax({
       url: `http://${url}/registerUser`,
       type : 'POST',
@@ -546,6 +547,11 @@ alert('Sucessful logout');
         if (name == '' || price == '' ||  img1 == '' || size2 == '' || type == ''|| gender == ''){
           alert('Please enter relevant details');
         } else {
+          if (sessionStorage.getItem('userID') === null){
+            alert('Please log in or register to add listings')
+            console.log('hi');
+
+          } else{
           $.ajax({
             url : `http://${url}/addListing`,
             type : 'POST',
@@ -574,7 +580,8 @@ alert('Sucessful logout');
               console.log('error: cannot call api');
             }//error
           })//ajax
-        }//else
+        }//inner else
+        }//outer else
       });//addListing
 //AddListing End
 
