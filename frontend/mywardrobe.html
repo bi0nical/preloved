@@ -1,172 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PreLoved | My Wardrobe</title>
-
-     <!-- FONT AWESOME -->
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-    <!-- local stylesheet -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-
-    <nav class="nav">
-        <div class="nav__logoContainer">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>PreLoved | My Wardrobe</title>
+      <!-- FONT AWESOME -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <!-- BOOTSTRAP -->
+      <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+      <!-- local stylesheet -->
+      <link rel="stylesheet" href="./css/main.css">
+   </head>
+   <body>
+      <nav class="nav">
+         <div class="nav__logoContainer">
             <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
             <div class="nav__searchContainer">
-                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                <button class="nav__searchBtn">search</button>
+               <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+               <button class="nav__searchBtn">search</button>
             </div>
-            
-        </div>
-        <div class="nav__items">
+         </div>
+         <div class="nav__items">
             <ul class="nav__ul">
-                <li class="nav__li">
-                    
-                </li>
-                <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-                <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
-                <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
-                <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
-                <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
-                <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+               <li class="nav__li">
+               </li>
+               <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
+               <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
+               <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
+               <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
+               <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
+               <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
             </ul>
-        </div>
-    </nav>
-
-    <div class="account">
-        <div class="account__top">
+         </div>
+      </nav>
+      <div class="account">
+         <div class="account__top">
             <div class="account__left">
-
             </div>
             <div class="account__details">
-                <div class="account__imgContainer">
-                    <div class="account__img">
-
-                    </div>
-                </div>
-                <div class="account__name">
-                    <h class="account__username">emmamckinley</h2>
-                    <i class="fa-solid fa-pen account__editBtn"></i>
-                </div>
+               <div class="account__imgContainer">
+                  <div class="account__img">
+                  </div>
+               </div>
+               <div class="account__name">
+                  <h class="account__username">
+                  emmamckinley</h2>
+                  <i class="fa-solid fa-pen account__editBtn"></i>
+               </div>
             </div>
             <div class="account__editDropdown">
-                <button class="account__editDropdownBtn">edit account<i class="fa-solid fa-caret-down account__editDropdownArrow"></i></button>
-                
-                <div class="editDropdown">
-                    <button class="editAccountOption">change username</button>
-                    <button class="editAccountOption">change password</button>
-                    <button class="editAccountOption">change email</button>
-                </div>
+               <button class="account__editDropdownBtn">edit account<i class="fa-solid fa-caret-down account__editDropdownArrow"></i></button>
+               <div class="editDropdown">
+                  <button class="editAccountOption">change username</button>
+                  <button class="editAccountOption">change password</button>
+                  <button class="editAccountOption">change email</button>
+               </div>
             </div>
-        </div>
-        
-        <div class="account__listings">
+         </div>
+         <div class="account__listings">
             <div class="account__listingsAdd">
-                <button data-bs-toggle="modal" data-bs-target="#listItemModal" class="account__listingsAddBtn">list item +</button>
+               <button data-bs-toggle="modal" data-bs-target="#listItemModal" class="account__listingsAddBtn">list item +</button>
             </div>
             <div class="account__listingsTitleContainer">
-                <h2 class="account__listingsTitle">your listings</h2>
+               <h2 class="account__listingsTitle">your listings</h2>
             </div>
             <div class="card__container">
-                <div class="card">
-                    <div class="card__imgContainer">
-                        
-                    </div>
-                    <div class="card__details">
-                        <h2 class="card__title">Vintage clothing item</h2>
-                        <p class="card__price">$29.99</p>
-                        <div class="card__tags">
-                            <p class="card__tag">large</p>
-                            <p class="card__tag">gucci</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card__imgContainer">
-                        
-                    </div>
-                    <div class="card__details">
-                        <h2 class="card__title">Vintage clothing item</h2>
-                        <p class="card__price">$29.99</p>
-                        <div class="card__tags">
-                            <p class="card__tag">large</p>
-                            <p class="card__tag">gucci</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card__imgContainer">
-                        
-                    </div>
-                    <div class="card__details">
-                        <h2 class="card__title">Vintage clothing item</h2>
-                        <p class="card__price">$29.99</p>
-                        <div class="card__tags">
-                            <p class="card__tag">large</p>
-                            <p class="card__tag">gucci</p>
-                        </div>
-                    </div>
-                </div>
+               <div class="card">
+                  <div class="card__imgContainer">
+                  </div>
+                  <div class="card__details">
+                     <h2 class="card__title">Vintage clothing item</h2>
+                     <p class="card__price">$29.99</p>
+                     <div class="card__tags">
+                        <p class="card__tag">large</p>
+                        <p class="card__tag">gucci</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="card">
+                  <div class="card__imgContainer">
+                  </div>
+                  <div class="card__details">
+                     <h2 class="card__title">Vintage clothing item</h2>
+                     <p class="card__price">$29.99</p>
+                     <div class="card__tags">
+                        <p class="card__tag">large</p>
+                        <p class="card__tag">gucci</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="card">
+                  <div class="card__imgContainer">
+                  </div>
+                  <div class="card__details">
+                     <h2 class="card__title">Vintage clothing item</h2>
+                     <p class="card__price">$29.99</p>
+                     <div class="card__tags">
+                        <p class="card__tag">large</p>
+                        <p class="card__tag">gucci</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-  
+         </div>
          <!-- footer starts here -->
-        <footer class="footer">
+         <footer class="footer">
             <div class="footer-left">
-                <div class="footer-contents">
-                    <img class="footer-contents__logo" src="./img/prelovedlogos_plcolor.png" alt="">
-                    <h5 class="footer-contents__copyright">&copy;2022 Zenith</h5>
-                </div>    
+               <div class="footer-contents">
+                  <img class="footer-contents__logo" src="./img/prelovedlogos_plcolor.png" alt="">
+                  <h5 class="footer-contents__copyright">&copy;2022 Zenith</h5>
+               </div>
             </div>
-    
             <div class="footer-right">
-                <ul class="footer-right__ul">
-                    <a href="index.html"><li class="footer-right__li">home</li></a>
-                    <a href="shop.html"><li class="footer-right__li">shop</li></a>
-                    <a href="about.html"><li class="footer-right__li">about</li></a>
-                    <a href="contact.html"><li class="footer-right__li">contact</li></a>
-                    <a href="signup.html"><li class="footer-right__li">login</li></a>
-                </ul>
-                <a href="#top">
-                    <div class="footer-prompt">
-                        <h5 class="footer-prompt__h5">back to top</h5>
-                        <div class="footer-prompt__arrow"></div>
-                    </div>
-                </a>
+               <ul class="footer-right__ul">
+                  <a href="index.html">
+                     <li class="footer-right__li">home</li>
+                  </a>
+                  <a href="shop.html">
+                     <li class="footer-right__li">shop</li>
+                  </a>
+                  <a href="about.html">
+                     <li class="footer-right__li">about</li>
+                  </a>
+                  <a href="contact.html">
+                     <li class="footer-right__li">contact</li>
+                  </a>
+                  <a href="signup.html">
+                     <li class="footer-right__li">login</li>
+                  </a>
+               </ul>
+               <a href="#top">
+                  <div class="footer-prompt">
+                     <h5 class="footer-prompt__h5">back to top</h5>
+                     <div class="footer-prompt__arrow"></div>
+                  </div>
+               </a>
             </div>
-        </footer>
-        <!-- footer ends here -->
-    </div>
-
-    <!-- LIST ITEM MODAL -->
-
-    <div class="modal fade" id="listItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         </footer>
+         <!-- footer ends here -->
+      </div>
+      <!-- LIST ITEM MODAL -->
+      <div class="modal fade" id="listItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body listItemBody">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body listItemBody">
                 <div class="modal-title listItem__title">List an item</div>
                 <div class="listItem">
-
                     <!-- LEFT GRID -->
                     <div class="listItem__left">
                         <div class="form-group listItem__left1">
@@ -182,8 +170,6 @@
                             <input id="imgOneInput" type="text" class="form-control listItem__input"  placeholder="place url here">
                         </div>
                     </div>
-
-
                     <!-- RIGHT GRID -->
                     <div class="listItem__right">
                         <div class="form-group">
@@ -197,22 +183,22 @@
                         <div class="form-group">
                             <label  class="listItem__label" for="genderInput">Gender style</label>
                             <select id="genderInput" class="form-control listItem__input">
-                              <option>Male</option>
-                              <option>Female</option>
-                              <option>Unisex</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Unisex</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label  class="listItem__label" for="sizeLetterInput">Size Letter</label>
                             <select id="sizeLetterInput" class="form-control listItem__input" >
-                              <option>XS</option>
-                              <option>S</option>
-                              <option>M</option>
-                              <option>L</option>
-                              <option>XL</option>
-                              <option>XXL</option>
-                              <option>XXXL</option>
-                              <option>N/A</option>
+                            <option>XS</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                            <option>XXXL</option>
+                            <option>N/A</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -220,37 +206,52 @@
                             <input id="priceInput" type="text" class="form-control listItem__input"  placeholder="the price of the item">
                         </div>
                     </div>
-                
-                
-                
-                
-                
+                </div>
+                </div>
+                <div class="modal-footer listItem__footer">
+                <button type="button" class="listItem__close" data-bs-dismiss="modal">close</button>
+                <button class="listItem__submit" type="submit" id="addListingButton">list item</button>
+                </div>
             </div>
         </div>
-            <div class="modal-footer listItem__footer">
-            <button type="button" class="listItem__close" data-bs-dismiss="modal">close</button>
-            <button class="listItem__submit" type="submit" id="addListingButton">list item</button>
-        </div>
-        </div>
-    </div>
-
+      </div>
       <!-- END OF LIST ITEM MODAL -->
 
-      
-
-            <!-- footer starts here -->
-            <footer class="footer">
-                <div class="footer__left">
-                    <div class="footer__left__contents">
-                        <img class="footer__left__contents-logo" src="./img/prelovedlogos_plcolor.png" alt="">
-                        <h5 class="footer__left__contents-copyright">&copy;2022 Zenith</h5>
-                    </div>    
-                </div>
-        
-    <!-- dependencies -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- script -->
-     <script src="./js/index.js"></script>
-</body>
+      <!-- LOG IN MODAL -->
+      <div class="modal fade" id="loginModal-wardrobe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="modal-title login__title">Log In</div>
+                  <div class="login__inputs">
+                     <div class="login__username">
+                        <label class="signup__label" for="signup-username">Username</label>
+                        <input class="signup__input" name="signup-username" id="loginName" type="text">
+                     </div>
+                     <div class="login__password">
+                        <label class="signup__label" for="signup-password">Password</label>
+                        <input class="signup__input" name="signup-password" id="loginPass" type="password">    
+                     </div>
+                     <div class="login__signupPromptContainer">
+                        <a class="login__signupPrompt" href="signup.html">Dont have an account? Sign up</a>
+                     </div>
+                     <div class="login__buttons">
+                        <button type="button" class="login__close" data-bs-dismiss="modal">close</button>
+                        <button class="login__submit" id="loginButton" type="submit">log in</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END OF LOG IN MODAL -->  
+      <!-- dependencies -->
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- script -->
+      <script src="./js/index.js"></script>
+   </body>
 </html>

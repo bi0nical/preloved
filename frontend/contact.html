@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- local stylesheet -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -90,6 +91,41 @@
         </div>
     </footer>
     <!-- footer ends here -->
+
+    <!-- LOG IN MODAL -->
+
+<div class="modal fade" id="loginModal-contact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-title login__title">Log In</div>
+            <div class="login__inputs">
+                <div class="login__username">
+                    <label class="signup__label" for="signup-username">Username</label>
+                    <input class="signup__input" name="signup-username" id="loginName" type="text">
+                </div>
+                <div class="login__password">
+                    <label class="signup__label" for="signup-password">Password</label>
+                    <input class="signup__input" name="signup-password" id="loginPass" type="password">    
+                </div>
+                <div class="login__signupPromptContainer">
+                    <a class="login__signupPrompt" href="signup.html">Dont have an account? Sign up</a>
+                </div>
+                <div class="login__buttons">
+                    <button type="button" class="login__close" data-bs-dismiss="modal">close</button>
+                    <button class="login__submit" id="loginButton" type="submit">log in</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+<!-- END OF LOG IN MODAL -->
     
     <!-- dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
