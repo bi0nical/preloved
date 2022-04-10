@@ -127,6 +127,10 @@ textarea::placeholder, textarea:focus, textarea::after{
         &-form{
             width: 20rem;
         }
+
+        &-ty{
+            font-size: 4rem;
+        }
     }
 }
 
@@ -160,6 +164,10 @@ textarea::placeholder, textarea:focus, textarea::after{
 
         &-form{
             width: 40rem;
+        }
+
+        &-ty{
+            font-size: 3rem;
         }
     }
 }
