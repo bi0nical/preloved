@@ -781,8 +781,12 @@ let name = $('#nameInputEdit').val();
 // SLIDE IN NAV ELEMENTS START HERE
 // =====================================
 
+// LEFT NAV
+
 // slide in categories button
 $("#slideInLeftNavBtn").click(function (){
+  $(".filters").css("transform", "translateX(-25rem)");
+  $("#slideInFiltersBtn").css("transform", "translateX(0vw)")
   $("#slideInLeftNavBtn").css("transform", "translateX(-100%)")
   $(".categories-container").css("transform", "translateX(0vw)");
 })
@@ -901,6 +905,23 @@ $("#accessoriesCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "block");
+})
+
+// RIGHT NAV
+
+$("#slideInCartBtn").click(function (){
+  $(".cart-container").css("transform", "translateX(0rem)");
+  $(".starred").css("transform", "translateX(25rem)");
+})
+$("#closeCartBtn").click(function (){
+  $(".cart-container").css("transform", "translateX(50rem)");
+})
+
+$("#slideInStarredBtn").click(function (){
+  $(".starred").css("transform", "translateX(0rem)");
+})
+$("#closeStarredBtn").click(function (){
+  $(".starred").css("transform", "translateX(25rem)");
 })
 
 // =====================================
