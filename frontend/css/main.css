@@ -516,6 +516,7 @@
 .nav__logo {
   height: 100%;
   padding: 1rem;
+  width: 13rem;
 }
 .nav__searchContainer {
   margin-left: 3rem;
