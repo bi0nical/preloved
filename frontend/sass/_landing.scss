@@ -18,9 +18,6 @@
 .landing{
     padding: 2rem;
     height: 85vh;
-    // background: url(../img/background.png) no-repeat;
-    // background-position: center;
-    // background-size: cover;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
@@ -116,6 +113,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
         &__dresses{
             background: url('../img/dresses.png') no-repeat;
@@ -127,6 +125,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
         &__shoes{
             background: url('../img/shoes.png') no-repeat;
@@ -138,6 +137,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
         &__shopAll{
             margin: 0 auto;
@@ -154,6 +154,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
         &__shopAll:hover{
             background: $yellow;
@@ -174,6 +175,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
         &__hats{
             background: url('../img/hat.png') no-repeat;
@@ -185,6 +187,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
         &__jeans{
             background: url('../img/jeans.png') no-repeat;
@@ -196,6 +199,7 @@
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            text-decoration: none;
         }
 
 

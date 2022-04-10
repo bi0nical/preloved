@@ -12,6 +12,7 @@
     &__logoContainer{
         height: 100%;
         padding: 1rem;
+        display: flex;
     }
     &__logo{
         height: 100%;
@@ -19,13 +20,19 @@
     }
 
     //SEARCH
-
+    &__searchContainer{
+        margin-left: 3rem;
+        display: flex;
+        align-items: center;
+    }
     &__search{
         background: none;
         outline: none;
         border: none;
         padding: 1rem;
         caret-color: $blue;
+        border-bottom: 4px solid $blue;
+        min-width: 300PX;
     }
     &__search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: $blue;
@@ -59,9 +66,7 @@
         transform: scale(1);
         transition: 0.1s;
     }
-    &__searchContainer{
-        border-bottom: 4px solid $blue;
-    }
+    
 
     //MENU
     &__ul{
@@ -77,6 +82,7 @@
         color: $blue;
         padding: 1rem;
         margin: 0rem;
+        text-decoration: none;
     }
     &__li:hover{
         font-weight: 800;
@@ -84,6 +90,7 @@
     }
     &__link{
         color: $blue;
+        text-decoration: none;
     }
     &__link::before{
         display: block;

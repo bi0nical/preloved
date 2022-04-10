@@ -13,3 +13,19 @@ $green: #00CE7C;
 // =============
 
 $primaryFont: 'Libre Franklin', sans-serif;
+
+
+// =============
+// MEDIA QUERIES
+// =============
+
+$mobile-min: 300px;
+$mobile-max: 425px;
+$tablet-min: 426px;
+$tablet-max: 1023px;
+
+$desktop: '(min-width: 1400px)';
+$desktopSm: '(min-width: 1100px) and (max-width:1399px)';
+$tablet: '(min-width: 750px) and (max-width:1099px)';
+$mobile: '(min-width: 1px) and (max-width:749px)';
+$mobileSm: '(min-width: 1px) and (max-width:470px)';

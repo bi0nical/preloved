@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .shop-container{
-    height: 85vh;
+    min-height: 85vh;
     width: 100vw;
     display: flex;
 }
@@ -11,6 +11,20 @@
     width: 100vw;
     display: flex;
     justify-content: flex-start;
+
+    &__listingsAddBtn{
+        cursor: pointer;
+        @include btn;
+        background: $yellow;
+    }
+    &__listingsAddBtn:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__listingsAddBtn:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
 }
 .shop-left{
     display: flex;
@@ -67,7 +81,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 4rem 0 4rem;
+    padding: 6rem 4rem 0rem 4rem;
 }
 .shop-tools{
     width: 80vw;
@@ -86,7 +100,7 @@
     }
     &__sort-btn{
         @include btn;
-        margin-right: 2rem;
+        // margin-right: 2rem;
         height: 4rem;
         width: fit-content;
         background-color: $yellow;
