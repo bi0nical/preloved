@@ -543,6 +543,7 @@ $('#registerButton').click(function(){
         username: username,
         email: email,
         password: password,
+        profile_img: profile_img
        
       },
       success:function(user){
