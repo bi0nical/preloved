@@ -270,7 +270,7 @@ function appendListings(url){
         </div>
 
         `
-
+        
 
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
@@ -746,6 +746,7 @@ if (username == '' || password == ''){
         console.log(sessionStorage);
         alert('Sucessful login');
         userDetails();
+        location.reload();
       }// end of ifs
     },//success
     error:function(){
@@ -1072,12 +1073,46 @@ $("#closeStarredBtn").click(function (){
 // SLIDE IN NAV ELEMENTS START HERE
 // =====================================
 
+// =====================================
+// NAVAIGATION USER DETAILS START
+// =====================================
+
+  function navLoginUserDetails(){
+    console.log(sessionStorage);
+    if (sessionStorage.getItem('userID') === null){
+      document.getElementById('navUser').style.display = 'none';
+      document.getElementById('navButtons').style.display = 'flex';
+    } 
+    else {
+      document.getElementById('navUser').style.display = 'flex';
+      document.getElementById('navButtons').style.display = 'none';
+      let username = sessionStorage.getItem('userName');
+      let profilePic = sessionStorage.getItem('userImg');
+      document.getElementById('navUser').innerHTML = '';
+      document.getElementById('navUser').innerHTML +=
+
+        `
+        <li class="nav__li">
+          <button class="nav__userLi">
+              <div class="nav__userDetails">
+                <p class="nav__userText">${username}</p>
+                <div class="nav__userPic" style="background: url('${profilePic}'); background-size: cover; background-position: center;"></div>
+                <i class="nav__userDownArrow fa-solid fa-caret-down"></i>
+              </div>
+          </button>
+        </li>
+        `
+
+    }
+  }
+  navLoginUserDetails();
+
+// =====================================
+// NAVAIGATION USER DETAILS END
+// =====================================
 
 
-
-
-
-  })
+})
 
   // =====================================
 // DOCUMENT READY ENDS HERE

@@ -601,6 +601,9 @@
   visibility: hidden;
   height: 0;
 }
+.nav__buttons {
+  display: flex;
+}
 .nav__logIn {
   cursor: pointer;
   background: none;
@@ -644,6 +647,55 @@
 }
 .nav__hamburger {
   display: none;
+}
+.nav__user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+}
+.nav__userLi {
+  cursor: pointer;
+  background: #0058D2;
+  border: 4px solid #0058D2;
+  font-size: 1.7rem;
+  font-weight: 600;
+  font-family: "Libre Franklin", sans-serif;
+  color: white;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  transition: 0.1s;
+  margin-right: 1rem;
+}
+.nav__userDetails {
+  display: flex;
+  margin: 0 !important;
+}
+.nav__userText {
+  padding: 0.5rem;
+  margin: 0 !important;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: white;
+}
+.nav__userPic {
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: url(../img/jacket.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.nav__userDownArrow {
+  margin-left: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1023px) {
@@ -737,6 +789,14 @@
     transform: translateY(11.15rem);
   }
 }
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
 .signup {
   display: flex;
   align-items: center;
@@ -2088,6 +2148,61 @@ textarea::placeholder, textarea:focus, textarea::after {
   transition: 0.1s;
 }
 .delete__close:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+.logout__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 1rem;
+}
+.logout__buttons {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logout__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+  transition: 0.1s;
+}
+.logout__submit:hover {
+  cursor: pointer;
+}
+.logout__submit:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.logout__submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.logout__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  transition: 0.1s;
+}
+.logout__close:hover {
+  cursor: pointer;
+}
+.logout__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.logout__close:active {
   transform: scale(1);
   transition: 0.1s;
 }
