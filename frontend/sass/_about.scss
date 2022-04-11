@@ -14,6 +14,9 @@
     &__heroImg{
         max-height: 35rem;
     }
+    &__mobileImgContainer{
+        display: none;
+    }
     &__heroHeader{
         font-family: $primaryFont;
         font-size: 8rem;
@@ -122,5 +125,76 @@
         font-weight: 500;
         color: $blue;
         padding: 1rem;
+    }
+}
+
+
+// MEDIA QUERIES
+@media (max-width: $tablet-max){
+    .about{
+        &__heroContent{
+            flex-direction: column;
+        }
+        &__heroHeader{
+            font-size: 6rem;
+        }
+        &__heroImgContainer{
+            display: none;
+        }
+        &__mobileImgContainer{
+            display: block;
+
+        }
+        &__mobileImg{
+            height: 25rem;            
+        }
+        &__heroMobileAbout{
+            display: flex;
+        }
+        &__heroDescriptionContainer{
+            padding-left: 1rem;
+        }
+        &__heroDescription{
+            font-size: 1.8rem;
+        }
+        &__heroBtnContainer{
+            padding: none;
+        }
+
+    }
+}
+
+@media (max-width: $mobile-max){
+    .about{
+        &__mobileImgContainer{
+            display: none;
+
+        }
+        &__hero{
+
+        }
+        &__values{
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            &1{
+                border-bottom: 2px solid $blue;
+            }
+            &2{
+                border-bottom: 2px solid $blue;
+            }
+
+            &HeaderContainer{
+                text-align: center;
+            }
+            &Grid{
+                grid-template-rows: repeat(3, 1fr);
+                grid-template-columns: none;                
+            }
+            &GridSection{
+            }
+        }
+
+        
     }
 }

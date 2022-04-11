@@ -735,16 +735,14 @@
   .dot {
     width: 700px;
     height: 350px;
-    /* as the half of the width */
     background-color: #FFCB2F;
     border-top-left-radius: 380px;
-    /* 100px of height + 10px of border */
     border-top-right-radius: 380px;
-    /* 100px of height + 10px of border */
     border-bottom: 0;
     transform: translateX(-100rem);
     transform: translateY(11.15rem);
     position: absolute;
+    left: 20%;
     right: 4;
     bottom: 0;
   }
@@ -1457,6 +1455,9 @@ textarea::placeholder, textarea:focus, textarea::after {
 .about__heroImg {
   max-height: 35rem;
 }
+.about__mobileImgContainer {
+  display: none;
+}
 .about__heroHeader {
   font-family: "Libre Franklin", sans-serif;
   font-size: 8rem;
@@ -1554,6 +1555,58 @@ textarea::placeholder, textarea:focus, textarea::after {
   padding: 1rem;
 }
 
+@media (max-width: 1023px) {
+  .about__heroContent {
+    flex-direction: column;
+  }
+  .about__heroHeader {
+    font-size: 6rem;
+  }
+  .about__heroImgContainer {
+    display: none;
+  }
+  .about__mobileImgContainer {
+    display: block;
+  }
+  .about__mobileImg {
+    height: 25rem;
+  }
+  .about__heroMobileAbout {
+    display: flex;
+  }
+  .about__heroDescriptionContainer {
+    padding-left: 1rem;
+  }
+  .about__heroDescription {
+    font-size: 1.8rem;
+  }
+  .about__heroBtnContainer {
+    padding: none;
+  }
+}
+@media (max-width: 425px) {
+  .about__mobileImgContainer {
+    display: none;
+  }
+  .about__values {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .about__values1 {
+    border-bottom: 2px solid #0058D2;
+  }
+  .about__values2 {
+    border-bottom: 2px solid #0058D2;
+  }
+  .about__valuesHeaderContainer {
+    text-align: center;
+  }
+  .about__valuesGrid {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: none;
+  }
+}
 .account {
   width: 80%;
   margin: 0 auto;
@@ -1563,7 +1616,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   height: auto;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .account__top {
   display: flex;
@@ -2026,6 +2079,63 @@ textarea::placeholder, textarea:focus, textarea::after {
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-radius: 20px;
   text-transform: uppercase;
+}
+
+.cart-header {
+  padding: 2rem;
+  display: flex;
+}
+.cart-header__h5 {
+  font-size: 3rem;
+  font-family: "Libre Franklin", sans-serif;
+  align-self: center;
+}
+
+.cart-btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.cart-btns__purchase {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+  transition: 0.1s;
+}
+.cart-btns__purchase:hover {
+  cursor: pointer;
+}
+.cart-btns__purchase:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.cart-btns__purchase:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.cart-btns__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  transition: 0.1s;
+}
+.cart-btns__close:hover {
+  cursor: pointer;
+}
+.cart-btns__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.cart-btns__close:active {
+  transform: scale(1);
+  transition: 0.1s;
 }
 
 * {

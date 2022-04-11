@@ -273,14 +273,15 @@
 
     .dot{
         width: 700px;
-        height: 350px; /* as the half of the width */
+        height: 350px; 
         background-color: $yellow;
-        border-top-left-radius: 380px;  /* 100px of height + 10px of border */
-        border-top-right-radius: 380px; /* 100px of height + 10px of border */
+        border-top-left-radius: 380px;  
+        border-top-right-radius: 380px; 
         border-bottom: 0;
         transform: translateX(-100rem);
         transform: translateY(11.15rem);
         position: absolute;
+        left: 20%;
         right: 4;
         bottom: 0;
     }
