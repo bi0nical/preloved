@@ -77,6 +77,7 @@ app.post('/addListing',(req,res)=>{
       gender: req.body.gender,
       user_id: req.body.user_id,
       user_name: req.body.user_name,
+      comment: req.body.comment,
       comment_id: req.body.comment_id
       // style: req.body.style,
       // swap: req.body.swap,
