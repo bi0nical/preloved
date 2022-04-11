@@ -23,14 +23,41 @@
 <body>
 
     <nav class="nav">
-        <div class="nav__logoContainer">
-            <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
-            <div class="nav__searchContainer">
-                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                <button class="nav__searchBtn">search</button>
+
+        <!-- start of mobile navigation -->
+        <div id="navMobile" class="nav-mobile" style="display:none">
+            <div class="nav-mobile__header">
+               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+            </div>
+
+            <div class="nav__searchContainer nav__searchContainer--mobile">
+                <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+                <button class="nav__searchBtn--mobile">search</button>
             </div>
             
+            <ul class="nav__ul--mobile">
+                <a href="index.html"><li class="nav__li--mobile">home</li></a>
+                <a href="about.html"><li class="nav__li--mobile">about</li></a>
+                <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+                <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+                <a href="signup.html"><li class="nav__li--mobile">sign up</li></a>
+            </ul>
+
+            <span class="dot"></span>
+        </div>   
+         <!-- end of mobile navigation  -->
+         
+         
+        <div class="nav__logoContainer">
+            <a href="index.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a> 
         </div>
+
+        <div class="nav__searchContainer">
+            <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+            <button class="nav__searchBtn">search</button>
+        </div>
+
         <div class="nav__items">
             <ul class="nav__ul">
                 <li class="nav__li">
@@ -42,8 +69,12 @@
                 <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
                 <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-contact" class="nav__logIn">log in</button></li>
                 <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+                <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
+
             </ul>
         </div>
+
+
     </nav>
 
     <!-- contact container starts here -->

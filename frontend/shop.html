@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,34 @@
       <!-- NAVIGATION -->
       <nav class="nav">
          <div class="nav__logoContainer">
+
+            
+        <!-- start of mobile navigation -->
+        <div id="navMobile" class="nav-mobile" style="display:none">
+         <div class="nav-mobile__header">
+            <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+            <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+         </div>
+
+         <div class="nav__searchContainer nav__searchContainer--mobile">
+             <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+             <button class="nav__searchBtn--mobile">search</button>
+         </div>
+         
+         <ul class="nav__ul--mobile">
+             <a href="index.html"><li class="nav__li--mobile">home</li></a>
+             <a href="about.html"><li class="nav__li--mobile">about</li></a>
+             <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+             <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+             <a href="signup.html"><li class="nav__li--mobile">sign up</li></a>
+         </ul>
+
+         <span class="dot"></span>
+     </div>   
+      <!-- end of mobile navigation  -->
+      
             <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
+
             <div class="nav__searchContainer">
                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
                <button class="nav__searchBtn">search</button>
@@ -28,14 +56,19 @@
          </div>
          <div class="nav__items">
             <ul class="nav__ul">
-               <li class="nav__li">
-               </li>
-               <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-               <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
-               <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
-               <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
-               <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-shop" class="nav__logIn">log in</button></li>
-               <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+
+                <li class="nav__li">
+                    
+                </li>
+                <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
+                <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
+                <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
+                <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
+                <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-shop" class="nav__logIn">log in</button></li>
+                <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+                <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
+
+
             </ul>
          </div>
       </nav>
@@ -43,65 +76,68 @@
       <div class="shop-container">
          <div class="categories-container">
             <div class="categories">
-               <div class="categories-header">
-                  <h1 class="categories-header__heading">categories</h1>
-                  <button id="closeLeftNav" class="close">close</button>
-               </div>
-               <div class="categories-body">
-                  <div class="categories-menu">
-                     <ul class="categories-menu__ul categories-menu__ul--left">
-                        <li id="topsCategoryBtn" class="categories-menu__li">tops</li>
-                        <li id="bottomsCategoryBtn" class="categories-menu__li">bottoms</li>
-                        <li id="hatsCategoryBtn" class="categories-menu__li">hats</li>
-                        <li id="shoesCategoryBtn" class="categories-menu__li">shoes</li>
-                        <li id="dressesCategoryBtn" class="categories-menu__li">dresses</li>
-                        <li id="accessoriesCategoryBtn" class="categories-menu__li">accessories</li>
-                     </ul>
-                  </div>
-                  <div class="categories-menu categories-menu--right">
-                     <ul id="topsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--tops">
-                        <li class="categories-menu__li">t-shirts</li>
-                        <li class="categories-menu__li">shirts</li>
-                        <li class="categories-menu__li">sweaters</li>
-                        <li class="categories-menu__li">jackets</li>
-                     </ul>
-                     <ul id="bottomsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--bottoms">
-                        <li class="categories-menu__li">jeans</li>
-                        <li class="categories-menu__li">trousers</li>
-                        <li class="categories-menu__li">shorts</li>
-                        <li class="categories-menu__li">skirts</li>
-                     </ul>
-                     <ul id="hatsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--hats">
-                        <li class="categories-menu__li">beanies</li>
-                        <li class="categories-menu__li">caps</li>
-                        <li class="categories-menu__li">buckets</li>
-                     </ul>
-                     <ul id="shoesCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--shoes">
-                        <li class="categories-menu__li">boots</li>
-                        <li class="categories-menu__li">trainers</li>
-                        <li class="categories-menu__li">sneakers</li>
-                        <li class="categories-menu__li">sandals</li>
-                        <li class="categories-menu__li">heels</li>
-                     </ul>
-                     <ul id="dressesCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--dresses">
-                        <li class="categories-menu__li">dresses</li>
-                        <li class="categories-menu__li">playsuits</li>
-                     </ul>
-                     <ul id="accessoriesCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--accessories">
-                        <li class="categories-menu__li">jewelry</li>
-                        <li class="categories-menu__li">watches</li>
-                        <li class="categories-menu__li">sunglasses</li>
-                        <li class="categories-menu__li">corsets</li>
-                     </ul>
-                  </div>
-               </div>
+                <div class="categories-header">
+                    <h1 class="categories-header__heading">categories</h1>
+                    <button id="closeLeftNav" class="close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="categories-body">
+                    <div class="categories-menu">
+                        <ul class="categories-menu__ul categories-menu__ul--left">
+                            <li id="topsCategoryBtn" class="categories-menu__li">tops</li>
+                            <li id="bottomsCategoryBtn" class="categories-menu__li">bottoms</li>
+                            <li id="hatsCategoryBtn" class="categories-menu__li">hats</li>
+                            <li id="shoesCategoryBtn" class="categories-menu__li">shoes</li>
+                            <li id="dressesCategoryBtn" class="categories-menu__li">dresses</li>
+                            <li id="accessoriesCategoryBtn" class="categories-menu__li">accessories</li>
+                        </ul>
+                    </div>
+                    <div class="categories-menu categories-menu--right">
+                        <ul id="topsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--tops">
+                            <li class="categories-menu__li">t-shirts</li>
+                            <li class="categories-menu__li">shirts</li>
+                            <li class="categories-menu__li">sweaters</li>
+                            <li class="categories-menu__li">jackets</li>
+                        </ul>
+                        <ul id="bottomsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--bottoms">
+                            <li class="categories-menu__li">jeans</li>
+                            <li class="categories-menu__li">trousers</li>
+                            <li class="categories-menu__li">shorts</li>
+                            <li class="categories-menu__li">skirts</li>
+                        </ul>
+                        <ul id="hatsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--hats">
+                            <li class="categories-menu__li">beanies</li>
+                            <li class="categories-menu__li">caps</li>
+                            <li class="categories-menu__li">buckets</li>
+                        </ul>
+                        <ul id="shoesCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--shoes">
+                            <li class="categories-menu__li">boots</li>
+                            <li class="categories-menu__li">trainers</li>
+                            <li class="categories-menu__li">sneakers</li>
+                            <li class="categories-menu__li">sandals</li>
+                            <li class="categories-menu__li">heels</li>
+                        </ul>
+                        <ul id="dressesCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--dresses">
+                            <li class="categories-menu__li">dresses</li>
+                            <li class="categories-menu__li">playsuits</li>
+                        </ul>
+                        <ul id="accessoriesCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--accessories">
+                            <li class="categories-menu__li">jewelry</li>
+                            <li class="categories-menu__li">watches</li>
+                            <li class="categories-menu__li">sunglasses</li>
+                            <li class="categories-menu__li">corsets</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
          </div>
+        
          <div class="filters">
             <div class="filters-header">
-               <h3 class="filters-header__title">filters</h3>
-               <button id="closeFiltersBtn" class="close">close</button>
+                <button id="closeFiltersBtn" class="close"><i class="fa-solid fa-arrow-left"></i></button>
+                <h3 class="filters-header__title"><i class="nav-icon fa-solid fa-filter"></i> filters</h3>
             </div>
+     
             <div class="filters-body">
                <form class="filters-list">
                   <label for="genderFilter" class="filters-list__label">gender</label>
@@ -149,12 +185,16 @@
                </form>
             </div>
          </div>
+
          <main class="shop">
+
             <div class="shop-left">
                <div id="slideInLeftNavBtn" class="shop-left__btn shop-left__btn--blue">categories</div>
                <div id="slideInFiltersBtn" class="shop-left__btn">filters</div>
             </div>
+
             <div class="shop-inner">
+
                <div class="shop-tools">
                   <button data-bs-toggle="modal" data-bs-target="#listItemModal" class="shop__listingsAddBtn">list item +</button>
                   <div class="flex-center">
@@ -166,6 +206,7 @@
                      </select>
                   </div>
                </div>
+
                <div id="clothingCardGrid" class="clothingCard__container">
                   <div class="clothingCard">
                      <div class="clothingCard__imgContainer">
@@ -213,21 +254,86 @@
                            <p class="clothingCard__tag">large</p>
                            <p class="clothingCard__tag">gucci</p>
                         </div>
-                     </div>
+                    </div>
                   </div>
                </div>
+
             </div>
+
             <div class="shop-right">
-               <div class="shop-right__btn shop-right__btn--blue">my cart</div>
-               <div class="shop-right__btn">starred</div>
+               <div id="slideInCartBtn" class="shop-right__btn shop-right__btn--blue">my cart</div>
+               <div id="slideInStarredBtn" class="shop-right__btn">starred</div>
+           </div>
+           
+         </main>
+
+        <div class="cart-container">
+            <div class="cart">
+
+                <div class="cart-header">
+                    <h1 class="cart-header__heading">my cart</h1>
+                    <button id="closeCartBtn" class="close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="cart-body">
+
+                    <ul class="cart-body__ul">
+
+                        <li class="cart-body__li">
+                            <div class="text-wrapper">
+                                <a class="cart-body__item-name">product name here</a>
+                                <p class="cart-body__item-price">$29.00</p>
+                            </div>
+                            <button class="cart-body__remove"><i class="fa-solid fa-xmark"></i></>
+                        </li>
+
+                        <li class="cart-body__li">
+                            <div class="text-wrapper">
+                                <a class="cart-body__item-name">product name here</a>
+                                <p class="cart-body__item-price">$29.00</p>
+                            </div>
+                            <button class="cart-body__remove"><i class="fa-solid fa-xmark"></i></>
+                        </li>
+
+                    </ul>
+
+                    <button class="cart-body__checkout-btn">checkout</button>
+
+                    <div class="nav-img"><i class="fa-solid fa-cart-shopping"></i></div>
+
+                </div>
+
             </div>
-         </main>
-         <div class="shop-right">
-            <div class="shop-right__btn shop-right__btn--blue">my cart</div>
-            <div class="shop-right__btn">starred</div>
-         </div>
-         </main>
-      </div>
+
+        </div>
+
+        <div class="starred">
+            <div class="starred-header starred-header--starred">
+                <h3 class="starred-header__heading"><i class="nav-icon fa-solid fa-star"></i> starred</h3>
+                <button id="closeStarredBtn" class="close"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="starred-body">
+                <ul class="starred-body__ul">
+                    <li class="starred-body__li">
+                        <div class="text-wrapper">                        
+                            <a class="starred-body__item-name">Vintage clothing item</a>
+                            <p class="starred-body__item-price">$29.00</p>
+                        </div>
+                        <button class="starred-body__remove"><i class="fa-solid fa-xmark"></i></button>
+                    </li>
+                    <li class="starred-body__li">
+                        <div class="text-wrapper">                        
+                            <a class="starred-body__item-name">Vintage clothing item</a>
+                            <p class="starred-body__item-price">$29.00</p>
+                        </div>
+                        <button class="starred-body__remove"><i class="fa-solid fa-xmark"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+      </div>        
+    
 
       <!-- footer starts here -->
       <footer class="footer">

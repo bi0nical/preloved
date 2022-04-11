@@ -20,7 +20,7 @@
         font-size: 5rem;
         font-weight: 900;
         text-align: center;
-        padding: 3rem;
+        padding: 0rem 3rem 3rem 3rem;
     }
     &__formContainer{
         display: flex;
@@ -48,7 +48,6 @@
     }
     &__frameImg{
         position: absolute;
-        top: 0%;
         max-width: 350px;
     }
     &__imageUploadBtn{
@@ -88,5 +87,30 @@
     &__confirm{
         background: $blue;
         color: white;
+    }
+}
+
+
+// MEDIA QUERIES
+@media (max-width: $mobile-max){
+    .signup__header{
+        font-size: 3.5rem;
+        width: 15ch;
+        padding-top: 30rem;
+    }
+
+    .signup__formContainer{
+        flex-direction: column;
+    }
+
+    .signup__frameImg{
+        top: auto;
+        padding: 7rem 0rem 7rem 0rem;
+    }
+
+    .signup__frame{
+        margin-right: -3rem;
+        margin-top: 14rem;
+        margin-bottom: 14rem;
     }
 }
