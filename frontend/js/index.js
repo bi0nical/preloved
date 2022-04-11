@@ -51,7 +51,7 @@ $(document).ready(function(){
 // =====================================
 // HAMBURGER MENU STARTS HERE
 // =====================================
-$("#hamburger").click(function(){
+$("#navHamburger").click(function(){
   $("#navMobile").toggle();
 });
 $("#navArrow").click(function(){
