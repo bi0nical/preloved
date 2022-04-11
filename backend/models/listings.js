@@ -28,7 +28,7 @@ const listingSchema = new mongoose.Schema({
     type: String,
     ref: 'User'
   },
-
+  comment: [],
   comment_id: 
   {
     type: mongoose.Schema.Types.ObjectId,

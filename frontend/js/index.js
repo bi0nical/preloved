@@ -28,7 +28,7 @@ $(document).ready(function(){
           // cardLoad(url);
           if (window.location.pathname === "/frontend/shop.html"){
            
-                  
+           
             appendListings(url);
       
        
@@ -745,6 +745,7 @@ if (username == '' || password == ''){
         sessionStorage.setItem('userName', user['username']);
         sessionStorage.setItem('userEmail', user['email']);
         sessionStorage.setItem('userImg', user['profile_img']);
+        
         console.log(sessionStorage);
         
         alert('Sucessful login');
@@ -784,6 +785,18 @@ function userDetails(){
   );
 
 };
+
+function loginLock(){
+  let login = sessionStorage.getItem('userID');
+if(login === null){
+  alert('Please register or log in to access MyWardrobe')
+  window.location.href = "signup.html";
+} else{
+  window.location.href = "mywardrobe.html";
+}
+}
+
+wardrobeLock.addEventListener('click', loginLock);
 
 // =====================================
 //USER FUNCTIONS END HERE
@@ -1084,7 +1097,7 @@ $("#closeStarredBtn").click(function (){
 
 
 
-  })
+});
 
   // =====================================
 // DOCUMENT READY ENDS HERE
