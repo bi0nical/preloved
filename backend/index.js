@@ -1,4 +1,6 @@
-// <--! Global backend constants start here -->
+// =====================================
+// GLOBAL VARIABLES START
+// =====================================
    // Installing packages begins
    const express = require('express'); //Includes express js
    const app = express(); // Variable for express
@@ -16,7 +18,13 @@
    // Backend port number
    const port = 5000;
    
-   // <--! Global backend constants end here -->
+  // =====================================
+// GLOBAL VARIABLES END
+// =====================================
+
+// =====================================
+// APP PaRSER/MONGOOSE START
+// =====================================
    
    // <--! App parser code starts here -->
    
@@ -41,7 +49,13 @@ app.listen(port,()=>console.log(`My fullstack application is listening on port $
 // <--! port listening code ends here -->
 
 
-// TESTING! WARNING TESTING FUNCTION! TESTING ONLY!
+// =====================================
+// APP PaRSER/MONGOOSE END
+// =====================================
+
+// =====================================
+// LISTING FUNCTIONS START
+// =====================================
 
 
 //add listing START
@@ -62,7 +76,8 @@ app.post('/addListing',(req,res)=>{
       date: new Date(),
       gender: req.body.gender,
       user_id: req.body.user_id,
-      user_name: req.body.user_name
+      user_name: req.body.user_name,
+      comment_id: req.body.comment_id
       // style: req.body.style,
       // swap: req.body.swap,
       // location: req.body.location,
@@ -135,6 +150,14 @@ app.patch('/updateListing/:id',(req,res)=>{
 
 //All listings view END
 
+// =====================================
+// LISTING FUNCTIONS END
+// =====================================
+
+// =====================================
+// USER FUNCTIONS START
+// =====================================
+
 // Get single listing for Modal
 app.get('/allListingFromDB/:id', (req, res) => {
   const id= req.params.id;
@@ -190,9 +213,68 @@ app.post('/loginUser', ( req, res)=>{
   });//find one ends
 });//end of post for login
 
-//   TESTING! WARNING TESTING FUNCTION! TESTING ONLY!
+// =====================================
+// USER FUNCTIONS END
+// =====================================
 
+// =====================================
+// COMMENT FUNCTIONS START
+// =====================================
+//create a comment
+app.post('/createComment', (req, res)=> {
+  const newComment = new Comment({
+    _id: new mongoose.Types.ObjectId,
+    text: req.body.text,
+    time: new Date(),
+  user_id: req.body.user_id,
+  listing_id: req.body.listing_id
+  
+  });
+  newComment.save()
+  .then(
+    result => {
+      Listing.updateOne({
+        _id: req.body.listing_id
+      }
+      ).then(result =>{
+        res.send(newComment);
+      }).catch(err => {
+        res.send(err);
+      });
+    });
+  });//end create comment
+  
+  //delete comments
+  app.delete('/deleteComments/:id', (req, res)=>{
+    Comment.findOne({
+      _id: req.params.id,
+  
+    }, (err, comment) => {
+  if (comment && comment['user_id'] == req.body.user_id) {
+  Products.updateOne({
+    _id: comment.listing_id
+  }
+  ).then(result => {
+    Comment.deleteOne({
+      _id: req.params.id
+    }, err =>{
+      res.send('deleted comment');
+    });
+  }).catch(err => {
+    res.send(err);
+  });
+  } else {
+    res.send('not found / unauthorised access');
+  }
+    });
+  });
+  //end delete comments
+ 
 
+  
+// =====================================
+// COMMENT FUNCTIONS END
+// =====================================
 
 
 
