@@ -38,6 +38,19 @@ $(document).ready(function(){
 // AJAX ENDS HERE
 // =====================================
 
+// =====================================
+// HAMBURGER MENU STARTS HERE
+// =====================================
+$("#hamburger").click(function(){
+  $("#navMobile").toggle();
+});
+$("#navArrow").click(function(){
+  $("#navMobile").toggle();
+});
+// =====================================
+// HAMBURGER MENU ENDS HERE
+// =====================================
+
 
 // =====================================
 // ADD AN ITEM MODAL STARTS HERE
@@ -159,7 +172,7 @@ function modalAddItem(){
       </select>
   </div>
   <br>
-  <div class="form-group">
+  <div class="form-group">contac
       <label for="genderInput">Gender style</label>
       <select id="genderInput" class="form-control">
         <option disabled selected value>Select a gender style</option>
