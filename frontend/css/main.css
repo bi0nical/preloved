@@ -648,6 +648,9 @@
 }
 
 @media (max-width: 1023px) {
+  .nav__searchContainer {
+    display: none;
+  }
   .nav__logoContainer {
     padding: 0rem;
   }
@@ -669,6 +672,7 @@
     flex-direction: column;
     text-align: left;
     margin: none;
+    overflow-y: hidden;
   }
   .nav-mobile__header {
     display: flex;
@@ -689,7 +693,7 @@
   .nav__ul--mobile {
     font-size: 2rem;
     list-style: none;
-    padding-top: 6rem;
+    padding-top: 4rem;
   }
   .nav__li--mobile {
     padding: 2rem;
@@ -699,6 +703,9 @@
   }
   .nav__searchContainer--mobile {
     color: #FFCB2F;
+    padding-top: 4rem;
+    display: block;
+    display: flex;
   }
   .nav__search--mobile {
     color: #FFCB2F;
@@ -706,6 +713,7 @@
     border: none;
     border-bottom: 2px solid #FFCB2F;
     font-size: 2rem;
+    display: block;
   }
   .nav__search--mobile::placeholder {
     color: #FFCB2F;
@@ -721,7 +729,7 @@
     cursor: pointer;
     font-size: 2rem;
     font-weight: 700;
-    padding-left: 6rem;
+    padding-left: 5rem;
   }
 
   .dot {
@@ -736,6 +744,9 @@
     border-bottom: 0;
     transform: translateX(-100rem);
     transform: translateY(11.15rem);
+    position: absolute;
+    right: 4;
+    bottom: 0;
   }
 }
 .signup {
@@ -756,7 +767,7 @@
   font-size: 5rem;
   font-weight: 900;
   text-align: center;
-  padding: 3rem;
+  padding: 0rem 3rem 3rem 3rem;
 }
 .signup__formContainer {
   display: flex;
@@ -790,7 +801,6 @@
 }
 .signup__frameImg {
   position: absolute;
-  top: 0%;
   max-width: 350px;
 }
 .signup__imageUploadBtn {
@@ -839,6 +849,28 @@
   color: white;
 }
 
+@media (max-width: 425px) {
+  .signup__header {
+    font-size: 3.5rem;
+    width: 15ch;
+    padding-top: 30rem;
+  }
+
+  .signup__formContainer {
+    flex-direction: column;
+  }
+
+  .signup__frameImg {
+    top: auto;
+    padding: 7rem 0rem 7rem 0rem;
+  }
+
+  .signup__frame {
+    margin-right: -3rem;
+    margin-top: 14rem;
+    margin-bottom: 14rem;
+  }
+}
 .shop-container {
   min-height: 85vh;
   width: 100vw;
