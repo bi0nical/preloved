@@ -369,6 +369,7 @@ function appendListingsToAccount(url){
       for(i = 0; i < listingsFromDB.length; i++){
         if(listingsFromDB[i].user_id === userid){
           let price = listingsFromDB[i].price.toFixed(2);
+          userDetails();
           document.getElementById('accountListingsGrid').innerHTML +=
           `
           
@@ -592,6 +593,7 @@ $('#registerButton').click(function(){
 //Login User
 $('#loginButton').click(function(){
 event.preventDefault();
+console.log("log");
 let username = $('#loginName').val();
 let password = $('#loginPass').val();
 
@@ -628,8 +630,9 @@ if (username == '' || password == ''){
         sessionStorage.setItem('userEmail', user['email']);
         sessionStorage.setItem('userImg', user['profile_img']);
         console.log(sessionStorage);
+        
         alert('Sucessful login');
-        userDetails();
+        
       }// end of ifs
     },//success
     error:function(){
@@ -652,7 +655,9 @@ function userDetails(){
  let user= sessionStorage.getItem('userName');
  let picture= sessionStorage.getItem('userImg');
  console.log(user, picture);
-  document.getElementById("userNameText").innerHTML= user;
+  $("#userText").empty().append(
+    `<h2 class="account__username" > ${user} </h2>`
+  )
   $('#userImage').empty().append(
     `
     <img class="account__change" src='${picture}'>
