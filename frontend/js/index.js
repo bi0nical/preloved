@@ -409,6 +409,7 @@ $('#editListingButton').click(function(){
 })
 })
 })
+
 // edit cards/listings caller ends here
           document.querySelectorAll('.clothingCard').forEach(function(yourListingsClothingItem) {
             yourListingsClothingItem.addEventListener('click', function(e) {
