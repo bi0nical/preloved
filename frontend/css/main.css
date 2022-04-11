@@ -508,6 +508,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.nav-mobile {
+  display: none;
+}
 .nav__logoContainer {
   height: 100%;
   padding: 1rem;
@@ -516,6 +519,9 @@
 .nav__logo {
   height: 100%;
   padding: 1rem;
+}
+.nav__logo--mobile {
+  display: none;
 }
 .nav__searchContainer {
   margin-left: 3rem;
@@ -636,7 +642,101 @@
   transform: scale(1);
   transition: 0.1s;
 }
+.nav__hamburger {
+  display: none;
+}
 
+@media (max-width: 1023px) {
+  .nav__logoContainer {
+    padding: 0rem;
+  }
+  .nav__li {
+    display: none;
+  }
+  .nav__hamburger {
+    padding-right: 3rem;
+    display: block;
+    cursor: pointer;
+  }
+  .nav-mobile {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: #0058D2;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: none;
+  }
+  .nav-mobile__header {
+    display: flex;
+    height: 20%;
+    width: 100%;
+    padding: 7rem 4rem 0rem 4rem;
+    justify-content: space-between;
+  }
+  .nav__logo--mobile {
+    height: 10rem;
+    display: block;
+  }
+  .nav__arrow {
+    height: 4rem;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+  .nav__ul--mobile {
+    font-size: 2rem;
+    list-style: none;
+    padding-top: 6rem;
+  }
+  .nav__li--mobile {
+    padding: 2rem;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.1rem;
+    color: #FFCB2F;
+  }
+  .nav__searchContainer--mobile {
+    color: #FFCB2F;
+  }
+  .nav__search--mobile {
+    color: #FFCB2F;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #FFCB2F;
+    font-size: 2rem;
+  }
+  .nav__search--mobile::placeholder {
+    color: #FFCB2F;
+  }
+  .nav__search--mobile::-ms-input-placeholder {
+    color: #0058D2;
+  }
+  .nav__searchBtn--mobile {
+    color: #FFCB2F;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #FFCB2F;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-left: 6rem;
+  }
+
+  .dot {
+    width: 700px;
+    height: 350px;
+    /* as the half of the width */
+    background-color: #FFCB2F;
+    border-top-left-radius: 380px;
+    /* 100px of height + 10px of border */
+    border-top-right-radius: 380px;
+    /* 100px of height + 10px of border */
+    border-bottom: 0;
+    transform: translateX(-100rem);
+    transform: translateY(11.15rem);
+  }
+}
 .signup {
   display: flex;
   align-items: center;
@@ -1278,6 +1378,9 @@ textarea::placeholder, textarea:focus, textarea::after {
   .contact-form {
     width: 20rem;
   }
+  .contact-ty {
+    font-size: 4rem;
+  }
 }
 @media (min-width: 426px) and (max-width: 1023px) {
   .contact {
@@ -1302,6 +1405,9 @@ textarea::placeholder, textarea:focus, textarea::after {
   }
   .contact-form {
     width: 40rem;
+  }
+  .contact-ty {
+    font-size: 3rem;
   }
 }
 .about {
@@ -1441,6 +1547,15 @@ textarea::placeholder, textarea:focus, textarea::after {
   width: 100px;
   height: 100px;
   background: url(../img/jacket.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  border: 3px solid black;
+  padding: 1rem;
+}
+.account__change {
+  width: 100px;
+  height: 100px;
   background-position: center;
   background-size: cover;
   border-radius: 50%;

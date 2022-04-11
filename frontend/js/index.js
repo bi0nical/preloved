@@ -26,8 +26,18 @@ $(document).ready(function(){
         url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
           console.log(url);
           // cardLoad(url);
-          appendListings(url);
-          appendListingsToAccount(url);
+          if (window.location.pathname === "/frontend/shop.html"){
+           
+                  
+            appendListings(url);
+      
+       
+          }if (window.location.pathname === "/frontend/mywardrobe.html"){
+        
+          
+            appendListingsToAccount(url);   
+
+          };
       },
       error:function(error){
         console.log(error);
@@ -36,6 +46,19 @@ $(document).ready(function(){
     })
 // =====================================
 // AJAX ENDS HERE
+// =====================================
+
+// =====================================
+// HAMBURGER MENU STARTS HERE
+// =====================================
+$("#hamburger").click(function(){
+  $("#navMobile").toggle();
+});
+$("#navArrow").click(function(){
+  $("#navMobile").toggle();
+});
+// =====================================
+// HAMBURGER MENU ENDS HERE
 // =====================================
 
 
@@ -159,7 +182,7 @@ function modalAddItem(){
       </select>
   </div>
   <br>
-  <div class="form-group">
+  <div class="form-group">contac
       <label for="genderInput">Gender style</label>
       <select id="genderInput" class="form-control">
         <option disabled selected value>Select a gender style</option>
@@ -384,7 +407,7 @@ function appendListingsToAccount(url){
           </div>
   
           `
-
+          
           // EDIT LISTING MODAL FOR 'YOUR LISTINGS' SECTION
 
           document.querySelectorAll('.clothingCard__edit').forEach(function(edit) {
@@ -500,6 +523,20 @@ function appendListingsToAccount(url){
 
 
           // LISTING MODAL FOR 'YOUR LISTINGS' SECTION
+
+document.querySelectorAll('.editClick').forEach(function(edit){
+  edit.addEventListener('click', function(e){
+console.log(e.target.id);
+ let listing_Id = e.target.id;
+ console.log(listing_Id)
+ console.log(url);
+
+$('#editListingButton').click(function(){
+ event.preventDefault();
+ editFunction(listing_Id);
+})
+})
+})
 
           document.querySelectorAll('.clothingCard').forEach(function(yourListingsClothingItem) {
             yourListingsClothingItem.addEventListener('click', function(e) {
@@ -705,8 +742,10 @@ if (username == '' || password == ''){
         sessionStorage.setItem('userID', user['_id']);
         sessionStorage.setItem('userName', user['username']);
         sessionStorage.setItem('userEmail', user['email']);
+        sessionStorage.setItem('userImg', user['profile_img']);
         console.log(sessionStorage);
         alert('Sucessful login');
+        userDetails();
       }// end of ifs
     },//success
     error:function(){
@@ -723,6 +762,21 @@ console.log(sessionStorage);
 alert('Sucessful logout');
 
 })
+
+function userDetails(){
+  
+ let user= sessionStorage.getItem('userName');
+ let picture= sessionStorage.getItem('userImg');
+ console.log(user, picture);
+  document.getElementById("userNameText").innerHTML= user;
+  $('#userImage').empty().append(
+    `
+    <img class="account__change" src='${picture}'>
+    </img>
+    `
+  );
+
+};
 
 // =====================================
 //USER FUNCTIONS END HERE
@@ -778,7 +832,7 @@ alert('Sucessful logout');
             success : function(listing){
               console.log(listing);
               alert ('listing added');
-              // window.location.reload();
+              window.location.reload();
             },
             error : function(){
               console.log('error: cannot call api');

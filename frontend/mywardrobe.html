@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>PreLoved | My Wardrobe</title>
+      <title rel="webSelect">PreLoved | My Wardrobe</title>
       <!-- FONT AWESOME -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,6 +22,7 @@
       <nav class="nav">
          <div class="nav__logoContainer">
             <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
+
             <div class="nav__searchContainer">
                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
                <button class="nav__searchBtn">search</button>
@@ -28,14 +30,17 @@
          </div>
          <div class="nav__items">
             <ul class="nav__ul">
-               <li class="nav__li">
-               </li>
-               <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-               <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
-               <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
-               <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
-               <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
-               <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+                <li class="nav__li">
+                    
+                </li>
+                <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
+                <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
+                <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
+                <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
+                <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
+                <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+                <img class="nav__hamburger" src="./img/hamburger-01.png" alt="">
+
             </ul>
          </div>
       </nav>
@@ -44,13 +49,13 @@
             <div class="account__left">
             </div>
             <div class="account__details">
-               <div class="account__imgContainer">
+               <div class="account__imgContainer" id="userImage">
                   <div class="account__img">
                   </div>
                </div>
                <div class="account__name">
-                  <h class="account__username">
-                  emmamckinley</h2>
+                  <h2 class="account__username" id="userNameText">
+                 </h2>
                   <i class="fa-solid fa-pen account__editBtn"></i>
                </div>
             </div>
