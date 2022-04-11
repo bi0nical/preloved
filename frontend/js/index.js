@@ -748,6 +748,7 @@ if (username == '' || password == ''){
         console.log(sessionStorage);
         
         alert('Sucessful login');
+        window.location.reload();
         
       }// end of ifs
     },//success
@@ -778,6 +779,7 @@ function userDetails(){
     `
     <img class="account__change" src='${picture}'>
     </img>
+    <i class="fa-solid fa-pen account__editBtn"></i>
     `
   );
 
