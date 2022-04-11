@@ -516,7 +516,6 @@
 .nav__logo {
   height: 100%;
   padding: 1rem;
-  width: 13rem;
 }
 .nav__searchContainer {
   margin-left: 3rem;
@@ -1425,7 +1424,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   height: auto;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 .account__top {
   display: flex;
@@ -1854,6 +1853,31 @@ textarea::placeholder, textarea:focus, textarea::after {
   cursor: pointer;
   width: 100%;
 }
+.clothingCard__top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 6%, rgba(0, 0, 0, 0.4040966728) 39%, rgba(0, 0, 0, 0.9307073171) 100%);
+}
+.clothingCard__icon {
+  font-size: 1.7rem;
+  color: white;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  transition: 0.2s;
+  z-index: 10;
+  margin-left: 0.5rem;
+}
+.clothingCard__icon:hover {
+  cursor: pointer;
+  color: white;
+  transform: scale(1.3);
+  transition: 0.2s;
+}
+.clothingCard__icon:active {
+  transform: scale(1);
+}
 .clothingCard__imgContainer {
   height: 230px;
   background: url(../img/jeans.png) no-repeat;
@@ -1888,6 +1912,69 @@ textarea::placeholder, textarea:focus, textarea::after {
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-radius: 20px;
   text-transform: uppercase;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+.delete__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 1rem;
+}
+.delete__buttons {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+  transition: 0.1s;
+}
+.delete__submit:hover {
+  cursor: pointer;
+}
+.delete__submit:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.delete__submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.delete__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  transition: 0.1s;
+}
+.delete__close:hover {
+  cursor: pointer;
+}
+.delete__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.delete__close:active {
+  transform: scale(1);
+  transition: 0.1s;
 }
 
 * {

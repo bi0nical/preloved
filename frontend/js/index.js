@@ -225,7 +225,6 @@ function appendListings(url){
     type: 'GET',
     dataType: 'JSON',
     success: function(listingsFromDB){
-      console.log(listingsFromDB)
       let i;
       document.getElementById('clothingCardGrid').innerHTML = "";
       for(i = 0; i < listingsFromDB.length; i++){
@@ -248,37 +247,8 @@ function appendListings(url){
         </div>
 
         `
-//         //delete cards/listings caller starts here
-//         document.querySelectorAll('.delClick').forEach(function(trash){
-//           trash.addEventListener('click', function(e){
-//         console.log(e.target.id);
-//          let listing_Id = e.target.id;
-//          console.log(listing_Id)
-//          console.log(url);
-        
-//         $('#delButton_confirm').click(function(){
-//          event.preventDefault();
-//          deleteFunction(listing_Id);
-//         })
-//       })
-//     })
-// //delete cards/listings caller ends here
 
-// //edit cards/listings caller ends here
-// document.querySelectorAll('.editClick').forEach(function(edit){
-//   edit.addEventListener('click', function(e){
-// console.log(e.target.id);
-//  let listing_Id = e.target.id;
-//  console.log(listing_Id)
-//  console.log(url);
 
-// $('#editListingButton').click(function(){
-//  event.preventDefault();
-//  editFunction(listing_Id);
-// })
-// })
-// })
-//edit cards/listings caller ends here
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
             console.log(url);
@@ -380,7 +350,6 @@ function appendListingsToAccount(url){
     type: 'GET',
     dataType: 'JSON',
     success: function(listingsFromDB){
-      console.log(listingsFromDB);
       let userid = sessionStorage.getItem('userID');
       console.log(userid);
 
@@ -395,6 +364,14 @@ function appendListingsToAccount(url){
           <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
             <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
                 
+            <div id="${listingsFromDB[i]._id}" class="hide clothingCard__top">
+
+              <i value="${listingsFromDB[i]._id}" class="clothingCard__icon clothingCard__edit icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#editItemModal"></i>
+
+              <i value="${listingsFromDB[i]._id}" class="clothingCard__icon clothingCard__trash icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteItemModal'></i>
+
+            </div>
+
             </div>
             <div class="clothingCard__details">
                 <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
@@ -407,6 +384,120 @@ function appendListingsToAccount(url){
           </div>
   
           `
+
+          // EDIT LISTING MODAL FOR 'YOUR LISTINGS' SECTION
+
+          document.querySelectorAll('.clothingCard__edit').forEach(function(edit) {
+            edit.addEventListener('click', function(e) {
+                
+              let updateId = e.target.parentNode.id;
+
+                $('#editListingButton').click(function(){
+                  event.preventDefault();
+          
+                  console.log(updateId);
+                  let name = $('#nameInputEdit').val();
+                  let desc = $('#descInputEdit').val();
+                  let price = $('#priceInputEdit').val();
+                  let img1 = $('#imgOneInputEdit').val();
+                  let img2 = $('#imgTwoInputEdit').val();
+                  let img3 = $('#imgThreeInputEdit').val();
+                  let size1 = $('#sizeNoInputEdit').val();
+                  let size2 = $('#sizeLetterInputEdit').val();
+                  let type = $('#typeInputEdit').val();
+                  let brand = $('#brandInputEdit').val();
+                  let color = $('#colourInputEdit').val();
+                  let gender = $('#genderInputEdit').val();
+                  let user_id = sessionStorage.getItem('userID');
+                  let user_name = sessionStorage.getItem('userName');
+                  $.ajax({
+                    url: `http://${url}/updatelisting/${updateId}`,
+                    type: 'PATCH',
+                    data :{
+                      name: name,
+                      desc: desc,
+                      price: price,
+                      img1: img1,
+                      img2: img2,
+                      img3: img3,
+                      size1: size1,
+                      size2: size2,
+                      type: type,
+                      brand: brand,
+                      color: color,
+                      gender: gender,
+                      user_id: user_id,
+                      user_name: user_name
+                    },
+                    success: function(data){
+                      console.log(data);
+                      alert('Listing Updated');
+                    },
+                    error: function(){
+                      console.log('Error: cannot update listing');
+                    } // Error
+                  }) // AJAX
+                  
+              })
+              });
+            })//END OF EDIT LISTING
+
+
+
+            //SHOW EDIT AND DELETE BUTTONS ON HOVER
+
+            document.querySelectorAll('.clothingCard').forEach(function(card) {
+              card.addEventListener('mouseenter', function(e) {
+                  const hides = e.target.querySelectorAll('.hide');
+                  for(const hide of hides){
+                  hide.classList.remove('hide');
+                  hide.classList.add('show');
+              }
+              });
+            })
+
+            document.querySelectorAll('.clothingCard').forEach(function(card) {
+              card.addEventListener('mouseleave', function(e) {
+                  const shows = e.target.querySelectorAll('.show');
+                  for(const show of shows){
+                  show.classList.remove('show');
+                  show.classList.add('hide');
+              }
+              });
+            })    
+
+            //END OF SHOW EDIT AND DELETE BUTTONS ON HOVER
+
+
+
+            //DELETE LISTING FUNCTION START
+
+
+            document.querySelectorAll('.clothingCard__trash').forEach(function(trash){
+              trash.addEventListener('click', function(e){
+                // console.log(e.target.parentNode.id);
+                let delete_Id = e.target.parentNode.id;
+                  
+                $('#deleteListing').click(function(){
+                  event.preventDefault();
+                  console.log(delete_Id);
+                  $.ajax({
+                    url : `http://${url}/deleteListing/${delete_Id}`,
+                    type:'DELETE',
+                    success : function(){
+                        console.log('Deleted');
+                        alert('Listing Deleted');
+                    }, //success
+                    error:function(){ 
+                        console.log('Error: cannot call API'); 
+                    }//error
+                })//ajax
+                  })
+                })
+              })
+            
+            // DELETE LISTING FUNCTION END
+
 
           // LISTING MODAL FOR 'YOUR LISTINGS' SECTION
 
@@ -421,7 +512,6 @@ function appendListingsToAccount(url){
                       type: 'GET',
                       dataType: 'JSON',
                       success:function(singleListing){
-                        console.log(singleListing);
                         let price = singleListing.price.toFixed(2);
                         $('#yourListingsClothingModal').empty().append(
   
