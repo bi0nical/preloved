@@ -1,4 +1,5 @@
-.cart-header{
+.cart{
+    &-header{
     padding: 2rem;
     display: flex;
     &__h5{
@@ -6,7 +7,8 @@
         font-family: $primaryFont;
         align-self: center;
     }
-}
+    }
+}.
 
 .cart-btns{
 
