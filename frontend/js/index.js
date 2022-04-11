@@ -775,15 +775,21 @@ function userDetails(){
  let picture= sessionStorage.getItem('userImg');
  console.log(user, picture);
   $("#userText").empty().append(
-    `<h2 class="account__username" > ${user} </h2>`
+    `<h2 class="account__username" > ${user} </h2>
+    <i class="fa-solid fa-pen account__editBtn"></i>`
   )
   $('#userImage').empty().append(
     `
-    <img class="account__change" src='${picture}'>
-    </img>
-    <i class="fa-solid fa-pen account__editBtn"></i>
+    <div class="account__img" style="background: url('${picture}'); background-size: cover; background-position: center;">
+    </div>
     `
   );
+  // $('#userImage').empty().append(
+  //   `
+  //   <img class="account__change" src='${picture}'>
+  //   </img>
+  //   `
+  // );
 
 };
 

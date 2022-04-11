@@ -1,0 +1,54 @@
+@import 'var';
+@import 'mixins';
+
+.changeAccount{
+    
+    &__title{
+        font-family: $primaryFont;
+        font-size: 3rem;
+        font-weight: 900;
+        text-align: center;
+        padding: 1rem;
+    }
+    &__buttons{
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__inputContainer{
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 4rem 4rem 4rem
+    }
+
+
+    // BUTTONS
+    &__submit{
+        @include btn;
+        background: $yellow;
+        margin-left: 1rem;
+        transition: 0.1s;
+    }
+    &__submit:hover{
+        transform: scale(1.1);
+        transition: 0.1s
+    }
+    &__submit:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+    &__close{
+        @include btn;
+        transition: 0.1s;
+    }
+    &__close:hover{
+        transform: scale(1.1);
+        transition: 0.1s
+    }
+    &__close:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+}

@@ -58,14 +58,20 @@
                   <i class="fa-solid fa-pen account__editBtn"></i>
                </div>
             </div>
+
+            <!-- EDIT ACCOUNT DROP DOWN MENU -->
+           
             <div class="account__editDropdown">
                <button class="account__editDropdownBtn">edit account<i class="fa-solid fa-caret-down account__editDropdownArrow"></i></button>
                <div class="editDropdown">
-                  <button class="editAccountOption">change username</button>
-                  <button class="editAccountOption">change password</button>
-                  <button class="editAccountOption">change email</button>
+                  <ul class="editDropdown__ul">
+                     <li class="editDropdown__li"><button id="changeUsername" class="editAccountOption" data-bs-toggle="modal" data-bs-target="#changeUsernameModal">change username</button></li>
+                     <li class="editDropdown__li"><button id="changePassword" class="editAccountOption" data-bs-toggle="modal" data-bs-target="#changePasswordModal">change password</button></li>
+                     <li class="editDropdown__li"><button id="changeEmail" class="editAccountOptionLast" data-bs-toggle="modal" data-bs-target="#changeEmailModal">change email</button></li>
+                  </ul>
                </div>
             </div>
+
          </div>
          <div class="account__listings">
             <div class="account__listingsAdd">
@@ -324,6 +330,89 @@
          </div>
       </div>
       <!-- CLOTHING ITEM MODAL END -->
+
+      <!-- ======================== -->
+      <!-- CHANGE ACCOUNT OPTIONS -->
+      <!-- ======================== -->
+
+      <!-- CHANGE USERNAME -->
+      <div class="modal fade" id="changeUsernameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="modal-title changeAccount__title changeUsername__title">Change Username</div>
+                  <div class="changeUsername__inputContainer changeAccount__inputContainer">
+                     <label class="signup__label" for="change-username" >New Username</label>
+                     <input class="signup__input" name="change-username" id="changeUsername" type="text">
+                  </div>
+                  
+                     <div class="changeAccount__buttons">
+                        <button type="button" class="changeAccount__close" data-bs-dismiss="modal">close</button>
+                        <button class="changeAccount__submit" id="changePasswordSubmit" type="submit">update</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- CHANGE PASSWORD -->
+
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="modal-title changeAccount__title changeUsername__title">Change Password</div>
+                  <div class="changePassword__inputContainer changeAccount__inputContainer">
+                     <label class="signup__label" for="change-password" >New Password</label>
+                     <input class="signup__input" name="change-password" id="changePassword" type="text">
+                  </div>
+                  
+                     <div class="changeAccount__buttons">
+                        <button type="button" class="changeAccount__close" data-bs-dismiss="modal">close</button>
+                        <button class="changeAccount__submit" id="changePasswordSubmit" type="submit">update</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+       <!-- CHANGE EMAIL -->
+
+       <div class="modal fade" id="changeEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="modal-title changeAccount__title changeEmail__title">Change Email</div>
+                  <div class="changeEmail__inputContainer changeAccount__inputContainer">
+                     <label class="signup__label" for="change-email" >New Email</label>
+                     <input class="signup__input" name="change-email" id="changeEmail" type="text">
+                  </div>
+                  
+                     <div class="changeAccount__buttons">
+                        <button type="button" class="changeAccount__close" data-bs-dismiss="modal">close</button>
+                        <button class="changeAccount__submit" id="changeEmailSubmit" type="submit">update</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+       <!-- ======================== -->
+      <!-- END OF CHANGE ACCOUNT OPTIONS -->
+      <!-- ======================== -->
 
       <!-- dependencies -->
       <script src="node_modules/jquery/dist/jquery.min.js"></script>
