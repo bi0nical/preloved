@@ -218,6 +218,10 @@
 
     .nav{
 
+        &__searchContainer{
+            display: none;
+        }
+
 
         &__logoContainer{
             padding: 0rem;
@@ -243,7 +247,7 @@
             flex-direction: column;
             text-align: left;
             margin: none;
-        
+            overflow-y: hidden;
             
         }
 
@@ -273,7 +277,7 @@
         &__ul--mobile{
             font-size: 2rem;    
             list-style: none;
-            padding-top: 6rem;
+            padding-top: 4rem;
                 
         }
                 
@@ -286,6 +290,10 @@
 
         &__searchContainer--mobile{
             color: $yellow;
+            padding-top: 4rem;
+            display: block;
+            display: flex;
+
         }
 
         &__search--mobile{
@@ -294,6 +302,7 @@
             border: none;
             border-bottom: 2px solid $yellow;
             font-size: 2rem;
+            display: block;
         }
         &__search--mobile::placeholder{
             color: $yellow;
@@ -311,7 +320,7 @@
             cursor: pointer;
             font-size: 2rem;
             font-weight: 700;
-            padding-left: 6rem;
+            padding-left: 5rem;
         }
 
     }
@@ -325,6 +334,9 @@
         border-bottom: 0;
         transform: translateX(-100rem);
         transform: translateY(11.15rem);
+        position: absolute;
+        right: 4;
+        bottom: 0;
     }
     
 }

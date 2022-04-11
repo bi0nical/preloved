@@ -27,16 +27,17 @@ const listingSchema = new mongoose.Schema({
   {
     type: String,
     ref: 'User'
-  }
-    // location: String,
+  },
+
+  comment_id: 
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
+  },
+      // location: String,
   // tags: 
   // {
   //     String
-  // },
-  // comment_id: 
-  // {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'Comment'
   // }
 })
 
