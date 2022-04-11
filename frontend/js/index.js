@@ -26,8 +26,18 @@ $(document).ready(function(){
         url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
           console.log(url);
           // cardLoad(url);
-          appendListings(url);
-          appendListingsToAccount(url);
+          if (window.location.pathname === "/frontend/shop.html"){
+           
+                  
+            appendListings(url);
+      
+       
+          }if (window.location.pathname === "/frontend/mywardrobe.html"){
+        
+          
+            appendListingsToAccount(url);   
+
+          };
       },
       error:function(error){
         console.log(error);
@@ -616,8 +626,10 @@ if (username == '' || password == ''){
         sessionStorage.setItem('userID', user['_id']);
         sessionStorage.setItem('userName', user['username']);
         sessionStorage.setItem('userEmail', user['email']);
+        sessionStorage.setItem('userImg', user['profile_img']);
         console.log(sessionStorage);
         alert('Sucessful login');
+        userDetails();
       }// end of ifs
     },//success
     error:function(){
@@ -634,6 +646,21 @@ console.log(sessionStorage);
 alert('Sucessful logout');
 
 })
+
+function userDetails(){
+  
+ let user= sessionStorage.getItem('userName');
+ let picture= sessionStorage.getItem('userImg');
+ console.log(user, picture);
+  document.getElementById("userNameText").innerHTML= user;
+  $('#userImage').empty().append(
+    `
+    <img class="account__change" src='${picture}'>
+    </img>
+    `
+  );
+
+};
 
 // =====================================
 //USER FUNCTIONS END HERE
@@ -689,7 +716,7 @@ alert('Sucessful logout');
             success : function(listing){
               console.log(listing);
               alert ('listing added');
-              // window.location.reload();
+              window.location.reload();
             },
             error : function(){
               console.log('error: cannot call api');
