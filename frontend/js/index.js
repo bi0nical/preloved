@@ -27,6 +27,7 @@ $(document).ready(function(){
           console.log(url);
           // cardLoad(url);
           appendListings(url);
+          appendListingsToAccount(url);
       },
       error:function(error){
         console.log(error);
@@ -244,28 +245,7 @@ function appendListings(url){
         let price = listingsFromDB[i].price.toFixed(2);
         document.getElementById('clothingCardGrid').innerHTML +=
         `
-        <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="${listingsFromDB[i].img1}" alt="Card image cap">
-        <div class="card-body">
-        <div class="bodytop"><p>${listingsFromDB[i].name}</p><br />
-        <p>${listingsFromDB[i].date}</p></br>
-        <p>$${listingsFromDB[i].price}</p></br>
-        <p>${listingsFromDB[i].size1}</p></br>
-        <p>${listingsFromDB[i].size2}</p></br>
-        <p>${listingsFromDB[i].desc}</p></br>
-        <p>${listingsFromDB[i].gender}</p></br>
-        <p>${listingsFromDB[i].color}</p></br>
-        <p>${listingsFromDB[i].brand}</p></br>
-        <p>${listingsFromDB[i].type}</p></br>
         
-        </div>
-        <div class="bodybottom">
-        <i id="${listingsFromDB[i]._id}" class="editClick"  data-bs-toggle="modal" data-bs-target="#editModal">Edit</i><br>
-
-        <i id="${listingsFromDB[i]._id}" class="delClick"  data-bs-toggle="modal" data-bs-target="#delModal">Delete</i>
-        <button type="button" id="buyButton" class= "btnCard">Buy Now</button>
-        </div>
-        </div>
         <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
           <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
               
@@ -279,38 +259,9 @@ function appendListings(url){
               </div>
           </div>
         </div>
+
         `
-//         //delete cards/listings caller starts here
-//         document.querySelectorAll('.delClick').forEach(function(trash){
-//           trash.addEventListener('click', function(e){
-//         console.log(e.target.id);
-//          let listing_Id = e.target.id;
-//          console.log(listing_Id)
-//          console.log(url);
-        
-//         $('#delButton_confirm').click(function(){
-//          event.preventDefault();
-//          deleteFunction(listing_Id);
-//         })
-//       })
-//     })
-// //delete cards/listings caller ends here
 
-// //edit cards/listings caller ends here
-// document.querySelectorAll('.editClick').forEach(function(edit){
-//   edit.addEventListener('click', function(e){
-// console.log(e.target.id);
-//  let listing_Id = e.target.id;
-//  console.log(listing_Id)
-//  console.log(url);
-
-// $('#editListingButton').click(function(){
-//  event.preventDefault();
-//  editFunction(listing_Id);
-// })
-// })
-// })
-//edit cards/listings caller ends here
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
             console.log(url);
@@ -395,11 +346,174 @@ function appendListings(url){
                   })
           });
         })
+
+        
       }
     }
   })
 }
 
+// ================================
+// APPEND LISTINGS TO ACCOUNT PAGE
+// ================================
+
+function appendListingsToAccount(url){
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      console.log(listingsFromDB);
+      let userid = sessionStorage.getItem('userID');
+      console.log(userid);
+
+      let i;
+      document.getElementById('accountListingsGrid').innerHTML = "";
+      for(i = 0; i < listingsFromDB.length; i++){
+        if(listingsFromDB[i].user_id === userid){
+          let price = listingsFromDB[i].price.toFixed(2);
+          document.getElementById('accountListingsGrid').innerHTML +=
+          `
+          
+          <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
+            <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
+                
+            </div>
+            <div class="clothingCard__details">
+                <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
+                <p class="clothingCard__price">$${price}</p>
+                <div class="clothingCard__tags">
+                    <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
+                    <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+                </div>
+            </div>
+          </div>
+  
+          `
+
+          
+        //delete cards/listings caller starts here
+        document.querySelectorAll('.delClick').forEach(function(trash){
+          trash.addEventListener('click', function(e){
+        console.log(e.target.id);
+         let listing_Id = e.target.id;
+         console.log(listing_Id)
+         console.log(url);
+        
+        $('#delButton_confirm').click(function(){
+         event.preventDefault();
+         deleteFunction(listing_Id);
+        })
+      })
+    })
+//delete cards/listings caller ends here
+
+//edit cards/listings caller ends here
+document.querySelectorAll('.editClick').forEach(function(edit){
+  edit.addEventListener('click', function(e){
+console.log(e.target.id);
+ let listing_Id = e.target.id;
+ console.log(listing_Id)
+ console.log(url);
+
+$('#editListingButton').click(function(){
+ event.preventDefault();
+ editFunction(listing_Id);
+})
+})
+})
+
+// edit cards/listings caller ends here
+          document.querySelectorAll('.clothingCard').forEach(function(yourListingsClothingItem) {
+            yourListingsClothingItem.addEventListener('click', function(e) {
+              console.log(url);
+                console.log(e.target.parentNode.id);
+                let id = e.target.parentNode.id;
+                
+                $.ajax({
+                      url: `http://${url}/allListingFromDB/${id}`,
+                      type: 'GET',
+                      dataType: 'JSON',
+                      success:function(singleListing){
+                        console.log(singleListing);
+                        let price = singleListing.price.toFixed(2);
+                        $('#yourListingsClothingModal').empty().append(
+  
+                          `
+                          <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
+  
+                          </div>
+                          <div class="clothingItemModal__right">
+                              <div class="clothingItemModal__closeTop">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                            
+                              <div class="clothingItemModal__mainDetails">
+                                <h1 class="clothingItemModal__name">${singleListing.name}</h1>
+                                <h2 class="clothingItemModal__price">${price}</h2>
+                                <h6 class="clothingItemModal__location">${singleListing.location}</h6>
+                              </div>
+  
+                              <div class="clothingItemModal__divider"></div>
+                              
+                              <div class="clothingItemModal__descContainer">
+                                <p class="clothingItemModal__desc">${singleListing.desc}</p>
+                              </div>
+                              <div class="clothingItemModal__divider">
+  
+                              </div>
+                              <div class="clothingItemModal__details">
+                                <div class="clothingItemModal__details1">
+                                    <p class="clothingItemModal__sizeTitle">Size:</p>
+                                    <p class="clothingItemModal__size">${singleListing.size1}</p>
+                                </div>
+                                <div class="clothingItemModal__details2">
+                                    <p class="clothingItemModal__brandTitle">Brand:</p>
+                                    <p class="clothingItemModal__brand">${singleListing.brand}</p>
+                                </div>
+                                <div class="clothingItemModal__details3">
+                                    <p class="clothingItemModal__colorTitle">Colour:</p>
+                                    <p class="clothingItemModal__color">${singleListing.color}</p>
+                                </div>
+                                <div class="clothingItemModal__details4">
+                                    <p class="clothingItemModal__madeinTitle">Made In:</p>
+                                    <p class="clothingItemModal__madein">USA</p>
+                                </div>
+                              </div>
+                              <div class="clothingItemModal__divider">
+                                  
+                            </div>
+                              <div class="clothingItemModal__user">
+                                <div class="clothingItemModal__profilePic">
+  
+                                </div>
+                                <h4 class="clothingItemModal__username">user1234</h4>
+                              </div>
+                              <div class="clothingItemModal__divider">
+                                  
+                            </div>
+                              <div class="clothingItemModal__btns">
+                                <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
+                                <button class="clothingItemModal__addToCard">add to cart</button>
+                              </div>
+                          </div>
+  
+                          `
+                          
+                         
+                          
+                          );
+                        
+                      }
+                    })
+            });
+          })
+        }
+        
+      };
+    }
+  })
+};
 // CLOTHING ITEM MODAL FUNCTION
 
 
@@ -435,6 +549,7 @@ $('#registerButton').click(function(){
 
   }else {
     if (password === password2){
+      
     $.ajax({
       url: `http://${url}/registerUser`,
       type : 'POST',
@@ -442,6 +557,7 @@ $('#registerButton').click(function(){
         username: username,
         email: email,
         password: password,
+        profile_img: profile_img
        
       },
       success:function(user){
@@ -559,6 +675,11 @@ alert('Sucessful logout');
         if (name == '' || price == '' ||  img1 == '' || size2 == '' || type == ''|| gender == ''){
           alert('Please enter relevant details');
         } else {
+          if (sessionStorage.getItem('userID') === null){
+            alert('Please log in or register to add listings')
+            console.log('hi');
+
+          } else{
           $.ajax({
             url : `http://${url}/addListing`,
             type : 'POST',
@@ -587,7 +708,8 @@ alert('Sucessful logout');
               console.log('error: cannot call api');
             }//error
           })//ajax
-        }//else
+        }//inner else
+        }//outer else
       });//addListing
 //AddListing End
 
@@ -673,8 +795,12 @@ let name = $('#nameInputEdit').val();
 // SLIDE IN NAV ELEMENTS START HERE
 // =====================================
 
+// LEFT NAV
+
 // slide in categories button
 $("#slideInLeftNavBtn").click(function (){
+  $(".filters").css("transform", "translateX(-25rem)");
+  $("#slideInFiltersBtn").css("transform", "translateX(0vw)")
   $("#slideInLeftNavBtn").css("transform", "translateX(-100%)")
   $(".categories-container").css("transform", "translateX(0vw)");
 })
@@ -793,6 +919,23 @@ $("#accessoriesCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "block");
+})
+
+// RIGHT NAV
+
+$("#slideInCartBtn").click(function (){
+  $(".cart-container").css("transform", "translateX(0rem)");
+  $(".starred").css("transform", "translateX(25rem)");
+})
+$("#closeCartBtn").click(function (){
+  $(".cart-container").css("transform", "translateX(50rem)");
+})
+
+$("#slideInStarredBtn").click(function (){
+  $(".starred").css("transform", "translateX(0rem)");
+})
+$("#closeStarredBtn").click(function (){
+  $(".starred").css("transform", "translateX(25rem)");
 })
 
 // =====================================
