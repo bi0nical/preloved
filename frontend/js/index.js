@@ -248,37 +248,7 @@ function appendListings(url){
         </div>
 
         `
-//         //delete cards/listings caller starts here
-//         document.querySelectorAll('.delClick').forEach(function(trash){
-//           trash.addEventListener('click', function(e){
-//         console.log(e.target.id);
-//          let listing_Id = e.target.id;
-//          console.log(listing_Id)
-//          console.log(url);
-        
-//         $('#delButton_confirm').click(function(){
-//          event.preventDefault();
-//          deleteFunction(listing_Id);
-//         })
-//       })
-//     })
-// //delete cards/listings caller ends here
 
-// //edit cards/listings caller ends here
-// document.querySelectorAll('.editClick').forEach(function(edit){
-//   edit.addEventListener('click', function(e){
-// console.log(e.target.id);
-//  let listing_Id = e.target.id;
-//  console.log(listing_Id)
-//  console.log(url);
-
-// $('#editListingButton').click(function(){
-//  event.preventDefault();
-//  editFunction(listing_Id);
-// })
-// })
-// })
-//edit cards/listings caller ends here
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
             console.log(url);
@@ -408,8 +378,38 @@ function appendListingsToAccount(url){
   
           `
 
-          // LISTING MODAL FOR 'YOUR LISTINGS' SECTION
+          
+        //delete cards/listings caller starts here
+        document.querySelectorAll('.delClick').forEach(function(trash){
+          trash.addEventListener('click', function(e){
+        console.log(e.target.id);
+         let listing_Id = e.target.id;
+         console.log(listing_Id)
+         console.log(url);
+        
+        $('#delButton_confirm').click(function(){
+         event.preventDefault();
+         deleteFunction(listing_Id);
+        })
+      })
+    })
+//delete cards/listings caller ends here
 
+//edit cards/listings caller ends here
+document.querySelectorAll('.editClick').forEach(function(edit){
+  edit.addEventListener('click', function(e){
+console.log(e.target.id);
+ let listing_Id = e.target.id;
+ console.log(listing_Id)
+ console.log(url);
+
+$('#editListingButton').click(function(){
+ event.preventDefault();
+ editFunction(listing_Id);
+})
+})
+})
+edit cards/listings caller ends here
           document.querySelectorAll('.clothingCard').forEach(function(yourListingsClothingItem) {
             yourListingsClothingItem.addEventListener('click', function(e) {
               console.log(url);
