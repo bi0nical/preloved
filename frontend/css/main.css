@@ -1683,6 +1683,9 @@ textarea::placeholder, textarea:focus, textarea::after {
   outline: none;
   border: none;
 }
+.account__editDropdown:hover .editDropdown {
+  display: flex;
+}
 .account__editDropdownArrow {
   font-size: 1.5rem;
   padding-left: 0.5rem;
@@ -1719,14 +1722,17 @@ textarea::placeholder, textarea:focus, textarea::after {
 }
 
 .editDropdown {
-  border-radius: 2px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   background: white;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   top: 100%;
   right: 0;
   min-width: 200px;
-  display: flex;
+  display: none;
   align-items: flex-end;
   justify-content: flex-end;
   flex-direction: column;
@@ -1734,8 +1740,13 @@ textarea::placeholder, textarea:focus, textarea::after {
   box-shadow: 5px 4px 13px -1px #626262;
   z-index: 2;
 }
+.editDropdown__ul {
+  list-style-type: none;
+  margin: 0;
+}
 
 .editAccountOption {
+  width: 200px;
   cursor: pointer;
   background: none;
   border-bottom: 1px solid rgb(214, 214, 214);
@@ -1751,7 +1762,24 @@ textarea::placeholder, textarea:focus, textarea::after {
   margin-bottom: 0.5rem;
 }
 
-.editAccountOption:hover {
+.editAccountOptionLast {
+  width: 200px;
+  cursor: pointer;
+  background: none;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 1rem 0rem 1rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.editAccountOption:hover, .editAccountOptionLast:hover {
   color: #0058D2;
 }
 
@@ -2235,6 +2263,66 @@ textarea::placeholder, textarea:focus, textarea::after {
   transition: 0.1s;
 }
 .logout__close:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+.changeAccount__title {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 1rem;
+}
+.changeAccount__buttons {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.changeAccount__inputContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 4rem 4rem 4rem;
+}
+.changeAccount__submit {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  margin-left: 1rem;
+  transition: 0.1s;
+}
+.changeAccount__submit:hover {
+  cursor: pointer;
+}
+.changeAccount__submit:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.changeAccount__submit:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.changeAccount__close {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  transition: 0.1s;
+}
+.changeAccount__close:hover {
+  cursor: pointer;
+}
+.changeAccount__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.changeAccount__close:active {
   transform: scale(1);
   transition: 0.1s;
 }

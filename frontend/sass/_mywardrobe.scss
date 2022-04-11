@@ -77,6 +77,9 @@
         outline: none;
         border: none;
     }
+    &__editDropdown:hover .editDropdown{
+        display: flex;
+    }
     &__editDropdownArrow{
         font-size: 1.5rem;
         padding-left: 0.5rem;
@@ -111,22 +114,30 @@
 //EDIT DROPDOWN MENU
 
 .editDropdown{
-    border-radius: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     background: white;
-    padding: 2rem;
+    padding: 1rem;
     position: absolute;
     top: 100%;
     right: 0;
     min-width: 200px;
-    display: flex;
+    display: none;
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
     -webkit-box-shadow: 5px 4px 13px -1px #626262; 
     box-shadow: 5px 4px 13px -1px #626262;
     z-index: 2;
+    &__ul{
+        list-style-type: none;
+        margin: 0;
+    }
 }
 .editAccountOption{
+    width: 200px;
     cursor: pointer;
     background: none;
     border-bottom: 1px solid rgb(214, 214, 214);
@@ -141,6 +152,23 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
-.editAccountOption:hover{
+.editAccountOptionLast{
+    width: 200px;
+    cursor: pointer;
+    background: none;
+    border-bottom: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    font-family: $primaryFont;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 1rem 0rem 1rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.editAccountOption:hover, .editAccountOptionLast:hover{
     color: $blue;
 }
+
