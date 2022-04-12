@@ -1112,7 +1112,7 @@ function addComment() {
 
 //start get comments
 function viewComments() {
-  let openComs = document.querySelector('.commentView');
+  let openComs = document.querySelector('#commentView');
   let id = openComs.value;
   $.ajax({
     url: `http://${url}/viewComments/${id}`,
@@ -1355,7 +1355,7 @@ function appendListingsCommentTest(url){
        
           <input id="commentField" type="text" class="form-control"  placeholder="Enter Comment">
           <button type="button" id="commentBtn" value="${listingsFromDB[i]._id}">Post Comment</button>
-          <button type="button" class="commentView" value="${listingsFromDB[i]._id}">View Comment</button>
+          <button type="button" id="commentView" value="${listingsFromDB[i]._id}">View Comment</button>
           </form>
           <div id="commentBox">
           </div>
@@ -1384,7 +1384,7 @@ function appendListingsCommentTest(url){
         $('#commentBtn').click(function(){
           addComment();
         });
-        $('.commentView').click(function(){
+        $('#commentView').click(function(){
           viewComments();
         });
       }
