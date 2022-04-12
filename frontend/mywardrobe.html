@@ -19,12 +19,14 @@
       <link rel="stylesheet" href="./css/main.css">
    </head>
    <body>
+      <!-- NAVIGATION -->
       <nav class="nav">
          <div class="nav__logoContainer">
 
             
         <!-- start of mobile navigation -->
         <div id="navMobile" class="nav-mobile" style="display:none">
+
          <div class="nav-mobile__header">
             <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
             <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
@@ -47,6 +49,7 @@
          <span class="dot"></span>
      </div>   
       <!-- end of mobile navigation  -->
+
       
             <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
 
@@ -57,9 +60,8 @@
          </div>
          <div class="nav__items">
             <ul class="nav__ul">
-               <!-- <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#logoutModal">logout</button></li> -->
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-                <li class="nav__li"><a  title="my wardrobe" class="nav__link" id="wardrobeLock">my wardrobe</a></li>
+                <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
                 <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
                 <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
                 <div id="navButtons" class="nav__buttons">
@@ -70,14 +72,13 @@
                   
                 </div>
                 
+
                 <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
-
-
-
             </ul>
          </div>
       </nav>
-      <div class="account">
+      
+      <div id="accountPageBody" class="account">
          <div class="account__top">
             <div class="account__left">
             </div>
@@ -447,6 +448,8 @@
        <!-- ======================== -->
       <!-- END OF CHANGE ACCOUNT OPTIONS -->
       <!-- ======================== -->
+
+      
 
       <!-- dependencies -->
       <script src="node_modules/jquery/dist/jquery.min.js"></script>

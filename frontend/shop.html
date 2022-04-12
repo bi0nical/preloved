@@ -25,10 +25,11 @@
             
         <!-- start of mobile navigation -->
         <div id="navMobile" class="nav-mobile" style="display:none">
-         <div class="nav-mobile__header">
-            <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
-            <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
-         </div>
+            <div class="nav-mobile__header">
+               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+            </div>
+
 
          <div class="nav__searchContainer nav__searchContainer--mobile">
              <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
@@ -61,7 +62,7 @@
                <!-- <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#logoutModal">logout</button></li> -->
 
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-                <li class="nav__li"><a  title="my wardrobe" class="nav__link" id="wardrobeLock">my wardrobe</a></li>
+                <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
                 <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
                 <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
                 <div id="navButtons" class="nav__buttons">
@@ -441,7 +442,7 @@
                <div class="modal-header">
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
-               <div class="modal-body">
+               <div id="loginModalBody" class="modal-body">
                   <div class="modal-title login__title">Log In</div>
                   <div class="login__inputs">
                      <div class="login__username">

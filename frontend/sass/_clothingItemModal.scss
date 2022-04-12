@@ -114,11 +114,29 @@
     &__close{
         @include btn;
     }
-    &__addToCard{
+    &__close:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__close:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+    &__addToCart{
         @include btn;
         background: $yellow;
         margin-left: 1rem;
     }
+
+    &__addToCart:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__addToCart:active{
+        transform: scale(1);
+        transition: 0.1s;
+    }
+
 }
 
 @media (max-width: $tablet-max){
@@ -139,5 +157,5 @@
             width: 100%;
         }
     }
-    
+
 }

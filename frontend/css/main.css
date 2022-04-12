@@ -320,6 +320,7 @@
   color: #FF4022;
   font-weight: 600;
   margin: 1.5rem;
+  text-decoration: none;
 }
 .footer-right__li:hover {
   font-weight: 900;
@@ -1929,8 +1930,30 @@ textarea::placeholder, textarea:focus, textarea::after {
   width: 80%;
   margin: 0 auto;
 }
+.account__loginCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 85vh;
+}
+.account__loginCheckTitle {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  padding: 1rem;
+}
+.account__loginCheckText {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 2rem;
+  font-weight: 200;
+  padding: 1rem;
+}
+.account__loginCheckButtons {
+  display: flex;
+}
 .account__cardContainer {
-  padding: 2rem;
+  padding: 2rem 2rem 10rem 2rem;
   height: auto;
   display: grid;
   grid-gap: 1rem;
@@ -2406,7 +2429,15 @@ textarea::placeholder, textarea:focus, textarea::after {
 .clothingItemModal__close:hover {
   cursor: pointer;
 }
-.clothingItemModal__addToCard {
+.clothingItemModal__close:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.clothingItemModal__close:active {
+  transform: scale(1);
+  transition: 0.1s;
+}
+.clothingItemModal__addToCart {
   border: 4px solid black;
   padding: 0.7rem 1rem 0.7rem 1rem;
   font-family: "Libre Franklin", sans-serif;
@@ -2415,8 +2446,16 @@ textarea::placeholder, textarea:focus, textarea::after {
   background: #FFCB2F;
   margin-left: 1rem;
 }
-.clothingItemModal__addToCard:hover {
+.clothingItemModal__addToCart:hover {
   cursor: pointer;
+}
+.clothingItemModal__addToCart:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.clothingItemModal__addToCart:active {
+  transform: scale(1);
+  transition: 0.1s;
 }
 
 @media (max-width: 1023px) {
@@ -2741,7 +2780,6 @@ textarea::placeholder, textarea:focus, textarea::after {
 }
 .comments__comment {
   padding: 1rem;
-  border: 1px solid blue;
 }
 .comments__container {
   flex: 1;
@@ -2751,13 +2789,15 @@ textarea::placeholder, textarea:focus, textarea::after {
 }
 .comments__display {
   padding: 2rem;
-  border: 1px solid palegreen;
   height: 100%;
 }
 .comments__top {
   background: white;
   padding: 1rem;
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 2px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .comments__bottom {
   padding: 1rem;
@@ -2773,9 +2813,30 @@ textarea::placeholder, textarea:focus, textarea::after {
   width: 90%;
   height: 50px;
   padding: 1rem;
+  outline: none;
+  margin: 0rem 1rem;
+  font-size: 1.5rem;
+  font-family: "Libre Franklin", sans-serif;
 }
 .comments__submit {
+  padding: 0rem 0.5rem;
   width: 10%;
+  background: #0058D2;
+  color: white;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  outline: none;
+  border: none;
+  transition: 0.1s;
+}
+.comments__submit:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.comments__submit:active {
+  transform: scale(1);
+  transition: 0.1s;
 }
 .comments__btn {
   background: #FFCB2F;
@@ -2800,6 +2861,10 @@ textarea::placeholder, textarea:focus, textarea::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+}
+
+a {
   text-decoration: none;
 }
 

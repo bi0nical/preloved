@@ -5,10 +5,35 @@
     width: 80%;
     margin: 0 auto;
 
+    // IF USER IS NOT LOGGED IN
+
+    &__loginCheck{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 85vh;
+    }
+    &__loginCheckTitle{
+        font-family: $primaryFont;
+        font-size: 5rem;
+        font-weight: 900;
+        padding: 1rem;
+    }
+    &__loginCheckText{
+        font-family: $primaryFont;
+        font-size: 2rem;
+        font-weight: 200;
+        padding: 1rem;
+    }
+    &__loginCheckButtons{
+        display: flex;
+    }
+
     // YOUR LISTINGS
 
     &__cardContainer{
-        padding: 2rem;
+        padding: 2rem 2rem 10rem 2rem;
         height: auto;
         display: grid;
         grid-gap: 1rem;

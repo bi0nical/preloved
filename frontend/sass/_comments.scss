@@ -35,7 +35,6 @@
     }
     &__comment{
         padding: 1rem;
-        border: 1px solid blue;
     }
     &__container{
         flex: 1;
@@ -45,7 +44,6 @@
     }
     &__display{
         padding: 2rem;
-        border: 1px solid palegreen;
         height: 100%;
         
         // overflow: scroll;
@@ -53,7 +51,10 @@
     &__top{
         background: white;
         padding: 1rem;
-        border-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 2px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     &__bottom{
         padding: 1rem;
@@ -69,9 +70,30 @@
         width: 90%;
         height: 50px;
         padding: 1rem;
+        outline: none;
+        margin: 0rem 1rem;
+        font-size: 1.5rem;
+        font-family: $primaryFont;
     }
     &__submit{
+        padding: 0rem 0.5rem;
         width: 10%;
+        background: $blue;
+        color: white;
+        font-family: $primaryFont;
+        font-weight: 800;
+        font-size: 1.7rem;
+        outline: none;
+        border: none;
+        transition: 0.1s;
+    }
+    &__submit:hover{
+        transform: scale(1.1);
+        transition: 0.1s;
+    }
+    &__submit:active{
+        transform: scale(1);
+        transition: 0.1s;
     }
     &__btn{
         background: $yellow;
