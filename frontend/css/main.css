@@ -1960,10 +1960,12 @@ textarea::placeholder, textarea:focus, textarea::after {
   min-height: 90vh;
 }
 .clothingItemModal__left {
+  position: relative;
   grid-column: 1/3;
   background: url(../img/jeans.png) no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 .clothingItemModal__right {
   grid-column: 3/4;
@@ -2325,6 +2327,96 @@ textarea::placeholder, textarea:focus, textarea::after {
 .changeAccount__close:active {
   transform: scale(1);
   transition: 0.1s;
+}
+
+.viewComments {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.7rem;
+  background: #FFCB2F;
+  border-top-right-radius: 20px;
+  font-family: "Libre Franklin", sans-serif;
+  z-index: 0;
+  text-align: center;
+  position: absolute;
+  transition: 0.2s;
+}
+
+.comments {
+  background: #FFCB2F;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  top: 99%;
+  transition: 0.2s;
+}
+.comments__downArrow {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.comments__upArrow {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.comments__comment {
+  padding: 1rem;
+  border: 1px solid blue;
+}
+.comments__container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  overflow-y: scroll;
+}
+.comments__display {
+  padding: 2rem;
+  border: 1px solid palegreen;
+  height: 100%;
+}
+.comments__top {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.comments__bottom {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.comments__inputContainer {
+  padding: 2rem;
+  display: flex;
+  z-index: 3;
+}
+.comments__input {
+  width: 90%;
+  height: 50px;
+  padding: 1rem;
+}
+.comments__submit {
+  width: 10%;
+}
+.comments__btn {
+  background: #FFCB2F;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.bottomViewBtn {
+  bottom: 0%;
+  transition: 0.2s;
+}
+
+.topViewBtn {
+  top: 0%;
+  transition: 0.2s;
 }
 
 * {
