@@ -38,6 +38,13 @@ $(document).ready(function(){
             appendListingsToAccount(url);   
 
           };
+                 
+        if (window.location.pathname === "/frontend/shop2.html"){
+        
+          
+          appendListingsCommentTest(url);   
+
+        };
       },
       error:function(error){
         console.log(error);
@@ -251,26 +258,40 @@ function appendListings(url){
       let i;
       document.getElementById('clothingCardGrid').innerHTML = "";
       for(i = 0; i < listingsFromDB.length; i++){
-        let price = listingsFromDB[i].price.toFixed(2);
+        let price = listingsFromDB[i].price;
         document.getElementById('clothingCardGrid').innerHTML +=
         `
         
-        <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
-          <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
-              
-          </div>
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" >
+          
+        <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
           <div class="clothingCard__details">
               <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
               <p class="clothingCard__price">$${price}</p>
               <div class="clothingCard__tags">
                   <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
                   <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+                  
               </div>
+     
           </div>
+
+
+
         </div>
 
+
+
         `
+
+        $('#commentBtn').click(function(){
+          addComment();
+        });
         
+
+        
+
+
 
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
@@ -283,14 +304,18 @@ function appendListings(url){
                     type: 'GET',
                     dataType: 'JSON',
                     success:function(singleListing){
-                      console.log(singleListing);
-                      let price = singleListing.price.toFixed(2);
+                      console.log(singleListing._id);
+                      let price = singleListing.price;
+                  
                       $('#clothingModal').empty().append(
+               
 
                         `
                         <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
-
+  
                         </div>
+                 
+
                         <div class="clothingItemModal__right">
                             <div class="clothingItemModal__closeTop">
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -337,6 +362,7 @@ function appendListings(url){
                               </div>
                               <h4 class="clothingItemModal__username">user1234</h4>
                             </div>
+
                             <div class="clothingItemModal__divider">
                                 
                           </div>
@@ -344,13 +370,19 @@ function appendListings(url){
                               <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
                               <button class="clothingItemModal__addToCard">add to cart</button>
                             </div>
+                            <button type="button" value="${singleListing._id}" id="commentView" class="btn btn-primary"  data-toggle="modal" data-target="#testModal" >Comments</button>
+
                         </div>
 
+                  
+
                         `
-                        
-                       
-                        
+                     
+                  
+
+
                         );
+                    
                       
                     }
                   })
@@ -785,12 +817,7 @@ function userDetails(){
     </div>
     `
   );
-  // $('#userImage').empty().append(
-  //   `
-  //   <img class="account__change" src='${picture}'>
-  //   </img>
-  //   `
-  // );
+
 
 };
 
@@ -808,6 +835,10 @@ wardrobeLock.addEventListener('click', loginLock);
 
 // =====================================
 //USER FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//LISTING FRONT to BACKEND FUNCTIONS START HERE
 // =====================================
 //add listing start
     $('#addListingButton').click(function(){
@@ -905,7 +936,7 @@ let name = $('#nameInputEdit').val();
   let brand = $('#brandInputEdit').val();
   let color = $('#colourInputEdit').val();
   let gender = $('#genderInputEdit').val();
-  console.log(name,price,desc,img1,img2,img3,size1,size2,type,brand,color,gender);
+
   if (listing_Id == ''){
     alert('Please enter product id for updating');
   } else {
@@ -945,8 +976,80 @@ let name = $('#nameInputEdit').val();
 
 
 
-// ==================================
-// LISTING FUNCTIONS END HERE
+// =====================================
+//LISTING FRONT to BACKEND FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//COMMENT FUNCTIONS START HERE
+// =====================================
+
+//start post comments
+function addComment() {
+  let save = document.querySelector('#commentBtn');
+  let listingId = save.value;  
+  let comment = document.querySelector('#commentField');
+  let loginId = sessionStorage.getItem('userID');
+  let uName = sessionStorage.getItem('userName');
+  console.log(comment.value, uName, listingId);
+  if (loginId === null){
+    alert('Please login to comment')
+  } else {
+    $.ajax({
+      url: `http://${url}/addComment`,
+      type: 'POST',
+      data: {
+        text: comment.value,        
+        listing_id: listingId,
+        user_id: loginId,
+        user_name: uName        
+      },
+      success: function(comment) {
+        alert('Comment posted');
+        console.log(comment);
+      },
+      error: function() {
+        alert('unable to post comment');
+      } // end of error
+    })//end of ajax
+  }//end of if
+};
+
+//end post comments
+
+
+//start get comments
+function viewComments() {
+  let openComs = document.querySelector('.commentView');
+  let id = openComs.value;
+  $.ajax({
+    url: `http://${url}/viewComments/${id}`,
+    type: 'GET',
+    success: function(commentsFromMongo) {
+      console.log(commentsFromMongo);
+      let i;
+      document.getElementById('commentBox').innerHtml = "";
+      for (i = 0; i < commentsFromMongo.length; i++) {
+        document.getElementById('commentBox').innerHTML +=
+          `
+          <div >
+            <h1>${commentsFromMongo[i].text}</h1>
+            <h1>${commentsFromMongo[i].user_name}</h1>
+            <h1>${commentsFromMongo[i].time}</h1>
+        
+          </div>`;
+      }
+    },
+    error: function() {
+      console.log('error: cannot retreive comments');
+    } //error
+  }) //ajax
+};
+//end get comments
+
+
+// =====================================
+//COMMENT FUNCTIONS END HERE
 // =====================================
 
 // =====================================
@@ -1138,6 +1241,67 @@ $("#closeStarredBtn").click(function (){
 // NAVAIGATION USER DETAILS END
 // =====================================
 
+// test area
+function appendListingsCommentTest(url){
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      let i;
+      document.getElementById('clothingCardGrid').innerHTML = "";
+      for(i = 0; i < listingsFromDB.length; i++){
+        let price = listingsFromDB[i].price;
+        document.getElementById('clothingCardGrid').innerHTML +=
+        `
+        
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" >
+          
+          <div>
+          <form>
+          <p>hi</p>
+       
+          <input id="commentField" type="text" class="form-control"  placeholder="Enter Comment">
+          <button type="button" id="commentBtn" value="${listingsFromDB[i]._id}">Post Comment</button>
+          <button type="button" class="commentView" value="${listingsFromDB[i]._id}">View Comment</button>
+          </form>
+          <div id="commentBox">
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="clothingCard__details">
+              <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
+              <p class="clothingCard__price">$${price}</p>
+              <div class="clothingCard__tags">
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+                  
+              </div>
+     
+          </div>
+
+
+
+        </div>
+
+
+
+        `
+
+        $('#commentBtn').click(function(){
+          addComment();
+        });
+        $('.commentView').click(function(){
+          viewComments();
+        });
+      }
+      
+      
+    }
+  })
+}
+        
 
 })
 
