@@ -38,6 +38,13 @@ $(document).ready(function(){
             appendListingsToAccount(url);   
 
           };
+                 
+        if (window.location.pathname === "/frontend/shop2.html"){
+        
+          
+          appendListingsCommentTest(url);   
+
+        };
       },
       error:function(error){
         console.log(error);
@@ -251,7 +258,7 @@ function appendListings(url){
       let i;
       document.getElementById('clothingCardGrid').innerHTML = "";
       for(i = 0; i < listingsFromDB.length; i++){
-        let price = listingsFromDB[i].price.toFixed(2);
+        let price = listingsFromDB[i].price;
         document.getElementById('clothingCardGrid').innerHTML +=
         `
         
@@ -270,7 +277,15 @@ function appendListings(url){
         </div>
 
         `
+
+        $('#commentBtn').click(function(){
+          addComment();
+        });
         
+
+        
+
+
 
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
@@ -283,14 +298,92 @@ function appendListings(url){
                     type: 'GET',
                     dataType: 'JSON',
                     success:function(singleListing){
-                      console.log(singleListing);
-                      let price = singleListing.price.toFixed(2);
+                      console.log(singleListing._id);
+                      let price = singleListing.price;
+                  
                       $('#clothingModal').empty().append(
+               
 
                         `
                         <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
 
+
+                        <div class="viewComments bottomViewBtn" id="viewComments"><h3>Show comments</h3><i class="fa-solid fa-angle-up comments__upArrow"></i></div>
+
+                        <div class="comments">
+                            
+                              <div id="closeComments" class="comments__btn"><h3>Comments</h3><i class="fa-solid fa-chevron-down comments__downArrow"></i>
+                              </div>
+
+                              <div class="comments__container">
+                                <div class="comments__display">
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    
+                                    
+
+                                    
+                                    
+                              </div>  
+                            </div>
+
+                            <div class="comments__inputContainer">
+                              <input class="comments__input" type="text" name="" id="">
+                              <button class="comments__submit">send</button>
+                          </div>
+
                         </div>
+
+
+                        </div>
+                 
+
                         <div class="clothingItemModal__right">
                             <div class="clothingItemModal__closeTop">
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -298,7 +391,7 @@ function appendListings(url){
                           
                             <div class="clothingItemModal__mainDetails">
                               <h1 class="clothingItemModal__name">${singleListing.name}</h1>
-                              <h2 class="clothingItemModal__price">${price}</h2>
+                              <h2 class="clothingItemModal__price">$${price}</h2>
                               <h6 class="clothingItemModal__location">${singleListing.location}</h6>
                             </div>
 
@@ -337,6 +430,7 @@ function appendListings(url){
                               </div>
                               <h4 class="clothingItemModal__username">user1234</h4>
                             </div>
+
                             <div class="clothingItemModal__divider">
                                 
                           </div>
@@ -344,14 +438,33 @@ function appendListings(url){
                               <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
                               <button class="clothingItemModal__addToCard">add to cart</button>
                             </div>
+                            <button type="button" value="${singleListing._id}" id="commentView" class="btn btn-primary"  data-toggle="modal" data-target="#testModal" >Comments</button>
+
                         </div>
 
+                  
+
                         `
+
                         
-                       
+                  
+
+                        
+                        
+                        
                         
                         );
-                      
+                        $('#viewComments').click(function(){
+                         
+                          document.querySelector('.comments').style.top = '0%';
+                          
+                        })
+
+                        $('#closeComments').click(function(){
+                          document.querySelector('.comments').style.removeProperty('top');
+                          document.querySelector('.comments').style.top = '99%';
+                        })
+
                     }
                   })
           });
@@ -362,6 +475,11 @@ function appendListings(url){
     }
   })
 }
+
+
+
+
+
 
 // ================================
 // APPEND LISTINGS TO ACCOUNT PAGE
@@ -767,6 +885,7 @@ $('#logoutButton').click(function(){
 sessionStorage.clear();
 console.log(sessionStorage);
 alert('Sucessful logout');
+window.location.reload();
 
 })
 
@@ -785,12 +904,7 @@ function userDetails(){
     </div>
     `
   );
-  // $('#userImage').empty().append(
-  //   `
-  //   <img class="account__change" src='${picture}'>
-  //   </img>
-  //   `
-  // );
+
 
 };
 
@@ -808,6 +922,10 @@ wardrobeLock.addEventListener('click', loginLock);
 
 // =====================================
 //USER FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//LISTING FRONT to BACKEND FUNCTIONS START HERE
 // =====================================
 //add listing start
     $('#addListingButton').click(function(){
@@ -905,7 +1023,7 @@ let name = $('#nameInputEdit').val();
   let brand = $('#brandInputEdit').val();
   let color = $('#colourInputEdit').val();
   let gender = $('#genderInputEdit').val();
-  console.log(name,price,desc,img1,img2,img3,size1,size2,type,brand,color,gender);
+
   if (listing_Id == ''){
     alert('Please enter product id for updating');
   } else {
@@ -945,8 +1063,80 @@ let name = $('#nameInputEdit').val();
 
 
 
-// ==================================
-// LISTING FUNCTIONS END HERE
+// =====================================
+//LISTING FRONT to BACKEND FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//COMMENT FUNCTIONS START HERE
+// =====================================
+
+//start post comments
+function addComment() {
+  let save = document.querySelector('#commentBtn');
+  let listingId = save.value;  
+  let comment = document.querySelector('#commentField');
+  let loginId = sessionStorage.getItem('userID');
+  let uName = sessionStorage.getItem('userName');
+  console.log(comment.value, uName, listingId);
+  if (loginId === null){
+    alert('Please login to comment')
+  } else {
+    $.ajax({
+      url: `http://${url}/addComment`,
+      type: 'POST',
+      data: {
+        text: comment.value,        
+        listing_id: listingId,
+        user_id: loginId,
+        user_name: uName        
+      },
+      success: function(comment) {
+        alert('Comment posted');
+        console.log(comment);
+      },
+      error: function() {
+        alert('unable to post comment');
+      } // end of error
+    })//end of ajax
+  }//end of if
+};
+
+//end post comments
+
+
+//start get comments
+function viewComments() {
+  let openComs = document.querySelector('#commentView');
+  let id = openComs.value;
+  $.ajax({
+    url: `http://${url}/viewComments/${id}`,
+    type: 'GET',
+    success: function(commentsFromMongo) {
+      console.log(commentsFromMongo);
+      let i;
+      document.getElementById('commentBox').innerHtml = "";
+      for (i = 0; i < commentsFromMongo.length; i++) {
+        document.getElementById('commentBox').innerHTML +=
+          `
+          <div >
+            <h1>${commentsFromMongo[i].text}</h1>
+            <h1>${commentsFromMongo[i].user_name}</h1>
+            <h1>${commentsFromMongo[i].time}</h1>
+        
+          </div>`;
+      }
+    },
+    error: function() {
+      console.log('error: cannot retreive comments');
+    } //error
+  }) //ajax
+};
+//end get comments
+
+
+// =====================================
+//COMMENT FUNCTIONS END HERE
 // =====================================
 
 // =====================================
@@ -1119,14 +1309,35 @@ $("#closeStarredBtn").click(function (){
       document.getElementById('navUser').innerHTML +=
 
         `
-        <li class="nav__li">
+        <li class="nav__liUser">
           <button class="nav__userLi">
               <div class="nav__userDetails">
+              
                 <p class="nav__userText">${username}</p>
                 <div class="nav__userPic" style="background: url('${profilePic}'); background-size: cover; background-position: center;"></div>
                 <i class="nav__userDownArrow fa-solid fa-caret-down"></i>
+                
+                
+                
+                
+
               </div>
           </button>
+          <div class="navDropdown">
+                      <ul class="navDropdown__ul">
+
+                        <li class="navDropdown__li">
+                            <a href="mywardrobe.html" class="navDropdown__btn" data-bs-toggle="modal" data-bs-target="#changeUsernameModal">my account
+                            </a>
+                        </li>
+                        
+                        <li class="navDropdown__li">
+                            <button class="navDropdown__btnLast" data-bs-toggle="modal" data-bs-target="#logoutModal">log out</button>
+                        </li>
+                        
+
+                      </ul>
+                </div>
         </li>
         `
 
@@ -1138,6 +1349,67 @@ $("#closeStarredBtn").click(function (){
 // NAVAIGATION USER DETAILS END
 // =====================================
 
+// test area
+function appendListingsCommentTest(url){
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      let i;
+      document.getElementById('clothingCardGrid').innerHTML = "";
+      for(i = 0; i < listingsFromDB.length; i++){
+        let price = listingsFromDB[i].price;
+        document.getElementById('clothingCardGrid').innerHTML +=
+        `
+        
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" >
+          
+          <div>
+          <form>
+          <p>hi</p>
+       
+          <input id="commentField" type="text" class="form-control"  placeholder="Enter Comment">
+          <button type="button" id="commentBtn" value="${listingsFromDB[i]._id}">Post Comment</button>
+          <button type="button" id="commentView" value="${listingsFromDB[i]._id}">View Comment</button>
+          </form>
+          <div id="commentBox">
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="clothingCard__details">
+              <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
+              <p class="clothingCard__price">$${price}</p>
+              <div class="clothingCard__tags">
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+                  
+              </div>
+     
+          </div>
+
+
+
+        </div>
+
+
+
+        `
+
+        $('#commentBtn').click(function(){
+          addComment();
+        });
+        $('#commentView').click(function(){
+          viewComments();
+        });
+      }
+      
+      
+    }
+  })
+}
+        
 
 // =====================================
 // HAMBURGER USER DETAILS START
