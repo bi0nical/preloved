@@ -37,6 +37,8 @@ $(document).ready(function(){
           
             appendListingsToAccount(url);  
             wardrobeLoginCheck(); 
+          
+            
 
           };
                  
@@ -923,6 +925,10 @@ function userDetails(){
 
 function wardrobeLoginCheck(){
   let login = sessionStorage.getItem('userID');
+
+  changeUserSubmit.addEventListener('click', editUser);
+  changeEmailSubmit.addEventListener('click', editEmail);
+  changePasswordSubmit.addEventListener('click', editPass);
   if(login === null){
     $('#accountPageBody').empty().append(
       `
@@ -938,6 +944,125 @@ function wardrobeLoginCheck(){
     )
   }
 }
+
+
+
+function editUser(){
+  let user_Upd = sessionStorage.getItem('userID');
+  console.log(user_Upd);
+   event.preventDefault();
+   let username = $('#userChange').val();
+   console.log(username);
+
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateUser/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+ username: username
+
+       },
+       success: function(data){
+         alert('updated user');
+ 
+         window.location.reload();
+       }, //success
+       error: function(){
+         console.log('error: cannot update user');
+       } //error
+     })//ajax
+   }//if
+ }
+ function editPass(){
+  let user_Upd = sessionStorage.getItem('userID');
+ 
+   event.preventDefault();
+
+   let password = $('#passChange').val();
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updatePass/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+
+ password: password
+       },
+       success: function(data){
+         alert('updated password');
+ 
+         window.location.reload();
+       }, //success
+       error: function(){
+         console.log('error: cannot update password');
+       } //error
+     })//ajax
+   }//if
+ }
+ function editEmail(){
+
+   event.preventDefault();
+   let user_Upd = sessionStorage.getItem('userID');
+ 
+   console.log(user_Upd);
+
+   let email = $('#emailChange').val();
+   console.log(email);
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateEmail/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+
+email: email
+       },
+       success: function(data){
+         alert('updated email');
+ 
+         window.location.reload();
+       }, //success
+       error: function(){
+         console.log('error: cannot update email');
+       } //error
+     })//ajax
+   }//if
+ }
+ function editImage(){
+  let user_Upd = sessionStorage.getItem('UserID');
+   event.preventDefault();
+
+   let profile_img = $('#changeImage').val();
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateImage/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+
+profile_img: profile_img
+       },
+       success: function(data){
+         alert('updated email');
+ 
+        
+       }, //success
+       error: function(){
+         console.log('error: cannot update email');
+       } //error
+     })//ajax
+   }//if
+ }
+//update user end
 
 
 // =====================================

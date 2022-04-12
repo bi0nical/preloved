@@ -218,13 +218,12 @@ app.post('/loginUser', ( req, res)=>{
 //update user
 
 app.patch('/updateUser/:id',(req,res)=>{
-  const idParam = req.params.id;
+  const idParam = req.params.id;  
   User.findById(idParam,(err,listing)=>{
+
       const updatedUser = {
-        username: req.body.username,
-        password: req.body.password,
-        profile_img: req.body.profile_img,
-        email: req.body.email
+        username: req.body.username       
+ 
       }
       User.updateOne({_id:idParam}, updatedUser).
       then(result=>{
@@ -232,6 +231,53 @@ app.patch('/updateUser/:id',(req,res)=>{
       }).catch(err=> res.send(err));
   })
 })
+
+app.patch('/updatePass/:id',(req,res)=>{
+  const idParam = req.params.id;  
+  User.findById(idParam,(err,listing)=>{
+  const newhash = bcrypt.hashSync(req.body.password);
+      const updatedPass = {
+ 
+        password: newhash
+      }
+      User.updateOne({_id:idParam}, updatedPass).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+
+app.patch('/updateEmail/:id',(req,res)=>{
+  const idParam = req.params.id;  
+  User.findById(idParam,(err,listing)=>{
+  
+      const updatedEmail = {
+ 
+        email: req.body.email
+        
+      }
+      User.updateOne({_id:idParam}, updatedEmail).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+
+// app.patch('/updateImage/:id',(req,res)=>{
+//   const idParam = req.params.id;  
+//   User.findById(idParam,(err,listing)=>{
+//   const newhash = bcrypt.hashSync(req.body.password);
+//       const updatedImage = {
+            
+//         profile_img: req.body.profile_img
+
+//       }
+//       User.updateOne({_id:idParam}, updatedImage).
+//       then(result=>{
+//         res.send(result);
+//       }).catch(err=> res.send(err));
+//   })
+// })
 //update user end
 
 // =====================================
