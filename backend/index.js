@@ -214,6 +214,26 @@ app.post('/loginUser', ( req, res)=>{
   });//find one ends
 });//end of post for login
 
+
+//update user
+
+app.patch('/updateUser/:id',(req,res)=>{
+  const idParam = req.params.id;
+  User.findById(idParam,(err,listing)=>{
+      const updatedUser = {
+        username: req.body.username,
+        password: req.body.password,
+        profile_img: req.body.profile_img,
+        email: req.body.email
+      }
+      User.updateOne({_id:idParam}, updatedUser).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+//update user end
+
 // =====================================
 // USER FUNCTIONS END
 // =====================================
