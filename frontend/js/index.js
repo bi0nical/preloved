@@ -720,14 +720,14 @@ $('#editListingButton').click(function(){
                                 <div class="clothingItemModal__profilePic">
   
                                 </div>
-                                <h4 class="clothingItemModal__username">user1234</h4>
+                                <h4 class="clothingItemModal__username">${singleListing.user_name}</h4>
                               </div>
                               <div class="clothingItemModal__divider">
                                   
                             </div>
                               <div class="clothingItemModal__btns">
                                 <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
-                                <button class="clothingItemModal__addToCard">add to cart</button>
+                                <button class="clothingItemModal__addToCart">add to cart</button>
                               </div>
                           </div>
   
@@ -1347,7 +1347,7 @@ $("#closeStarredBtn").click(function (){
                       <ul class="navDropdown__ul">
 
                         <li class="navDropdown__li">
-                            <a href="mywardrobe.html" class="navDropdown__btn" data-bs-toggle="modal" data-bs-target="#changeUsernameModal">my account
+                            <a href="mywardrobe.html" class="navDropdown__btn" >my account
                             </a>
                         </li>
                         

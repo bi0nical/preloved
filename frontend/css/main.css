@@ -2010,6 +2010,9 @@ textarea::placeholder, textarea:focus, textarea::after {
   justify-content: center;
 }
 .account__editDropdownBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Libre Franklin", sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
@@ -2477,7 +2480,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   }
 }
 .clothingCard__container {
-  padding: 2rem;
+  padding: 2rem 2rem 10rem 2rem;
   height: auto;
   display: grid;
   grid-gap: 1rem;
@@ -2487,6 +2490,7 @@ textarea::placeholder, textarea:focus, textarea::after {
 .clothingCard {
   cursor: pointer;
   width: 100%;
+  padding-bottom: 1rem;
 }
 .clothingCard__top {
   display: flex;
