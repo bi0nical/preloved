@@ -163,6 +163,27 @@
 </div>
 <!-- END OF LOG IN MODAL -->
     
+    <!-- LOGOUT MODAL -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                 <div class="modal-title logout__title">Are you sure you want to log out?</div>
+                 
+                    <div class="logout__buttons">
+                       <button type="button" class="logout__close" data-bs-dismiss="modal">no, stay logged in</button>
+                       <button class="logout__submit" id="logoutButton" type="submit">yes, log me out</button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- END OF LOGOUT MODAL -->
+
     <!-- dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -96,6 +96,9 @@
         justify-content: center;
     }
     &__editDropdownBtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-family: $primaryFont;
         font-size: 1.5rem;
         font-weight: 900;
