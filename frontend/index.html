@@ -31,29 +31,30 @@
         <div class="nav__logoContainer">
 
 
-        <!-- start of mobile navigation -->
-        <div id="navMobile" class="nav-mobile" style="display:none">
-            <div class="nav-mobile__header">
-               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
-               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
-            </div>
+       <!-- start of mobile navigation -->
+       <div id="navMobile" class="nav-mobile" style="display:none">
+        <div class="nav-mobile__header">
+           <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+           <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+        </div>
 
-            <div class="nav__searchContainer nav__searchContainer--mobile">
-                <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                <button class="nav__searchBtn--mobile">search</button>
-            </div>
-            
-            <ul class="nav__ul--mobile">
-                <a href="index.html"><li class="nav__li--mobile">home</li></a>
-                <a href="about.html"><li class="nav__li--mobile">about</li></a>
-                <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
-                <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
-                <a href="signup.html"><li class="nav__li--mobile">sign up</li></a>
-            </ul>
+        <div class="nav__searchContainer nav__searchContainer--mobile">
+            <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+            <button class="nav__searchBtn--mobile">search</button>
+        </div>
+        
+        <ul class="nav__ul--mobile">
+            <a href="index.html"><li class="nav__li--mobile">home</li></a>
+            <a href="about.html"><li class="nav__li--mobile">about</li></a>
+            <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+            <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+            <a href="signup.html"><li id="navSignUpHamburger" class="nav__li--mobile">sign up</li></a>
+            <div class="user-hamburger" id="userHamburger"></div>
+        </ul>
 
-            <span class="dot"></span>
-        </div>   
-         <!-- end of mobile navigation  -->
+        <span class="dot"></span>
+    </div>   
+     <!-- end of mobile navigation  -->
             
         </div>
         <div class="nav__items">
@@ -76,10 +77,16 @@
     <div class="landing">
         <div class="landing__left">
             <div class="landing__hero">
+                
                 <img class="landing__logo" src="./img/prelovedlogos_plcolor.png" alt="preloved logo">
+                <div class="landing__signUpMobile">
+                    <a href="signup.html"><button class="landing__signInMobile">sign up</button></a>
+                    <button data-bs-toggle="modal" data-bs-target="#loginModal" class="nav__logIn">log in</button>
+                </div>
                 <h2 class="landing__tagline">Sell your old threads...</h2>
                 <h1 class="landing__header">Find your next fit.</h1>
-                <button class="landing__signUp">join our community :)</button>
+                <a href="signup.html"><button class="landing__signUp">join our community :)</button></a>
+                <a href="shop.html"><button class="landing__shopNowMobile">shop all</button></a>
             </div>
             
         </div>

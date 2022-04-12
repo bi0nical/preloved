@@ -1139,5 +1139,42 @@ $("#closeStarredBtn").click(function (){
 // =====================================
 
 
+// =====================================
+// HAMBURGER USER DETAILS START
+// =====================================
+
+function hamburgerLoginUserDetails(){
+  console.log(sessionStorage);
+  if (sessionStorage.getItem('userID') === null){
+    document.getElementById('userHamburger').style.display = 'none';
+    document.getElementById('navSignUpHamburger').style.display = 'flex';
+  } 
+  else {
+    document.getElementById('userHamburger').style.display = 'flex';
+    document.getElementById('navSignUpHamburger').style.display = 'none';
+    let username = sessionStorage.getItem('userName');
+    let profilePic = sessionStorage.getItem('userImg');
+    document.getElementById('userHamburger').innerHTML = '';
+    document.getElementById('userHamburger').innerHTML +=
+
+      `
+      <li class="hamburger__li">
+        <a href="./mywardrobe.html"><button class="hamburger__userLi">
+            <div class="hamburger__userDetails">
+            <div class="hamburger__userPic" style="background: url('${profilePic}'); background-size: cover; background-position: center;"></div>
+              <p class="hamburger__userText">${username}'s wardrobe</p>
+            </div>
+        </button></a>
+      </li>
+      `
+
+  }
+}
+hamburgerLoginUserDetails();
+
+// =====================================
+// NAVAIGATION USER DETAILS END
+// =====================================
+
 })
 
