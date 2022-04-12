@@ -312,7 +312,81 @@ function appendListings(url){
 
                         `
                         <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
-  
+
+
+                        <div class="viewComments bottomViewBtn" id="viewComments"><h3>Show comments</h3><i class="fa-solid fa-angle-up comments__upArrow"></i></div>
+
+                        <div class="comments">
+                            
+                              <div id="closeComments" class="comments__btn"><h3>Comments</h3><i class="fa-solid fa-chevron-down comments__downArrow"></i>
+                              </div>
+
+                              <div class="comments__container">
+                                <div class="comments__display">
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    
+                                    
+
+                                    
+                                    
+                              </div>  
+                            </div>
+
+                            <div class="comments__inputContainer">
+                              <input class="comments__input" type="text" name="" id="">
+                              <button class="comments__submit">send</button>
+                          </div>
+
+                        </div>
+
+
                         </div>
                  
 
@@ -323,7 +397,7 @@ function appendListings(url){
                           
                             <div class="clothingItemModal__mainDetails">
                               <h1 class="clothingItemModal__name">${singleListing.name}</h1>
-                              <h2 class="clothingItemModal__price">${price}</h2>
+                              <h2 class="clothingItemModal__price">$${price}</h2>
                               <h6 class="clothingItemModal__location">${singleListing.location}</h6>
                             </div>
 
@@ -377,13 +451,26 @@ function appendListings(url){
                   
 
                         `
-                     
+
+                        
                   
 
-
+                        
+                        
+                        
+                        
                         );
-                    
-                      
+                        $('#viewComments').click(function(){
+                         
+                          document.querySelector('.comments').style.top = '0%';
+                          
+                        })
+
+                        $('#closeComments').click(function(){
+                          document.querySelector('.comments').style.removeProperty('top');
+                          document.querySelector('.comments').style.top = '99%';
+                        })
+
                     }
                   })
           });
@@ -394,6 +481,11 @@ function appendListings(url){
     }
   })
 }
+
+
+
+
+
 
 // ================================
 // APPEND LISTINGS TO ACCOUNT PAGE
