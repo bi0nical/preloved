@@ -199,3 +199,19 @@
     color: $blue;
 }
 
+.fa-gear{
+    display: none;
+}
+
+@media (max-width: $mobile-max){
+    .account__editTxt{
+        display: none;
+    }
+    .account__editDropdownBtn{
+        display: flex;
+    }
+    .fa-gear{
+        display: block;
+        height: 2rem;
+    }
+}

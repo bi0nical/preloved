@@ -52,3 +52,19 @@
         transition: 0.1s;
     }
 }
+
+@media (max-width: $mobile-max){
+    .signup-input{
+        width: 2rem;
+    }
+    .changeAccount__inputContainer{
+        padding: 0;
+        padding: 0rem 1rem 0rem 1rem;
+    }
+    .signup__label{
+        padding-bottom: 1rem;
+    }
+    .changeAccount__buttons{
+        padding-top: 1.5rem;
+    }
+}

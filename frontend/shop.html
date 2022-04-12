@@ -30,22 +30,24 @@
                <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
             </div>
 
-            <div class="nav__searchContainer nav__searchContainer--mobile">
-               <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-               <button class="nav__searchBtn--mobile">search</button>
-            </div>
-            
-            <ul class="nav__ul--mobile">
-               <a href="index.html"><li class="nav__li--mobile">home</li></a>
-               <a href="about.html"><li class="nav__li--mobile">about</li></a>
-               <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
-               <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
-               <a href="signup.html"><li class="nav__li--mobile">sign up</li></a>
-            </ul>
 
-            <span class="dot"></span>
-         </div>   
-         <!-- end of mobile navigation  -->
+         <div class="nav__searchContainer nav__searchContainer--mobile">
+             <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+             <button class="nav__searchBtn--mobile">search</button>
+         </div>
+         
+         <ul class="nav__ul--mobile">
+             <a href="index.html"><li class="nav__li--mobile">home</li></a>
+             <a href="about.html"><li class="nav__li--mobile">about</li></a>
+             <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+             <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+             <a href="signup.html"><li id="navSignUpHamburger" class="nav__li--mobile">sign up</li></a>
+             <div class="user-hamburger" id="userHamburger"></div>
+         </ul>
+
+         <span class="dot"></span>
+     </div>   
+      <!-- end of mobile navigation  -->
       
             <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
 
@@ -56,6 +58,9 @@
          </div>
          <div class="nav__items">
             <ul class="nav__ul">
+
+               <!-- <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#logoutModal">logout</button></li> -->
+
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
                 <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
                 <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
@@ -68,7 +73,7 @@
                   
                 </div>
                 
-                <img class="nav__hamburger" src="./img/hamburger-01.png" alt="">
+                <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
 
 
 
@@ -192,8 +197,8 @@
          <main class="shop">
 
             <div class="shop-left">
-               <div id="slideInLeftNavBtn" class="shop-left__btn shop-left__btn--blue">categories</div>
-               <div id="slideInFiltersBtn" class="shop-left__btn">filters</div>
+               <div id="slideInLeftNavBtn" class="shop-left__btn shop-left__btn--blue"><i class="fa-solid fa-shirt"></i><p class="shop-left__txt">categories</p></div>
+               <div id="slideInFiltersBtn" class="shop-left__btn"><i class="fa-solid fa-filter"></i><p class="shop-left__txt">filters</p></div>
             </div>
 
             <div class="shop-inner">
@@ -203,9 +208,9 @@
                   <div class="flex-center">
                      <p class="shop-tools__p">sort by:</p>
                      <select class="shop-tools__sort-btn">
-                        <option class="shop-tools__option">Newest</option>
-                        <option class="shop-tools__option">Lowest Price</option>
-                        <option class="shop-tools__option">Highest Price</option>
+                        <option class="shop-tools__option">newest</option>
+                        <option class="shop-tools__option">lowest price</option>
+                        <option class="shop-tools__option">highest price</option>
                      </select>
                   </div>
                </div>
@@ -220,8 +225,8 @@
             </div>
 
             <div class="shop-right">
-               <div id="slideInCartBtn" class="shop-right__btn shop-right__btn--blue">my cart</div>
-               <div id="slideInStarredBtn" class="shop-right__btn">starred</div>
+               <div id="slideInCartBtn" class="shop-right__btn shop-right__btn--blue"><i class="fa-solid fa-cart-shopping"></i><p class="shop-right__txt">my cart</p></div>
+               <div id="slideInStarredBtn" class="shop-right__btn"><i class="fa-solid fa-star"></i><p class="shop-right__txt">starred</p></div>
            </div>
            
          </main>
@@ -251,14 +256,14 @@
                                 <a class="cart-body__item-name">product name here</a>
                                 <p class="cart-body__item-price">$29.00</p>
                             </div>
-                            <button class="cart-body__remove"><i class="fa-solid fa-xmark"></i></>
+                            <button class="cart-body__remove"><i class="fa-solid fa-xmark"></i>
                         </li>
 
                     </ul>
 
                     <button class="cart-body__checkout-btn">checkout</button>
 
-                    <div class="nav-img"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <!-- <div class="nav-img"><i class="fa-solid fa-cart-shopping"></i></div> -->
 
                 </div>
 

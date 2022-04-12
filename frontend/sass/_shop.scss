@@ -402,3 +402,80 @@
 .nav-icon{
     padding-right: 1rem;
 }
+
+// display nones for desktop
+
+.fa-filter{
+    display: none;
+}
+.fa-shirt{
+    display: none;
+}
+.fa-cart-shopping{
+    display: none;
+}
+.fa-star{
+    display: none;
+}
+
+// media queries
+
+@media (max-width: $tablet-max){
+    .shop{
+        &-tools{
+            width: auto;
+        }
+        &-tools__p{
+            display: none;
+        }
+        &-left__btn--blue, &-right__btn--blue{
+            width: 80%;
+        }
+        &-left__txt{
+            margin: none;
+            display: none;
+        }
+        &-right__txt{
+            margin: none;
+            display: none;
+        }
+        &-inner{
+            padding: 1rem 0rem 1rem 0rem;
+        }
+    }
+    .fa-filter{
+        display: block;
+        height: 2rem;
+        color: $blue;
+        padding-right: 1rem;
+    }
+    .fa-star{
+        display: block;
+        height: 2rem;
+        color: $blue;
+        padding-left: 1rem;
+    }
+    .fa-shirt{
+        display: block;
+        height: 2rem;
+        color: $yellow;
+        padding-right: 1rem;
+    }
+    .fa-cart-shopping{
+        display: block;
+        height: 2rem;
+        color: $yellow;
+        padding-left: 1rem;
+    }
+    .categories, .cart{
+        width: 100vw;
+    }
+    .clothingCard__container{
+        display: flex;
+        grid: none;
+        width: 100%;
+    }
+
+
+    
+}
