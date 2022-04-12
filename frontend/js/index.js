@@ -35,7 +35,8 @@ $(document).ready(function(){
           }if (window.location.pathname === "/frontend/mywardrobe.html"){
         
           
-            appendListingsToAccount(url);   
+            appendListingsToAccount(url);  
+            wardrobeLoginCheck(); 
 
           };
                  
@@ -258,7 +259,7 @@ function appendListings(url){
       let i;
       document.getElementById('clothingCardGrid').innerHTML = "";
       for(i = 0; i < listingsFromDB.length; i++){
-        let price = listingsFromDB[i].price;
+        let price = listingsFromDB[i].price.toFixed(2);
         document.getElementById('clothingCardGrid').innerHTML +=
         `
         
@@ -298,8 +299,8 @@ function appendListings(url){
                     type: 'GET',
                     dataType: 'JSON',
                     success:function(singleListing){
-                      console.log(singleListing._id);
-                      let price = singleListing.price;
+                      console.log(singleListing);
+                      let price = singleListing.price.toFixed(2);
                   
                       $('#clothingModal').empty().append(
                
@@ -392,7 +393,7 @@ function appendListings(url){
                             <div class="clothingItemModal__mainDetails">
                               <h1 class="clothingItemModal__name">${singleListing.name}</h1>
                               <h2 class="clothingItemModal__price">$${price}</h2>
-                              <h6 class="clothingItemModal__location">${singleListing.location}</h6>
+                              
                             </div>
 
                             <div class="clothingItemModal__divider"></div>
@@ -428,7 +429,7 @@ function appendListings(url){
                               <div class="clothingItemModal__profilePic">
 
                               </div>
-                              <h4 class="clothingItemModal__username">user1234</h4>
+                              <h4 class="clothingItemModal__username">${singleListing.user_name}</h4>
                             </div>
 
                             <div class="clothingItemModal__divider">
@@ -436,7 +437,7 @@ function appendListings(url){
                           </div>
                             <div class="clothingItemModal__btns">
                               <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
-                              <button class="clothingItemModal__addToCard">add to cart</button>
+                              <button class="clothingItemModal__addToCart">add to cart</button>
                             </div>
                             <button type="button" value="${singleListing._id}" id="commentView" class="btn btn-primary"  data-toggle="modal" data-target="#testModal" >Comments</button>
 
@@ -825,6 +826,15 @@ $('#registerButton').click(function(){
 // USER REGISTRATION END
 
 //Login User
+
+let loginPasswordInput = document.getElementById("loginPass");
+loginPasswordInput.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("loginButton").click();
+  }
+});
+
 $('#loginButton').click(function(){
 event.preventDefault();
 console.log("log");
@@ -866,7 +876,8 @@ if (username == '' || password == ''){
         
         console.log(sessionStorage);
         
-        alert('Sucessful login');
+        // ALERT IS FOR DEV ONLY
+        // alert('Sucessful login');
 
         userDetails();
         window.location.reload();
@@ -884,7 +895,8 @@ if (username == '' || password == ''){
 $('#logoutButton').click(function(){
 sessionStorage.clear();
 console.log(sessionStorage);
-alert('Sucessful logout');
+// ALERT IS FOR DEV ONLY
+// alert('Sucessful logout');
 window.location.reload();
 
 })
@@ -895,8 +907,7 @@ function userDetails(){
  let picture= sessionStorage.getItem('userImg');
  console.log(user, picture);
   $("#userText").empty().append(
-    `<h2 class="account__username" > ${user} </h2>
-    <i class="fa-solid fa-pen account__editBtn"></i>`
+    `<h2 class="account__username" > ${user} </h2>`
   )
   $('#userImage').empty().append(
     `
@@ -908,17 +919,26 @@ function userDetails(){
 
 };
 
-function loginLock(){
+
+
+function wardrobeLoginCheck(){
   let login = sessionStorage.getItem('userID');
-if(login === null){
-  alert('Please register or log in to access MyWardrobe')
-  window.location.href = "signup.html";
-} else{
-  window.location.href = "mywardrobe.html";
-}
+  if(login === null){
+    $('#accountPageBody').empty().append(
+      `
+        <div class="account__loginCheck">
+        <h2 class="account__loginCheckTitle">Oops, it looks like you're not logged in!</h2>
+          <p class="account__loginCheckText">To access the account page, list an item, and view your listings, you must log into your account.</p>
+          <div class="account__loginCheckButtons">
+            <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
+            <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+          </div>
+        </div>
+      `
+    )
+  }
 }
 
-wardrobeLock.addEventListener('click', loginLock);
 
 // =====================================
 //USER FUNCTIONS END HERE
