@@ -262,25 +262,19 @@ function appendListings(url){
         document.getElementById('clothingCardGrid').innerHTML +=
         `
         
-        <div id="${listingsFromDB[i]._id}" class="clothingCard" >
-          
-        <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" data-bs-toggle="modal" data-bs-target="#clothingItemModal">
+          <div style="background: url('${listingsFromDB[i].img1}'); background-size: cover; background-position: center;" class="clothingCard__imgContainer">
+              
+          </div>
           <div class="clothingCard__details">
               <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
               <p class="clothingCard__price">$${price}</p>
               <div class="clothingCard__tags">
                   <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
                   <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
-                  
               </div>
-     
           </div>
-
-
-
         </div>
-
-
 
         `
 
