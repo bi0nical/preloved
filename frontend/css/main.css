@@ -999,6 +999,10 @@
     right: 4;
     bottom: 0;
   }
+
+  .nav__user {
+    display: none !important;
+  }
 }
 .hide {
   display: none;
@@ -2684,7 +2688,6 @@ textarea::placeholder, textarea:focus, textarea::after {
   transition: 0.1s;
 }
 
-
 @media (max-width: 425px) {
   .signup-input {
     width: 2rem;
@@ -2703,7 +2706,6 @@ textarea::placeholder, textarea:focus, textarea::after {
     padding-top: 1.5rem;
   }
 }
-
 .viewComments {
   cursor: pointer;
   display: flex;
