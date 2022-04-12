@@ -108,3 +108,20 @@
     }
 
 }
+
+
+// MEDIA QUERIES
+@media (max-width: $mobile-max){
+   .footer{
+       flex-direction: column-reverse;
+       justify-content: center;
+       align-items: flex-end;
+
+       &-left{
+           width: 100%;
+       }       
+       &-right{
+           width: 100%;
+       }
+   } 
+}

@@ -68,3 +68,15 @@
     }
     
 }
+
+
+@media (max-width: $mobile-max){
+    .listItemBody{
+        padding: 0;
+        padding: 0rem 1.5rem 0rem 1.5rem;
+    }
+    .listItem__footer{
+        padding: 0;
+        padding: 0rem 2rem 2rem 0rem;
+    }
+}

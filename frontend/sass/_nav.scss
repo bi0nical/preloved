@@ -116,6 +116,7 @@
     &__link{
         color: $blue;
         text-decoration: none;
+        cursor: pointer;
     }
     &__link::before{
         display: block;
@@ -410,4 +411,29 @@
 }
 .show{
     display: flex;
+}
+
+.user-hamburger{
+    padding: 2rem;
+}
+
+.hamburger__userDetails{
+    display: flex;
+    align-items: center;
+}
+
+.hamburger__userLi{
+    @include btn;
+    border: solid $yellow;
+    background: none;
+    color: $yellow;
+}
+
+.hamburger__userPic{
+    height: 4rem;
+    width: 4rem;
+}
+
+.hamburger__userText{
+    padding-left: 1rem;
 }

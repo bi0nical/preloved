@@ -17,7 +17,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 .landing__body {
-  background: url(../img/background.png) no-repeat;
+  background: url(../img/background-01.png);
   background-position: center;
   background-size: cover;
 }
@@ -211,7 +211,70 @@
   transform: scale(1.1);
   transition: 0.1s;
 }
+.landing__signUpMobile {
+  display: none;
+}
+.landing__shopNowMobile {
+  display: none;
+}
 
+@media (max-width: 1023px) {
+  .landing {
+    grid: none;
+  }
+  .landing__logo {
+    height: 20rem;
+  }
+  .landing__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .landing__right {
+    display: none;
+  }
+  .landing__signUp {
+    display: none;
+  }
+  .landing__signInMobile {
+    cursor: pointer;
+    background: none;
+    border: 4px solid #0058D2;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    background: #0058D2;
+    color: #FFCB2F;
+    width: 100px;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    transition: 0.1s;
+  }
+  .landing__signUpMobile {
+    display: block;
+  }
+  .landing__tagline {
+    padding-top: 3rem;
+  }
+  .landing__header {
+    padding-bottom: 3rem;
+    width: 8ch;
+  }
+  .landing__shopNowMobile {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: 4px solid #0058D2;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    background: #0058D2;
+    color: #FFCB2F;
+    padding: 1.7rem 3rem 1.7rem 3rem;
+    transition: 0.1s;
+  }
+}
 .footer {
   min-height: 20vh;
   width: 100vw;
@@ -287,6 +350,19 @@
   cursor: pointer;
 }
 
+@media (max-width: 425px) {
+  .footer {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .footer-left {
+    width: 100%;
+  }
+  .footer-right {
+    width: 100%;
+  }
+}
 .landingHeader {
   height: 15vh;
   width: auto;
@@ -306,7 +382,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 .landing__body {
-  background: url(../img/background.png) no-repeat;
+  background: url(../img/background-01.png);
   background-position: center;
   background-size: cover;
 }
@@ -500,7 +576,70 @@
   transform: scale(1.1);
   transition: 0.1s;
 }
+.landing__signUpMobile {
+  display: none;
+}
+.landing__shopNowMobile {
+  display: none;
+}
 
+@media (max-width: 1023px) {
+  .landing {
+    grid: none;
+  }
+  .landing__logo {
+    height: 20rem;
+  }
+  .landing__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .landing__right {
+    display: none;
+  }
+  .landing__signUp {
+    display: none;
+  }
+  .landing__signInMobile {
+    cursor: pointer;
+    background: none;
+    border: 4px solid #0058D2;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    background: #0058D2;
+    color: #FFCB2F;
+    width: 100px;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    transition: 0.1s;
+  }
+  .landing__signUpMobile {
+    display: block;
+  }
+  .landing__tagline {
+    padding-top: 3rem;
+  }
+  .landing__header {
+    padding-bottom: 3rem;
+    width: 8ch;
+  }
+  .landing__shopNowMobile {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: 4px solid #0058D2;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    background: #0058D2;
+    color: #FFCB2F;
+    padding: 1.7rem 3rem 1.7rem 3rem;
+    transition: 0.1s;
+  }
+}
 .nav {
   height: 15vh;
   width: auto;
@@ -608,6 +747,7 @@
 .nav__link {
   color: #0058D2;
   text-decoration: none;
+  cursor: pointer;
 }
 .nav__link::before {
   display: block;
@@ -866,6 +1006,38 @@
 
 .show {
   display: flex;
+}
+
+.user-hamburger {
+  padding: 2rem;
+}
+
+.hamburger__userDetails {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger__userLi {
+  border: 4px solid black;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  border: solid #FFCB2F;
+  background: none;
+  color: #FFCB2F;
+}
+.hamburger__userLi:hover {
+  cursor: pointer;
+}
+
+.hamburger__userPic {
+  height: 4rem;
+  width: 4rem;
+}
+
+.hamburger__userText {
+  padding-left: 1rem;
 }
 
 .signup {
@@ -1423,6 +1595,82 @@
   padding-right: 1rem;
 }
 
+.fa-filter {
+  display: none;
+}
+
+.fa-shirt {
+  display: none;
+}
+
+.fa-cart-shopping {
+  display: none;
+}
+
+.fa-star {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .shop-tools {
+    width: auto;
+  }
+  .shop-tools__p {
+    display: none;
+  }
+  .shop-left__btn--blue, .shop-right__btn--blue {
+    width: 80%;
+  }
+  .shop-left__txt {
+    margin: none;
+    display: none;
+  }
+  .shop-right__txt {
+    margin: none;
+    display: none;
+  }
+  .shop-inner {
+    padding: 1rem 0rem 1rem 0rem;
+  }
+
+  .fa-filter {
+    display: block;
+    height: 2rem;
+    color: #0058D2;
+    padding-right: 1rem;
+  }
+
+  .fa-star {
+    display: block;
+    height: 2rem;
+    color: #0058D2;
+    padding-left: 1rem;
+  }
+
+  .fa-shirt {
+    display: block;
+    height: 2rem;
+    color: #FFCB2F;
+    padding-right: 1rem;
+  }
+
+  .fa-cart-shopping {
+    display: block;
+    height: 2rem;
+    color: #FFCB2F;
+    padding-left: 1rem;
+  }
+
+  .categories, .cart {
+    width: 100vw;
+  }
+
+  .clothingCard__container {
+    display: flex;
+    grid: none;
+    width: 100%;
+  }
+}
 .contact {
   min-height: 90vh;
   width: auto;
@@ -1843,6 +2091,24 @@ textarea::placeholder, textarea:focus, textarea::after {
   color: #0058D2;
 }
 
+.fa-gear {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .account__editTxt {
+    display: none;
+  }
+
+  .account__editDropdownBtn {
+    display: flex;
+  }
+
+  .fa-gear {
+    display: block;
+    height: 2rem;
+  }
+}
 .modal-header, .modal-footer {
   outline: none;
   border: none;
@@ -1935,6 +2201,17 @@ textarea::placeholder, textarea:focus, textarea::after {
   cursor: pointer;
 }
 
+@media (max-width: 425px) {
+  .listItemBody {
+    padding: 0;
+    padding: 0rem 1.5rem 0rem 1.5rem;
+  }
+
+  .listItem__footer {
+    padding: 0;
+    padding: 0rem 2rem 2rem 0rem;
+  }
+}
 .login__title {
   font-family: "Libre Franklin", sans-serif;
   font-size: 4rem;
@@ -2138,6 +2415,24 @@ textarea::placeholder, textarea:focus, textarea::after {
   cursor: pointer;
 }
 
+@media (max-width: 1023px) {
+  .clothingItemModal {
+    display: flex;
+    flex-direction: column;
+  }
+  .clothingItemModal__content {
+    min-height: 100vh;
+    flex-direction: row;
+  }
+  .clothingItemModal__left {
+    height: 40vh;
+    width: 100%;
+  }
+  .clothingItemModal__right {
+    height: 60vh;
+    width: 100%;
+  }
+}
 .clothingCard__container {
   padding: 2rem;
   height: auto;
@@ -2389,6 +2684,26 @@ textarea::placeholder, textarea:focus, textarea::after {
   transition: 0.1s;
 }
 
+
+@media (max-width: 425px) {
+  .signup-input {
+    width: 2rem;
+  }
+
+  .changeAccount__inputContainer {
+    padding: 0;
+    padding: 0rem 1rem 0rem 1rem;
+  }
+
+  .signup__label {
+    padding-bottom: 1rem;
+  }
+
+  .changeAccount__buttons {
+    padding-top: 1.5rem;
+  }
+}
+
 .viewComments {
   cursor: pointer;
   display: flex;
@@ -2493,4 +2808,12 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
 }

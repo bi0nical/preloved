@@ -120,3 +120,24 @@
         margin-left: 1rem;
     }
 }
+
+@media (max-width: $tablet-max){
+
+    .clothingItemModal{
+        display: flex;
+        flex-direction: column;
+        &__content{
+            min-height: 100vh;
+            flex-direction: row;
+        }
+        &__left{
+            height: 40vh;
+            width: 100%;
+        }
+        &__right{
+            height: 60vh;
+            width: 100%;
+        }
+    }
+    
+}
