@@ -857,6 +857,7 @@ $('#logoutButton').click(function(){
 sessionStorage.clear();
 console.log(sessionStorage);
 alert('Sucessful logout');
+window.location.reload();
 
 })
 
@@ -1209,14 +1210,35 @@ $("#closeStarredBtn").click(function (){
       document.getElementById('navUser').innerHTML +=
 
         `
-        <li class="nav__li">
+        <li class="nav__liUser">
           <button class="nav__userLi">
               <div class="nav__userDetails">
+              
                 <p class="nav__userText">${username}</p>
                 <div class="nav__userPic" style="background: url('${profilePic}'); background-size: cover; background-position: center;"></div>
                 <i class="nav__userDownArrow fa-solid fa-caret-down"></i>
+                
+                
+                
+                
+
               </div>
           </button>
+          <div class="navDropdown">
+                      <ul class="navDropdown__ul">
+
+                        <li class="navDropdown__li">
+                            <a href="mywardrobe.html" class="navDropdown__btn" data-bs-toggle="modal" data-bs-target="#changeUsernameModal">my account
+                            </a>
+                        </li>
+                        
+                        <li class="navDropdown__li">
+                            <button class="navDropdown__btnLast" data-bs-toggle="modal" data-bs-target="#logoutModal">log out</button>
+                        </li>
+                        
+
+                      </ul>
+                </div>
         </li>
         `
 

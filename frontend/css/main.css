@@ -507,6 +507,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-right: 1rem;
 }
 .nav-mobile {
   display: none;
@@ -585,6 +586,21 @@
   padding: 1rem;
   margin: 0rem;
   text-decoration: none;
+  position: relative;
+}
+.nav__liUser {
+  list-style-type: none;
+  font-size: 1.7rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  color: #0058D2;
+  padding: 1rem 0rem 1rem 1rem;
+  margin: 0rem;
+  text-decoration: none;
+  position: relative;
+}
+.nav__liUser:hover .navDropdown {
+  display: flex;
 }
 .nav__li:hover {
   font-weight: 800;
@@ -635,7 +651,6 @@
   width: 100px;
   padding: 0.7rem 1rem 0.7rem 1rem;
   transition: 0.1s;
-  margin-right: 1rem;
 }
 .nav__signUp:hover {
   transform: scale(1.1);
@@ -665,7 +680,6 @@
   color: white;
   padding: 0.7rem 1rem 0.7rem 1rem;
   transition: 0.1s;
-  margin-right: 1rem;
 }
 .nav__userDetails {
   display: flex;
@@ -696,6 +710,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.navDropdown {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #0058D2;
+  padding: 1rem;
+  position: absolute;
+  right: 0%;
+  display: none;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  -webkit-box-shadow: -2px 2px 10px -1px #0058D2;
+  box-shadow: -2px 2px 10px -1px #0058D2;
+  z-index: 2;
+}
+.navDropdown__li {
+  text-align: end;
+  color: white;
+  list-style-type: none;
+}
+.navDropdown__btn:hover {
+  color: red;
+}
+.navDropdown__btn {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  color: white;
+  background: none;
+  border-bottom: 1px solid #2a6eff;
+  padding: 1rem;
+}
+.navDropdown__btn:hover {
+  color: #FFCB2F;
+}
+.navDropdown__btnLast {
+  outline: none;
+  border: none;
+  color: white;
+  background: none;
+  padding: 1rem;
+}
+.navDropdown__btnLast:hover {
+  color: #FFCB2F;
 }
 
 @media (max-width: 1023px) {
