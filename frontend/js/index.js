@@ -341,13 +341,7 @@ function appendListings(url){
 
         `
 
-        $('#commentBtn').click(function(){
-          addComment();
-        });
         
-
-        
-
 
 
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
@@ -399,8 +393,8 @@ function appendListings(url){
                             </div>
 
                             <div class="comments__inputContainer">
-                              <input class="comments__input" type="text" name="" id="">
-                              <button class="comments__submit">send</button>
+                              <input class="comments__input" type="text" name="commentField" id="commentField">
+                              <button value="${singleListing._id}" id="commentBtn" class="comments__submit">send</button>
                           </div>
 
                         </div>
@@ -515,7 +509,7 @@ function appendListings(url){
                           alert("item added!");
                         }
                         
-
+                        // SHOW COMMENTS
                         $('#commentView').click(function(){
 
                           document.querySelector('.comments').style.top = '0%';
@@ -548,9 +542,43 @@ function appendListings(url){
                                 console.log('error: cannot retreive comments');
                               } //error
                             }) //ajax
-                          // };
+                          // END OF SHOW COMMENTS
                           
                         })
+
+
+                        $('#commentBtn').click(function(){
+                        
+                          let save = document.querySelector('#commentBtn');
+                          let listingId = save.value;  
+                          let comment = document.querySelector('#commentField');
+                          let loginId = sessionStorage.getItem('userID');
+                          let uName = sessionStorage.getItem('userName');
+                          console.log(comment.value, uName, listingId);
+                          if (loginId === null){
+                            alert('Please login to comment')
+                          } else {
+                            $.ajax({
+                              url: `http://${url}/addComment`,
+                              type: 'POST',
+                              data: {
+                                text: comment.value,        
+                                listing_id: listingId,
+                                user_id: loginId,
+                                user_name: uName        
+                              },
+                              success: function(comment) {
+                                alert('Comment posted');
+                                window.location.reload();
+                              },
+                              error: function() {
+                                alert('unable to post comment');
+                              } // end of error
+                            })//end of ajax
+                          }//end of if
+                        // };
+                        });
+
 
                         $('#closeComments').click(function(){
                           document.querySelector('.comments').style.removeProperty('top');
@@ -1296,84 +1324,7 @@ let name = $('#nameInputEdit').val();
 //LISTING FRONT to BACKEND FUNCTIONS END HERE
 // =====================================
 
-// =====================================
-//COMMENT FUNCTIONS START HERE
-// =====================================
 
-//start post comments
-function addComment() {
-  let save = document.querySelector('#commentBtn');
-  let listingId = save.value;  
-  let comment = document.querySelector('#commentField');
-  let loginId = sessionStorage.getItem('userID');
-  let uName = sessionStorage.getItem('userName');
-  console.log(comment.value, uName, listingId);
-  if (loginId === null){
-    alert('Please login to comment')
-  } else {
-    $.ajax({
-      url: `http://${url}/addComment`,
-      type: 'POST',
-      data: {
-        text: comment.value,        
-        listing_id: listingId,
-        user_id: loginId,
-        user_name: uName        
-      },
-      success: function(comment) {
-        alert('Comment posted');
-        console.log(comment);
-      },
-      error: function() {
-        alert('unable to post comment');
-      } // end of error
-    })//end of ajax
-  }//end of if
-};
-
-//end post comments
-
-
-//start get comments
-// function viewComments(comId) {
-//   let openComs = document.querySelector('#commentView');
-//   let id = openComs.value;
-//   console.log(comId);
-//   $.ajax({
-//     url: `http://${url}/viewComments/${id}`,
-//     type: 'GET',
-//     success: function(commentsFromMongo) {
-//       console.log(commentsFromMongo);
-//       let i;
-//       document.getElementById('commentBox').innerHtml = "";
-//       for (i = 0; i < commentsFromMongo.length; i++) {
-//         document.getElementById('commentBox').innerHTML +=
-//           `
-
-//           <div class="comments__comment">
-//               <div class="comments__top">
-//                   <p class="comments__text">${commentsFromMongo[i].text}</p>
-//               </div>
-//               <div class="comments__bottom">
-//                   <p class="comments__time">${commentsFromMongo[i].time}</p>
-//                   <p class="comments__user">${commentsFromMongo[i].user_name}</p>
-//               </div>
-//             </div>
-
-//           `
-//       };
-//     },
-//     error: function() {
-//       console.log('error: cannot retreive comments');
-//     } //error
-//   }) //ajax
-// };
-//end get comments
-
-
-// =====================================
-//COMMENT FUNCTIONS END HERE
-// =====================================
 
 // =====================================
 // SLIDE IN NAV ELEMENTS START HERE
