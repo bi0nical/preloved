@@ -18,20 +18,20 @@
       <link rel="stylesheet" href="./css/main.css">
    </head>
    <body>
+      
       <!-- NAVIGATION -->
       <nav class="nav">
-         <div class="nav__logoContainer">
+         <div class="nav__logoContainer">  
+           
+        <!-- start of mobile navigation -->
+        <div id="navMobile" class="nav-mobile" style="display:none">
+            <div class="nav-mobile__header">
+               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+            </div>
 
-            
-       <!-- start of mobile navigation -->
-       <div id="navMobile" class="nav-mobile" style="display:none">
-         <div class="nav-mobile__header">
-            <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
-            <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
-         </div>
- 
          <div class="nav__searchContainer nav__searchContainer--mobile">
-             <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+             <input class="nav__search--mobile" type="text" name="navSearch" placeholder="I'm looking for...">
              <button class="nav__searchBtn--mobile">search</button>
          </div>
          
@@ -47,6 +47,7 @@
          <span class="dot"></span>
      </div>   
       <!-- end of mobile navigation  -->
+
       
             <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
 
@@ -54,11 +55,13 @@
                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
                <button class="nav__searchBtn">search</button>
             </div>
-         </div>
-         <div class="nav__items">
-            <ul class="nav__ul">
 
-               <!-- <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#logoutModal">logout</button></li> -->
+         </div>
+
+         <!-- start of navigation menu -->
+         <div class="nav__items">
+
+            <ul class="nav__ul">
 
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
                 <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
@@ -74,20 +77,53 @@
                 
                 <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
 
-
-
             </ul>
          </div>
+         <!-- end of navigation menu -->
+
+         <!-- start of mobile navigation -->
+         <div id="navMobile" class="nav-mobile" style="display:none">
+            <div class="nav-mobile__header">
+               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+            </div>
+
+
+            <div class="nav__searchContainer nav__searchContainer--mobile">
+               <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+               <button class="nav__searchBtn--mobile">search</button>
+            </div>
+            
+            <ul class="nav__ul--mobile">
+               <a href="index.html"><li class="nav__li--mobile">home</li></a>
+               <a href="about.html"><li class="nav__li--mobile">about</li></a>
+               <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+               <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+               <a href="signup.html"><li id="navSignUpHamburger" class="nav__li--mobile">sign up</li></a>
+               <div class="user-hamburger" id="userHamburger"></div>
+            </ul>
+
+            <span class="dot"></span>
+         </div>   
+         <!-- end of mobile navigation  -->
+
       </nav>
+
       <!-- SHOP -->
       <div class="shop-container">
+
+         <!-- start of categories container -->
          <div class="categories-container">
+
             <div class="categories">
+
                 <div class="categories-header">
                     <h1 class="categories-header__heading">categories</h1>
                     <button id="closeLeftNav" class="close"><i class="fa-solid fa-xmark"></i></button>
                 </div>
+
                 <div class="categories-body">
+
                     <div class="categories-menu">
                         <ul class="categories-menu__ul categories-menu__ul--left">
                             <li id="topsCategoryBtn" class="categories-menu__li">tops</li>
@@ -98,6 +134,7 @@
                             <li id="accessoriesCategoryBtn" class="categories-menu__li">accessories</li>
                         </ul>
                     </div>
+
                     <div class="categories-menu categories-menu--right">
                         <ul id="topsCategoryList" class="categories-menu__ul categories-menu__ul--right categories-menu__ul--tops">
                             <li class="categories-menu__li">t-shirts</li>
@@ -136,23 +173,31 @@
                     </div>
 
                 </div>
+
             </div>
+
          </div>
-        
+         <!-- end of categories container -->
+
+         <!-- start of filters container -->
          <div class="filters">
+
             <div class="filters-header">
                 <button id="closeFiltersBtn" class="close"><i class="fa-solid fa-arrow-left"></i></button>
                 <h3 class="filters-header__title"><i class="nav-icon fa-solid fa-filter"></i> filters</h3>
             </div>
      
             <div class="filters-body">
+
                <form class="filters-list">
+
                   <label for="genderFilter" class="filters-list__label">gender</label>
                   <select class="filters-list__select">
                      <option class="filters-list__option">unisex</option>
                      <option class="filters-list__option">male</option>
                      <option class="filters-list__option">female</option>
                   </select>
+
                   <label for="priceFilter" class="filters-list__label">price</label>
                   <select class="filters-list__select">
                      <option class="filters-list__option">any</option>
@@ -163,6 +208,7 @@
                      <option class="filters-list__option">$50 - $100</option>
                      <option class="filters-list__option">more than $100</option>
                   </select>
+
                   <label for="sizeFilter" class="filters-list__label">size</label>
                   <select class="filters-list__select">
                      <option class="filters-list__option">any</option>
@@ -174,6 +220,7 @@
                      <option class="filters-list__option">XXL</option>
                      <option class="filters-list__option">XXXL</option>
                   </select>
+
                   <label for="colorFilter" class="filters-list__label">color</label>
                   <select class="filters-list__select">
                      <option class="filters-list__option">any</option>
@@ -188,11 +235,14 @@
                      <option class="filters-list__option filters-list__option--blue">blue</option>
                      <option class="filters-list__option filters-list__option--purple">purple</option>
                   </select>
+
                   <button type="submit" class="filters-list__submit">apply</button>
                </form>
             </div>
          </div>
+         <!-- end of filters container -->
 
+         <!-- start of inner shop container -->
          <main class="shop">
 
             <div class="shop-left">
@@ -215,10 +265,7 @@
                </div>
 
                <div id="clothingCardGrid" class="clothingCard__container">
-                  
-                  
-                  
-                  
+               <!-- cards generate here -->
                </div>
 
             </div>
@@ -229,7 +276,9 @@
            </div>
            
          </main>
+         <!-- end of inner shop container -->
 
+         <!-- start of cart container -->
         <div class="cart-container">
             <div class="cart">
 
@@ -262,14 +311,14 @@
 
                     <button class="cart-body__checkout-btn">checkout</button>
 
-                    <!-- <div class="nav-img"><i class="fa-solid fa-cart-shopping"></i></div> -->
-
                 </div>
 
             </div>
 
         </div>
+         <!-- end of cart container -->
 
+         <!-- start of starred container -->
         <div class="starred">
             <div class="starred-header starred-header--starred">
                 <h3 class="starred-header__heading"><i class="nav-icon fa-solid fa-star"></i> starred</h3>
@@ -294,9 +343,11 @@
                 </ul>
             </div>
         </div>
+         <!-- end of starred container -->
 
-      </div>        
-    
+
+      </div>    
+      <!-- END OF SHOP -->    
 
       <!-- footer starts here -->
       <footer class="footer">
