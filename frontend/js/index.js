@@ -1,9 +1,7 @@
 // =====================================
 // GLOBAL CONSOLE LOGS + VARIABLES START HERE
 // =====================================
-console.log("testing"); 
 
-console.log(sessionStorage);
 // =====================================
 // GLOBAL CONSOLE LOGS+ VARIABLES END HERE
 // =====================================
@@ -22,10 +20,7 @@ $(document).ready(function(){
       type: 'GET',
       dataType: 'json',
       success:function(configData){
-        console.log(configData.SERVER_URL,configData.SERVER_PORT );
         url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
-          console.log(url);
-          // cardLoad(url);
           if (window.location.pathname === "/frontend/shop.html"){
            
            
@@ -40,20 +35,20 @@ $(document).ready(function(){
           
             
 
-          };
+          }
                  
         if (window.location.pathname === "/frontend/shop2.html"){
         
           
           appendListingsCommentTest(url);   
 
-        };
+        }
       },
       error:function(error){
         console.log(error);
       
       }
-    })
+    });
 // =====================================
 // AJAX ENDS HERE
 // =====================================
@@ -111,20 +106,16 @@ populateCart();
 function removeCartItem(){
   $(".cart-body__remove").click(function(event){
     itemID = event.target.id;
-    console.log(itemID);
     let cart = JSON.parse(sessionStorage.getItem("allCartItems"));
-    console.log(cart);
     for(let i = cart.length -1; i >= 0; i--){
       if(itemID == cart[i].id){
-        console.log(i);
-        console.log(cart[i]);
         cart.splice(i, 1);
         sessionStorage.setItem("allCartItems", JSON.stringify(cart));
         sessionStorage.setItem("latestItem", JSON.stringify(cart));
         populateCart();
       }
     }
-  })
+  });
 }
 
 // =====================================
@@ -138,14 +129,13 @@ function removeCartItem(){
 
 function modalAddItem(){
   $('#addItem').click(function(){
-    console.log('modal working')
     $(".modal-header").empty().append(
       `
       <h5 class="modal-title" id="exampleModalLabel">List an item</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
       `
-    )
+    );
     $(".modal-body").empty().append(
       `                    
       <div class="modal-left">
@@ -264,17 +254,17 @@ function modalAddItem(){
         </div>
 
           `
-    )
+    );
 
     $(".modal-footer").empty().append(
       `
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       <button type="submit" id="addListingButton" class="btn btn-primary">Save changes</button>
       `
-    )
-  })
+    );
+  });
 }
-modalAddItem()
+modalAddItem();
 
 // =====================================
 // ADD AN ITEM MODAL ENDS HERE
@@ -287,16 +277,15 @@ modalAddItem()
 
 function submitForm(){
   $('#contactSubmit').click(function(){
-    console.log('click');
     document.getElementById('contactLeft').innerHTML = "";
 
     $("#contactLeft").append(
       `
       <h1 class="contact-ty">Thank you!<br> Your message has been recieved.</h1>
       `
-    )
-  })
-};
+    );
+  });
+}
 
 submitForm();
 
@@ -339,15 +328,13 @@ function appendListings(url){
           </div>
         </div>
 
-        `
+        `;
 
         
 
 
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
-            console.log(url);
-              console.log(e.target.parentNode.id);
               let id = e.target.parentNode.id;
               
               $.ajax({
@@ -355,7 +342,6 @@ function appendListings(url){
                     type: 'GET',
                     dataType: 'JSON',
                     success:function(singleListing){
-                      console.log(singleListing);
                       let price = singleListing.price.toFixed(2);
                   
                       $('#clothingModal').empty().append(
@@ -459,7 +445,7 @@ function appendListings(url){
                               <button id="${singleListing._id}" class="clothingItemModal__addToCart">add to cart</button>
 
                             </div>
-                            <button type="button" value="${singleListing._id}" id="commentView" class="btn btn-primary"  data-toggle="modal" data-target="#testModal" >Comments</button>
+                            
 
                         </div>
 
@@ -486,7 +472,7 @@ function appendListings(url){
                           let itemID = singleListing._id;                                                                                                                                                                                  
                           addToCart(itemName, itemPrice, itemID);
                           populateCart();
-                        })
+                        });
 
                         // Add an item to the cart
                         function addToCart(name, price, itemID) {
@@ -500,11 +486,7 @@ function appendListings(url){
                           sessionStorage.setItem("latestItem", JSON.stringify(latestItem));
                           existingItems.push(latestItem);
                           sessionStorage.setItem("allCartItems", JSON.stringify(existingItems));
-                          // turn cart string back into a JSON object
-                          let cart = JSON.parse(sessionStorage.getItem("allCartItems"));
-                          console.log(cart[0].name);
-                          console.log(cart[0].price);
-                          console.log(cart[0].id);
+                          
                           populateCart();
                           alert("item added!");
                         }
@@ -518,7 +500,6 @@ function appendListings(url){
                               url: `http://${url}/viewComments/${id}`,
                               type: 'GET',
                               success: function(commentsFromMongo) {
-                                console.log(commentsFromMongo);
                                 let i;
                                 document.getElementById('commentBox').innerHtml = "";
                                 for (i = 0; i < commentsFromMongo.length; i++) {
@@ -535,16 +516,16 @@ function appendListings(url){
                                         </div>
                                       </div>
                           
-                                    `
-                                };
+                                    `;
+                                }
                               },
                               error: function() {
                                 console.log('error: cannot retreive comments');
                               } //error
-                            }) //ajax
+                            }); //ajax
                           // END OF SHOW COMMENTS
                           
-                        })
+                        });
 
 
                         $('#commentBtn').click(function(){
@@ -554,9 +535,8 @@ function appendListings(url){
                           let comment = document.querySelector('#commentField');
                           let loginId = sessionStorage.getItem('userID');
                           let uName = sessionStorage.getItem('userName');
-                          console.log(comment.value, uName, listingId);
                           if (loginId === null){
-                            alert('Please login to comment')
+                            alert('Please login to comment');
                           } else {
                             $.ajax({
                               url: `http://${url}/addComment`,
@@ -574,7 +554,7 @@ function appendListings(url){
                               error: function() {
                                 alert('unable to post comment');
                               } // end of error
-                            })//end of ajax
+                            });//end of ajax
                           }//end of if
                         // };
                         });
@@ -583,18 +563,18 @@ function appendListings(url){
                         $('#closeComments').click(function(){
                           document.querySelector('.comments').style.removeProperty('top');
                           document.querySelector('.comments').style.top = '99%';
-                        })
+                        });
 
 
                     }
-                  })
+                  });
           });
-        })
+        });
 
         
       }
     }
-  })
+  });
 }
 
 
@@ -613,7 +593,6 @@ function appendListingsToAccount(url){
     dataType: 'JSON',
     success: function(listingsFromDB){
       let userid = sessionStorage.getItem('userID');
-      console.log(userid);
 
       let i;
       document.getElementById('accountListingsGrid').innerHTML = "";
@@ -646,7 +625,7 @@ function appendListingsToAccount(url){
             </div>
           </div>
   
-          `
+          `;
           
           // EDIT LISTING MODAL FOR 'YOUR LISTINGS' SECTION
 
@@ -658,7 +637,6 @@ function appendListingsToAccount(url){
                 $('#editListingButton').click(function(){
                   event.preventDefault();
           
-                  console.log(updateId);
                   let name = $('#nameInputEdit').val();
                   let desc = $('#descInputEdit').val();
                   let price = $('#priceInputEdit').val();
@@ -693,17 +671,16 @@ function appendListingsToAccount(url){
                       user_name: user_name
                     },
                     success: function(data){
-                      console.log(data);
                       alert('Listing Updated');
                     },
                     error: function(){
                       console.log('Error: cannot update listing');
                     } // Error
-                  }) // AJAX
+                  }); // AJAX
                   
-              })
               });
-            })//END OF EDIT LISTING
+              });
+            });//END OF EDIT LISTING
 
 
 
@@ -717,7 +694,7 @@ function appendListingsToAccount(url){
                   hide.classList.add('show');
               }
               });
-            })
+            });
 
             document.querySelectorAll('.clothingCard').forEach(function(card) {
               card.addEventListener('mouseleave', function(e) {
@@ -727,7 +704,7 @@ function appendListingsToAccount(url){
                   show.classList.add('hide');
               }
               });
-            })    
+            });    
 
             //END OF SHOW EDIT AND DELETE BUTTONS ON HOVER
 
@@ -738,26 +715,23 @@ function appendListingsToAccount(url){
 
             document.querySelectorAll('.clothingCard__trash').forEach(function(trash){
               trash.addEventListener('click', function(e){
-                // console.log(e.target.parentNode.id);
                 let delete_Id = e.target.parentNode.id;
                   
                 $('#deleteListing').click(function(){
                   event.preventDefault();
-                  console.log(delete_Id);
                   $.ajax({
                     url : `http://${url}/deleteListing/${delete_Id}`,
                     type:'DELETE',
                     success : function(){
-                        console.log('Deleted');
                         alert('Listing Deleted');
                     }, //success
                     error:function(){ 
                         console.log('Error: cannot call API'); 
                     }//error
-                })//ajax
-                  })
-                })
-              })
+                });//ajax
+                  });
+                });
+              });
             
             // DELETE LISTING FUNCTION END
 
@@ -766,22 +740,17 @@ function appendListingsToAccount(url){
 
 document.querySelectorAll('.editClick').forEach(function(edit){
   edit.addEventListener('click', function(e){
-console.log(e.target.id);
  let listing_Id = e.target.id;
- console.log(listing_Id)
- console.log(url);
 
 $('#editListingButton').click(function(){
  event.preventDefault();
  editFunction(listing_Id);
-})
-})
-})
+});
+});
+});
 
           document.querySelectorAll('.clothingCard').forEach(function(yourListingsClothingItem) {
             yourListingsClothingItem.addEventListener('click', function(e) {
-              console.log(url);
-                console.log(e.target.parentNode.id);
                 let id = e.target.parentNode.id;
                 
                 $.ajax({
@@ -858,15 +827,15 @@ $('#editListingButton').click(function(){
                           );
                         
                       }
-                    })
+                    });
             });
-          })
+          });
         }
         
-      };
+      }
     }
-  })
-};
+  });
+}
 // CLOTHING ITEM MODAL FUNCTION
 
 // ==================================
@@ -879,7 +848,7 @@ $('#editListingButton').click(function(){
 
 // User Registration START
 $('#registerButton').click(function(){
-  event.preventDefault()//this prevents code breaking when no data is found
+  event.preventDefault();//this prevents code breaking when no data is found
   
   let username = $('#registerName').val();
   let email = $('#registerEmail').val();
@@ -888,8 +857,6 @@ $('#registerButton').click(function(){
   let profile_img = $('#registerImage').val();
   // let location = $('#').val();
 
-
-  console.log(username, email, password, password2, profile_img);
 
   if (username == '' || email == '' || password == ''){
     alert('Please enter Username, Email and Password');
@@ -908,7 +875,6 @@ $('#registerButton').click(function(){
        
       },
       success:function(user){
-        console.log(user); //remove when development is finished
         if (user !== 'username taken already. Please try another name'){
         
             alert('Thank you for registering');
@@ -929,13 +895,13 @@ $('#registerButton').click(function(){
       error:function(){
         console.log('error: cannot call api');
       }//error
-    })//ajax post
+    });//ajax post
   }else {
     alert('You need to make your passwords match');
   }//password if
   }//if
 
-})//submit click
+});//submit click
 
 // USER REGISTRATION END
 
@@ -951,13 +917,10 @@ loginPasswordInput.addEventListener("keyup", function(event) {
 
 $('#loginButton').click(function(){
 event.preventDefault();
-console.log("log");
 let username = $('#loginName').val();
 let password = $('#loginPass').val();
 
 
-
-console.log(username, password);
 
 
 
@@ -988,11 +951,6 @@ if (username == '' || password == ''){
         sessionStorage.setItem('userEmail', user['email']);
         sessionStorage.setItem('userImg', user['profile_img']);
         
-        console.log(sessionStorage);
-        
-        // ALERT IS FOR DEV ONLY
-        // alert('Sucessful login');
-
         userDetails();
         window.location.reload();
 
@@ -1002,27 +960,24 @@ if (username == '' || password == ''){
       console.log('error: cannot call api');
       alert('Unable to login - unable to call api');
     }//error
-  })//end of ajax
+  });//end of ajax
 } //end of else
 });//end of login click function
 
 $('#logoutButton').click(function(){
 sessionStorage.clear();
-console.log(sessionStorage);
-// ALERT IS FOR DEV ONLY
-// alert('Sucessful logout');
+
 window.location.reload();
 
-})
+});
 
 function userDetails(){
   
  let user= sessionStorage.getItem('userName');
  let picture= sessionStorage.getItem('userImg');
- console.log(user, picture);
   $("#userText").empty().append(
     `<h2 class="account__username" > ${user} </h2>`
-  )
+  );
   $('#userImage').empty().append(
     `
     <div class="account__img" style="background: url('${picture}'); background-size: cover; background-position: center;">
@@ -1031,7 +986,7 @@ function userDetails(){
   );
 
 
-};
+}
 
 
 
@@ -1053,7 +1008,7 @@ function wardrobeLoginCheck(){
           </div>
         </div>
       `
-    )
+    );
   }
 }
 
@@ -1061,10 +1016,8 @@ function wardrobeLoginCheck(){
 
 function editUser(){
   let user_Upd = sessionStorage.getItem('userID');
-  console.log(user_Upd);
    event.preventDefault();
    let username = $('#userChange').val();
-   console.log(username);
 
    if (user_Upd == ''){
      alert('Please log in for updating');
@@ -1085,7 +1038,7 @@ function editUser(){
        error: function(){
          console.log('error: cannot update user');
        } //error
-     })//ajax
+     });//ajax
    }//if
  }
  function editPass(){
@@ -1113,7 +1066,7 @@ function editUser(){
        error: function(){
          console.log('error: cannot update password');
        } //error
-     })//ajax
+     });//ajax
    }//if
  }
  function editEmail(){
@@ -1121,10 +1074,7 @@ function editUser(){
    event.preventDefault();
    let user_Upd = sessionStorage.getItem('userID');
  
-   console.log(user_Upd);
-
    let email = $('#emailChange').val();
-   console.log(email);
    if (user_Upd == ''){
      alert('Please log in for updating');
    } else {
@@ -1144,36 +1094,38 @@ email: email
        error: function(){
          console.log('error: cannot update email');
        } //error
-     })//ajax
+     });//ajax
    }//if
  }
- function editImage(){
-  let user_Upd = sessionStorage.getItem('UserID');
-   event.preventDefault();
 
-   let profile_img = $('#changeImage').val();
-   if (user_Upd == ''){
-     alert('Please log in for updating');
-   } else {
-     $.ajax({
-       url: `http://${url}/updateImage/${user_Upd}`,
-       type: 'PATCH',
-       data:{
+//  EDIT USER PROFILE IMAGE
+//  function editImage(){
+//   let user_Upd = sessionStorage.getItem('UserID');
+//    event.preventDefault();
+
+//    let profile_img = $('#changeImage').val();
+//    if (user_Upd == ''){
+//      alert('Please log in for updating');
+//    } else {
+//      $.ajax({
+//        url: `http://${url}/updateImage/${user_Upd}`,
+//        type: 'PATCH',
+//        data:{
       
 
-profile_img: profile_img
-       },
-       success: function(data){
-         alert('updated email');
+// profile_img: profile_img
+//        },
+//        success: function(data){
+//          alert('updated email');
  
         
-       }, //success
-       error: function(){
-         console.log('error: cannot update email');
-       } //error
-     })//ajax
-   }//if
- }
+//        }, //success
+//        error: function(){
+//          console.log('error: cannot update email');
+//        } //error
+//      });//ajax
+//    }//if
+//  }
 //update user end
 
 
@@ -1187,7 +1139,6 @@ profile_img: profile_img
 //add listing start
     $('#addListingButton').click(function(){
         event.preventDefault();
-        console.log(sessionStorage);
          
         let name = $('#nameInput').val();
         let desc = $('#descInput').val();
@@ -1204,13 +1155,11 @@ profile_img: profile_img
         let user_id = sessionStorage.getItem('userID');
         let user_name = sessionStorage.getItem('userName');
         
-        console.log(user_id, user_name);
         if (name == '' || price == '' ||  img1 == '' || size2 == '' || type == ''|| gender == ''){
           alert('Please enter relevant details');
         } else {
           if (sessionStorage.getItem('userID') === null){
-            alert('Please log in or register to add listings')
-            console.log('hi');
+            alert('Please log in or register to add listings');
 
           } else{
           $.ajax({
@@ -1233,40 +1182,22 @@ profile_img: profile_img
               user_name: user_name
             },
             success : function(listing){
-              console.log(listing);
               alert ('listing added');
               window.location.reload();
             },
             error : function(){
               console.log('error: cannot call api');
             }//error
-          })//ajax
+          });//ajax
         }//inner else
         }//outer else
       });//addListing
 //AddListing End
 
-//delete listing start
-function deleteFunction(listing_Id){
-$.ajax({
-  url : `http://${url}/deleteListing/${listing_Id}`,
-  type:'DELETE',
-  success : function(){
-    alert('deleted listing');
 
-   window.location.reload();
-  }, //success
-  error:function(){
-    console.log('error: cannot call api');
-  }//error
-})//ajax
-
-
-};//delete listing
 
 // edit listing function start
 function editFunction(listing_Id){
-  console.log(listing_Id);
   event.preventDefault();
 let name = $('#nameInputEdit').val();
   let desc = $('#descInputEdit').val();
@@ -1310,7 +1241,7 @@ let name = $('#nameInputEdit').val();
       error: function(){
         console.log('error: cannot update post');
       } //error
-    })//ajax
+    });//ajax
   }//if
 }
 //edit listing function end
@@ -1335,28 +1266,28 @@ let name = $('#nameInputEdit').val();
 // slide in categories button
 $("#slideInLeftNavBtn").click(function (){
   $(".filters").css("transform", "translateX(-25rem)");
-  $("#slideInFiltersBtn").css("transform", "translateX(0vw)")
-  $("#slideInLeftNavBtn").css("transform", "translateX(-100%)")
+  $("#slideInFiltersBtn").css("transform", "translateX(0vw)");
+  $("#slideInLeftNavBtn").css("transform", "translateX(-100%)");
   $(".categories-container").css("transform", "translateX(0vw)");
-})
+});
 
 // slide out categories button
 $("#closeLeftNav").click(function (){
   $(".categories-container").css("transform", "translateX(-50rem)");
-  $("#slideInLeftNavBtn").css("transform", "translateX(0%)")
-})
+  $("#slideInLeftNavBtn").css("transform", "translateX(0%)");
+});
 
 // slide in filters button
 $("#slideInFiltersBtn").click(function (){
-  $("#slideInFiltersBtn").css("transform", "translateX(-100%)")
+  $("#slideInFiltersBtn").css("transform", "translateX(-100%)");
   $(".filters").css("transform", "translateX(0vw)");
-})
+});
 
 // slide out filters button
 $("#closeFiltersBtn").click(function (){
   $(".filters").css("transform", "translateX(-25rem)");
-  $("#slideInFiltersBtn").css("transform", "translateX(0vw)")
-})
+  $("#slideInFiltersBtn").css("transform", "translateX(0vw)");
+});
 
 // categories menu buttons
 $("#topsCategoryBtn").click(function (){
@@ -1374,7 +1305,7 @@ $("#topsCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "none");
-})
+});
 $("#bottomsCategoryBtn").click(function (){
   // colour button as active, deactive others
   $("#topsCategoryBtn").removeClass("btn-active");
@@ -1390,7 +1321,7 @@ $("#bottomsCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "none");
-})
+});
 $("#hatsCategoryBtn").click(function (){
   // colour button as active, deactive others
   $("#topsCategoryBtn").removeClass("btn-active");
@@ -1406,7 +1337,7 @@ $("#hatsCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "none");
-})
+});
 $("#shoesCategoryBtn").click(function (){
   // colour button as active, deactive others
   $("#topsCategoryBtn").removeClass("btn-active");
@@ -1422,7 +1353,7 @@ $("#shoesCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "block");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "none");
-})
+});
 $("#dressesCategoryBtn").click(function (){
   // colour button as active, deactive others
   $("#topsCategoryBtn").removeClass("btn-active");
@@ -1438,7 +1369,7 @@ $("#dressesCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "block");
   $("#accessoriesCategoryList").css("display", "none");
-})
+});
 $("#accessoriesCategoryBtn").click(function (){
   // colour button as active, deactive others
   $("#topsCategoryBtn").removeClass("btn-active");
@@ -1454,24 +1385,24 @@ $("#accessoriesCategoryBtn").click(function (){
   $("#shoesCategoryList").css("display", "none");
   $("#dressesCategoryList").css("display", "none");
   $("#accessoriesCategoryList").css("display", "block");
-})
+});
 
 // RIGHT NAV
 
 $("#slideInCartBtn").click(function (){
   $(".cart-container").css("transform", "translateX(0rem)");
   $(".starred").css("transform", "translateX(25rem)");
-})
+});
 $("#closeCartBtn").click(function (){
   $(".cart-container").css("transform", "translateX(50rem)");
-})
+});
 
 $("#slideInStarredBtn").click(function (){
   $(".starred").css("transform", "translateX(0rem)");
-})
+});
 $("#closeStarredBtn").click(function (){
   $(".starred").css("transform", "translateX(25rem)");
-})
+});
 
 // =====================================
 // SLIDE IN NAV ELEMENTS START HERE
@@ -1482,7 +1413,6 @@ $("#closeStarredBtn").click(function (){
 // =====================================
 
   function navLoginUserDetails(){
-    console.log(sessionStorage);
     if (sessionStorage.getItem('userID') === null){
       document.getElementById('navUser').style.display = 'none';
       document.getElementById('navButtons').style.display = 'flex';
@@ -1526,7 +1456,7 @@ $("#closeStarredBtn").click(function (){
                       </ul>
                 </div>
         </li>
-        `
+        `;
 
     }
   }
@@ -1536,66 +1466,7 @@ $("#closeStarredBtn").click(function (){
 // NAVAIGATION USER DETAILS END
 // =====================================
 
-// test area
-function appendListingsCommentTest(url){
-  $.ajax({
-    url: `http://${url}/allListingFromDB`,
-    type: 'GET',
-    dataType: 'JSON',
-    success: function(listingsFromDB){
-      let i;
-      document.getElementById('clothingCardGrid').innerHTML = "";
-      for(i = 0; i < listingsFromDB.length; i++){
-        let price = listingsFromDB[i].price;
-        document.getElementById('clothingCardGrid').innerHTML +=
-        `
-        
-        <div id="${listingsFromDB[i]._id}" class="clothingCard" >
-          
-          <div>
-          <form>
-          <p>hi</p>
-       
-          <input id="commentField" type="text" class="form-control"  placeholder="Enter Comment">
-          <button type="button" id="commentBtn" value="${listingsFromDB[i]._id}">Post Comment</button>
-          <button type="button" id="commentView" value="${listingsFromDB[i]._id}">View Comment</button>
-          </form>
-          <div id="commentBox">
-          </div>
-          </div>
-          </div>
-          </div>
-          <div class="clothingCard__details">
-              <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
-              <p class="clothingCard__price">$${price}</p>
-              <div class="clothingCard__tags">
-                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
-                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
-                  
-              </div>
-     
-          </div>
 
-
-
-        </div>
-
-
-
-        `
-
-        $('#commentBtn').click(function(){
-          addComment();
-        });
-        $('#commentView').click(function(){
-          viewComments();
-        });
-      }
-      
-      
-    }
-  })
-}
         
 
 // =====================================
@@ -1603,7 +1474,6 @@ function appendListingsCommentTest(url){
 // =====================================
 
 function hamburgerLoginUserDetails(){
-  console.log(sessionStorage);
   if (sessionStorage.getItem('userID') === null){
     document.getElementById('userHamburger').style.display = 'none';
     document.getElementById('navSignUpHamburger').style.display = 'flex';
@@ -1625,7 +1495,7 @@ function hamburgerLoginUserDetails(){
             </div>
         </button></a>
       </li>
-      `
+      `;
 
   }
 }
@@ -1635,5 +1505,5 @@ hamburgerLoginUserDetails();
 // NAVAIGATION USER DETAILS END
 // =====================================
 
-})
+});
 
