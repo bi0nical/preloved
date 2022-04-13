@@ -519,7 +519,36 @@ function appendListings(url){
                         $('#commentView').click(function(){
 
                           document.querySelector('.comments').style.top = '0%';
-                          viewComments(singleListing._id);
+                          
+                            $.ajax({
+                              url: `http://${url}/viewComments/${id}`,
+                              type: 'GET',
+                              success: function(commentsFromMongo) {
+                                console.log(commentsFromMongo);
+                                let i;
+                                document.getElementById('commentBox').innerHtml = "";
+                                for (i = 0; i < commentsFromMongo.length; i++) {
+                                  document.getElementById('commentBox').innerHTML +=
+                                    `
+                          
+                                    <div class="comments__comment">
+                                        <div class="comments__top">
+                                            <p class="comments__text">${commentsFromMongo[i].text}</p>
+                                        </div>
+                                        <div class="comments__bottom">
+                                            <p class="comments__time">${commentsFromMongo[i].time}</p>
+                                            <p class="comments__user">${commentsFromMongo[i].user_name}</p>
+                                        </div>
+                                      </div>
+                          
+                                    `
+                                };
+                              },
+                              error: function() {
+                                console.log('error: cannot retreive comments');
+                              } //error
+                            }) //ajax
+                          // };
                           
                         })
 
@@ -1306,39 +1335,39 @@ function addComment() {
 
 
 //start get comments
-function viewComments(comId) {
-  let openComs = document.querySelector('#commentView');
-  let id = openComs.value;
-  console.log(comId);
-  $.ajax({
-    url: `http://${url}/viewComments/${id}`,
-    type: 'GET',
-    success: function(commentsFromMongo) {
-      console.log(commentsFromMongo);
-      let i;
-      document.getElementById('commentBox').innerHtml = "";
-      for (i = 0; i < commentsFromMongo.length; i++) {
-        document.getElementById('commentBox').innerHTML +=
-          `
+// function viewComments(comId) {
+//   let openComs = document.querySelector('#commentView');
+//   let id = openComs.value;
+//   console.log(comId);
+//   $.ajax({
+//     url: `http://${url}/viewComments/${id}`,
+//     type: 'GET',
+//     success: function(commentsFromMongo) {
+//       console.log(commentsFromMongo);
+//       let i;
+//       document.getElementById('commentBox').innerHtml = "";
+//       for (i = 0; i < commentsFromMongo.length; i++) {
+//         document.getElementById('commentBox').innerHTML +=
+//           `
 
-          <div class="comments__comment">
-              <div class="comments__top">
-                  <p class="comments__text">${commentsFromMongo[i].text}</p>
-              </div>
-              <div class="comments__bottom">
-                  <p class="comments__time">${commentsFromMongo[i].time}</p>
-                  <p class="comments__user">${commentsFromMongo[i].user_name}</p>
-              </div>
-            </div>
+//           <div class="comments__comment">
+//               <div class="comments__top">
+//                   <p class="comments__text">${commentsFromMongo[i].text}</p>
+//               </div>
+//               <div class="comments__bottom">
+//                   <p class="comments__time">${commentsFromMongo[i].time}</p>
+//                   <p class="comments__user">${commentsFromMongo[i].user_name}</p>
+//               </div>
+//             </div>
 
-          `
-      };
-    },
-    error: function() {
-      console.log('error: cannot retreive comments');
-    } //error
-  }) //ajax
-};
+//           `
+//       };
+//     },
+//     error: function() {
+//       console.log('error: cannot retreive comments');
+//     } //error
+//   }) //ajax
+// };
 //end get comments
 
 
