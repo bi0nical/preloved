@@ -1489,13 +1489,14 @@ function landingPageLoggedIn(){
               <p class="user-landing__userText">${username}'s wardrobe</p>
             </div>
         </button></a>
+        
       </li>
       `;
 
   }
 }
 
-
+landingPageLoggedIn();
 
 // =====================================
 // LANDING PAGE USER DETAILS END
@@ -1526,6 +1527,7 @@ function hamburgerLoginUserDetails(){
               <p class="hamburger__userText">${username}'s wardrobe</p>
             </div>
         </button></a>
+        <button class="navDropdown__btnLast" data-bs-toggle="modal" data-bs-target="#logoutModal"><li class="hamburger-logout">log out</li></button>
       </li>
       `;
 
