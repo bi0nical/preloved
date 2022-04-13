@@ -371,7 +371,7 @@ function appendListings(url){
                         <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
 
 
-                        <div class="viewComments bottomViewBtn" id="viewComments"><h3>Show comments</h3><i class="fa-solid fa-angle-up comments__upArrow"></i></div>
+                        <div value="${singleListing._id}" class="viewComments bottomViewBtn" id="commentView"><h3>Show comments</h3><i class="fa-solid fa-angle-up comments__upArrow"></i></div>
 
                         <div class="comments">
                             
@@ -379,48 +379,12 @@ function appendListings(url){
                               </div>
 
                               <div class="comments__container">
-                                <div class="comments__display">
+                                <div id="commentBox" class="comments__display">
                                     <div class="comments__comment">
                                         
                                       <!-- A SINGLE COMMENT -->
                                       <div class="comments__top">
-                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
-                                      </div>
-                                      <div class="comments__bottom">
-                                          <p class="comments__time">12 mins ago</p>
-                                          <p class="comments__user">emma</p>
-                                      </div>
-                                    </div>
-
-                                    <div class="comments__comment">
-                                        
-                                      <!-- A SINGLE COMMENT -->
-                                      <div class="comments__top">
-                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
-                                      </div>
-                                      <div class="comments__bottom">
-                                          <p class="comments__time">12 mins ago</p>
-                                          <p class="comments__user">emma</p>
-                                      </div>
-                                    </div>
-
-                                    <div class="comments__comment">
-                                        
-                                      <!-- A SINGLE COMMENT -->
-                                      <div class="comments__top">
-                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
-                                      </div>
-                                      <div class="comments__bottom">
-                                          <p class="comments__time">12 mins ago</p>
-                                          <p class="comments__user">emma</p>
-                                      </div>
-                                    </div>
-
-                                    <div class="comments__comment">
-                                        
-                                      <!-- A SINGLE COMMENT -->
-                                      <div class="comments__top">
-                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                          <p class="comments__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
                                       </div>
                                       <div class="comments__bottom">
                                           <p class="comments__time">12 mins ago</p>
@@ -429,9 +393,7 @@ function appendListings(url){
                                     </div>
 
                                     
-                                    
 
-                                    
                                     
                               </div>  
                             </div>
@@ -520,10 +482,11 @@ function appendListings(url){
                         
                         );
 
+
                         
 
                         // Add item to the cart
-                        $(".clothingItemModal__addToCard").click(function (){
+                        $(".clothingItemModal__addToCart").click(function (){
                           let itemName = singleListing.name;
                           let itemPrice = singleListing.price;
                           let itemID = singleListing._id;                                                                                                                                                                                  
@@ -553,9 +516,10 @@ function appendListings(url){
                         }
                         
 
-                        $('#viewComments').click(function(){
-                         
+                        $('#commentView').click(function(){
+
                           document.querySelector('.comments').style.top = '0%';
+                          viewComments(singleListing._id);
                           
                         })
 
@@ -1342,9 +1306,10 @@ function addComment() {
 
 
 //start get comments
-function viewComments() {
+function viewComments(comId) {
   let openComs = document.querySelector('#commentView');
   let id = openComs.value;
+  console.log(comId);
   $.ajax({
     url: `http://${url}/viewComments/${id}`,
     type: 'GET',
@@ -1355,13 +1320,19 @@ function viewComments() {
       for (i = 0; i < commentsFromMongo.length; i++) {
         document.getElementById('commentBox').innerHTML +=
           `
-          <div >
-            <h1>${commentsFromMongo[i].text}</h1>
-            <h1>${commentsFromMongo[i].user_name}</h1>
-            <h1>${commentsFromMongo[i].time}</h1>
-        
-          </div>`;
-      }
+
+          <div class="comments__comment">
+              <div class="comments__top">
+                  <p class="comments__text">${commentsFromMongo[i].text}</p>
+              </div>
+              <div class="comments__bottom">
+                  <p class="comments__time">${commentsFromMongo[i].time}</p>
+                  <p class="comments__user">${commentsFromMongo[i].user_name}</p>
+              </div>
+            </div>
+
+          `
+      };
     },
     error: function() {
       console.log('error: cannot retreive comments');
