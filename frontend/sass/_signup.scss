@@ -83,6 +83,9 @@
     }
     &__home{
         background: none;
+        color: black;
+        text-decoration: none;
+        text-align: center;
     }
     &__confirm{
         background: $blue;
