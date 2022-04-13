@@ -31,39 +31,45 @@
         <div class="nav__logoContainer">
 
 
-        <!-- start of mobile navigation -->
-        <div id="navMobile" class="nav-mobile" style="display:none">
-            <div class="nav-mobile__header">
-               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
-               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
-            </div>
+       <!-- start of mobile navigation -->
+       <div id="navMobile" class="nav-mobile" style="display:none">
+        <div class="nav-mobile__header">
+           <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+           <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+        </div>
 
-            <div class="nav__searchContainer nav__searchContainer--mobile">
-                <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                <button class="nav__searchBtn--mobile">search</button>
-            </div>
-            
-            <ul class="nav__ul--mobile">
-                <a href="index.html"><li class="nav__li--mobile">home</li></a>
-                <a href="about.html"><li class="nav__li--mobile">about</li></a>
-                <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
-                <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
-                <a href="signup.html"><li class="nav__li--mobile">sign up</li></a>
-            </ul>
+        <div class="nav__searchContainer nav__searchContainer--mobile">
+            <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+            <button class="nav__searchBtn--mobile">search</button>
+        </div>
+        
+        <ul class="nav__ul--mobile">
+            <a href="index.html"><li class="nav__li--mobile">home</li></a>
+            <a href="about.html"><li class="nav__li--mobile">about</li></a>
+            <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+            <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+            <a href="signup.html"><li id="navSignUpHamburger" class="nav__li--mobile">sign up</li></a>
+            <div class="user-hamburger" id="userHamburger"></div>
+        </ul>
 
-            <span class="dot"></span>
-        </div>   
-         <!-- end of mobile navigation  -->
+        <span class="dot"></span>
+    </div>   
+     <!-- end of mobile navigation  -->
             
         </div>
         <div class="nav__items">
             <ul class="nav__ul">
                 <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-                <li class="nav__li"><a  title="my wardrobe" class="nav__link" id="wardrobeLock">my wardrobe</a></li>
+                <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
                 <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
                 <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
-                <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal" class="nav__logIn">log in</button></li>
-                <li class="nav__li"><button class="nav__signUp">sign up</button></li>
+                <div id="navButtons" class="nav__buttons">
+                    <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-shop" class="nav__logIn">log in</button></li>
+                    <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+                  </div>
+                  <div id="navUser" class="nav__user">
+                    
+                  </div>
                 <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
             </ul>
             
@@ -76,10 +82,16 @@
     <div class="landing">
         <div class="landing__left">
             <div class="landing__hero">
+                
                 <img class="landing__logo" src="./img/prelovedlogos_plcolor.png" alt="preloved logo">
+                <div class="landing__signUpMobile">
+                    <a href="signup.html"><button class="landing__signInMobile">sign up</button></a>
+                    <button data-bs-toggle="modal" data-bs-target="#loginModal" class="nav__logIn">log in</button>
+                </div>
                 <h2 class="landing__tagline">Sell your old threads...</h2>
                 <h1 class="landing__header">Find your next fit.</h1>
-                <button class="landing__signUp">join our community :)</button>
+                <a href="signup.html"><button class="landing__signUp">join our community :)</button></a>
+                <a href="shop.html"><button class="landing__shopNowMobile">shop all</button></a>
             </div>
             
         </div>
@@ -138,6 +150,26 @@
 </div>
     <!-- END OF LOG IN MODAL -->
 
+    <!-- LOGOUT MODAL -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                 <div class="modal-title logout__title">Are you sure you want to log out?</div>
+                 
+                    <div class="logout__buttons">
+                       <button type="button" class="logout__close" data-bs-dismiss="modal">no, stay logged in</button>
+                       <button class="logout__submit" id="logoutButton" type="submit">yes, log me out</button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- END OF LOGOUT MODAL -->
 
     <!-- dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>

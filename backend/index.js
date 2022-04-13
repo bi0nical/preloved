@@ -214,6 +214,72 @@ app.post('/loginUser', ( req, res)=>{
   });//find one ends
 });//end of post for login
 
+
+//update user
+
+app.patch('/updateUser/:id',(req,res)=>{
+  const idParam = req.params.id;  
+  User.findById(idParam,(err,listing)=>{
+
+      const updatedUser = {
+        username: req.body.username       
+ 
+      }
+      User.updateOne({_id:idParam}, updatedUser).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+
+app.patch('/updatePass/:id',(req,res)=>{
+  const idParam = req.params.id;  
+  User.findById(idParam,(err,listing)=>{
+  const newhash = bcrypt.hashSync(req.body.password);
+      const updatedPass = {
+ 
+        password: newhash
+      }
+      User.updateOne({_id:idParam}, updatedPass).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+
+app.patch('/updateEmail/:id',(req,res)=>{
+  const idParam = req.params.id;  
+  User.findById(idParam,(err,listing)=>{
+  
+      const updatedEmail = {
+ 
+        email: req.body.email
+        
+      }
+      User.updateOne({_id:idParam}, updatedEmail).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+
+// app.patch('/updateImage/:id',(req,res)=>{
+//   const idParam = req.params.id;  
+//   User.findById(idParam,(err,listing)=>{
+//   const newhash = bcrypt.hashSync(req.body.password);
+//       const updatedImage = {
+            
+//         profile_img: req.body.profile_img
+
+//       }
+//       User.updateOne({_id:idParam}, updatedImage).
+//       then(result=>{
+//         res.send(result);
+//       }).catch(err=> res.send(err));
+//   })
+// })
+//update user end
+
 // =====================================
 // USER FUNCTIONS END
 // =====================================
@@ -222,28 +288,28 @@ app.post('/loginUser', ( req, res)=>{
 // COMMENT FUNCTIONS START
 // =====================================
 //create a comment
-app.post('/createComment', (req, res)=> {
+app.post('/addComment', (req, res)=> {
   const newComment = new Comment({
     _id: new mongoose.Types.ObjectId,
     text: req.body.text,
     time: new Date(),
   user_id: req.body.user_id,
+  user_name: req.body.user_name,
   listing_id: req.body.listing_id
   
-  });
-  newComment.save()
-  .then(
-    result => {
-      Listing.updateOne({
-        _id: req.body.listing_id
-      }
-      ).then(result =>{
-        res.send(newComment);
-      }).catch(err => {
-        res.send(err);
-      });
+});
+newComment.save()
+  .then(result =>{
+    Listing.findByIdAndUpdate(
+      newComment.listing_id ,
+      { $push: { comment: newComment }}
+    ).then(result => {
+      res.send(newComment);
+    }).catch(err => {
+      res.send(err);
     });
-  });//end create comment
+  });
+});
   
   //delete comments
   app.delete('/deleteComments/:id', (req, res)=>{
@@ -252,7 +318,7 @@ app.post('/createComment', (req, res)=> {
   
     }, (err, comment) => {
   if (comment && comment['user_id'] == req.body.user_id) {
-  Products.updateOne({
+  Listing.updateOne({
     _id: comment.listing_id
   }
   ).then(result => {
@@ -270,7 +336,19 @@ app.post('/createComment', (req, res)=> {
     });
   });
   //end delete comments
- 
+ // start get comments
+app.get('/viewComments/:id', (req, res) => {
+  const id = req.params.id;
+  Listing.findById(id, function (err, listing) {
+    if (err){
+      console.log(err);
+    } else {
+      console.log("Result : ", listing.comment);
+      res.send(listing.comment);
+    }
+  });
+});
+//end get comments
 
   
 // =====================================

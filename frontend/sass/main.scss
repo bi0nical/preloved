@@ -18,6 +18,7 @@
 @import 'deleteModal';
 @import 'logoutModal';
 @import 'changeAccountModals';
+@import 'comments';
 
 
 *{
@@ -27,6 +28,9 @@
     text-decoration: none;
 }
 
+a{
+    text-decoration: none;
+}
 
 html{
     font-size: 65.5%;
@@ -35,4 +39,12 @@ html{
 
 body{
     overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    margin: 0;
 }

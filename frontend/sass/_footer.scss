@@ -58,6 +58,7 @@
             color: $red;
             font-weight: 600;
             margin: 1.5rem;
+            text-decoration: none;
 
         }
 
@@ -107,4 +108,21 @@
 
     }
 
+}
+
+
+// MEDIA QUERIES
+@media (max-width: $mobile-max){
+   .footer{
+       flex-direction: column-reverse;
+       justify-content: center;
+       align-items: flex-end;
+
+       &-left{
+           width: 100%;
+       }       
+       &-right{
+           width: 100%;
+       }
+   } 
 }

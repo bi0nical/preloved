@@ -25,54 +25,59 @@
     <nav class="nav">
         <div class="nav__logoContainer">
 
-            
-        <!-- start of mobile navigation -->
-        <div id="navMobile" class="nav-mobile" style="display:none">
-            <div class="nav-mobile__header">
-               <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
-               <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
-            </div>
+           
+       <!-- start of mobile navigation -->
+       <div id="navMobile" class="nav-mobile" style="display:none">
+        <div class="nav-mobile__header">
+           <img class="nav__logo--mobile" src="./img/prelovedlogos_plwhite.png" alt="">
+           <img id="navArrow" class="nav__arrow" src="./img/arrow.png" alt=""> 
+        </div>
 
-            <div class="nav__searchContainer nav__searchContainer--mobile">
-                <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                <button class="nav__searchBtn--mobile">search</button>
-            </div>
-            
-            <ul class="nav__ul--mobile">
-                <a href="index.html"><li class="nav__li--mobile">home</li></a>
-                <a href="about.html"><li class="nav__li--mobile">about</li></a>
-                <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
-                <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
-                <a href="signup.html"><li class="nav__li--mobile">sign up</li></a>
-            </ul>
+        <div class="nav__searchContainer nav__searchContainer--mobile">
+            <input class="nav__search--mobile" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+            <button class="nav__searchBtn--mobile">search</button>
+        </div>
+        
+        <ul class="nav__ul--mobile">
+            <a href="index.html"><li class="nav__li--mobile">home</li></a>
+            <a href="about.html"><li class="nav__li--mobile">about</li></a>
+            <a href="shop.html"><li class="nav__li--mobile">shop</li></a>
+            <a href="contact.html"><li class="nav__li--mobile">contact</li></a>
+            <a href="signup.html"><li id="navSignUpHamburger" class="nav__li--mobile">sign up</li></a>
+            <div class="user-hamburger" id="userHamburger"></div>
+        </ul>
 
-            <span class="dot"></span>
-        </div>   
-         <!-- end of mobile navigation  -->
-         
-            <a href="index.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
-            <div class="nav__searchContainer">
-                <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
-                <button class="nav__searchBtn">search</button>
-            </div>
-            
+        <span class="dot"></span>
+    </div>   
+     <!-- end of mobile navigation  -->
+     
+           <a href="shop.html" class="nav__logoLink"><img class="nav__logo" src="./img/prelovedlogos_plcolor_plcolor copy.png" alt=""></a>
+
+           <div class="nav__searchContainer">
+              <input class="nav__search" type="text" name="navSearch" id="navSearch" placeholder="I'm looking for...">
+              <button class="nav__searchBtn">search</button>
+           </div>
         </div>
         <div class="nav__items">
-            <ul class="nav__ul">
-                <li class="nav__li">
-                    
-                </li>
-                <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
-                <li class="nav__li"><a title="my wardrobe" class="nav__link" id="wardrobeLock">my wardrobe</a></li>
-                <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
-                <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
-                <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-about" class="nav__logIn">log in</button></li>
-                <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
-                <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
 
-            </ul>
+           <ul class="nav__ul">
+               <li class="nav__li"><a href="shop.html" title="shop" class="nav__link">shop</a></li>
+               <li class="nav__li"><a href="mywardrobe.html" title="my wardrobe" class="nav__link">my wardrobe</a></li>
+               <li class="nav__li"><a href="about.html" title="about" class="nav__link">about</a></li>
+               <li class="nav__li"><a href="contact.html" title="contact" class="nav__link">contact</a></li>
+               <div id="navButtons" class="nav__buttons">
+                 <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-shop" class="nav__logIn">log in</button></li>
+                 <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+               </div>
+               <div id="navUser" class="nav__user">
+                 
+               </div>
+               
+               <img id="navHamburger" class="nav__hamburger" src="./img/hamburger-01.png" alt="">
+
+           </ul>
         </div>
-    </nav>
+     </nav>
 
     <main class="about">
         <div class="about__hero">
@@ -87,8 +92,8 @@
                     <div class="about__heroDescriptionContainer">
                         <p class="about__heroDescription">We are a small startup business where they welcome all types of people and all types of clothing. Our aim is bringing modern day op-shopping and clothes-swapping to the interconnected digital world, while reducing fast fashion.</p>
                     </div>
-                    <div class="about__heroBtnContainer">
-                        <button class="about__heroBtn">Find your next fit!</button>
+                    <div class="about__heroBtnContainer"><a href="shop.html"><button class="about__heroBtn">Find your next fit!</button></a>
+                        
                     </div>
                 </div>
                 
@@ -193,7 +198,26 @@
         </footer>
         <!-- footer ends here -->
 
-        
+    <!-- LOGOUT MODAL -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                 <div class="modal-title logout__title">Are you sure you want to log out?</div>
+                 
+                    <div class="logout__buttons">
+                       <button type="button" class="logout__close" data-bs-dismiss="modal">no, stay logged in</button>
+                       <button class="logout__submit" id="logoutButton" type="submit">yes, log me out</button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- END OF LOGOUT MODAL -->
         
     <!-- dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>

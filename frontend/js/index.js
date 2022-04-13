@@ -35,9 +35,19 @@ $(document).ready(function(){
           }if (window.location.pathname === "/frontend/mywardrobe.html"){
         
           
-            appendListingsToAccount(url);   
+            appendListingsToAccount(url);  
+            wardrobeLoginCheck(); 
+          
+            
 
           };
+                 
+        if (window.location.pathname === "/frontend/shop2.html"){
+        
+          
+          appendListingsCommentTest(url);   
+
+        };
       },
       error:function(error){
         console.log(error);
@@ -330,7 +340,15 @@ function appendListings(url){
         </div>
 
         `
+
+        $('#commentBtn').click(function(){
+          addComment();
+        });
         
+
+        
+
+
 
         document.querySelectorAll('.clothingCard').forEach(function(clothingItem) {
           clothingItem.addEventListener('click', function(e) {
@@ -345,12 +363,90 @@ function appendListings(url){
                     success:function(singleListing){
                       console.log(singleListing);
                       let price = singleListing.price.toFixed(2);
+                  
                       $('#clothingModal').empty().append(
+               
 
                         `
                         <div style="background: url('${singleListing.img1}'); background-size: cover; background-position: center;" class="clothingItemModal__left">
 
+
+                        <div class="viewComments bottomViewBtn" id="viewComments"><h3>Show comments</h3><i class="fa-solid fa-angle-up comments__upArrow"></i></div>
+
+                        <div class="comments">
+                            
+                              <div id="closeComments" class="comments__btn"><h3>Comments</h3><i class="fa-solid fa-chevron-down comments__downArrow"></i>
+                              </div>
+
+                              <div class="comments__container">
+                                <div class="comments__display">
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="comments__comment">
+                                        
+                                      <!-- A SINGLE COMMENT -->
+                                      <div class="comments__top">
+                                          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
+                                      </div>
+                                      <div class="comments__bottom">
+                                          <p class="comments__time">12 mins ago</p>
+                                          <p class="comments__user">emma</p>
+                                      </div>
+                                    </div>
+
+                                    
+                                    
+
+                                    
+                                    
+                              </div>  
+                            </div>
+
+                            <div class="comments__inputContainer">
+                              <input class="comments__input" type="text" name="" id="">
+                              <button class="comments__submit">send</button>
+                          </div>
+
                         </div>
+
+
+                        </div>
+                 
+
                         <div class="clothingItemModal__right">
                             <div class="clothingItemModal__closeTop">
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -358,8 +454,8 @@ function appendListings(url){
                           
                             <div class="clothingItemModal__mainDetails">
                               <h1 class="clothingItemModal__name">${singleListing.name}</h1>
-                              <h2 class="clothingItemModal__price">${price}</h2>
-                              <h6 class="clothingItemModal__location">${singleListing.location}</h6>
+                              <h2 class="clothingItemModal__price">$${price}</h2>
+                              
                             </div>
 
                             <div class="clothingItemModal__divider"></div>
@@ -395,22 +491,35 @@ function appendListings(url){
                               <div class="clothingItemModal__profilePic">
 
                               </div>
-                              <h4 class="clothingItemModal__username">user1234</h4>
+                              <h4 class="clothingItemModal__username">${singleListing.user_name}</h4>
                             </div>
+
                             <div class="clothingItemModal__divider">
                                 
                           </div>
                             <div class="clothingItemModal__btns">
                               <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
-                              <button id="${singleListing._id}" class="clothingItemModal__addToCard">add to cart</button>
+
+                              <button id="${singleListing._id}" class="clothingItemModal__addToCart">add to cart</button>
+
                             </div>
+                            <button type="button" value="${singleListing._id}" id="commentView" class="btn btn-primary"  data-toggle="modal" data-target="#testModal" >Comments</button>
+
                         </div>
 
+                  
+
                         `
+
                         
-                       
+                  
+
+                        
+                        
+                        
                         
                         );
+
                         
 
                         // Add item to the cart
@@ -443,6 +552,19 @@ function appendListings(url){
                           alert("item added!");
                         }
                         
+
+                        $('#viewComments').click(function(){
+                         
+                          document.querySelector('.comments').style.top = '0%';
+                          
+                        })
+
+                        $('#closeComments').click(function(){
+                          document.querySelector('.comments').style.removeProperty('top');
+                          document.querySelector('.comments').style.top = '99%';
+                        })
+
+
                     }
                   })
           });
@@ -453,6 +575,11 @@ function appendListings(url){
     }
   })
 }
+
+
+
+
+
 
 // ================================
 // APPEND LISTINGS TO ACCOUNT PAGE
@@ -692,14 +819,14 @@ $('#editListingButton').click(function(){
                                 <div class="clothingItemModal__profilePic">
   
                                 </div>
-                                <h4 class="clothingItemModal__username">user1234</h4>
+                                <h4 class="clothingItemModal__username">${singleListing.user_name}</h4>
                               </div>
                               <div class="clothingItemModal__divider">
                                   
                             </div>
                               <div class="clothingItemModal__btns">
                                 <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
-                                <button class="clothingItemModal__addToCard">add to cart</button>
+                                <button class="clothingItemModal__addToCart">add to cart</button>
                               </div>
                           </div>
   
@@ -792,6 +919,15 @@ $('#registerButton').click(function(){
 // USER REGISTRATION END
 
 //Login User
+
+let loginPasswordInput = document.getElementById("loginPass");
+loginPasswordInput.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("loginButton").click();
+  }
+});
+
 $('#loginButton').click(function(){
 event.preventDefault();
 console.log("log");
@@ -833,7 +969,8 @@ if (username == '' || password == ''){
         
         console.log(sessionStorage);
         
-        alert('Sucessful login');
+        // ALERT IS FOR DEV ONLY
+        // alert('Sucessful login');
 
         userDetails();
         window.location.reload();
@@ -851,7 +988,9 @@ if (username == '' || password == ''){
 $('#logoutButton').click(function(){
 sessionStorage.clear();
 console.log(sessionStorage);
-alert('Sucessful logout');
+// ALERT IS FOR DEV ONLY
+// alert('Sucessful logout');
+window.location.reload();
 
 })
 
@@ -861,8 +1000,7 @@ function userDetails(){
  let picture= sessionStorage.getItem('userImg');
  console.log(user, picture);
   $("#userText").empty().append(
-    `<h2 class="account__username" > ${user} </h2>
-    <i class="fa-solid fa-pen account__editBtn"></i>`
+    `<h2 class="account__username" > ${user} </h2>`
   )
   $('#userImage').empty().append(
     `
@@ -870,29 +1008,160 @@ function userDetails(){
     </div>
     `
   );
-  // $('#userImage').empty().append(
-  //   `
-  //   <img class="account__change" src='${picture}'>
-  //   </img>
-  //   `
-  // );
+
 
 };
 
-function loginLock(){
+
+
+function wardrobeLoginCheck(){
   let login = sessionStorage.getItem('userID');
-if(login === null){
-  alert('Please register or log in to access MyWardrobe')
-  window.location.href = "signup.html";
-} else{
-  window.location.href = "mywardrobe.html";
-}
+
+  changeUserSubmit.addEventListener('click', editUser);
+  changeEmailSubmit.addEventListener('click', editEmail);
+  changePasswordSubmit.addEventListener('click', editPass);
+  if(login === null){
+    $('#accountPageBody').empty().append(
+      `
+        <div class="account__loginCheck">
+        <h2 class="account__loginCheckTitle">Oops, it looks like you're not logged in!</h2>
+          <p class="account__loginCheckText">To access the account page, list an item, and view your listings, you must log into your account.</p>
+          <div class="account__loginCheckButtons">
+            <li class="nav__li"><button data-bs-toggle="modal" data-bs-target="#loginModal-wardrobe" class="nav__logIn">log in</button></li>
+            <li class="nav__li"><a href="signup.html"><button class="nav__signUp">sign up</button></a></li>
+          </div>
+        </div>
+      `
+    )
+  }
 }
 
-wardrobeLock.addEventListener('click', loginLock);
+
+
+function editUser(){
+  let user_Upd = sessionStorage.getItem('userID');
+  console.log(user_Upd);
+   event.preventDefault();
+   let username = $('#userChange').val();
+   console.log(username);
+
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateUser/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+ username: username
+
+       },
+       success: function(data){
+         alert('updated user');
+ 
+         window.location.reload();
+       }, //success
+       error: function(){
+         console.log('error: cannot update user');
+       } //error
+     })//ajax
+   }//if
+ }
+ function editPass(){
+  let user_Upd = sessionStorage.getItem('userID');
+ 
+   event.preventDefault();
+
+   let password = $('#passChange').val();
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updatePass/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+
+ password: password
+       },
+       success: function(data){
+         alert('updated password');
+ 
+         window.location.reload();
+       }, //success
+       error: function(){
+         console.log('error: cannot update password');
+       } //error
+     })//ajax
+   }//if
+ }
+ function editEmail(){
+
+   event.preventDefault();
+   let user_Upd = sessionStorage.getItem('userID');
+ 
+   console.log(user_Upd);
+
+   let email = $('#emailChange').val();
+   console.log(email);
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateEmail/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+
+email: email
+       },
+       success: function(data){
+         alert('updated email');
+ 
+         window.location.reload();
+       }, //success
+       error: function(){
+         console.log('error: cannot update email');
+       } //error
+     })//ajax
+   }//if
+ }
+ function editImage(){
+  let user_Upd = sessionStorage.getItem('UserID');
+   event.preventDefault();
+
+   let profile_img = $('#changeImage').val();
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateImage/${user_Upd}`,
+       type: 'PATCH',
+       data:{
+      
+
+profile_img: profile_img
+       },
+       success: function(data){
+         alert('updated email');
+ 
+        
+       }, //success
+       error: function(){
+         console.log('error: cannot update email');
+       } //error
+     })//ajax
+   }//if
+ }
+//update user end
+
 
 // =====================================
 //USER FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//LISTING FRONT to BACKEND FUNCTIONS START HERE
 // =====================================
 //add listing start
     $('#addListingButton').click(function(){
@@ -990,7 +1259,7 @@ let name = $('#nameInputEdit').val();
   let brand = $('#brandInputEdit').val();
   let color = $('#colourInputEdit').val();
   let gender = $('#genderInputEdit').val();
-  console.log(name,price,desc,img1,img2,img3,size1,size2,type,brand,color,gender);
+
   if (listing_Id == ''){
     alert('Please enter product id for updating');
   } else {
@@ -1030,8 +1299,80 @@ let name = $('#nameInputEdit').val();
 
 
 
-// ==================================
-// LISTING FUNCTIONS END HERE
+// =====================================
+//LISTING FRONT to BACKEND FUNCTIONS END HERE
+// =====================================
+
+// =====================================
+//COMMENT FUNCTIONS START HERE
+// =====================================
+
+//start post comments
+function addComment() {
+  let save = document.querySelector('#commentBtn');
+  let listingId = save.value;  
+  let comment = document.querySelector('#commentField');
+  let loginId = sessionStorage.getItem('userID');
+  let uName = sessionStorage.getItem('userName');
+  console.log(comment.value, uName, listingId);
+  if (loginId === null){
+    alert('Please login to comment')
+  } else {
+    $.ajax({
+      url: `http://${url}/addComment`,
+      type: 'POST',
+      data: {
+        text: comment.value,        
+        listing_id: listingId,
+        user_id: loginId,
+        user_name: uName        
+      },
+      success: function(comment) {
+        alert('Comment posted');
+        console.log(comment);
+      },
+      error: function() {
+        alert('unable to post comment');
+      } // end of error
+    })//end of ajax
+  }//end of if
+};
+
+//end post comments
+
+
+//start get comments
+function viewComments() {
+  let openComs = document.querySelector('#commentView');
+  let id = openComs.value;
+  $.ajax({
+    url: `http://${url}/viewComments/${id}`,
+    type: 'GET',
+    success: function(commentsFromMongo) {
+      console.log(commentsFromMongo);
+      let i;
+      document.getElementById('commentBox').innerHtml = "";
+      for (i = 0; i < commentsFromMongo.length; i++) {
+        document.getElementById('commentBox').innerHTML +=
+          `
+          <div >
+            <h1>${commentsFromMongo[i].text}</h1>
+            <h1>${commentsFromMongo[i].user_name}</h1>
+            <h1>${commentsFromMongo[i].time}</h1>
+        
+          </div>`;
+      }
+    },
+    error: function() {
+      console.log('error: cannot retreive comments');
+    } //error
+  }) //ajax
+};
+//end get comments
+
+
+// =====================================
+//COMMENT FUNCTIONS END HERE
 // =====================================
 
 // =====================================
@@ -1204,20 +1545,140 @@ $("#closeStarredBtn").click(function (){
       document.getElementById('navUser').innerHTML +=
 
         `
-        <li class="nav__li">
+        <li class="nav__liUser">
           <button class="nav__userLi">
               <div class="nav__userDetails">
+              
                 <p class="nav__userText">${username}</p>
                 <div class="nav__userPic" style="background: url('${profilePic}'); background-size: cover; background-position: center;"></div>
                 <i class="nav__userDownArrow fa-solid fa-caret-down"></i>
+                
+                
+                
+                
+
               </div>
           </button>
+          <div class="navDropdown">
+                      <ul class="navDropdown__ul">
+
+                        <li class="navDropdown__li">
+                            <a href="mywardrobe.html" class="navDropdown__btn" >my account
+                            </a>
+                        </li>
+                        
+                        <li class="navDropdown__li">
+                            <button class="navDropdown__btnLast" data-bs-toggle="modal" data-bs-target="#logoutModal">log out</button>
+                        </li>
+                        
+
+                      </ul>
+                </div>
         </li>
         `
 
     }
   }
   navLoginUserDetails();
+
+// =====================================
+// NAVAIGATION USER DETAILS END
+// =====================================
+
+// test area
+function appendListingsCommentTest(url){
+  $.ajax({
+    url: `http://${url}/allListingFromDB`,
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(listingsFromDB){
+      let i;
+      document.getElementById('clothingCardGrid').innerHTML = "";
+      for(i = 0; i < listingsFromDB.length; i++){
+        let price = listingsFromDB[i].price;
+        document.getElementById('clothingCardGrid').innerHTML +=
+        `
+        
+        <div id="${listingsFromDB[i]._id}" class="clothingCard" >
+          
+          <div>
+          <form>
+          <p>hi</p>
+       
+          <input id="commentField" type="text" class="form-control"  placeholder="Enter Comment">
+          <button type="button" id="commentBtn" value="${listingsFromDB[i]._id}">Post Comment</button>
+          <button type="button" id="commentView" value="${listingsFromDB[i]._id}">View Comment</button>
+          </form>
+          <div id="commentBox">
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="clothingCard__details">
+              <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
+              <p class="clothingCard__price">$${price}</p>
+              <div class="clothingCard__tags">
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
+                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+                  
+              </div>
+     
+          </div>
+
+
+
+        </div>
+
+
+
+        `
+
+        $('#commentBtn').click(function(){
+          addComment();
+        });
+        $('#commentView').click(function(){
+          viewComments();
+        });
+      }
+      
+      
+    }
+  })
+}
+        
+
+// =====================================
+// HAMBURGER USER DETAILS START
+// =====================================
+
+function hamburgerLoginUserDetails(){
+  console.log(sessionStorage);
+  if (sessionStorage.getItem('userID') === null){
+    document.getElementById('userHamburger').style.display = 'none';
+    document.getElementById('navSignUpHamburger').style.display = 'flex';
+  } 
+  else {
+    document.getElementById('userHamburger').style.display = 'flex';
+    document.getElementById('navSignUpHamburger').style.display = 'none';
+    let username = sessionStorage.getItem('userName');
+    let profilePic = sessionStorage.getItem('userImg');
+    document.getElementById('userHamburger').innerHTML = '';
+    document.getElementById('userHamburger').innerHTML +=
+
+      `
+      <li class="hamburger__li">
+        <a href="./mywardrobe.html"><button class="hamburger__userLi">
+            <div class="hamburger__userDetails">
+            <div class="hamburger__userPic" style="background: url('${profilePic}'); background-size: cover; background-position: center;"></div>
+              <p class="hamburger__userText">${username}'s wardrobe</p>
+            </div>
+        </button></a>
+      </li>
+      `
+
+  }
+}
+hamburgerLoginUserDetails();
 
 // =====================================
 // NAVAIGATION USER DETAILS END

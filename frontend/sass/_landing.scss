@@ -22,7 +22,7 @@
     grid-template-columns: repeat(2, 1fr);
 
     &__body{
-        background: url(../img/background.png) no-repeat;
+    background: url(../img/background-01.png);
     background-position: center;
     background-size: cover;
     }
@@ -227,4 +227,74 @@
         transform: scale(1.1);
         transition: 0.1s;
     }
+    &__signUpMobile{
+        display: none;
+    }
+    &__shopNowMobile{
+        display: none;
+    }
+}
+
+
+
+// MEDIA QUERIES
+@media (max-width: $tablet-max){
+
+    .landing{
+        grid: none;
+
+        &__logo{
+            height: 20rem;
+        }
+        &__hero{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        &__right{
+            display: none;
+        }
+        &__signUp{
+            display: none;
+        }
+        &__signInMobile{
+            cursor: pointer;
+            background: none;
+            border: 4px solid $blue;
+            font-size: 1.7rem;
+            font-weight: 600;
+            font-family: $primaryFont;
+            background: $blue;
+            color: $yellow;
+            width: 100px;
+            padding: 0.7rem 1rem 0.7rem 1rem;
+            transition: 0.1s;
+        }
+        &__signUpMobile{ 
+            display: block;
+        }
+        &__tagline{
+            padding-top: 3rem;
+        }
+        &__header{
+            padding-bottom: 3rem;
+            width: 8ch;
+        }
+        &__shopNowMobile{
+            display: block;
+            cursor: pointer;
+            background: none;
+            border: 4px solid $blue;
+            font-size: 1.7rem;
+            font-weight: 600;
+            font-family: $primaryFont;
+            background: $blue;
+            color: $yellow;
+            padding: 1.7rem 3rem 1.7rem 3rem;
+            transition: 0.1s;
+        }
+    }
+
 }
