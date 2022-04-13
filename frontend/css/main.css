@@ -1177,6 +1177,9 @@
 }
 .signup__home {
   background: none;
+  color: black;
+  text-decoration: none;
+  text-align: center;
 }
 .signup__confirm {
   background: #0058D2;
