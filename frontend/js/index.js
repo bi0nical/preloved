@@ -332,9 +332,8 @@ function appendListings(url){
           <div class="clothingCard__details">
               <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
               <p class="clothingCard__price">$${price}</p>
-              <div class="clothingCard__tags">
-                  <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
-                  <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+              <div id="tags" class="clothingCard__tags">
+                <p class="clothingCard__tag">${listingsFromDB[i].type}</p>
               </div>
           </div>
         </div>
