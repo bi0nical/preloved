@@ -36,13 +36,6 @@ $(document).ready(function(){
             
 
           }
-                 
-        if (window.location.pathname === "/frontend/shop2.html"){
-        
-          
-          appendListingsCommentTest(url);   
-
-        }
       },
       error:function(error){
         console.log(error);
@@ -1465,7 +1458,6 @@ $("#closeStarredBtn").click(function (){
 // =====================================
 
 function landingPageLoggedIn(){
-  console.log(sessionStorage);
   if (sessionStorage.getItem('userID') === null){
     document.getElementById('landingLogged').style.display = 'none';
     document.getElementById('landingUnlogged').style.display = 'flex';
@@ -1485,7 +1477,7 @@ function landingPageLoggedIn(){
             </div>
         </button></a>
       </li>
-      `
+      `;
 
   }
 }

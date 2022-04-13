@@ -212,7 +212,7 @@
   transition: 0.1s;
 }
 .landing__signUpMobile {
-  display: none;
+  display: none !important;
 }
 .landing__shopNowMobile {
   display: none;
@@ -258,7 +258,25 @@
     transition: 0.1s;
   }
   .landing__signUpMobile {
-    display: block;
+    display: block !important;
+  }
+  .landing__signUpHome {
+    cursor: pointer;
+    background: none;
+    border: 4px solid #0058D2;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    color: #FFCB2F;
+    background: #0058D2;
+    width: 100px;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    transition: 0.1s;
+    margin-right: 1rem;
+  }
+  .landing__signUpHome:hover {
+    transform: scale(1.1);
+    transition: 0.1s;
   }
   .landing__tagline {
     padding-top: 3rem;
@@ -599,7 +617,7 @@
   transition: 0.1s;
 }
 .landing__signUpMobile {
-  display: none;
+  display: none !important;
 }
 .landing__shopNowMobile {
   display: none;
@@ -645,7 +663,25 @@
     transition: 0.1s;
   }
   .landing__signUpMobile {
-    display: block;
+    display: block !important;
+  }
+  .landing__signUpHome {
+    cursor: pointer;
+    background: none;
+    border: 4px solid #0058D2;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    color: #FFCB2F;
+    background: #0058D2;
+    width: 100px;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    transition: 0.1s;
+    margin-right: 1rem;
+  }
+  .landing__signUpHome:hover {
+    transform: scale(1.1);
+    transition: 0.1s;
   }
   .landing__tagline {
     padding-top: 3rem;
@@ -1088,13 +1124,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 70%;
+  width: 100vw;
+  min-height: 100vh;
 }
 .signup__container {
   height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
 }
 .signup__header {
   font-family: "Libre Franklin", sans-serif;
@@ -1186,7 +1224,11 @@
   color: white;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1023px) {
+  .signup {
+    padding-bottom: 7rem;
+  }
+
   .signup__header {
     font-size: 3.5rem;
     width: 15ch;

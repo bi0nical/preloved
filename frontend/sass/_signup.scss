@@ -6,7 +6,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
+    width: 100vw;
+    min-height: 100vh;
     
     &__container{
         // background: $yellow;
@@ -14,6 +15,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100vw;
     }
     &__header{
         font-family: $primaryFont;
@@ -95,7 +97,10 @@
 
 
 // MEDIA QUERIES
-@media (max-width: $mobile-max){
+@media (max-width: $tablet-max){
+    .signup{
+        padding-bottom: 7rem;
+    }
     .signup__header{
         font-size: 3.5rem;
         width: 15ch;

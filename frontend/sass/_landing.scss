@@ -228,11 +228,12 @@
         transition: 0.1s;
     }
     &__signUpMobile{
-        display: none;
+        display: none !important;
     }
     &__shopNowMobile{
         display: none;
     }
+
 }
 
 .landing-li{
@@ -277,7 +278,25 @@
             transition: 0.1s;
         }
         &__signUpMobile{ 
-            display: block;
+            display: block !important;
+        }
+        &__signUpHome{
+            cursor: pointer;
+            background: none;
+            border: 4px solid $blue;
+            font-size: 1.7rem;
+            font-weight: 600;
+            font-family: $primaryFont;
+            color: $yellow;
+            background: $blue;
+            width: 100px;
+            padding: 0.7rem 1rem 0.7rem 1rem;
+            transition: 0.1s;
+            margin-right: 1rem;
+        }
+        &__signUpHome:hover{
+            transform: scale(1.1);
+            transition: 0.1s;
         }
         &__tagline{
             padding-top: 3rem;
