@@ -313,6 +313,7 @@
             text-align: left;
             margin: none;
             overflow-y: hidden;
+            position: relative;
             
         }
 
@@ -385,7 +386,7 @@
             cursor: pointer;
             font-size: 2rem;
             font-weight: 700;
-            padding-left: 5rem;
+            padding-left: 1rem;
         }
 
     }
@@ -397,10 +398,10 @@
         border-top-left-radius: 380px;  /* 100px of height + 10px of border */
         border-top-right-radius: 380px; /* 100px of height + 10px of border */
         border-bottom: 0;
-        transform: translateX(-100rem);
-        transform: translateY(11.15rem);
+        // transform: translateX(500rem);
+        // transform: translateY(11.15rem);
         position: absolute;
-        right: 4;
+        right: -50rem;
         bottom: 0;
     }
     
@@ -420,23 +421,25 @@
     padding: 2rem;
 }
 
-.hamburger__userDetails{
-    display: flex;
-    align-items: center;
-}
+.hamburger{
+    &__userDetails{
+        display: flex;
+        align-items: center;
+    }
 
-.hamburger__userLi{
-    @include btn;
-    border: solid $yellow;
-    background: none;
-    color: $yellow;
-}
+    &__userLi{
+        @include btn;
+        border: solid $yellow;
+        background: $yellow;
+        color: $blue;
+    }
 
-.hamburger__userPic{
-    height: 4rem;
-    width: 4rem;
-}
+    &__userPic{
+        height: 4rem;
+        width: 4rem;
+    }
 
-.hamburger__userText{
-    padding-left: 1rem;
+    &__userText{
+        padding-left: 1rem;
+    }
 }

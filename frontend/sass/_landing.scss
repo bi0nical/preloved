@@ -235,16 +235,20 @@
     }
 }
 
-
+.landing-li{
+    display: none;
+}
 
 // MEDIA QUERIES
 @media (max-width: $tablet-max){
 
     .landing{
         grid: none;
+        padding: 0;
 
         &__logo{
-            height: 20rem;
+            height: 15rem;
+            margin-bottom: 3rem;
         }
         &__hero{
             display: flex;
@@ -297,4 +301,11 @@
         }
     }
 
+    .landing-li{
+        @include btn;
+        border: solid $blue;
+        background: $yellow;
+        display: block;
+        list-style: none;
+    }
 }

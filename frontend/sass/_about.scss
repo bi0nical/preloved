@@ -82,6 +82,10 @@
     &__values{
         width: 60%;
         margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
     &___valuesHeader{
         font-family: $primaryFont;
@@ -123,4 +127,99 @@
         color: $blue;
         padding: 1rem;
     }
+}
+
+
+// MEDIA QUERIES
+
+@media (max-width: $tablet-max){
+
+    .about{
+        &__heroContent{
+            flex-direction: column;
+        }
+        &__heroHeader{        
+            font-size: 6rem;
+        }
+        &__heroImgContainer{    
+            display: none;    
+        }
+        &__mobileImgContainer{
+            display: none;
+        }
+        &__heroMobileAbout{
+            display: flex;
+        }
+        &__heroDescriptionContainer{
+            padding-left: 1rem;
+        }
+        &__heroDescription{
+            font-size: 1.8rem;
+        }
+        &__heroBtnContainer{
+            padding: none;
+        }
+    }  
+}
+    
+    
+    
+@media (max-width: $mobile-max){
+    .about{
+
+        &__hero{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            &Content{
+                
+            }
+            &Header{
+                font-size: 4rem;
+            }
+            &Text{
+                padding: 0;
+            }
+            &Description{
+                font-size: 1.5rem;
+                width: 30ch;
+            }
+            &MobileAbout{
+                justify-content: center;
+            }
+            &BtnContainer{
+                justify-content: center;
+            }
+            
+        }
+        
+        &__values{         
+            &1{
+                border-bottom: 2px solid $blue;
+            }
+            &2{
+                border-bottom: 2px solid $blue;
+            }
+            &HeaderContainer{
+                text-align: center;
+            }
+            &Grid{
+                grid-template-rows: repeat(3, 1fr);         
+                grid-template-columns: none; 
+            }
+            &GridSection{
+                text-align: center;
+            }
+            &Img{
+                max-width: 150px;
+            }
+        
+        }
+    
+    
+    
+    }
+    
 }

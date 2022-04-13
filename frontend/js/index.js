@@ -1554,10 +1554,46 @@ function appendListingsCommentTest(url){
     }
   })
 }
-        
+   
 
 // =====================================
-// HAMBURGER USER DETAILS START
+// LANDING PAGE USER DETAILS START
+// =====================================
+
+function landingPageLoggedIn(){
+  console.log(sessionStorage);
+  if (sessionStorage.getItem('userID') === null){
+    document.getElementById('landingLogged').style.display = 'none';
+    document.getElementById('landingUnlogged').style.display = 'flex';
+  } 
+  else {
+    document.getElementById('landingLogged').style.display = 'flex';
+    document.getElementById('landingUnlogged').style.display = 'none';
+    let username = sessionStorage.getItem('userName');
+    document.getElementById('landingLogged').innerHTML = '';
+    document.getElementById('landingLogged').innerHTML +=
+
+      `
+      <li class="landing-li">
+        <a href="./mywardrobe.html"><button class="hamburger__userLi">
+            <div class="user-landing">
+              <p class="user-landing__userText">${username}'s wardrobe</p>
+            </div>
+        </button></a>
+      </li>
+      `
+
+  }
+}
+
+landingPageLoggedIn();
+
+// =====================================
+// LANDING PAGE USER DETAILS END
+// =====================================
+
+// =====================================
+// HAMBURGER MENU USER DETAILS START
 // =====================================
 
 function hamburgerLoginUserDetails(){
@@ -1590,7 +1626,7 @@ function hamburgerLoginUserDetails(){
 hamburgerLoginUserDetails();
 
 // =====================================
-// NAVAIGATION USER DETAILS END
+// HAMBURGER MENU USER DETAILS END
 // =====================================
 
 })
