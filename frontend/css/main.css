@@ -2933,6 +2933,7 @@ textarea::placeholder, textarea:focus, textarea::after {
 .comments {
   background: #FFCB2F;
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -2952,6 +2953,7 @@ textarea::placeholder, textarea:focus, textarea::after {
   padding: 1rem;
 }
 .comments__container {
+  width: 100%;
   flex: 1;
   display: flex;
   align-items: flex-end;
@@ -2960,6 +2962,22 @@ textarea::placeholder, textarea:focus, textarea::after {
 .comments__display {
   padding: 2rem;
   height: 100%;
+  width: 100%;
+}
+.comments__text {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.comments__time {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+.comments__user {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
 .comments__top {
   background: white;
