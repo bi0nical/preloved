@@ -37,10 +37,11 @@ $(document).ready(function(){
 
           }
                  
-        if (window.location.pathname === "/frontend/shop2.html"){
+
+        if (window.location.pathname === "/frontend/index.html"){
         
-          
-          appendListingsCommentTest(url);   
+          landingPageLoggedIn();
+            
 
         }
       },
@@ -1492,7 +1493,7 @@ function landingPageLoggedIn(){
   }
 }
 
-landingPageLoggedIn();
+
 
 // =====================================
 // LANDING PAGE USER DETAILS END
