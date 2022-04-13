@@ -410,16 +410,13 @@ function appendListings(url){
                             <div class="clothingItemModal__details">
                               <div class="clothingItemModal__details1">
                                   <p class="clothingItemModal__sizeTitle">Size:</p>
-                                  <p class="clothingItemModal__size">${singleListing.size1}</p>
+                                  <p class="clothingItemModal__size">${singleListing.size2}</p>
                               </div>
                               <div class="clothingItemModal__details2">
                                   <p class="clothingItemModal__brandTitle">Brand:</p>
                                   <p class="clothingItemModal__brand">${singleListing.brand}</p>
                               </div>
-                              <div class="clothingItemModal__details3">
-                                  <p class="clothingItemModal__colorTitle">Colour:</p>
-                                  <p class="clothingItemModal__color">${singleListing.color}</p>
-                              </div>
+                  
                               <div class="clothingItemModal__details4">
                                   <p class="clothingItemModal__madeinTitle">Made In:</p>
                                   <p class="clothingItemModal__madein">USA</p>
@@ -772,7 +769,7 @@ $('#editListingButton').click(function(){
                               <div class="clothingItemModal__mainDetails">
                                 <h1 class="clothingItemModal__name">${singleListing.name}</h1>
                                 <h2 class="clothingItemModal__price">${price}</h2>
-                                <h6 class="clothingItemModal__location">${singleListing.location}</h6>
+                                <h6 class="clothingItemModal__location">${singleListing.user_name}</h6>
                               </div>
   
                               <div class="clothingItemModal__divider"></div>
@@ -786,16 +783,13 @@ $('#editListingButton').click(function(){
                               <div class="clothingItemModal__details">
                                 <div class="clothingItemModal__details1">
                                     <p class="clothingItemModal__sizeTitle">Size:</p>
-                                    <p class="clothingItemModal__size">${singleListing.size1}</p>
+                                    <p class="clothingItemModal__size">${singleListing.size2}</p>
                                 </div>
                                 <div class="clothingItemModal__details2">
                                     <p class="clothingItemModal__brandTitle">Brand:</p>
                                     <p class="clothingItemModal__brand">${singleListing.brand}</p>
                                 </div>
-                                <div class="clothingItemModal__details3">
-                                    <p class="clothingItemModal__colorTitle">Colour:</p>
-                                    <p class="clothingItemModal__color">${singleListing.color}</p>
-                                </div>
+              
                                 <div class="clothingItemModal__details4">
                                     <p class="clothingItemModal__madeinTitle">Made In:</p>
                                     <p class="clothingItemModal__madein">USA</p>
