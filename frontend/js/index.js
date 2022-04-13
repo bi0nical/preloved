@@ -335,6 +335,7 @@ function appendListings(url){
                     dataType: 'JSON',
                     success:function(singleListing){
                       let price = singleListing.price.toFixed(2);
+                                     
                   
                       $('#clothingModal').empty().append(
                
@@ -352,18 +353,6 @@ function appendListings(url){
 
                               <div class="comments__container">
                                 <div id="commentBox" class="comments__display">
-                                    <div class="comments__comment">
-                                        
-                                      <!-- A SINGLE COMMENT -->
-                                      <div class="comments__top">
-                                          <p class="comments__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure iusto id pariatur numquam error nesciunt omnis minima. Voluptates eaque, perferendis illo ut culpa autem non saepe pariatur magnam labore corporis!</p>
-                                      </div>
-                                      <div class="comments__bottom">
-                                          <p class="comments__time">12 mins ago</p>
-                                          <p class="comments__user">emma</p>
-                                      </div>
-                                    </div>
-
                                     
 
                                     
@@ -492,6 +481,28 @@ function appendListings(url){
                                 let i;
                                 document.getElementById('commentBox').innerHtml = "";
                                 for (i = 0; i < commentsFromMongo.length; i++) {
+                                  console.log(commentsFromMongo[i]);
+                                  // DateCalc
+                                    let msecInADay = 86400000;
+
+                                    let todaysDate = new Date();
+                                    let todaysMs = todaysDate.getTime();
+
+                                    let date = new Date(commentsFromMongo[i].time);
+                                    let dateMs = date.getTime();
+
+                                    let dateDiff = ((todaysMs - dateMs) / msecInADay);
+
+                                    let dayPublished = Math.round(dateDiff);
+
+                                    if(dayPublished === 0){
+                                        commentDate = 'Today';
+                                    } else if (dayPublished === 1){
+                                        commentDate = '1 Day ago';
+                                    }   else{
+                                        commentDate = dayPublished + ' days ago';
+                                    }
+                                    console.log(dayPublished)
                                   document.getElementById('commentBox').innerHTML +=
                                     `
                           
@@ -500,7 +511,7 @@ function appendListings(url){
                                             <p class="comments__text">${commentsFromMongo[i].text}</p>
                                         </div>
                                         <div class="comments__bottom">
-                                            <p class="comments__time">${commentsFromMongo[i].time}</p>
+                                            <p class="comments__time">${commentDate}</p>
                                             <p class="comments__user">${commentsFromMongo[i].user_name}</p>
                                         </div>
                                       </div>

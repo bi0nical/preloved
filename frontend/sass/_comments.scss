@@ -18,6 +18,7 @@
 .comments{
     background: $yellow;
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -37,6 +38,7 @@
         padding: 1rem;
     }
     &__container{
+        width: 100%;
         flex: 1;
         display: flex;
         align-items: flex-end;
@@ -45,9 +47,25 @@
     &__display{
         padding: 2rem;
         height: 100%;
+        width: 100%;
         
-        // overflow: scroll;
     }
+    &__text{
+        font-family: $primaryFont;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    &__time{
+        font-family: $primaryFont;
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+    &__user{
+        font-family: $primaryFont;
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+    
     &__top{
         background: white;
         padding: 1rem;
