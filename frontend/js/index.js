@@ -35,7 +35,10 @@ $(document).ready(function(){
           
             
 
-          }
+          }       
+          if (window.location.pathname === "/frontend/index.html"){
+                  landingPageLoggedIn();
+           }
       },
       error:function(error){
         console.log(error);
@@ -1492,7 +1495,7 @@ function landingPageLoggedIn(){
   }
 }
 
-landingPageLoggedIn();
+
 
 // =====================================
 // LANDING PAGE USER DETAILS END
