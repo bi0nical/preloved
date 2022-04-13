@@ -427,6 +427,7 @@ function appendListings(url){
                           </div>
                             <div class="clothingItemModal__user">
                               <div class="clothingItemModal__profilePic">
+                        
 
                               </div>
                               <h4 class="clothingItemModal__username">${singleListing.user_name}</h4>
@@ -800,7 +801,7 @@ $('#editListingButton').click(function(){
                             </div>
                               <div class="clothingItemModal__user">
                                 <div class="clothingItemModal__profilePic">
-  
+                     
                                 </div>
                                 <h4 class="clothingItemModal__username">${singleListing.user_name}</h4>
                               </div>
@@ -989,6 +990,7 @@ function wardrobeLoginCheck(){
   changeUserSubmit.addEventListener('click', editUser);
   changeEmailSubmit.addEventListener('click', editEmail);
   changePasswordSubmit.addEventListener('click', editPass);
+  changeImageSubmit.addEventListener('click', editImage);
   if(login === null){
     $('#accountPageBody').empty().append(
       `
@@ -1092,34 +1094,34 @@ email: email
  }
 
 //  EDIT USER PROFILE IMAGE
-//  function editImage(){
-//   let user_Upd = sessionStorage.getItem('UserID');
-//    event.preventDefault();
+ function editImage(){
+  let user_Upd = sessionStorage.getItem('userID');
+   event.preventDefault();
 
-//    let profile_img = $('#changeImage').val();
-//    if (user_Upd == ''){
-//      alert('Please log in for updating');
-//    } else {
-//      $.ajax({
-//        url: `http://${url}/updateImage/${user_Upd}`,
-//        type: 'PATCH',
-//        data:{
+   let profile_img = $('#imageChange').val();
+   if (user_Upd == ''){
+     alert('Please log in for updating');
+   } else {
+     $.ajax({
+       url: `http://${url}/updateImage/${user_Upd}`,
+       type: 'PATCH',
+       data:{
       
 
-// profile_img: profile_img
-//        },
-//        success: function(data){
-//          alert('updated email');
+profile_img: profile_img
+       },
+       success: function(data){
+         alert('updated image');
  
         
-//        }, //success
-//        error: function(){
-//          console.log('error: cannot update email');
-//        } //error
-//      });//ajax
-//    }//if
-//  }
-//update user end
+       }, //success
+       error: function(){
+         console.log('error: cannot update image');
+       } //error
+     });//ajax
+   }//if
+ }
+// update user end
 
 
 // =====================================
