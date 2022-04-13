@@ -71,6 +71,66 @@ $("#navArrow").click(function(){
 // HAMBURGER MENU ENDS HERE
 // =====================================
 
+// =====================================
+// INITIAL CART FUNCTIONS START HERE
+// =====================================
+
+// populate cart div with cart object array items
+function populateCart(){
+  if(sessionStorage.getItem("allCartItems") === null || sessionStorage.getItem("allCartItems") === "[]"){
+    $(".cart-body").html(
+      `
+      <p>There's nothing in your cart yet!</p>
+      `
+    );
+  } else {
+    let cart = JSON.parse(sessionStorage.getItem("allCartItems"));
+    $(".cart-body__ul").html("");
+    for(let i = 0; i < cart.length; i++){
+      $(".cart-body__ul").append(
+        `
+          <li class="cart-body__li">
+              <div class="text-wrapper">
+                  <a class="cart-body__item-name">${cart[i].name}</a>
+                  <p class="cart-body__item-price">$${cart[i].price}.00</p>
+              </div>
+              <button class="cart-body__remove"><i id="${cart[i].id}" class="fa-solid fa-xmark"></i></button>
+          </li>
+        `
+      );
+    }
+    removeCartItem();
+  }
+}
+
+// display cart on page load
+populateCart();
+
+
+// remove a listing from the cart
+function removeCartItem(){
+  $(".cart-body__remove").click(function(event){
+    itemID = event.target.id;
+    console.log(itemID);
+    let cart = JSON.parse(sessionStorage.getItem("allCartItems"));
+    console.log(cart);
+    for(let i = cart.length -1; i >= 0; i--){
+      if(itemID == cart[i].id){
+        console.log(i);
+        console.log(cart[i]);
+        cart.splice(i, 1);
+        sessionStorage.setItem("allCartItems", JSON.stringify(cart));
+        sessionStorage.setItem("latestItem", JSON.stringify(cart));
+        populateCart();
+      }
+    }
+  })
+}
+
+// =====================================
+// INITIAL CART FUNCTIONS END HERE
+// =====================================
+
 
 // =====================================
 // ADD AN ITEM MODAL STARTS HERE
@@ -439,7 +499,9 @@ function appendListings(url){
                           </div>
                             <div class="clothingItemModal__btns">
                               <button data-bs-dismiss="modal" class="clothingItemModal__close">close</button>
-                              <button class="clothingItemModal__addToCart">add to cart</button>
+
+                              <button id="${singleListing._id}" class="clothingItemModal__addToCart">add to cart</button>
+
                             </div>
                             <button type="button" value="${singleListing._id}" id="commentView" class="btn btn-primary"  data-toggle="modal" data-target="#testModal" >Comments</button>
 
@@ -457,6 +519,40 @@ function appendListings(url){
                         
                         
                         );
+
+                        
+
+                        // Add item to the cart
+                        $(".clothingItemModal__addToCard").click(function (){
+                          let itemName = singleListing.name;
+                          let itemPrice = singleListing.price;
+                          let itemID = singleListing._id;                                                                                                                                                                                  
+                          addToCart(itemName, itemPrice, itemID);
+                          populateCart();
+                        })
+
+                        // Add an item to the cart
+                        function addToCart(name, price, itemID) {
+                          // parse any previously stored items in the cart object
+                          let existingItems = JSON.parse(sessionStorage.getItem("allCartItems"));
+                          if(existingItems == null) existingItems = [];
+                          let itemName = name;
+                          let itemPrice = price;
+                          let id = itemID;
+                          let latestItem = {"name": itemName, "price": itemPrice, "id": id};
+                          sessionStorage.setItem("latestItem", JSON.stringify(latestItem));
+                          existingItems.push(latestItem);
+                          sessionStorage.setItem("allCartItems", JSON.stringify(existingItems));
+                          // turn cart string back into a JSON object
+                          let cart = JSON.parse(sessionStorage.getItem("allCartItems"));
+                          console.log(cart[0].name);
+                          console.log(cart[0].price);
+                          console.log(cart[0].id);
+                          populateCart();
+                          alert("item added!");
+                        }
+                        
+
                         $('#viewComments').click(function(){
                          
                           document.querySelector('.comments').style.top = '0%';
@@ -467,6 +563,7 @@ function appendListings(url){
                           document.querySelector('.comments').style.removeProperty('top');
                           document.querySelector('.comments').style.top = '99%';
                         })
+
 
                     }
                   })
@@ -750,12 +847,6 @@ $('#editListingButton').click(function(){
   })
 };
 // CLOTHING ITEM MODAL FUNCTION
-
-
-
-
-
-
 
 // ==================================
 // LISTING FUNCTIONS END HERE
