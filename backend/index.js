@@ -263,22 +263,22 @@ app.patch('/updateEmail/:id',(req,res)=>{
   })
 })
 
-// app.patch('/updateImage/:id',(req,res)=>{
-//   const idParam = req.params.id;  
-//   User.findById(idParam,(err,listing)=>{
-//   const newhash = bcrypt.hashSync(req.body.password);
-//       const updatedImage = {
+app.patch('/updateImage/:id',(req,res)=>{
+  const idParam = req.params.id;  
+  User.findById(idParam,(err,listing)=>{
+ 
+      const updatedImage = {
             
-//         profile_img: req.body.profile_img
+        profile_img: req.body.profile_img
 
-//       }
-//       User.updateOne({_id:idParam}, updatedImage).
-//       then(result=>{
-//         res.send(result);
-//       }).catch(err=> res.send(err));
-//   })
-// })
-//update user end
+      }
+      User.updateOne({_id:idParam}, updatedImage).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+// update user end
 
 // =====================================
 // USER FUNCTIONS END

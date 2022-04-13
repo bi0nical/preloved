@@ -101,7 +101,8 @@
                   <ul class="editDropdown__ul">
                      <li class="editDropdown__li"><button id="changeUsername" class="editAccountOption" data-bs-toggle="modal" data-bs-target="#changeUsernameModal">change username</button></li>
                      <li class="editDropdown__li"><button id="changePassword" class="editAccountOption" data-bs-toggle="modal" data-bs-target="#changePasswordModal">change password</button></li>
-                     <li class="editDropdown__li"><button id="changeEmail" class="editAccountOptionLast" data-bs-toggle="modal" data-bs-target="#changeEmailModal">change email</button></li>
+                     <li class="editDropdown__li"><button id="changeEmail" class="editAccountOption" data-bs-toggle="modal" data-bs-target="#changeEmailModal">change email</button></li>
+                     <li class="editDropdown__li"><button id="changeImage" class="editAccountOptionLast" data-bs-toggle="modal" data-bs-target="#changeImageModal">change image</button></li>
                   </ul>
                </div>
             </div>
@@ -442,7 +443,30 @@
             </div>
          </div>
       </div>
+       <!-- CHANGE IMAGE -->
 
+       <div class="modal fade" id="changeImageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="modal-title changeAccount__title changeEmail__title">Change Image</div>
+                  <div class="changeEmail__inputContainer changeAccount__inputContainer">
+                     <label class="signup__label" for="change-email" >New Image</label>
+                     <input class="signup__input" name="change-email" id="imageChange" type="text">
+                  </div>
+                  
+                     <div class="changeAccount__buttons">
+                        <button type="button" class="changeAccount__close" data-bs-dismiss="modal">close</button>
+                        <button class="changeAccount__submit" id="changeImageSubmit" type="submit">update</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
       
 
        <!-- ======================== -->
