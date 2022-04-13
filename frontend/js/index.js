@@ -482,7 +482,6 @@ function appendListings(url){
                                 let i;
                                 document.getElementById('commentBox').innerHtml = "";
                                 for (i = 0; i < commentsFromMongo.length; i++) {
-                                  console.log(commentsFromMongo[i]);
                                   // DateCalc
                                     let msecInADay = 86400000;
 
@@ -503,7 +502,6 @@ function appendListings(url){
                                     }   else{
                                         commentDate = dayPublished + ' days ago';
                                     }
-                                    console.log(dayPublished)
                                   document.getElementById('commentBox').innerHTML +=
                                     `
                           
@@ -933,7 +931,6 @@ if (username == '' || password == ''){
       password : password
     },
     success: function(user){
-      console.log(user);
 
 
 
