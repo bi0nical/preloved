@@ -419,6 +419,8 @@
 
 .user-hamburger{
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .hamburger{
@@ -441,5 +443,9 @@
 
     &__userText{
         padding-left: 1rem;
+    }
+    &__li{
+        display: flex;
+        flex-direction: column;
     }
 }

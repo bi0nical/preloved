@@ -313,6 +313,17 @@
   .landing-li:hover {
     cursor: pointer;
   }
+
+  .navDropdown__btnLast {
+    text-align: left;
+  }
+
+  .hamburger-logout {
+    color: #FFCB2F;
+    padding-top: 2rem;
+    margin-left: -1rem;
+    font-weight: 700;
+  }
 }
 .footer {
   min-height: 20vh;
@@ -718,6 +729,17 @@
   .landing-li:hover {
     cursor: pointer;
   }
+
+  .navDropdown__btnLast {
+    text-align: left;
+  }
+
+  .hamburger-logout {
+    color: #FFCB2F;
+    padding-top: 2rem;
+    margin-left: -1rem;
+    font-weight: 700;
+  }
 }
 .nav {
   height: 15vh;
@@ -1092,6 +1114,8 @@
 
 .user-hamburger {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .hamburger__userDetails {
@@ -1117,6 +1141,10 @@
 }
 .hamburger__userText {
   padding-left: 1rem;
+}
+.hamburger__li {
+  display: flex;
+  flex-direction: column;
 }
 
 .signup {
