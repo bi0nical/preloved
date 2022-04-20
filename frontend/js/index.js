@@ -621,8 +621,8 @@ function appendListingsToAccount(url){
                 <h2 class="clothingCard__title">${listingsFromDB[i].name}</h2>
                 <p class="clothingCard__price">$${price}</p>
                 <div class="clothingCard__tags">
-                    <p class="clothingCard__tag">${listingsFromDB[i].brand}</p>
-                    <p class="clothingCard__tag">${listingsFromDB[i].brand}i</p>
+                    <p class="clothingCard__tag">${listingsFromDB[i].type}</p>
+                    
                 </div>
             </div>
           </div>
